@@ -7,7 +7,6 @@
 
 import UIKit
 
-//是是把專案放git
 class ViewController: UIViewController {
 
 	override func viewDidLoad() {
@@ -17,5 +16,3 @@ class ViewController: UIViewController {
 
 
 }
-//AAAA
-//testGit
