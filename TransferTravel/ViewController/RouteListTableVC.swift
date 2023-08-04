@@ -38,7 +38,6 @@ class RouteListTableVC: UITableViewController {
 		alert.addAction(save)
 		alert.addAction(cancel)
 		present(alert, animated: true)
-		
 	}
 	
 	// MARK: - Table view data source
