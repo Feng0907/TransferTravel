@@ -9,9 +9,10 @@ import UIKit
 
 class RouteListTableVC: UITableViewController {
 
+	var RouteList = [RouteItem]()
+	
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -19,7 +20,28 @@ class RouteListTableVC: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
-    // MARK: - Table view data source
+	@IBAction func addBtnPressed(_ sender: Any) {
+		let alert = UIAlertController(title: "新增路線", message: "新增一個路線群組", preferredStyle: .alert)
+		alert.addTextField { (textField) in
+			textField.placeholder = "請輸入路線名稱"
+		}
+		let save = UIAlertAction(title: "Save", style:.default) { [weak alert] _ in
+			guard let textFields = alert?.textFields else
+			{
+				return
+			}
+			if let newName = textFields[0].text {
+				print(newName)
+			}
+		}
+		let cancel = UIAlertAction(title: "Cancel", style: .cancel)
+		alert.addAction(save)
+		alert.addAction(cancel)
+		present(alert, animated: true)
+		
+	}
+	
+	// MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -28,8 +50,10 @@ class RouteListTableVC: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+		return RouteList.count
     }
+	
+	
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RouteListCell", for: indexPath)
@@ -47,17 +71,18 @@ class RouteListTableVC: UITableViewController {
     }
     */
 
-    /*
+	/*
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
+             Delete the row from the data source
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+             Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
+	*/
+
 
     /*
     // Override to support rearranging the table view.
