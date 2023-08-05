@@ -13,6 +13,7 @@
 		B2439D0B2A7C0C6700604CB5 /* Rectangle 31bgc01.png in Resources */ = {isa = PBXBuildFile; fileRef = B2439D0A2A7C0C6700604CB5 /* Rectangle 31bgc01.png */; };
 		B2439D0D2A7C0CD700604CB5 /* Rectangle 32bgc02.png in Resources */ = {isa = PBXBuildFile; fileRef = B2439D0C2A7C0CD700604CB5 /* Rectangle 32bgc02.png */; };
 		B2439D0F2A7CE4EC00604CB5 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2439D0E2A7CE4EC00604CB5 /* CoreDataHelper.swift */; };
+		B2439D122A7E8E6100604CB5 /* RouteListDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B2439D102A7E8E6100604CB5 /* RouteListDataModel.xcdatamodeld */; };
 		B2F6DD212A74C8D600A6B6CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F6DD202A74C8D600A6B6CB /* AppDelegate.swift */; };
 		B2F6DD232A74C8D600A6B6CB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F6DD222A74C8D600A6B6CB /* SceneDelegate.swift */; };
 		B2F6DD252A74C8D600A6B6CB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F6DD242A74C8D600A6B6CB /* ViewController.swift */; };
@@ -27,6 +28,7 @@
 		B2439D0A2A7C0C6700604CB5 /* Rectangle 31bgc01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Rectangle 31bgc01.png"; sourceTree = "<group>"; };
 		B2439D0C2A7C0CD700604CB5 /* Rectangle 32bgc02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Rectangle 32bgc02.png"; sourceTree = "<group>"; };
 		B2439D0E2A7CE4EC00604CB5 /* CoreDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
+		B2439D112A7E8E6100604CB5 /* RouteListDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RouteListDataModel.xcdatamodel; sourceTree = "<group>"; };
 		B2F6DD1D2A74C8D600A6B6CB /* TransferTravel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TransferTravel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2F6DD202A74C8D600A6B6CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B2F6DD222A74C8D600A6B6CB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 			children = (
 				B2439D0E2A7CE4EC00604CB5 /* CoreDataHelper.swift */,
 				B2439D062A7BDEE500604CB5 /* RouteModel.swift */,
+				B2439D102A7E8E6100604CB5 /* RouteListDataModel.xcdatamodeld */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -181,6 +184,7 @@
 			files = (
 				B2439D0F2A7CE4EC00604CB5 /* CoreDataHelper.swift in Sources */,
 				B2F6DD252A74C8D600A6B6CB /* ViewController.swift in Sources */,
+				B2439D122A7E8E6100604CB5 /* RouteListDataModel.xcdatamodeld in Sources */,
 				B2439D002A7BA82F00604CB5 /* RouteListTableVC.swift in Sources */,
 				B2F6DD212A74C8D600A6B6CB /* AppDelegate.swift in Sources */,
 				B2439D072A7BDEE500604CB5 /* RouteModel.swift in Sources */,
@@ -421,6 +425,19 @@
 			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		B2439D102A7E8E6100604CB5 /* RouteListDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B2439D112A7E8E6100604CB5 /* RouteListDataModel.xcdatamodel */,
+			);
+			currentVersion = B2439D112A7E8E6100604CB5 /* RouteListDataModel.xcdatamodel */;
+			path = RouteListDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = B2F6DD152A74C8D500A6B6CB /* Project object */;
 }
