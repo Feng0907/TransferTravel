@@ -1,28 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PvA-ML-txb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ka3-wZ-z29">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Route TableVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TransferTravel" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="RouteTableVC" customModule="TransferTravel" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="749"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="7nb-nA-hPg">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="666"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="O6s-Jd-YL8">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="O6s-Jd-YL8" id="BLp-gM-Bs9">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="7nb-nA-hPg" secondAttribute="bottom" id="Hlz-25-ey2"/>
+                            <constraint firstItem="7nb-nA-hPg" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="SmL-8w-beU"/>
+                            <constraint firstItem="7nb-nA-hPg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="gnN-g4-nBd"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="7nb-nA-hPg" secondAttribute="trailing" id="hif-M9-H1f"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="vwY-AB-0BR"/>
+                    <navigationItem key="navigationItem" id="vwY-AB-0BR">
+                        <nil key="title"/>
+                        <textField key="titleView" autoresizesSubviews="NO" clipsSubviews="YES" alpha="0.94999999999999996" contentMode="scaleAspectFill" horizontalHuggingPriority="248" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="路線名稱" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="vB4-pO-lVY">
+                            <rect key="frame" x="97" y="5" width="200" height="34"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.23986250517384106" colorSpace="custom" customColorSpace="displayP3"/>
+                            <color key="tintColor" red="0.24313725489999999" green="0.3803921569" blue="0.4823529412" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <imageReference key="disabledBackground" image="pencil" catalog="system" symbolScale="small" renderingMode="template"/>
+                        </textField>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="SoN-fC-tS2">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1539.6946564885495" y="-751.4084507042254"/>
+            <point key="canvasLocation" x="1448" y="-775"/>
         </scene>
         <!--我的路線-->
         <scene sceneID="lNN-wv-ejf">
@@ -70,33 +108,81 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L5A-JG-ETF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="794.6564885496183" y="-751.4084507042254"/>
+            <point key="canvasLocation" x="705" y="-775"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Tab Bar Controller-->
+        <scene sceneID="pIg-Qt-dpX">
+            <objects>
+                <tabBarController id="ka3-wZ-z29" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" backgroundImage="Rectangle 31bgc01.png" id="Jb3-tc-g23">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <tabBarAppearance key="standardAppearance" backgroundEffect="regular" backgroundImage="Rectangle 32bgc02.png" selectionIndicatorImage="Rectangle 31bgc01.png" stackedItemPositioning="centered"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="D1H-LX-Oes" kind="relationship" relationship="viewControllers" id="ZaM-7j-bg2"/>
+                        <segue destination="jh9-BC-uzc" kind="relationship" relationship="viewControllers" id="Dqg-3X-WZ0"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Cz-9h-ngw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-911" y="-475"/>
+        </scene>
+        <!--PLUS-->
+        <scene sceneID="Ald-qz-FD3">
+            <objects>
+                <viewController id="jh9-BC-uzc" customClass="AddTimeRecordVC" customModule="TransferTravel" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jvT-P3-6u7">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="V2d-06-A5K"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="PLUS" id="DRx-Dl-Dyv"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HBo-jA-nb0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-31" y="-82"/>
+        </scene>
+        <!--List-->
         <scene sceneID="kFs-xm-lIk">
             <objects>
                 <navigationController id="D1H-LX-Oes" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="more" id="JA4-Sa-Mg3">
+                    <tabBarItem key="tabBarItem" title="List" selectedImage="list.bullet" catalog="system" id="MXo-mn-3xQ">
                         <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBarItem>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="3iR-O3-SCT">
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3iR-O3-SCT">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" red="0.24313725489999999" green="0.3803921569" blue="0.4823529412" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <color key="tintColor" red="0.24313725489999999" green="0.3803921569" blue="0.4823529412" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <color key="barTintColor" red="0.24313725489999999" green="0.3803921569" blue="0.4823529412" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
                         <textAttributes key="largeTitleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
-                        <navigationBarAppearance key="standardAppearance" backgroundImage="Rectangle 32bgc02.png" backgroundImageContentMode="scaleToFill">
-                            <textAttributes key="titleTextAttributes">
+                        <navigationBarAppearance key="standardAppearance" backgroundImage="Rectangle 32bgc02.png">
+                            <textAttributes key="titleTextAttributes"/>
+                            <textAttributes key="largeTitleTextAttributes">
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </textAttributes>
+                            <barButtonItemAppearance key="buttonAppearance">
+                                <barButtonItemStateAppearance key="normal">
+                                    <textAttributes key="titleTextAttributes">
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </textAttributes>
+                                </barButtonItemStateAppearance>
+                                <barButtonItemStateAppearance key="highlighted"/>
+                                <barButtonItemStateAppearance key="disabled"/>
+                                <barButtonItemStateAppearance key="focused"/>
+                            </barButtonItemAppearance>
                         </navigationBarAppearance>
-                        <navigationBarAppearance key="scrollEdgeAppearance" backgroundImage="Rectangle 32bgc02.png" backgroundImageContentMode="scaleToFill">
+                        <navigationBarAppearance key="scrollEdgeAppearance" backgroundEffect="regular" backgroundImage="Rectangle 32bgc02.png" backgroundImageContentMode="scaleToFill">
                             <textAttributes key="titleTextAttributes">
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </textAttributes>
@@ -108,34 +194,15 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ABc-Ag-dWv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="31.297709923664122" y="-751.4084507042254"/>
-        </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="Ex7-Fl-fIz">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="oEe-Fh-dhA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="PvA-ML-txb" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <tabBar key="tabBar" alpha="0.90000000000000002" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="b18-4e-6Fe">
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <tabBarAppearance key="scrollEdgeAppearance" backgroundEffect="regular" backgroundImage="Rectangle 31bgc01.png" stackedItemPositioning="automatic">
-                            <color key="selectionIndicatorTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </tabBarAppearance>
-                    </tabBar>
-                    <connections>
-                        <segue destination="D1H-LX-Oes" kind="relationship" relationship="viewControllers" id="O9e-LT-4XL"/>
-                    </connections>
-                </tabBarController>
-            </objects>
-            <point key="canvasLocation" x="-628" y="-751"/>
+            <point key="canvasLocation" x="-30" y="-775"/>
         </scene>
     </scenes>
     <color key="tintColor" red="0.25098039215686274" green="0.23137254901960785" blue="0.30588235294117649" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
     <resources>
         <image name="Rectangle 31bgc01.png" width="393" height="145"/>
         <image name="Rectangle 32bgc02.png" width="393" height="145"/>
+        <image name="list.bullet" catalog="system" width="128" height="87"/>
+        <image name="pencil" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -11,7 +11,6 @@ class CoreDataHelper: NSObject {
     static let shared = CoreDataHelper()
     
     override internal init() {
-        
     }
 
     func managedObjectContext() -> NSManagedObjectContext {

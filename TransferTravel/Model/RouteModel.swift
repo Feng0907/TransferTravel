@@ -13,6 +13,5 @@ class RouteItem: NSManagedObject{
 	@NSManaged var routeName : String
 	@NSManaged var routeID: Int
 	
-	
 }
 

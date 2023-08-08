@@ -14,6 +14,9 @@
 		B2439D0D2A7C0CD700604CB5 /* Rectangle 32bgc02.png in Resources */ = {isa = PBXBuildFile; fileRef = B2439D0C2A7C0CD700604CB5 /* Rectangle 32bgc02.png */; };
 		B2439D0F2A7CE4EC00604CB5 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2439D0E2A7CE4EC00604CB5 /* CoreDataHelper.swift */; };
 		B2439D122A7E8E6100604CB5 /* RouteListDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B2439D102A7E8E6100604CB5 /* RouteListDataModel.xcdatamodeld */; };
+		B2439D232A81D35E00604CB5 /* RouteTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2439D222A81D35E00604CB5 /* RouteTableVC.swift */; };
+		B2439D252A81E3A900604CB5 /* AddTimeRecordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2439D242A81E3A900604CB5 /* AddTimeRecordVC.swift */; };
+		B2439D272A81F1BF00604CB5 /* TimeRecordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2439D262A81F1BF00604CB5 /* TimeRecordModel.swift */; };
 		B2F6DD212A74C8D600A6B6CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F6DD202A74C8D600A6B6CB /* AppDelegate.swift */; };
 		B2F6DD232A74C8D600A6B6CB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F6DD222A74C8D600A6B6CB /* SceneDelegate.swift */; };
 		B2F6DD252A74C8D600A6B6CB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F6DD242A74C8D600A6B6CB /* ViewController.swift */; };
@@ -29,6 +32,9 @@
 		B2439D0C2A7C0CD700604CB5 /* Rectangle 32bgc02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Rectangle 32bgc02.png"; sourceTree = "<group>"; };
 		B2439D0E2A7CE4EC00604CB5 /* CoreDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
 		B2439D112A7E8E6100604CB5 /* RouteListDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RouteListDataModel.xcdatamodel; sourceTree = "<group>"; };
+		B2439D222A81D35E00604CB5 /* RouteTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteTableVC.swift; sourceTree = "<group>"; };
+		B2439D242A81E3A900604CB5 /* AddTimeRecordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTimeRecordVC.swift; sourceTree = "<group>"; };
+		B2439D262A81F1BF00604CB5 /* TimeRecordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeRecordModel.swift; sourceTree = "<group>"; };
 		B2F6DD1D2A74C8D600A6B6CB /* TransferTravel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TransferTravel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2F6DD202A74C8D600A6B6CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B2F6DD222A74C8D600A6B6CB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -56,6 +62,8 @@
 			children = (
 				B2F6DD242A74C8D600A6B6CB /* ViewController.swift */,
 				B2439CFF2A7BA82F00604CB5 /* RouteListTableVC.swift */,
+				B2439D222A81D35E00604CB5 /* RouteTableVC.swift */,
+				B2439D242A81E3A900604CB5 /* AddTimeRecordVC.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -66,8 +74,25 @@
 				B2439D0E2A7CE4EC00604CB5 /* CoreDataHelper.swift */,
 				B2439D062A7BDEE500604CB5 /* RouteModel.swift */,
 				B2439D102A7E8E6100604CB5 /* RouteListDataModel.xcdatamodeld */,
+				B2439D262A81F1BF00604CB5 /* TimeRecordModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		B2439D182A80861F00604CB5 /* Basic */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Basic;
+			sourceTree = "<group>";
+		};
+		B2439D1F2A80A2B600604CB5 /* img */ = {
+			isa = PBXGroup;
+			children = (
+				B2439D0A2A7C0C6700604CB5 /* Rectangle 31bgc01.png */,
+				B2439D0C2A7C0CD700604CB5 /* Rectangle 32bgc02.png */,
+			);
+			path = img;
 			sourceTree = "<group>";
 		};
 		B2F6DD142A74C8D500A6B6CB = {
@@ -89,8 +114,8 @@
 		B2F6DD1F2A74C8D600A6B6CB /* TransferTravel */ = {
 			isa = PBXGroup;
 			children = (
-				B2439D0A2A7C0C6700604CB5 /* Rectangle 31bgc01.png */,
-				B2439D0C2A7C0CD700604CB5 /* Rectangle 32bgc02.png */,
+				B2439D1F2A80A2B600604CB5 /* img */,
+				B2439D182A80861F00604CB5 /* Basic */,
 				B2439D022A7BAB1700604CB5 /* Model */,
 				B2439D012A7BAAD600604CB5 /* ViewController */,
 				B2F6DD202A74C8D600A6B6CB /* AppDelegate.swift */,
@@ -183,12 +208,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				B2439D0F2A7CE4EC00604CB5 /* CoreDataHelper.swift in Sources */,
+				B2439D252A81E3A900604CB5 /* AddTimeRecordVC.swift in Sources */,
 				B2F6DD252A74C8D600A6B6CB /* ViewController.swift in Sources */,
 				B2439D122A7E8E6100604CB5 /* RouteListDataModel.xcdatamodeld in Sources */,
 				B2439D002A7BA82F00604CB5 /* RouteListTableVC.swift in Sources */,
 				B2F6DD212A74C8D600A6B6CB /* AppDelegate.swift in Sources */,
+				B2439D232A81D35E00604CB5 /* RouteTableVC.swift in Sources */,
 				B2439D072A7BDEE500604CB5 /* RouteModel.swift in Sources */,
 				B2F6DD232A74C8D600A6B6CB /* SceneDelegate.swift in Sources */,
+				B2439D272A81F1BF00604CB5 /* TimeRecordModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
