@@ -8,6 +8,7 @@
 import UIKit
 
 class AddTimeRecordVC: UIViewController {
+	//
 
     override func viewDidLoad() {
         super.viewDidLoad()

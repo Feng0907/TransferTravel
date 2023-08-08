@@ -73,8 +73,8 @@
 			children = (
 				B2439D0E2A7CE4EC00604CB5 /* CoreDataHelper.swift */,
 				B2439D062A7BDEE500604CB5 /* RouteModel.swift */,
-				B2439D102A7E8E6100604CB5 /* RouteListDataModel.xcdatamodeld */,
 				B2439D262A81F1BF00604CB5 /* TimeRecordModel.swift */,
+				B2439D102A7E8E6100604CB5 /* RouteListDataModel.xcdatamodeld */,
 			);
 			path = Model;
 			sourceTree = "<group>";

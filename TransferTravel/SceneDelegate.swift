@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import ESTabBarController
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 

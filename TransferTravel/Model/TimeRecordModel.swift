@@ -8,6 +8,7 @@
 import UIKit
 
 struct TimeRecordItem {
+	//先定義一筆紀錄時間的物件需要什麼內容物
 	var startName: String?
 	var endName: String?
 	var timerecordID: String?
@@ -20,10 +21,13 @@ struct TimeRecordItem {
 		case motorcycle
 		case car
 	}
+	
 }
 
 
 class TimeRecord {
-	
+	//計時的時候畫面的樣式
 	
 }
+
+

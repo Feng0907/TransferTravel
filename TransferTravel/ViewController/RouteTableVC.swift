@@ -7,7 +7,17 @@
 
 import UIKit
 
+
 class RouteTableVC: UITableViewController {
+	//綜合清單列表
+	//需要有三種不同的物件
+	//1)自定義計時物件
+	//2)公車站牌物件
+	//3)捷運站物件
+	
+	//自定義排序要怎麼達成？
+	
+	var selfitems = [TimeRecordItem]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,18 +38,21 @@ class RouteTableVC: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+		
+		return selfitems.count
     }
 
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
 
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "selfRouteItem", for: indexPath)
+		
+
+		
         // Configure the cell...
 
         return cell
     }
-    */
+
 
     /*
     // Override to support conditional editing of the table view.

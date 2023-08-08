@@ -7,10 +7,9 @@
 
 import UIKit
 import CoreData
-import ESTabBarController
 
 class RouteListTableVC: UITableViewController {
-
+	
 	var RouteList = [RouteItem]()
 	required init?(coder: NSCoder) {
 		super .init(coder: coder)
@@ -120,17 +119,16 @@ class RouteListTableVC: UITableViewController {
     }
     */
 
-	/*
+
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-             Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
+			//記得補做做刪除的動作
+//            tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
-             Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+//             Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-	*/
 
 
     /*
