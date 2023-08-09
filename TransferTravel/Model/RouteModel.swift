@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 
 class RouteItem: NSManagedObject{
-	@NSManaged var routeName : String
+	@NSManaged var routeName : String?
 	@NSManaged var routeID: Int
 	
 }

@@ -6,28 +6,35 @@
 //
 
 import UIKit
+import CoreData
 
-struct TimeRecordItem {
+class TimeRecordItem: NSManagedObject{
 	//先定義一筆紀錄時間的物件需要什麼內容物
-	var startName: String?
-	var endName: String?
-	var timerecordID: String?
-	var spendTime: String?
-	var type: FromType
+	@NSManaged var startName: String?
+	@NSManaged var endName: String?
+	@NSManaged var timerecordID: String?
+	@NSManaged var spendTime: String?
+	@NSManaged var type: FromType
+	@NSManaged var routeID: Int
 	
-	enum FromType { //如果是只需要在這個struct裡面作用就放在裡面
-		case walk
-		case bicycle
-		case motorcycle
-		case car
+	//coredata不能用enum string要做一些處理
+	@objc
+	enum FromType: Int16 {
+		case walk = 0
+		case bicycle = 1
+		case motorcycle = 2
+		case car = 3
 	}
 	
+	override func awakeFromInsert() {
+		timerecordID = UUID().uuidString
+	}
 }
 
 
-class TimeRecord {
-	//計時的時候畫面的樣式
-	
-}
+//class TimeRecord {
+//	//計時的時候畫面的樣式
+//
+//}
 
 

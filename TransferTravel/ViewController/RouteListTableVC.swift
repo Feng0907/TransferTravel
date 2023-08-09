@@ -146,14 +146,22 @@ class RouteListTableVC: UITableViewController {
     }
     */
 
-    /*
+
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+		
+		if segue.identifier == "RouteTableSegue" {
+			if let targetVC = segue.destination as? RouteTableVC,
+			   //所指定的那一列
+			let indexPath = tableView.indexPathForSelectedRow {
+				let item = RouteList[indexPath.row]
+				targetVC.RouteItem = item
+			}
+		}
+
     }
-    */
+
 
 }
