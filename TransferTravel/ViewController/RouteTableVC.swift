@@ -8,7 +8,7 @@
 import UIKit
 import CoreData
 
-class RouteTableVC: UITableViewController {
+class RouteTableVC: UITableViewController, UINavigationControllerDelegate {
 	//綜合清單列表
 	//需要有三種不同的物件
 	//1)自定義計時物件
@@ -46,7 +46,10 @@ class RouteTableVC: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+		
     }
+	
+
 
     // MARK: - Table view data source
 
@@ -65,12 +68,22 @@ class RouteTableVC: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "selfRouteItem", for: indexPath)
 		
-
+		let item = selfitems[indexPath.row]
+		//預設cell上的物件
+		cell.textLabel?.text = item.startName
+//		cell.imageView?.image = item.type
 		
-        // Configure the cell...
-
         return cell
     }
+	
+	@IBAction func addNewBtn(_ sender: Any) {
+		if let newRoute = self.storyboard?.instantiateViewController(withIdentifier: "TImeRouteVC") as? AddTimeRecordVC{
+			//自己產生一個Navigationbar
+			let naviC = UINavigationController(rootViewController: newRoute)
+			//			newRoute.delegate = self//告訴noteVC這邊有新資料
+			self.present(naviC, animated: true)
+		}
+	}
 
 
     /*

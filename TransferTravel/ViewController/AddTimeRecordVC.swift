@@ -6,15 +6,20 @@
 //
 
 import UIKit
+import CoreData
 
 class AddTimeRecordVC: UIViewController {
-	//
+
+	var recordInfo: TimeRecordItem?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+		
     }
+	
+	
     
 
     /*

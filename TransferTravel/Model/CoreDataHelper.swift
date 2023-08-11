@@ -10,8 +10,7 @@ class CoreDataHelper: NSObject {
     
     static let shared = CoreDataHelper()
     
-    override internal init() {
-    }
+    override internal init() {}
 
     func managedObjectContext() -> NSManagedObjectContext {
         return persistentContainer.viewContext
