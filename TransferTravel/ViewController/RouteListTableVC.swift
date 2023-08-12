@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreData
+import LGSideMenuController
 
 class RouteListTableVC: UITableViewController {
 	
@@ -15,10 +16,6 @@ class RouteListTableVC: UITableViewController {
 		super .init(coder: coder)
 		//core data
 		queryFromCoreData()//讀出資料庫資料
-		// 產生10筆假資料(Note),Array再一起
-//		let item = RouteItem()
-//		item.routeID = ""
-//		item.routeName = "回家路線"
 	}
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +26,10 @@ class RouteListTableVC: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 	
-
+	@IBAction func menuBtn(_ sender: Any) {
+		sideMenuController?.toggleLeftView(animated: true)
+	}
+	
 	@IBAction func addBtnPressed(_ sender: Any) {
 		let alert = UIAlertController(title: "新增路線", message: "新增一個路線群組", preferredStyle: .alert)
 //		alert.addTextField { (textField) in

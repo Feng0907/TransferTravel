@@ -8,6 +8,15 @@
         "revision" : "bc268c28fb170f494de9e9927c371b8342979ece",
         "version" : "5.7.1"
       }
+    },
+    {
+      "identity" : "lgsidemenucontroller",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Friend-LGA/LGSideMenuController",
+      "state" : {
+        "revision" : "0bc42f704fb2b60cd54b13f813a0e4e6875f569a",
+        "version" : "3.1.2"
+      }
     }
   ],
   "version" : 2

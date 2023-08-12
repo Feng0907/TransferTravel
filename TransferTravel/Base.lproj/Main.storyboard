@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ka3-wZ-z29">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wzF-j9-KnG">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
@@ -82,7 +82,7 @@
         <!--我的路線-->
         <scene sceneID="lNN-wv-ejf">
             <objects>
-                <tableViewController id="vV2-o0-eva" customClass="RouteListTableVC" customModule="TransferTravel" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="myRoute" id="vV2-o0-eva" customClass="RouteListTableVC" customModule="TransferTravel" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="b0X-hz-wjc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="749"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -122,6 +122,12 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="我的路線" id="mXe-ay-IOQ">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="list.bullet" catalog="system" id="JUV-Je-3Yx">
+                            <color key="tintColor" red="0.8862745098" green="0.91372549020000005" blue="0.95294117649999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="menuBtn:" destination="vV2-o0-eva" id="EiD-sc-LDu"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="dI8-bY-vvK">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
@@ -134,10 +140,11 @@
             </objects>
             <point key="canvasLocation" x="705" y="-775"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab BarC-->
         <scene sceneID="pIg-Qt-dpX">
             <objects>
-                <tabBarController id="ka3-wZ-z29" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tabBar" id="ka3-wZ-z29" customClass="TabBarC" customModule="TransferTravel" customModuleProvider="target" sceneMemberID="viewController">
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" itemPositioning="centered" id="Jb3-tc-g23">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="83"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -154,13 +161,12 @@
                         </tabBarAppearance>
                     </tabBar>
                     <connections>
-                        <segue destination="D1H-LX-Oes" kind="relationship" relationship="viewControllers" id="ZaM-7j-bg2"/>
-                        <segue destination="jh9-BC-uzc" kind="relationship" relationship="viewControllers" id="Dqg-3X-WZ0"/>
+                        <segue destination="D1H-LX-Oes" kind="relationship" relationship="viewControllers" id="loq-KD-71D"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Cz-9h-ngw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-911" y="-475"/>
+            <point key="canvasLocation" x="-888" y="-775"/>
         </scene>
         <!--PLUS-->
         <scene sceneID="Ald-qz-FD3">
@@ -179,12 +185,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HBo-jA-nb0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-31" y="-99"/>
+            <point key="canvasLocation" x="2173" y="-775"/>
         </scene>
         <!--List-->
         <scene sceneID="kFs-xm-lIk">
             <objects>
-                <navigationController id="D1H-LX-Oes" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="ListNaviC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="D1H-LX-Oes" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="List" selectedImage="list.bullet" catalog="system" id="MXo-mn-3xQ">
                         <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBarItem>
@@ -231,10 +237,70 @@
             </objects>
             <point key="canvasLocation" x="-30" y="-775"/>
         </scene>
+        <!--Title-->
+        <scene sceneID="RAy-Wg-ox4">
+            <objects>
+                <viewController storyboardIdentifier="MainLeftMenu" title="Title" useStoryboardIdentifierAsRestorationIdentifier="YES" id="wzF-j9-KnG" customClass="SidebarVC" customModule="TransferTravel" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="drA-05-bUf"/>
+                        <viewControllerLayoutGuide type="bottom" id="OMe-Nt-xbf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6D3-CT-3g0">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="RpJ-JY-YhV"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="4WL-d0-SdE"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="leftViewWidth">
+                            <real key="value" value="250"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="rightViewWidth">
+                            <real key="value" value="100"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <segue destination="ka3-wZ-z29" kind="custom" identifier="root" customClass="LGSideMenuSegue" customModule="LGSideMenuController" id="3En-2p-zRo"/>
+                        <segue destination="YIF-NX-tWO" kind="custom" identifier="left" customClass="LGSideMenuSegue" customModule="LGSideMenuController" id="Udx-gz-XyW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pbQ-0L-TVb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1695" y="-775"/>
+        </scene>
+        <!--Left View Controller-->
+        <scene sceneID="W5D-OL-GfB">
+            <objects>
+                <tableViewController storyboardIdentifier="LeftViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="YIF-NX-tWO" customClass="LeftViewController" customModule="TransferTravel" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" contentInsetAdjustmentBehavior="never" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="fkB-Gv-aAu">
+                        <rect key="frame" x="0.0" y="0.0" width="250" height="668"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="sectionIndexBackgroundColor" red="0.22914235029999999" green="0.3803921569" blue="0.4823529412" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell" id="qSC-f5-RCM" customClass="LeftViewCell" customModule="TransferTravel" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="55.333332061767578" width="250" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qSC-f5-RCM" id="muB-vl-8hR">
+                                    <rect key="frame" x="0.0" y="0.0" width="250" height="44"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="YIF-NX-tWO" id="RIp-Ba-Ptd"/>
+                            <outlet property="delegate" destination="YIF-NX-tWO" id="SuQ-2r-0bL"/>
+                        </connections>
+                    </tableView>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="250" height="668"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pOy-zN-s0o" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1806" y="-104"/>
+        </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="hFK-s9-4FS"/>
-    </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.25098039215686274" green="0.23137254901960785" blue="0.30588235294117649" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
     <resources>
         <image name="Rectangle 31bgc01.png" width="393" height="145"/>

@@ -18,6 +18,12 @@
 		B2439D252A81E3A900604CB5 /* AddTimeRecordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2439D242A81E3A900604CB5 /* AddTimeRecordVC.swift */; };
 		B2439D272A81F1BF00604CB5 /* TimeRecordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2439D262A81F1BF00604CB5 /* TimeRecordModel.swift */; };
 		B2439D292A848EB500604CB5 /* Sidebar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2439D282A848EB500604CB5 /* Sidebar.storyboard */; };
+		B27D932D2A866B850093F471 /* TabBarC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27D932C2A866B850093F471 /* TabBarC.swift */; };
+		B2B43FA82A86610E00DE7D8A /* LeftViewCellBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B43FA52A86610E00DE7D8A /* LeftViewCellBackgroundView.swift */; };
+		B2B43FA92A86610E00DE7D8A /* LeftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B43FA62A86610E00DE7D8A /* LeftViewController.swift */; };
+		B2B43FAA2A86610E00DE7D8A /* LeftViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B43FA72A86610E00DE7D8A /* LeftViewCell.swift */; };
+		B2C3E4A62A86117700E3C8F6 /* SidebarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C3E4A52A86117700E3C8F6 /* SidebarVC.swift */; };
+		B2C3E4AB2A86238000E3C8F6 /* LGSideMenuController in Frameworks */ = {isa = PBXBuildFile; productRef = B2C3E4AA2A86238000E3C8F6 /* LGSideMenuController */; };
 		B2F6DD212A74C8D600A6B6CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F6DD202A74C8D600A6B6CB /* AppDelegate.swift */; };
 		B2F6DD232A74C8D600A6B6CB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F6DD222A74C8D600A6B6CB /* SceneDelegate.swift */; };
 		B2F6DD252A74C8D600A6B6CB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F6DD242A74C8D600A6B6CB /* ViewController.swift */; };
@@ -37,6 +43,11 @@
 		B2439D242A81E3A900604CB5 /* AddTimeRecordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTimeRecordVC.swift; sourceTree = "<group>"; };
 		B2439D262A81F1BF00604CB5 /* TimeRecordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeRecordModel.swift; sourceTree = "<group>"; };
 		B2439D282A848EB500604CB5 /* Sidebar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Sidebar.storyboard; sourceTree = "<group>"; };
+		B27D932C2A866B850093F471 /* TabBarC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarC.swift; sourceTree = "<group>"; };
+		B2B43FA52A86610E00DE7D8A /* LeftViewCellBackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftViewCellBackgroundView.swift; sourceTree = "<group>"; };
+		B2B43FA62A86610E00DE7D8A /* LeftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftViewController.swift; sourceTree = "<group>"; };
+		B2B43FA72A86610E00DE7D8A /* LeftViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftViewCell.swift; sourceTree = "<group>"; };
+		B2C3E4A52A86117700E3C8F6 /* SidebarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarVC.swift; sourceTree = "<group>"; };
 		B2F6DD1D2A74C8D600A6B6CB /* TransferTravel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TransferTravel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2F6DD202A74C8D600A6B6CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B2F6DD222A74C8D600A6B6CB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -53,6 +64,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B2439D052A7BAF5800604CB5 /* Alamofire in Frameworks */,
+				B2C3E4AB2A86238000E3C8F6 /* LGSideMenuController in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +78,7 @@
 				B2439CFF2A7BA82F00604CB5 /* RouteListTableVC.swift */,
 				B2439D222A81D35E00604CB5 /* RouteTableVC.swift */,
 				B2439D242A81E3A900604CB5 /* AddTimeRecordVC.swift */,
+				B27D932C2A866B850093F471 /* TabBarC.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -97,6 +110,18 @@
 			path = img;
 			sourceTree = "<group>";
 		};
+		B2B43FA42A8660E500DE7D8A /* SideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				B2B43FA72A86610E00DE7D8A /* LeftViewCell.swift */,
+				B2B43FA52A86610E00DE7D8A /* LeftViewCellBackgroundView.swift */,
+				B2B43FA62A86610E00DE7D8A /* LeftViewController.swift */,
+				B2C3E4A52A86117700E3C8F6 /* SidebarVC.swift */,
+				B2439D282A848EB500604CB5 /* Sidebar.storyboard */,
+			);
+			path = SideMenu;
+			sourceTree = "<group>";
+		};
 		B2F6DD142A74C8D500A6B6CB = {
 			isa = PBXGroup;
 			children = (
@@ -120,10 +145,10 @@
 				B2439D182A80861F00604CB5 /* Basic */,
 				B2439D022A7BAB1700604CB5 /* Model */,
 				B2439D012A7BAAD600604CB5 /* ViewController */,
+				B2B43FA42A8660E500DE7D8A /* SideMenu */,
 				B2F6DD202A74C8D600A6B6CB /* AppDelegate.swift */,
 				B2F6DD222A74C8D600A6B6CB /* SceneDelegate.swift */,
 				B2F6DD262A74C8D600A6B6CB /* Main.storyboard */,
-				B2439D282A848EB500604CB5 /* Sidebar.storyboard */,
 				B2F6DD292A74C8D900A6B6CB /* Assets.xcassets */,
 				B2F6DD2B2A74C8D900A6B6CB /* LaunchScreen.storyboard */,
 				B2F6DD2E2A74C8D900A6B6CB /* Info.plist */,
@@ -149,6 +174,7 @@
 			name = TransferTravel;
 			packageProductDependencies = (
 				B2439D042A7BAF5800604CB5 /* Alamofire */,
+				B2C3E4AA2A86238000E3C8F6 /* LGSideMenuController */,
 			);
 			productName = TransferTravel;
 			productReference = B2F6DD1D2A74C8D600A6B6CB /* TransferTravel.app */;
@@ -180,6 +206,7 @@
 			mainGroup = B2F6DD142A74C8D500A6B6CB;
 			packageReferences = (
 				B2439D032A7BAF5800604CB5 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				B2C3E4A92A86238000E3C8F6 /* XCRemoteSwiftPackageReference "LGSideMenuController" */,
 			);
 			productRefGroup = B2F6DD1E2A74C8D600A6B6CB /* Products */;
 			projectDirPath = "";
@@ -211,10 +238,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2B43FA82A86610E00DE7D8A /* LeftViewCellBackgroundView.swift in Sources */,
+				B2B43FAA2A86610E00DE7D8A /* LeftViewCell.swift in Sources */,
 				B2439D0F2A7CE4EC00604CB5 /* CoreDataHelper.swift in Sources */,
 				B2439D252A81E3A900604CB5 /* AddTimeRecordVC.swift in Sources */,
 				B2F6DD252A74C8D600A6B6CB /* ViewController.swift in Sources */,
+				B2B43FA92A86610E00DE7D8A /* LeftViewController.swift in Sources */,
 				B2439D122A7E8E6100604CB5 /* RouteListDataModel.xcdatamodeld in Sources */,
+				B27D932D2A866B850093F471 /* TabBarC.swift in Sources */,
+				B2C3E4A62A86117700E3C8F6 /* SidebarVC.swift in Sources */,
 				B2439D002A7BA82F00604CB5 /* RouteListTableVC.swift in Sources */,
 				B2F6DD212A74C8D600A6B6CB /* AppDelegate.swift in Sources */,
 				B2439D232A81D35E00604CB5 /* RouteTableVC.swift in Sources */,
@@ -448,6 +480,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		B2C3E4A92A86238000E3C8F6 /* XCRemoteSwiftPackageReference "LGSideMenuController" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Friend-LGA/LGSideMenuController";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -455,6 +495,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B2439D032A7BAF5800604CB5 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		B2C3E4AA2A86238000E3C8F6 /* LGSideMenuController */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B2C3E4A92A86238000E3C8F6 /* XCRemoteSwiftPackageReference "LGSideMenuController" */;
+			productName = LGSideMenuController;
 		};
 /* End XCSwiftPackageProductDependency section */
 
