@@ -77,11 +77,14 @@ class RouteTableVC: UITableViewController, UINavigationControllerDelegate {
     }
 	
 	@IBAction func addNewBtn(_ sender: Any) {
-		if let newRoute = self.storyboard?.instantiateViewController(withIdentifier: "TImeRouteVC") as? AddTimeRecordVC{
+		if let newRoute = self.storyboard?.instantiateViewController(withIdentifier: "TimeRouteVC") as? AddTimeRecordVC{
 			//自己產生一個Navigationbar
-			let naviC = UINavigationController(rootViewController: newRoute)
+//			let naviC = UINavigationController(rootViewController: newRoute)
 			//			newRoute.delegate = self//告訴noteVC這邊有新資料
-			self.present(naviC, animated: true)
+			self.show(newRoute, sender: self)
+
+//			self.present(naviC, animated: true)
+			
 		}
 	}
 
