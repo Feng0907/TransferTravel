@@ -369,7 +369,11 @@
                         <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBarItem>
                     <navigationItem key="navigationItem" id="3o0-IO-hMb">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="qqt-go-Pku"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="qqt-go-Pku">
+                            <connections>
+                                <action selector="saveBtnPressed:" destination="jh9-BC-uzc" id="aMb-zX-7Hp"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="btnBicycle" destination="Ude-ul-OqR" id="8Gc-fC-a7y"/>

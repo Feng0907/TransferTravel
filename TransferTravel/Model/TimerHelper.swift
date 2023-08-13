@@ -44,7 +44,8 @@ class TimerHelper{
 //		loop_button.isHidden  = false
 //		reset_button.isHidden = true
 		timer = Timer.scheduledTimer(timeInterval: TimeInterval(0.01), target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
-
+		print(timer?.fireDate)
+		
 		RunLoop.current.add(timer!, forMode: .common)  //切換線程，避免滑動 TabelView 的時候， Timer 會停止運作
 	}
 	

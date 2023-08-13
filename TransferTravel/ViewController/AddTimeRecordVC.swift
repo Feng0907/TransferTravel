@@ -32,27 +32,8 @@ class AddTimeRecordVC: UIViewController {
 	var min = 0
 	var hour = 0
 	
-	//	var recordInfo: TimeRecordItem?
+	var recordInfo: TimeRecordItem?
 	
-	@objc
-	func timerAction(){
-		if startStatus == false {
-			millsecond += 1
-			millsec = millsecond % 100
-			sec = (millsecond / 100) % 60
-			min = millsecond / 6000
-			hour = millsecond / 360000  //累加
-			let showmillsec = millsec > 9 ? "\(millsec)" : "0\(millsec)"
-			let showsec = sec > 9 ? "\(sec)" : "0\(sec)"
-			let showmin = min > 9 ? "\(min)" : "0\(min)"
-			let showhour = hour > 9 ? "\(hour)" : "0\(hour)"
-			self.timingLabel.text = "\(showhour):\(showmin):\(showsec):\(showmillsec)"
-			print(self.timingLabel.text!)
-		}
-	}
-	
-
-
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -66,8 +47,41 @@ class AddTimeRecordVC: UIViewController {
 	override func viewWillDisappear(_ animated: Bool) {
 		if startStatus == false{
 			timer.invalidate()
-			print("要離開畫面啦")
 			startStatus = true
+			//無法阻擋用戶跳頁，先把計時暫停起來
+//			let alert = UIAlertController(title: "計時已中斷", message: "是否中斷計時離開畫面？", preferredStyle: .alert)
+//			let leave = UIAlertAction(title: "Yes", style: .destructive) {_ in
+//				super.viewWillDisappear(animated)
+//			}
+//			let cancel = UIAlertAction(title: "Cancel", style: .cancel) {_ in
+//				self.pauseBtn.setImage(UIImage(systemName: "play.fill"), for: .normal)
+//				return
+//			}
+//			alert.addAction(leave)
+//			alert.addAction(cancel)
+//			present(alert, animated: true)
+		}
+	}
+	
+	//把毫秒換回時間
+	func timeConversion(millsecond: Int) -> String{
+		millsec = millsecond % 100
+		sec = (millsecond / 100) % 60
+		min = millsecond / 6000 % 60
+		hour = millsecond / 360000  //累加
+		let showmillsec = millsec > 9 ? "\(millsec)" : "0\(millsec)"
+		let showsec = sec > 9 ? "\(sec)" : "0\(sec)"
+		let showmin = min > 9 ? "\(min)" : "0\(min)"
+		let showhour = hour > 9 ? "\(hour)" : "0\(hour)"
+		let time = "\(showhour):\(showmin):\(showsec):\(showmillsec)"
+		return time
+	}
+	
+	@objc
+	func timerAction(){
+		if startStatus == false {
+			millsecond += 1
+			self.timingLabel.text = timeConversion(millsecond: millsecond)
 		}
 	}
 	
@@ -105,33 +119,26 @@ class AddTimeRecordVC: UIViewController {
 		}
 	}
 	
+	func btnType(_ walk: Bool, _ bicycle: Bool, _ motorcycle: Bool, _ car: Bool){
+		btnWalk.isSelected = walk
+		btnBicycle.isSelected = bicycle
+		btnMotorcycle.isSelected = motorcycle
+		btnCar.isSelected = car
+	}
 	
 	@IBAction func transTypeBtns(_ sender: UIButton) {
 		switch sender {
 		case btnWalk:
-			btnWalk.isSelected = true
-			btnBicycle.isSelected = false
-			btnMotorcycle.isSelected = false
-			btnCar.isSelected = false
-			
+			btnType(true, false, false, false)
 			break
 		case btnBicycle:
-			btnWalk.isSelected = false
-			btnBicycle.isSelected = true
-			btnMotorcycle.isSelected = false
-			btnCar.isSelected = false
+			btnType(false, true, false, false)
 			break
 		case btnMotorcycle:
-			btnWalk.isSelected = false
-			btnBicycle.isSelected = false
-			btnMotorcycle.isSelected = true
-			btnCar.isSelected = false
+			btnType(false, false, true, false)
 			break
 		case btnCar:
-			btnWalk.isSelected = false
-			btnBicycle.isSelected = false
-			btnMotorcycle.isSelected = false
-			btnCar.isSelected = true
+			btnType(false, false, false, true)
 			break
 		default:
 			return
@@ -143,7 +150,6 @@ class AddTimeRecordVC: UIViewController {
 		startBtn.isHidden = true
 		pauseBtn.isHidden = false
 		stopBtn.isHidden  = false
-//		reset_button.isHidden = true
 		timer = Timer.scheduledTimer(timeInterval: TimeInterval(0.01), target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
 		RunLoop.current.add(timer, forMode: .common)  //切換線程，避免滑動 TabelView 的時候， Timer 會停止運作
 	}
@@ -153,22 +159,32 @@ class AddTimeRecordVC: UIViewController {
 			startStatus = true
 			pauseBtn.setImage(UIImage(systemName: "play.fill"), for: .normal)
 			timer.invalidate()
-			print("暫停啦")
 		}else{
 			startStatus = false
 			pauseBtn.setImage(UIImage(systemName: "pause.fill"), for: .normal)
 			timer = Timer.scheduledTimer(timeInterval: TimeInterval(0.01), target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
 			RunLoop.current.add(timer, forMode: .common)
-			print("繼續啦")
 		}
 	}
 	
 	@IBAction func stopBtnPressed(_ sender: Any) {
-		
-
+		startStatus = true
+		timer.invalidate()
+		let alert = UIAlertController(title: "儲存計時", message: "要儲存這次的計時嗎？", preferredStyle: .alert)
+		let save = UIAlertAction(title: "Save", style:.default) {_ in
+		}
+		let cancel = UIAlertAction(title: "Cancel", style: .cancel) {_ in
+			self.pauseBtn.setImage(UIImage(systemName: "play.fill"), for: .normal)
+		}
+		alert.addAction(save)
+		alert.addAction(cancel)
+		present(alert, animated: true)
 	}
 	
-
+	@IBAction func saveBtnPressed(_ sender: Any) {
+		
+	}
+	
     /*
     // MARK: - Navigation
 
