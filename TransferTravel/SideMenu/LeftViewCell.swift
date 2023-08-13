@@ -76,7 +76,7 @@ class LeftViewCell: UITableViewCell {
     }
 
     func setBackgroundColor(_ color: UIColor) {
-        let backgroundView = self.backgroundView as! LeftViewCellBackgroundView
+		_ = self.backgroundView as! LeftViewCellBackgroundView
 //        backgroundView.fillColor = color
     }
 
