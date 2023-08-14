@@ -14,7 +14,6 @@ class RouteListTableVC: UITableViewController {
 	var RouteList = [RouteItem]()
 	required init?(coder: NSCoder) {
 		super .init(coder: coder)
-		//core data
 		queryFromCoreData()//讀出資料庫資料
 	}
     override func viewDidLoad() {

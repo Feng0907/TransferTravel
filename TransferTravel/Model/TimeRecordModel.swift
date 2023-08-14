@@ -9,11 +9,11 @@ import UIKit
 import CoreData
 
 class TimeRecordItem: NSManagedObject{
-	//先定義一筆紀錄時間的物件需要什麼內容物
-	@NSManaged var startName: String?
-	@NSManaged var endName: String?
-	@NSManaged var timerecordID: String?
-	@NSManaged var spendTime: String?
+	@NSManaged var startName: String
+	@NSManaged var endName: String
+	@NSManaged var timerecordID: String
+	@NSManaged var seq: Double
+	@NSManaged var spendTime: String
 	@NSManaged var type: FromType
 	@NSManaged var routeID: Int
 	

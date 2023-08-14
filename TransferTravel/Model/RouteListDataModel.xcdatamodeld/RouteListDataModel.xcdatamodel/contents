@@ -6,11 +6,12 @@
         <relationship name="relationshipID" toMany="YES" deletionRule="Nullify" destinationEntity="TimeRecordItem" inverseName="relationshipiD" inverseEntity="TimeRecordItem"/>
     </entity>
     <entity name="TimeRecordItem" representedClassName=".TimeRecordItem" syncable="YES">
-        <attribute name="endName" optional="YES" attributeType="String"/>
-        <attribute name="routeID" optional="YES" attributeType="String"/>
-        <attribute name="spendTime" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="startName" optional="YES" attributeType="String"/>
-        <attribute name="timerecordID" optional="YES" attributeType="String"/>
+        <attribute name="endName" attributeType="String"/>
+        <attribute name="routeID" attributeType="String"/>
+        <attribute name="seq" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="spendTime" attributeType="String"/>
+        <attribute name="startName" attributeType="String"/>
+        <attribute name="timerecordID" attributeType="String"/>
         <attribute name="type" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="relationshipiD" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RouteItem" inverseName="relationshipID" inverseEntity="RouteItem"/>
     </entity>

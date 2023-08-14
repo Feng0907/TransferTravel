@@ -51,7 +51,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="jh9-BC-uzc" kind="show" id="hFK-s9-4FS"/>
+                                    <segue destination="jh9-BC-uzc" kind="show" identifier="RouteItemSegue" id="hFK-s9-4FS"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -287,7 +287,7 @@
                                     <action selector="timerStartBtnPressed:" destination="jh9-BC-uzc" eventType="touchUpInside" id="R8T-Rz-r6y"/>
                                 </connections>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="30" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h0O-UA-phA">
+                            <stackView opaque="NO" contentMode="scaleAspectFit" spacing="30" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h0O-UA-phA">
                                 <rect key="frame" x="196.66666666666666" y="415" width="0.0" height="0.0"/>
                                 <subviews>
                                     <button hidden="YES" opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FHn-7B-bbq">
@@ -295,7 +295,7 @@
                                         <rect key="contentStretch" x="1" y="1" width="1" height="1"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="100" id="QWw-ch-6me"/>
-                                            <constraint firstAttribute="width" constant="100" id="TGk-Tt-rZp"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="TGk-Tt-rZp"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled">
@@ -312,7 +312,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="100" id="WAZ-zL-vW6"/>
-                                            <constraint firstAttribute="width" constant="100" id="r0M-oH-DOd"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="r0M-oH-DOd"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled">
@@ -370,6 +370,7 @@
                     </tabBarItem>
                     <navigationItem key="navigationItem" id="3o0-IO-hMb">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="qqt-go-Pku">
+                            <color key="tintColor" name="MainBlue"/>
                             <connections>
                                 <action selector="saveBtnPressed:" destination="jh9-BC-uzc" id="aMb-zX-7Hp"/>
                             </connections>
@@ -508,7 +509,7 @@
             <point key="canvasLocation" x="-1806" y="-104"/>
         </scene>
     </scenes>
-    <color key="tintColor" red="0.25098039215686274" green="0.23137254901960785" blue="0.30588235294117649" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+    <color key="tintColor" name="MainBlue"/>
     <resources>
         <image name="Rectangle 31bgc01.png" width="393" height="145"/>
         <image name="Rectangle 32bgc02.png" width="393" height="145"/>

@@ -26,6 +26,8 @@
 		B26D18DF2A87F31300953A72 /* bicycle_off_transBtnIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = B26D18D72A87F31300953A72 /* bicycle_off_transBtnIcon.png */; };
 		B26D18E02A87F31300953A72 /* walk_off_transBtnIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = B26D18D82A87F31300953A72 /* walk_off_transBtnIcon.png */; };
 		B26D18E22A88B19400953A72 /* TimerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26D18E12A88B19400953A72 /* TimerHelper.swift */; };
+		B26D18E82A89C0AB00953A72 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B26D18E72A89C0AB00953A72 /* IQKeyboardManagerSwift */; };
+		B26D18EC2A89FF7800953A72 /* SelfRouteTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26D18EB2A89FF7800953A72 /* SelfRouteTVCell.swift */; };
 		B27D932D2A866B850093F471 /* TabBarC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27D932C2A866B850093F471 /* TabBarC.swift */; };
 		B2B43FA82A86610E00DE7D8A /* LeftViewCellBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B43FA52A86610E00DE7D8A /* LeftViewCellBackgroundView.swift */; };
 		B2B43FA92A86610E00DE7D8A /* LeftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B43FA62A86610E00DE7D8A /* LeftViewController.swift */; };
@@ -60,6 +62,7 @@
 		B26D18D72A87F31300953A72 /* bicycle_off_transBtnIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bicycle_off_transBtnIcon.png; sourceTree = "<group>"; };
 		B26D18D82A87F31300953A72 /* walk_off_transBtnIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = walk_off_transBtnIcon.png; sourceTree = "<group>"; };
 		B26D18E12A88B19400953A72 /* TimerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerHelper.swift; sourceTree = "<group>"; };
+		B26D18EB2A89FF7800953A72 /* SelfRouteTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfRouteTVCell.swift; sourceTree = "<group>"; };
 		B27D932C2A866B850093F471 /* TabBarC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarC.swift; sourceTree = "<group>"; };
 		B2B43FA52A86610E00DE7D8A /* LeftViewCellBackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftViewCellBackgroundView.swift; sourceTree = "<group>"; };
 		B2B43FA62A86610E00DE7D8A /* LeftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftViewController.swift; sourceTree = "<group>"; };
@@ -83,6 +86,7 @@
 			files = (
 				B2439D052A7BAF5800604CB5 /* Alamofire in Frameworks */,
 				B2C3E4AB2A86238000E3C8F6 /* LGSideMenuController in Frameworks */,
+				B26D18E82A89C0AB00953A72 /* IQKeyboardManagerSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,18 +111,19 @@
 				B2439D0E2A7CE4EC00604CB5 /* CoreDataHelper.swift */,
 				B2439D062A7BDEE500604CB5 /* RouteModel.swift */,
 				B2439D262A81F1BF00604CB5 /* TimeRecordModel.swift */,
-				B2439D102A7E8E6100604CB5 /* RouteListDataModel.xcdatamodeld */,
 				B2DFA42B2A87858A00D85923 /* TransportationTypeModel.swift */,
 				B26D18E12A88B19400953A72 /* TimerHelper.swift */,
+				B2439D102A7E8E6100604CB5 /* RouteListDataModel.xcdatamodeld */,
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
-		B2439D182A80861F00604CB5 /* Basic */ = {
+		B2439D182A80861F00604CB5 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				B26D18EB2A89FF7800953A72 /* SelfRouteTVCell.swift */,
 			);
-			path = Basic;
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		B2439D1F2A80A2B600604CB5 /* img */ = {
@@ -169,7 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				B2439D1F2A80A2B600604CB5 /* img */,
-				B2439D182A80861F00604CB5 /* Basic */,
+				B2439D182A80861F00604CB5 /* Cell */,
 				B2B43FA42A8660E500DE7D8A /* SideMenu */,
 				B2439D022A7BAB1700604CB5 /* Model */,
 				B2439D012A7BAAD600604CB5 /* ViewController */,
@@ -202,6 +207,7 @@
 			packageProductDependencies = (
 				B2439D042A7BAF5800604CB5 /* Alamofire */,
 				B2C3E4AA2A86238000E3C8F6 /* LGSideMenuController */,
+				B26D18E72A89C0AB00953A72 /* IQKeyboardManagerSwift */,
 			);
 			productName = TransferTravel;
 			productReference = B2F6DD1D2A74C8D600A6B6CB /* TransferTravel.app */;
@@ -234,6 +240,7 @@
 			packageReferences = (
 				B2439D032A7BAF5800604CB5 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				B2C3E4A92A86238000E3C8F6 /* XCRemoteSwiftPackageReference "LGSideMenuController" */,
+				B26D18E62A89C0AB00953A72 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 			);
 			productRefGroup = B2F6DD1E2A74C8D600A6B6CB /* Products */;
 			projectDirPath = "";
@@ -283,6 +290,7 @@
 				B2439D122A7E8E6100604CB5 /* RouteListDataModel.xcdatamodeld in Sources */,
 				B27D932D2A866B850093F471 /* TabBarC.swift in Sources */,
 				B2C3E4A62A86117700E3C8F6 /* SidebarVC.swift in Sources */,
+				B26D18EC2A89FF7800953A72 /* SelfRouteTVCell.swift in Sources */,
 				B2439D002A7BA82F00604CB5 /* RouteListTableVC.swift in Sources */,
 				B2F6DD212A74C8D600A6B6CB /* AppDelegate.swift in Sources */,
 				B2439D232A81D35E00604CB5 /* RouteTableVC.swift in Sources */,
@@ -516,6 +524,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		B26D18E62A89C0AB00953A72 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
 		B2C3E4A92A86238000E3C8F6 /* XCRemoteSwiftPackageReference "LGSideMenuController" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Friend-LGA/LGSideMenuController";
@@ -531,6 +547,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B2439D032A7BAF5800604CB5 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		B26D18E72A89C0AB00953A72 /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B26D18E62A89C0AB00953A72 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
 		};
 		B2C3E4AA2A86238000E3C8F6 /* LGSideMenuController */ = {
 			isa = XCSwiftPackageProductDependency;

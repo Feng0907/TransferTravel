@@ -33,16 +33,53 @@ class AddTimeRecordVC: UIViewController {
 	var hour = 0
 	
 	var recordInfo: TimeRecordItem?
+	var transType: TimeRecordItem.FromType? = nil
+	var delegate: AddTimeRecordVCDelegate?
 	
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-		setBtn(btn: btnWalk, type: .walk)
-		setBtn(btn: btnBicycle, type: .bicycle)
-		setBtn(btn: btnMotorcycle, type: .motorcycle)
-		setBtn(btn: btnCar, type: .car)
+		setBtn(btn: btnWalk)
+		setBtn(btn: btnBicycle)
+		setBtn(btn: btnMotorcycle)
+		setBtn(btn: btnCar)
+//		guard let recordInfo = self.recordInfo else{
+//			self.navigationItem.leftBarButtonItem = UIBarButtonItem(systemItem: .cancel, primaryAction: UIAction(handler: { action in
+//				self.dismiss(animated: true)
+//			}))
+//			self.navigationItem.leftBarButtonItem?.tintColor = UIColor(named: "MainBlue")
+//			return
+//		}
 		self.timingLabel.text = "00:00:00:00"
+		self.startPoint.text = self.recordInfo?.startName
+		self.endPoint.text = self.recordInfo?.endName
+		showBtnType(item: self.recordInfo)
+		if self.recordInfo == nil{
+			self.navigationItem.leftBarButtonItem = UIBarButtonItem(systemItem: .cancel, primaryAction: UIAction(handler: { action in
+				self.dismiss(animated: true)
+			}))
+			self.navigationItem.leftBarButtonItem?.tintColor = UIColor(named: "MainBlue")
+		}
     }
+	func showBtnType(item: TimeRecordItem?){
+		let type = item?.type
+		switch type {
+		case .walk:
+			btnWalk.isSelected = true
+			break
+		case .bicycle:
+			btnBicycle.isSelected = true
+			break
+		case .motorcycle:
+			btnMotorcycle.isSelected = true
+			break
+		case .car:
+			btnCar.isSelected = true
+			break
+		case .none:
+			return
+		}
+	}
 	
 	override func viewWillDisappear(_ animated: Bool) {
 		if startStatus == false{
@@ -85,38 +122,45 @@ class AddTimeRecordVC: UIViewController {
 		}
 	}
 	
-	func setBtn(btn: UIButton, type: TransportationItem.type){
-		var item = TransportationItem(type: type)
-		switch type {
-		case .walk:
+
+	func setBtn(btn: UIButton){
+		var item = TransportationItem(name: "", iconOn: UIImage(named: "walk_on_transBtnIcon.png")!, iconOff: UIImage(named: "walk_off_transBtnIcon.png")!, state: false, type: .walk)
+		switch btn {
+		case btnWalk:
+			item.type = .walk
 			item.name = "步行"
 			item.iconOn = UIImage.init(named: "walk_on_transBtnIcon.png")!
 			item.iconOff = UIImage.init(named: "walk_off_transBtnIcon.png")!
+			item.state = btn.isSelected
 			break
-		case .bicycle:
+		case btnBicycle:
+			item.type = .bicycle
 			item.name = "自行車"
 			item.iconOn = UIImage.init(named: "bicycle_on_transBtnIcon.png")!
 			item.iconOff = UIImage.init(named: "bicycle_off_transBtnIcon.png")!
+			item.state = btn.isSelected
 			break
-		case .motorcycle:
+		case btnMotorcycle:
+			item.type = .motorcycle
 			item.name = "機車"
 			item.iconOn = UIImage.init(named: "motorcycle_on_transBtnIcon.png")!
 			item.iconOff = UIImage.init(named: "motorcycle_off_transBtnIcon.png")!
+			item.state = btn.isSelected
 			break
-		case .car:
+		case btnCar:
+			item.type = .car
 			item.name = "汽車"
 			item.iconOn = UIImage.init(named: "car_on_transBtnIcon.png")!
 			item.iconOff = UIImage.init(named: "car_off_transBtnIcon.png")!
+			item.state = btn.isSelected
 			break
+		default:
+			return
 		}
+		btn.titleLabel?.text = String(item.type.rawValue)
 		btn.imageView?.contentMode = .scaleAspectFit
 		btn.setImage(item.iconOff, for: .normal)
 		btn.setImage(item.iconOn, for: .selected)
-//		btn.addTarget(self, action: #selector(doSomething), for: .touchDown)
-//		btn.addTarget(<#T##target: Any?##Any?#>, action: <#T##Selector#>, for: <#T##UIControl.Event#>)
-		func btnSetting(){
-			
-		}
 	}
 	
 	func btnType(_ walk: Bool, _ bicycle: Bool, _ motorcycle: Bool, _ car: Bool){
@@ -130,19 +174,26 @@ class AddTimeRecordVC: UIViewController {
 		switch sender {
 		case btnWalk:
 			btnType(true, false, false, false)
+			transType = .walk
 			break
 		case btnBicycle:
 			btnType(false, true, false, false)
+			transType = .bicycle
 			break
 		case btnMotorcycle:
 			btnType(false, false, true, false)
+			transType = .motorcycle
 			break
 		case btnCar:
 			btnType(false, false, false, true)
+			transType = .car
 			break
 		default:
 			return
 		}
+		print(transType?.rawValue)
+		print(sender.titleLabel!.text!)
+		print(sender.isSelected)
 	}
 	
 	@IBAction func timerStartBtnPressed(_ sender: Any) {
@@ -182,8 +233,37 @@ class AddTimeRecordVC: UIViewController {
 	}
 	
 	@IBAction func saveBtnPressed(_ sender: Any) {
+		let moc = CoreDataHelper.shared.managedObjectContext()
+		let info = self.recordInfo ?? TimeRecordItem(context: moc)
+		guard let transType = transType else {
+			return
+		}
+		info.startName = self.startPoint.text!
+		info.endName = self.endPoint.text!
+		info.spendTime = self.timingLabel.text!
+		info.type = transType
+		
+		CoreDataHelper.shared.saveContext()//把資料存起來
+		if self.recordInfo != nil{
+			self.delegate?.didFinishUpdate(item: info)//編輯
+		}else{
+			//新增，呼叫新的方法
+			self.delegate?.didFinishCreate(item: info)
+		}
+
+		if self.recordInfo == nil{
+			self.dismiss(animated: true)
+		}else{
+			self.navigationController?.popViewController(animated: true)
+		}
+		
+		//let controller: ListViewController 跳到任一頁
+		//self.navigationController?.popViewController(contriller, animated: true)
+		
 		
 	}
+	
+	
 	
     /*
     // MARK: - Navigation
@@ -195,4 +275,9 @@ class AddTimeRecordVC: UIViewController {
     }
     */
 
+}
+
+protocol AddTimeRecordVCDelegate {
+	func didFinishUpdate(item : TimeRecordItem)
+	func didFinishCreate(item : TimeRecordItem)
 }

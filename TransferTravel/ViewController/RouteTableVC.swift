@@ -8,7 +8,7 @@
 import UIKit
 import CoreData
 
-class RouteTableVC: UITableViewController, UINavigationControllerDelegate {
+class RouteTableVC: UITableViewController, UINavigationControllerDelegate, AddTimeRecordVCDelegate {
 	//綜合清單列表
 	//需要有三種不同的物件
 	//1)自定義計時物件
@@ -24,12 +24,7 @@ class RouteTableVC: UITableViewController, UINavigationControllerDelegate {
 	
 	required init?(coder: NSCoder) {
 		super .init(coder: coder)
-		//core data
-//		queryFromCoreData()//讀出資料庫資料
-		// 產生10筆假資料(Note),Array再一起
-//		let item = RouteItem()
-//		item.routeID = ""
-//		item.routeName = "回家路線"
+		queryFromCoreData()//讀出資料庫資料
 	}
 
     override func viewDidLoad() {
@@ -48,26 +43,21 @@ class RouteTableVC: UITableViewController, UINavigationControllerDelegate {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
 		
     }
-	
-
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-		
 		return selfitems.count
     }
 
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "selfRouteItem", for: indexPath)
-		
 		let item = selfitems[indexPath.row]
 		//預設cell上的物件
 		cell.textLabel?.text = item.startName
@@ -79,13 +69,49 @@ class RouteTableVC: UITableViewController, UINavigationControllerDelegate {
 	@IBAction func addNewBtn(_ sender: Any) {
 		if let newRoute = self.storyboard?.instantiateViewController(withIdentifier: "TimeRouteVC") as? AddTimeRecordVC{
 			//自己產生一個Navigationbar
-//			let naviC = UINavigationController(rootViewController: newRoute)
-			//			newRoute.delegate = self//告訴noteVC這邊有新資料
-			self.show(newRoute, sender: self)
-
+			let naviC = UINavigationController(rootViewController: newRoute)
+			naviC.delegate = self
+			self.show(naviC, sender: self)
 //			self.present(naviC, animated: true)
 			
 		}
+	}
+	
+	func queryFromCoreData(){
+		let moc = CoreDataHelper.shared.managedObjectContext()
+		let request = NSFetchRequest<TimeRecordItem>(entityName: "TimeRecordItem")//資料庫裡的table名稱
+		let sort = NSSortDescriptor(key: "seq", ascending: true)
+		request.sortDescriptors = [sort]
+		do{
+			let result = try moc.fetch(request)
+			self.selfitems = result
+		}catch{
+			self.selfitems = []
+			print("query cora data error \(error)")
+		}
+	}
+	
+	func saveToCoreData(){
+		CoreDataHelper.shared.saveContext()
+	}
+	
+	func didFinishUpdate(item : TimeRecordItem){
+		self.saveToCoreData()
+		self.tableView.reloadData()//reload tableView
+	}
+	//新增時被呼叫的方法
+	func didFinishCreate(item : TimeRecordItem){
+		if self.selfitems.count == 0{
+//			item.routeID = 
+			item.seq = 10
+		}else{
+			let firstNote = self.selfitems[0]
+			item.seq = firstNote.seq + 10
+		}
+		self.selfitems.insert(item, at: 0)
+		CoreDataHelper.shared.saveContext()//儲存seq
+		let indexPath = IndexPath(row: 0, section: 0)
+		self.tableView.insertRows(at: [indexPath], with: .automatic)
 	}
 
 
@@ -126,14 +152,17 @@ class RouteTableVC: UITableViewController, UINavigationControllerDelegate {
 
 
     // MARK: - Navigation
-	/*
+
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-		
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+		if segue.identifier == "RouteItemSegue" ,
+		   let TimeRecordVC = segue.destination as? AddTimeRecordVC,
+		   let index = self.tableView.indexPathForSelectedRow {
+			let item = self.selfitems[index.row]
+			TimeRecordVC.recordInfo = item
+			TimeRecordVC.delegate = self
+		}
     }
-	 */
 
 
 }
