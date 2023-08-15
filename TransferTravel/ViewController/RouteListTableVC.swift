@@ -9,15 +9,17 @@ import UIKit
 import CoreData
 import LGSideMenuController
 
-class RouteListTableVC: UITableViewController {
+class RouteListTableVC: UITableViewController, RouteTableVCDelegate {
 	
 	var RouteList = [RouteItem]()
 	required init?(coder: NSCoder) {
 		super .init(coder: coder)
-		queryFromCoreData()//讀出資料庫資料
+		self.queryFromCoreData()//讀出資料庫資料
 	}
     override func viewDidLoad() {
         super.viewDidLoad()
+		self.tableView.reloadData()
+//		self.queryFromCoreData()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -58,15 +60,16 @@ class RouteListTableVC: UITableViewController {
 
 			let index = IndexPath(row: self.RouteList.count - 1, section: 0)
 			self.tableView.insertRows(at: [index], with: .automatic)
-
-			print(newName)
 		}
 		let cancel = UIAlertAction(title: "Cancel", style: .cancel)
 		alert.addAction(save)
 		alert.addAction(cancel)
 		present(alert, animated: true)
-		
-		
+	}
+	
+	func didFinishUpdate(item: RouteItem) {
+		self.saveToCoreData()
+		self.tableView.reloadData()//reload tableView
 	}
 	
 	// MARK: - Table view data source
@@ -85,7 +88,6 @@ class RouteListTableVC: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RouteListCell", for: indexPath)
-
 		let item = RouteList[indexPath.row]
 		//預設cell上的物件
 		cell.textLabel?.text = item.routeName
@@ -94,7 +96,7 @@ class RouteListTableVC: UITableViewController {
         return cell
     }
 	
-	func queryFromCoreData(){
+	private func queryFromCoreData(){
 		let moc = CoreDataHelper.shared.managedObjectContext()
 		let request = NSFetchRequest<RouteItem>(entityName: "RouteItem")//資料庫裡的table名稱
 		let sort = NSSortDescriptor(key: "routeID", ascending: true)
@@ -123,7 +125,13 @@ class RouteListTableVC: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
 			//記得補做做刪除的動作
-//            tableView.deleteRows(at: [indexPath], with: .fade)
+			let deletedData = self.RouteList.remove(at: indexPath.row)
+			let moc = CoreDataHelper.shared.managedObjectContext()
+			moc.performAndWait {
+				moc.delete(deletedData)
+			}
+			self.saveToCoreData()
+			self.tableView.deleteRows(at: [indexPath], with: .automatic)
         } else if editingStyle == .insert {
 //             Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
@@ -144,19 +152,24 @@ class RouteListTableVC: UITableViewController {
         return true
     }
     */
-
+	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//		print("選取\(indexPath.row)")
+		tableView.deselectRow(at: indexPath, animated: true)//取消選取
+		SendRouteHelper.shared.keepSendRouteID = RouteList[indexPath.row].routeID
+//		print(SendRouteHelper.shared.keepSendRouteID)
+	}
 
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-		
 		if segue.identifier == "RouteTableSegue" {
 			if let targetVC = segue.destination as? RouteTableVC,
 			   //所指定的那一列
 			let indexPath = tableView.indexPathForSelectedRow {
 				let item = RouteList[indexPath.row]
-				targetVC.RouteItem = item
+				targetVC.routeItem = item
+				targetVC.delegate = self
 			}
 		}
 

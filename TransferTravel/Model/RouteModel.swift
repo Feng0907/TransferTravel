@@ -12,7 +12,7 @@ import CoreData
 class RouteItem: NSManagedObject{
 	
 	@NSManaged var routeName : String?
-	@NSManaged var routeID: Int
+	@NSManaged var routeID: Int64
 
 }
 

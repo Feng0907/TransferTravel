@@ -1,7 +1,7 @@
 <?php
 $dbms = "mysql";
 $host = "localhost";
-$dbName = "test";
+$dbName = "TransferTravel";
 $dsn = "$dbms:host=$host;dbname=$dbName;";
 $db_name = 'Feng'; 
 $db_password = 'QazEdcRfv357';

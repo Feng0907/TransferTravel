@@ -32,9 +32,12 @@ class AddTimeRecordVC: UIViewController {
 	var min = 0
 	var hour = 0
 	
+	var routeID: Int64?
 	var recordInfo: TimeRecordItem?
 	var transType: TimeRecordItem.FromType? = nil
-	var delegate: AddTimeRecordVCDelegate?
+	weak var delegate: AddTimeRecordVCDelegate?
+	
+	var btnSelected = [false, false, false, false]
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,22 +46,18 @@ class AddTimeRecordVC: UIViewController {
 		setBtn(btn: btnBicycle)
 		setBtn(btn: btnMotorcycle)
 		setBtn(btn: btnCar)
-//		guard let recordInfo = self.recordInfo else{
-//			self.navigationItem.leftBarButtonItem = UIBarButtonItem(systemItem: .cancel, primaryAction: UIAction(handler: { action in
-//				self.dismiss(animated: true)
-//			}))
-//			self.navigationItem.leftBarButtonItem?.tintColor = UIColor(named: "MainBlue")
-//			return
-//		}
 		self.timingLabel.text = "00:00:00:00"
 		self.startPoint.text = self.recordInfo?.startName
 		self.endPoint.text = self.recordInfo?.endName
+		self.routeID = self.recordInfo?.routeID
 		showBtnType(item: self.recordInfo)
 		if self.recordInfo == nil{
 			self.navigationItem.leftBarButtonItem = UIBarButtonItem(systemItem: .cancel, primaryAction: UIAction(handler: { action in
-				self.dismiss(animated: true)
+//				self.dismiss(animated: true)
+				self.navigationController?.popViewController(animated: true)
 			}))
-			self.navigationItem.leftBarButtonItem?.tintColor = UIColor(named: "MainBlue")
+//			self.navigationItem.leftBarButtonItem?.tintColor = UIColor(named: "MainBlue")
+//			self.navigationItem.rightBarButtonItem?.tintColor = UIColor(named: "MainBlue")
 		}
     }
 	func showBtnType(item: TimeRecordItem?){
@@ -80,6 +79,7 @@ class AddTimeRecordVC: UIViewController {
 			return
 		}
 	}
+	
 	
 	override func viewWillDisappear(_ animated: Bool) {
 		if startStatus == false{
@@ -163,6 +163,7 @@ class AddTimeRecordVC: UIViewController {
 		btn.setImage(item.iconOn, for: .selected)
 	}
 	
+	
 	func btnType(_ walk: Bool, _ bicycle: Bool, _ motorcycle: Bool, _ car: Bool){
 		btnWalk.isSelected = walk
 		btnBicycle.isSelected = bicycle
@@ -191,10 +192,8 @@ class AddTimeRecordVC: UIViewController {
 		default:
 			return
 		}
-		print(transType?.rawValue)
-		print(sender.titleLabel!.text!)
-		print(sender.isSelected)
 	}
+	
 	
 	@IBAction func timerStartBtnPressed(_ sender: Any) {
 		startStatus = false  //這邊代表的是 ”Start“ Button 是不是還存在於畫面上，可以用它來將之後的其他功能做判斷依據
@@ -223,6 +222,7 @@ class AddTimeRecordVC: UIViewController {
 		timer.invalidate()
 		let alert = UIAlertController(title: "儲存計時", message: "要儲存這次的計時嗎？", preferredStyle: .alert)
 		let save = UIAlertAction(title: "Save", style:.default) {_ in
+			self.saveBtnPressed(self)
 		}
 		let cancel = UIAlertAction(title: "Cancel", style: .cancel) {_ in
 			self.pauseBtn.setImage(UIImage(systemName: "play.fill"), for: .normal)
@@ -233,34 +233,52 @@ class AddTimeRecordVC: UIViewController {
 	}
 	
 	@IBAction func saveBtnPressed(_ sender: Any) {
+//		defer{
+//			DispatchQueue.main.async {
+//				print("2222222")
+//			}
+//		}
+		var typeNum : Int16 = 0
+		self.btnSelected = [btnWalk.isSelected, btnBicycle.isSelected, btnMotorcycle.isSelected, btnCar.isSelected]
+		for i in 0...3 {
+			if self.btnSelected[i] == true{
+				typeNum = Int16(i)
+			}
+		}
 		let moc = CoreDataHelper.shared.managedObjectContext()
-		let info = self.recordInfo ?? TimeRecordItem(context: moc)
-		guard let transType = transType else {
+		let routeID = SendRouteHelper.shared.keepSendRouteID
+		guard let startText = self.startPoint.text else {
+			print("startText資料不全！")
 			return
 		}
-		info.startName = self.startPoint.text!
-		info.endName = self.endPoint.text!
-		info.spendTime = self.timingLabel.text!
-		info.type = transType
-		
-		CoreDataHelper.shared.saveContext()//把資料存起來
+		guard let endText = self.endPoint.text else {
+			print("endText資料不全！")
+			return
+		}
+		guard let timeText = self.timingLabel.text else {
+			print("timeText資料不全！")
+			return
+		}
+		let info = self.recordInfo ?? TimeRecordItem(context: moc)
+		info.routeID = routeID
+		print(startText)
+		info.startName = startText
+		print(endText)
+		info.endName = endText
+		print(timeText)
+		info.spendTime = timeText
+		info.type = TimeRecordItem.FromType(rawValue: typeNum) ?? .walk
+		CoreDataHelper.shared.saveContext()
 		if self.recordInfo != nil{
 			self.delegate?.didFinishUpdate(item: info)//編輯
+			print("SAVE didFinishUpdate")
+			self.navigationController?.popViewController(animated: true)
 		}else{
-			//新增，呼叫新的方法
 			self.delegate?.didFinishCreate(item: info)
-		}
-
-		if self.recordInfo == nil{
-			self.dismiss(animated: true)
-		}else{
+			print("SAVE didFinishCreate")
+//			self.dismiss(animated: true)
 			self.navigationController?.popViewController(animated: true)
 		}
-		
-		//let controller: ListViewController 跳到任一頁
-		//self.navigationController?.popViewController(contriller, animated: true)
-		
-		
 	}
 	
 	
@@ -277,7 +295,7 @@ class AddTimeRecordVC: UIViewController {
 
 }
 
-protocol AddTimeRecordVCDelegate {
+protocol AddTimeRecordVCDelegate : AnyObject{
 	func didFinishUpdate(item : TimeRecordItem)
 	func didFinishCreate(item : TimeRecordItem)
 }

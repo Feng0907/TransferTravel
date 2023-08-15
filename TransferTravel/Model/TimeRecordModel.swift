@@ -15,7 +15,7 @@ class TimeRecordItem: NSManagedObject{
 	@NSManaged var seq: Double
 	@NSManaged var spendTime: String
 	@NSManaged var type: FromType
-	@NSManaged var routeID: Int
+	@NSManaged var routeID: Int64
 	
 	//coredata不能用enum string要做一些處理
 	@objc

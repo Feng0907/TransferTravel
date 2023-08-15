@@ -19,7 +19,7 @@ class Post{
     //getting posts from db
     public function read(){
         //create query
-        $sql = " SELECT * FROM `USER_EXAMPLE` ";
+        $sql = " SELECT * FROM " . $table ;
         $stmt = $this -> conn -> prepare($sql);
         //PDO::FETCH_ASSOC 表示pdoStmt裡面的靜態成員
         $stmt -> execute();
