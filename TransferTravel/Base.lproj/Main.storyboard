@@ -246,16 +246,26 @@
         <!--Tab BarC-->
         <scene sceneID="pIg-Qt-dpX">
             <objects>
-                <tabBarController storyboardIdentifier="tabBar" id="ka3-wZ-z29" customClass="TabBarC" customModule="TransferTravel" customModuleProvider="target" sceneMemberID="viewController">
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" itemPositioning="centered" id="Jb3-tc-g23">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="83"/>
+                <tabBarController storyboardIdentifier="tabBar" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ka3-wZ-z29" customClass="TabBarC" customModule="TransferTravel" customModuleProvider="target" sceneMemberID="viewController">
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <splitViewMasterSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jb3-tc-g23">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                         <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <tabBarAppearance key="standardAppearance" stackedItemPositioning="automatic"/>
-                        <tabBarAppearance key="scrollEdgeAppearance" backgroundImage="Rectangle 31bgc01.png" selectionIndicatorImage="house.fill" catalog="system"/>
+                        <tabBarAppearance key="standardAppearance">
+                            <tabBarItemAppearance key="inlineLayoutAppearance">
+                                <tabBarItemStateAppearance key="normal">
+                                    <offsetWrapper key="badgePositionAdjustment" horizontal="0.0" vertical="0.0"/>
+                                </tabBarItemStateAppearance>
+                                <tabBarItemStateAppearance key="selected"/>
+                                <tabBarItemStateAppearance key="disabled"/>
+                                <tabBarItemStateAppearance key="focused"/>
+                            </tabBarItemAppearance>
+                        </tabBarAppearance>
+                        <tabBarAppearance key="scrollEdgeAppearance" backgroundEffect="regular" backgroundImage="Rectangle 31bgc01.png" backgroundImageContentMode="scaleToFill" stackedItemPositioning="automatic"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="unselectedItemTintColor">
                                 <color key="value" red="0.97647058819999999" green="0.78823529410000004" blue="0.42745098040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -617,7 +627,7 @@
             </objects>
             <point key="canvasLocation" x="-1806" y="-104"/>
         </scene>
-        <!--Item-->
+        <!--View Controller-->
         <scene sceneID="Lsp-mY-GnZ">
             <objects>
                 <viewController autoresizesArchivedViewToFullSize="NO" id="KqY-fV-310" sceneMemberID="viewController">
@@ -635,7 +645,7 @@
                                 <rect key="frame" x="97.333333333333329" y="79" width="198.66666666666669" height="190"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fzy-Rj-pv7">
-                                        <rect key="frame" x="59.333333333333336" y="7.3333333333333366" width="80.333333333333314" height="81"/>
+                                        <rect key="frame" x="59.333333333333336" y="7.3333333333333375" width="80.333333333333314" height="81.000000000000014"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="80" id="3d6-AV-9BI"/>
@@ -743,8 +753,10 @@
                             <constraint firstItem="i5B-z6-dQn" firstAttribute="trailing" secondItem="oIX-g9-gnd" secondAttribute="trailing" id="ywA-qB-OJV"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" selectedImage="house.fill" catalog="system" id="1Ut-Rn-q6e">
+                    <tabBarItem key="tabBarItem" title="" id="1Ut-Rn-q6e">
                         <imageReference key="image" image="house.fill" catalog="system" symbolScale="large"/>
+                        <inset key="largeContentSizeImageInsets" minX="0.0" minY="10" maxX="0.0" maxY="0.0"/>
+                        <imageReference key="selectedImage" image="house.fill" catalog="system" symbolScale="large"/>
                     </tabBarItem>
                     <nil key="simulatedTopBarMetrics"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
