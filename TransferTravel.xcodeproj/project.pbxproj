@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B207AB662A8DA9F200FF6584 /* UIImage+radius.swift in Sources */ = {isa = PBXBuildFile; fileRef = B207AB652A8DA9F200FF6584 /* UIImage+radius.swift */; };
 		B2439D002A7BA82F00604CB5 /* RouteListTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2439CFF2A7BA82F00604CB5 /* RouteListTableVC.swift */; };
 		B2439D052A7BAF5800604CB5 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = B2439D042A7BAF5800604CB5 /* Alamofire */; };
 		B2439D072A7BDEE500604CB5 /* RouteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2439D062A7BDEE500604CB5 /* RouteModel.swift */; };
@@ -36,6 +37,11 @@
 		B2B43FAA2A86610E00DE7D8A /* LeftViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B43FA72A86610E00DE7D8A /* LeftViewCell.swift */; };
 		B2C3E4A62A86117700E3C8F6 /* SidebarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C3E4A52A86117700E3C8F6 /* SidebarVC.swift */; };
 		B2C3E4AB2A86238000E3C8F6 /* LGSideMenuController in Frameworks */ = {isa = PBXBuildFile; productRef = B2C3E4AA2A86238000E3C8F6 /* LGSideMenuController */; };
+		B2D32C152A8CBD4E00082167 /* undraw_My_current_location_re_whmt.png in Resources */ = {isa = PBXBuildFile; fileRef = B2D32C142A8CBD4E00082167 /* undraw_My_current_location_re_whmt.png */; };
+		B2D32C1A2A8CBFC900082167 /* icon_bus.png in Resources */ = {isa = PBXBuildFile; fileRef = B2D32C162A8CBFC900082167 /* icon_bus.png */; };
+		B2D32C1B2A8CBFC900082167 /* icon_mrt.png in Resources */ = {isa = PBXBuildFile; fileRef = B2D32C172A8CBFC900082167 /* icon_mrt.png */; };
+		B2D32C1C2A8CBFC900082167 /* icon_setting.png in Resources */ = {isa = PBXBuildFile; fileRef = B2D32C182A8CBFC900082167 /* icon_setting.png */; };
+		B2D32C1D2A8CBFC900082167 /* icon_list.png in Resources */ = {isa = PBXBuildFile; fileRef = B2D32C192A8CBFC900082167 /* icon_list.png */; };
 		B2DFA42C2A87858A00D85923 /* TransportationTypeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DFA42B2A87858A00D85923 /* TransportationTypeModel.swift */; };
 		B2F6DD212A74C8D600A6B6CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F6DD202A74C8D600A6B6CB /* AppDelegate.swift */; };
 		B2F6DD232A74C8D600A6B6CB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F6DD222A74C8D600A6B6CB /* SceneDelegate.swift */; };
@@ -46,6 +52,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B207AB652A8DA9F200FF6584 /* UIImage+radius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+radius.swift"; sourceTree = "<group>"; };
 		B2439CFF2A7BA82F00604CB5 /* RouteListTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteListTableVC.swift; sourceTree = "<group>"; };
 		B2439D062A7BDEE500604CB5 /* RouteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteModel.swift; sourceTree = "<group>"; };
 		B2439D0A2A7C0C6700604CB5 /* Rectangle 31bgc01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Rectangle 31bgc01.png"; sourceTree = "<group>"; };
@@ -72,6 +79,11 @@
 		B2B43FA62A86610E00DE7D8A /* LeftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftViewController.swift; sourceTree = "<group>"; };
 		B2B43FA72A86610E00DE7D8A /* LeftViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftViewCell.swift; sourceTree = "<group>"; };
 		B2C3E4A52A86117700E3C8F6 /* SidebarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarVC.swift; sourceTree = "<group>"; };
+		B2D32C142A8CBD4E00082167 /* undraw_My_current_location_re_whmt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = undraw_My_current_location_re_whmt.png; sourceTree = "<group>"; };
+		B2D32C162A8CBFC900082167 /* icon_bus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_bus.png; sourceTree = "<group>"; };
+		B2D32C172A8CBFC900082167 /* icon_mrt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_mrt.png; sourceTree = "<group>"; };
+		B2D32C182A8CBFC900082167 /* icon_setting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_setting.png; sourceTree = "<group>"; };
+		B2D32C192A8CBFC900082167 /* icon_list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_list.png; sourceTree = "<group>"; };
 		B2DFA42B2A87858A00D85923 /* TransportationTypeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportationTypeModel.swift; sourceTree = "<group>"; };
 		B2F6DD1D2A74C8D600A6B6CB /* TransferTravel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TransferTravel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2F6DD202A74C8D600A6B6CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -134,7 +146,12 @@
 		B2439D1F2A80A2B600604CB5 /* img */ = {
 			isa = PBXGroup;
 			children = (
+				B2D32C162A8CBFC900082167 /* icon_bus.png */,
+				B2D32C192A8CBFC900082167 /* icon_list.png */,
+				B2D32C172A8CBFC900082167 /* icon_mrt.png */,
+				B2D32C182A8CBFC900082167 /* icon_setting.png */,
 				B2439D0A2A7C0C6700604CB5 /* Rectangle 31bgc01.png */,
+				B2D32C142A8CBD4E00082167 /* undraw_My_current_location_re_whmt.png */,
 				B2439D0C2A7C0CD700604CB5 /* Rectangle 32bgc02.png */,
 				B26D18D72A87F31300953A72 /* bicycle_off_transBtnIcon.png */,
 				B26D18D32A87F31200953A72 /* bicycle_on_transBtnIcon.png */,
@@ -198,6 +215,7 @@
 				B2F6DD2B2A74C8D900A6B6CB /* LaunchScreen.storyboard */,
 				B2F6DD292A74C8D900A6B6CB /* Assets.xcassets */,
 				B2F6DD2E2A74C8D900A6B6CB /* Info.plist */,
+				B207AB652A8DA9F200FF6584 /* UIImage+radius.swift */,
 			);
 			path = TransferTravel;
 			sourceTree = "<group>";
@@ -271,15 +289,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				B26D18DF2A87F31300953A72 /* bicycle_off_transBtnIcon.png in Resources */,
+				B2D32C1A2A8CBFC900082167 /* icon_bus.png in Resources */,
 				B2F6DD2D2A74C8D900A6B6CB /* LaunchScreen.storyboard in Resources */,
 				B26D18DC2A87F31300953A72 /* walk_on_transBtnIcon.png in Resources */,
+				B2D32C1D2A8CBFC900082167 /* icon_list.png in Resources */,
 				B26D18DB2A87F31300953A72 /* bicycle_on_transBtnIcon.png in Resources */,
 				B26D18D92A87F31300953A72 /* car_off_transBtnIcon.png in Resources */,
 				B2439D0D2A7C0CD700604CB5 /* Rectangle 32bgc02.png in Resources */,
+				B2D32C152A8CBD4E00082167 /* undraw_My_current_location_re_whmt.png in Resources */,
 				B26D18DD2A87F31300953A72 /* motorcycle_off_transBtnIcon.png in Resources */,
 				B26D18E02A87F31300953A72 /* walk_off_transBtnIcon.png in Resources */,
+				B2D32C1B2A8CBFC900082167 /* icon_mrt.png in Resources */,
 				B2F6DD2A2A74C8D900A6B6CB /* Assets.xcassets in Resources */,
 				B26D18DA2A87F31300953A72 /* motorcycle_on_transBtnIcon.png in Resources */,
+				B2D32C1C2A8CBFC900082167 /* icon_setting.png in Resources */,
 				B2439D0B2A7C0C6700604CB5 /* Rectangle 31bgc01.png in Resources */,
 				B2F6DD282A74C8D600A6B6CB /* Main.storyboard in Resources */,
 				B26D18DE2A87F31300953A72 /* car_on_transBtnIcon.png in Resources */,
@@ -309,6 +332,7 @@
 				B2439D002A7BA82F00604CB5 /* RouteListTableVC.swift in Sources */,
 				B2F6DD212A74C8D600A6B6CB /* AppDelegate.swift in Sources */,
 				B2439D232A81D35E00604CB5 /* RouteTableVC.swift in Sources */,
+				B207AB662A8DA9F200FF6584 /* UIImage+radius.swift in Sources */,
 				B2439D072A7BDEE500604CB5 /* RouteModel.swift in Sources */,
 				B2F6DD232A74C8D600A6B6CB /* SceneDelegate.swift in Sources */,
 				B277CA972A8BD94A00A5CD96 /* RouteCommunicator.swift in Sources */,
