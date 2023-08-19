@@ -43,7 +43,7 @@ class LeftViewController: UITableViewController {
 	}
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-		addMenu(pageTitle: "我的路線", pageID: "myRoute")
+		addMenu(pageTitle: "我的路線", pageID: "ListNaviC")
 		addMenu(pageTitle: "公車路線", pageID: "busRoute")
 		addMenu(pageTitle: "台北捷運", pageID: "taipeiMRT")
 		addMenu(pageTitle: "設定", pageID: "setting")
@@ -100,7 +100,7 @@ class LeftViewController: UITableViewController {
 		let alert = UIAlertController(title: "功能施工中", message: "菜鳥努力中請稍等", preferredStyle: .alert)
 		let cancel = UIAlertAction(title: "OK", style: .cancel){_ in sideMenuController.hideLeftView(animated: true)}
 		alert.addAction(cancel)
-		if id != "myRoute" {
+		if id != "ListNaviC" {
 			present(alert, animated: true)
 			return
 		}

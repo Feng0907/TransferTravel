@@ -402,10 +402,19 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OiU-5C-pgP">
-                                <rect key="frame" x="150" y="731" width="93.333333333333314" height="34.333333333333371"/>
+                                <rect key="frame" x="156.66666666666666" y="731" width="80" height="29.666666666666629"/>
                                 <color key="tintColor" name="MainBlue"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="gray" title="歷史紀錄"/>
+                                <buttonConfiguration key="configuration" style="gray">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="歷史紀錄">
+                                            <attributes>
+                                                <font key="NSFont" size="14" name=".PingFangTC-Regular"/>
+                                                <font key="NSOriginalFont" metaFont="system" size="14"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </buttonConfiguration>
                                 <connections>
                                     <segue destination="h5x-8w-K4A" kind="show" id="BMw-4v-Yep"/>
                                 </connections>
