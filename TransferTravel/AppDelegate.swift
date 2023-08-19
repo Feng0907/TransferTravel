@@ -15,7 +15,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		// Override point for customization after application launch.
 		IQKeyboardManager.shared.enable = true
 		print("home = \(NSHomeDirectory())")
-//		UITabBar.appearance().unselectedItemTintColor = .brown
 		
 		return true
 	}

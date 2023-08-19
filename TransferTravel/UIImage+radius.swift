@@ -52,4 +52,19 @@ extension UIImage {
 //	func radius(rightRadiu: CGFloat, leftRadiu: CGFloat) -> {
 //
 //	}
+	func radiuImage(cornerRadius: CGFloat) -> UIImage {
+		let imageView = UIImageView(image: self)
+		imageView.layer.cornerRadius = cornerRadius
+		imageView.layer.masksToBounds = true
+
+		UIGraphicsBeginImageContextWithOptions(imageView.bounds.size, false, self.scale)
+		guard let context = UIGraphicsGetCurrentContext() else { return UIImage() }
+		imageView.layer.render(in: context)
+		let roundedImage = UIGraphicsGetImageFromCurrentImageContext()
+		UIGraphicsEndImageContext()
+
+		return roundedImage ?? UIImage()
+	}
+
 }
+

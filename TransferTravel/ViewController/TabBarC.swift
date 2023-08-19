@@ -13,6 +13,7 @@ class TabBarC: UITabBarController {
         super.viewDidLoad()
 //		UITabBar.appearance().unselectedItemTintColor = UIColor(named: "MainLight")
         // Do any additional setup after loading the view.
+		tabBar.unselectedItemTintColor = UIColor.red
     }
 
     

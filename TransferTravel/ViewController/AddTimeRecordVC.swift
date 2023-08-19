@@ -60,6 +60,19 @@ class AddTimeRecordVC: UIViewController {
 //			self.navigationItem.rightBarButtonItem?.tintColor = UIColor(named: "MainBlue")
 		}
     }
+	
+	@objc
+	func alertBack(){
+		let alert = UIAlertController(title: "確定要取消嗎？", message: "還有未儲存的計時，確定要放棄這次計時嗎？", preferredStyle: .alert)
+		let yes = UIAlertAction(title: "yes", style:.default) {_ in
+			self.navigationController?.popViewController(animated: true)
+		}
+		let cancel = UIAlertAction(title: "Cancel", style: .cancel)
+		alert.addAction(yes)
+		alert.addAction(cancel)
+		present(alert, animated: true)
+	}
+	
 	func showBtnType(item: TimeRecordItem?){
 		let type = item?.type
 		switch type {
@@ -202,6 +215,8 @@ class AddTimeRecordVC: UIViewController {
 		stopBtn.isHidden  = false
 		timer = Timer.scheduledTimer(timeInterval: TimeInterval(0.01), target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
 		RunLoop.current.add(timer, forMode: .common)  //切換線程，避免滑動 TabelView 的時候， Timer 會停止運作
+		let BackButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(alertBack))
+		self.navigationItem.leftBarButtonItem = BackButton
 	}
 	
 	@IBAction func pauseBtnPressed(_ sender: Any) {
@@ -220,24 +235,10 @@ class AddTimeRecordVC: UIViewController {
 	@IBAction func stopBtnPressed(_ sender: Any) {
 		startStatus = true
 		timer.invalidate()
-		let alert = UIAlertController(title: "儲存計時", message: "要儲存這次的計時嗎？", preferredStyle: .alert)
-		let save = UIAlertAction(title: "Save", style:.default) {_ in
-			self.saveBtnPressed(self)
-		}
-		let cancel = UIAlertAction(title: "Cancel", style: .cancel) {_ in
-			self.pauseBtn.setImage(UIImage(systemName: "play.fill"), for: .normal)
-		}
-		alert.addAction(save)
-		alert.addAction(cancel)
-		present(alert, animated: true)
+		alertSave()
 	}
 	
 	@IBAction func saveBtnPressed(_ sender: Any) {
-//		defer{
-//			DispatchQueue.main.async {
-//				print("2222222")
-//			}
-//		}
 		var typeNum : Int16 = 0
 		self.btnSelected = [btnWalk.isSelected, btnBicycle.isSelected, btnMotorcycle.isSelected, btnCar.isSelected]
 		for i in 0...3 {
@@ -279,6 +280,19 @@ class AddTimeRecordVC: UIViewController {
 //			self.dismiss(animated: true)
 			self.navigationController?.popViewController(animated: true)
 		}
+	}
+	
+	func alertSave(){
+		let alert = UIAlertController(title: "儲存計時", message: "要儲存這次的計時嗎？", preferredStyle: .alert)
+		let save = UIAlertAction(title: "Save", style:.default) {_ in
+			self.saveBtnPressed(self)
+		}
+		let cancel = UIAlertAction(title: "Cancel", style: .cancel) {_ in
+			self.pauseBtn.setImage(UIImage(systemName: "play.fill"), for: .normal)
+		}
+		alert.addAction(save)
+		alert.addAction(cancel)
+		present(alert, animated: true)
 	}
 	
 	
