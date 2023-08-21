@@ -39,6 +39,11 @@ class AddTimeRecordVC: UIViewController {
 	
 	var btnSelected = [false, false, false, false]
 	
+	var backgroundTask: UIBackgroundTaskIdentifier = .invalid
+	var startTime: Date?
+	var middleTime: Date?
+	var elapsedTime: TimeInterval = 0
+	
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -51,6 +56,8 @@ class AddTimeRecordVC: UIViewController {
 		self.endPoint.text = self.recordInfo?.endName
 		self.routeID = self.recordInfo?.routeID
 		showBtnType(item: self.recordInfo)
+		NotificationCenter.default.addObserver(self, selector: #selector(appDidEnterBackground), name: UIApplication.didEnterBackgroundNotification, object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(appDidBecomeActive), name: UIApplication.didBecomeActiveNotification, object: nil)
 		if self.recordInfo == nil{
 			self.navigationItem.leftBarButtonItem = UIBarButtonItem(systemItem: .cancel, primaryAction: UIAction(handler: { action in
 //				self.dismiss(animated: true)
@@ -60,18 +67,58 @@ class AddTimeRecordVC: UIViewController {
 //			self.navigationItem.rightBarButtonItem?.tintColor = UIColor(named: "MainBlue")
 		}
     }
+	deinit {
+		NotificationCenter.default.removeObserver(self)
+	}
+//	override func viewWillDisappear(_ animated: Bool) {
+//		if startStatus == false {
+//			timer.invalidate()
+//			startStatus = true
+//		}
+//	}
 	
 	@objc
-	func alertBack(){
-		let alert = UIAlertController(title: "確定要取消嗎？", message: "還有未儲存的計時，確定要放棄這次計時嗎？", preferredStyle: .alert)
-		let yes = UIAlertAction(title: "yes", style:.default) {_ in
-			self.navigationController?.popViewController(animated: true)
+	func appDidEnterBackground() {
+		if startStatus == false {
+//			backgroundTask = UIApplication.shared.beginBackgroundTask(expirationHandler: {
+//				UIApplication.shared.endBackgroundTask(self.backgroundTask)
+//				self.backgroundTask = .invalid
+//			})
+			startTime = Date()
 		}
-		let cancel = UIAlertAction(title: "Cancel", style: .cancel)
-		alert.addAction(yes)
-		alert.addAction(cancel)
-		present(alert, animated: true)
 	}
+	@objc
+	func appDidBecomeActive() {
+		if let startTime = startTime {
+			let sTime = Date().timeIntervalSince(startTime)
+			elapsedTime = 0
+			elapsedTime += Date().timeIntervalSince(startTime)
+			print(elapsedTime)
+			self.startTime = nil
+			self.middleTime = nil
+		}
+		updateTimerDisplay()
+	}
+
+	func updateTimerDisplay() {
+		// 更新計時器顯示，例如格式化時間
+		millsecond += Int(elapsedTime) * 100
+		elapsedTime = 0
+	}
+//	func performBackgroundTask() {
+//		// 背景任務的執行內容
+//		self.millsecond += 1
+//		// 結束背景任務
+//		UIApplication.shared.endBackgroundTask(backgroundTask)
+//		backgroundTask = .invalid
+//	}
+//
+//	func startBackgroundTimer() {
+//		timer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { timer in
+//			self.performBackgroundTask()
+//		}
+//		RunLoop.current.add(timer, forMode: .common)
+//	}
 	
 	func showBtnType(item: TimeRecordItem?){
 		let type = item?.type
@@ -90,26 +137,6 @@ class AddTimeRecordVC: UIViewController {
 			break
 		case .none:
 			return
-		}
-	}
-	
-	
-	override func viewWillDisappear(_ animated: Bool) {
-		if startStatus == false{
-			timer.invalidate()
-			startStatus = true
-			//無法阻擋用戶跳頁，先把計時暫停起來
-//			let alert = UIAlertController(title: "計時已中斷", message: "是否中斷計時離開畫面？", preferredStyle: .alert)
-//			let leave = UIAlertAction(title: "Yes", style: .destructive) {_ in
-//				super.viewWillDisappear(animated)
-//			}
-//			let cancel = UIAlertAction(title: "Cancel", style: .cancel) {_ in
-//				self.pauseBtn.setImage(UIImage(systemName: "play.fill"), for: .normal)
-//				return
-//			}
-//			alert.addAction(leave)
-//			alert.addAction(cancel)
-//			present(alert, animated: true)
 		}
 	}
 	
@@ -135,7 +162,6 @@ class AddTimeRecordVC: UIViewController {
 		}
 	}
 	
-
 	func setBtn(btn: UIButton){
 		var item = TransportationItem(name: "", iconOn: UIImage(named: "walk_on_transBtnIcon.png")!, iconOff: UIImage(named: "walk_off_transBtnIcon.png")!, state: false, type: .walk)
 		switch btn {
@@ -206,7 +232,6 @@ class AddTimeRecordVC: UIViewController {
 			return
 		}
 	}
-	
 	
 	@IBAction func timerStartBtnPressed(_ sender: Any) {
 		startStatus = false  //這邊代表的是 ”Start“ Button 是不是還存在於畫面上，可以用它來將之後的其他功能做判斷依據
@@ -294,7 +319,17 @@ class AddTimeRecordVC: UIViewController {
 		alert.addAction(cancel)
 		present(alert, animated: true)
 	}
-	
+	@objc
+	func alertBack(){
+		let alert = UIAlertController(title: "確定要取消嗎？", message: "還有未儲存的計時，確定要放棄這次計時嗎？", preferredStyle: .alert)
+		let yes = UIAlertAction(title: "yes", style:.default) {_ in
+			self.navigationController?.popViewController(animated: true)
+		}
+		let cancel = UIAlertAction(title: "Cancel", style: .cancel)
+		alert.addAction(yes)
+		alert.addAction(cancel)
+		present(alert, animated: true)
+	}
 	
 	
     /*
