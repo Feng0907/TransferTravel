@@ -20,6 +20,9 @@
 		B2439D232A81D35E00604CB5 /* RouteTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2439D222A81D35E00604CB5 /* RouteTableVC.swift */; };
 		B2439D252A81E3A900604CB5 /* AddTimeRecordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2439D242A81E3A900604CB5 /* AddTimeRecordVC.swift */; };
 		B2439D272A81F1BF00604CB5 /* TimeRecordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2439D262A81F1BF00604CB5 /* TimeRecordModel.swift */; };
+		B24E47ED2A94660D0031BA70 /* HistoryTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24E47EC2A94660D0031BA70 /* HistoryTableVC.swift */; };
+		B24E47EF2A95014A0031BA70 /* HistoryItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24E47EE2A95014A0031BA70 /* HistoryItemModel.swift */; };
+		B24E47F12A9514AA0031BA70 /* UIVC+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24E47F02A9514AA0031BA70 /* UIVC+Alert.swift */; };
 		B26D18D92A87F31300953A72 /* car_off_transBtnIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = B26D18D12A87F31200953A72 /* car_off_transBtnIcon.png */; };
 		B26D18DA2A87F31300953A72 /* motorcycle_on_transBtnIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = B26D18D22A87F31200953A72 /* motorcycle_on_transBtnIcon.png */; };
 		B26D18DB2A87F31300953A72 /* bicycle_on_transBtnIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = B26D18D32A87F31200953A72 /* bicycle_on_transBtnIcon.png */; };
@@ -31,7 +34,7 @@
 		B26D18E22A88B19400953A72 /* TimerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26D18E12A88B19400953A72 /* TimerHelper.swift */; };
 		B26D18E82A89C0AB00953A72 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B26D18E72A89C0AB00953A72 /* IQKeyboardManagerSwift */; };
 		B26D18EC2A89FF7800953A72 /* SelfRouteTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26D18EB2A89FF7800953A72 /* SelfRouteTVCell.swift */; };
-		B277CA932A8B76A800A5CD96 /* SendRouteHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B277CA922A8B76A800A5CD96 /* SendRouteHelper.swift */; };
+		B277CA932A8B76A800A5CD96 /* SendMessageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B277CA922A8B76A800A5CD96 /* SendMessageHelper.swift */; };
 		B277CA972A8BD94A00A5CD96 /* RouteCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B277CA962A8BD94A00A5CD96 /* RouteCommunicator.swift */; };
 		B27D932D2A866B850093F471 /* TabBarC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27D932C2A866B850093F471 /* TabBarC.swift */; };
 		B2B43FA82A86610E00DE7D8A /* LeftViewCellBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B43FA52A86610E00DE7D8A /* LeftViewCellBackgroundView.swift */; };
@@ -66,6 +69,9 @@
 		B2439D222A81D35E00604CB5 /* RouteTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteTableVC.swift; sourceTree = "<group>"; };
 		B2439D242A81E3A900604CB5 /* AddTimeRecordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTimeRecordVC.swift; sourceTree = "<group>"; };
 		B2439D262A81F1BF00604CB5 /* TimeRecordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeRecordModel.swift; sourceTree = "<group>"; };
+		B24E47EC2A94660D0031BA70 /* HistoryTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableVC.swift; sourceTree = "<group>"; };
+		B24E47EE2A95014A0031BA70 /* HistoryItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryItemModel.swift; sourceTree = "<group>"; };
+		B24E47F02A9514AA0031BA70 /* UIVC+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIVC+Alert.swift"; sourceTree = "<group>"; };
 		B26D18D12A87F31200953A72 /* car_off_transBtnIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = car_off_transBtnIcon.png; sourceTree = "<group>"; };
 		B26D18D22A87F31200953A72 /* motorcycle_on_transBtnIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = motorcycle_on_transBtnIcon.png; sourceTree = "<group>"; };
 		B26D18D32A87F31200953A72 /* bicycle_on_transBtnIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bicycle_on_transBtnIcon.png; sourceTree = "<group>"; };
@@ -76,7 +82,7 @@
 		B26D18D82A87F31300953A72 /* walk_off_transBtnIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = walk_off_transBtnIcon.png; sourceTree = "<group>"; };
 		B26D18E12A88B19400953A72 /* TimerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerHelper.swift; sourceTree = "<group>"; };
 		B26D18EB2A89FF7800953A72 /* SelfRouteTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfRouteTVCell.swift; sourceTree = "<group>"; };
-		B277CA922A8B76A800A5CD96 /* SendRouteHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendRouteHelper.swift; sourceTree = "<group>"; };
+		B277CA922A8B76A800A5CD96 /* SendMessageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendMessageHelper.swift; sourceTree = "<group>"; };
 		B277CA962A8BD94A00A5CD96 /* RouteCommunicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteCommunicator.swift; sourceTree = "<group>"; };
 		B27D932C2A866B850093F471 /* TabBarC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarC.swift; sourceTree = "<group>"; };
 		B2B43FA52A86610E00DE7D8A /* LeftViewCellBackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftViewCellBackgroundView.swift; sourceTree = "<group>"; };
@@ -121,6 +127,7 @@
 				B2439D222A81D35E00604CB5 /* RouteTableVC.swift */,
 				B2439D242A81E3A900604CB5 /* AddTimeRecordVC.swift */,
 				B27D932C2A866B850093F471 /* TabBarC.swift */,
+				B24E47EC2A94660D0031BA70 /* HistoryTableVC.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -128,13 +135,14 @@
 		B2439D022A7BAB1700604CB5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B2439D102A7E8E6100604CB5 /* RouteListDataModel.xcdatamodeld */,
 				B2439D0E2A7CE4EC00604CB5 /* CoreDataHelper.swift */,
 				B2439D062A7BDEE500604CB5 /* RouteModel.swift */,
 				B2439D262A81F1BF00604CB5 /* TimeRecordModel.swift */,
 				B2DFA42B2A87858A00D85923 /* TransportationTypeModel.swift */,
 				B26D18E12A88B19400953A72 /* TimerHelper.swift */,
-				B2439D102A7E8E6100604CB5 /* RouteListDataModel.xcdatamodeld */,
-				B277CA922A8B76A800A5CD96 /* SendRouteHelper.swift */,
+				B277CA922A8B76A800A5CD96 /* SendMessageHelper.swift */,
+				B24E47EE2A95014A0031BA70 /* HistoryItemModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -222,6 +230,7 @@
 				B2F6DD292A74C8D900A6B6CB /* Assets.xcassets */,
 				B2F6DD2E2A74C8D900A6B6CB /* Info.plist */,
 				B207AB652A8DA9F200FF6584 /* UIImage+radius.swift */,
+				B24E47F02A9514AA0031BA70 /* UIVC+Alert.swift */,
 			);
 			path = TransferTravel;
 			sourceTree = "<group>";
@@ -326,15 +335,18 @@
 			files = (
 				B2B43FA82A86610E00DE7D8A /* LeftViewCellBackgroundView.swift in Sources */,
 				B2B43FAA2A86610E00DE7D8A /* LeftViewCell.swift in Sources */,
-				B277CA932A8B76A800A5CD96 /* SendRouteHelper.swift in Sources */,
+				B277CA932A8B76A800A5CD96 /* SendMessageHelper.swift in Sources */,
 				B2439D0F2A7CE4EC00604CB5 /* CoreDataHelper.swift in Sources */,
 				B2DFA42C2A87858A00D85923 /* TransportationTypeModel.swift in Sources */,
+				B24E47F12A9514AA0031BA70 /* UIVC+Alert.swift in Sources */,
 				B2439D252A81E3A900604CB5 /* AddTimeRecordVC.swift in Sources */,
 				B26D18E22A88B19400953A72 /* TimerHelper.swift in Sources */,
 				B2F6DD252A74C8D600A6B6CB /* IndexVC.swift in Sources */,
 				B2B43FA92A86610E00DE7D8A /* LeftViewController.swift in Sources */,
 				B2439D122A7E8E6100604CB5 /* RouteListDataModel.xcdatamodeld in Sources */,
+				B24E47ED2A94660D0031BA70 /* HistoryTableVC.swift in Sources */,
 				B27D932D2A866B850093F471 /* TabBarC.swift in Sources */,
+				B24E47EF2A95014A0031BA70 /* HistoryItemModel.swift in Sources */,
 				B2C3E4A62A86117700E3C8F6 /* SidebarVC.swift in Sources */,
 				B26D18EC2A89FF7800953A72 /* SelfRouteTVCell.swift in Sources */,
 				B2439D002A7BA82F00604CB5 /* RouteListTableVC.swift in Sources */,

@@ -14,6 +14,7 @@ class AddTimeRecordVC: UIViewController {
 	@IBOutlet weak var endPoint: UITextField!
 	
 	@IBOutlet weak var timingLabel: UILabel!
+	@IBOutlet weak var averageTimeLabel: UILabel!
 	
 	@IBOutlet weak var btnWalk: UIButton!
 	@IBOutlet weak var btnBicycle: UIButton!
@@ -23,6 +24,8 @@ class AddTimeRecordVC: UIViewController {
 	@IBOutlet weak var startBtn: UIButton!
 	@IBOutlet weak var pauseBtn: UIButton!
 	@IBOutlet weak var stopBtn: UIButton!
+	
+	@IBOutlet weak var historyBtn: UIButton!
 	
 	var timer = Timer()
 	var startStatus : Bool = true
@@ -39,7 +42,6 @@ class AddTimeRecordVC: UIViewController {
 	
 	var btnSelected = [false, false, false, false]
 	
-	var backgroundTask: UIBackgroundTaskIdentifier = .invalid
 	var startTime: Date?
 	var middleTime: Date?
 	var elapsedTime: TimeInterval = 0
@@ -63,6 +65,8 @@ class AddTimeRecordVC: UIViewController {
 //				self.dismiss(animated: true)
 				self.navigationController?.popViewController(animated: true)
 			}))
+			self.averageTimeLabel.isHidden = true
+			self.historyBtn.isHidden = true
 //			self.navigationItem.leftBarButtonItem?.tintColor = UIColor(named: "MainBlue")
 //			self.navigationItem.rightBarButtonItem?.tintColor = UIColor(named: "MainBlue")
 		}
@@ -80,17 +84,12 @@ class AddTimeRecordVC: UIViewController {
 	@objc
 	func appDidEnterBackground() {
 		if startStatus == false {
-//			backgroundTask = UIApplication.shared.beginBackgroundTask(expirationHandler: {
-//				UIApplication.shared.endBackgroundTask(self.backgroundTask)
-//				self.backgroundTask = .invalid
-//			})
 			startTime = Date()
 		}
 	}
 	@objc
 	func appDidBecomeActive() {
 		if let startTime = startTime {
-			let sTime = Date().timeIntervalSince(startTime)
 			elapsedTime = 0
 			elapsedTime += Date().timeIntervalSince(startTime)
 			print(elapsedTime)
@@ -105,20 +104,6 @@ class AddTimeRecordVC: UIViewController {
 		millsecond += Int(elapsedTime) * 100
 		elapsedTime = 0
 	}
-//	func performBackgroundTask() {
-//		// 背景任務的執行內容
-//		self.millsecond += 1
-//		// 結束背景任務
-//		UIApplication.shared.endBackgroundTask(backgroundTask)
-//		backgroundTask = .invalid
-//	}
-//
-//	func startBackgroundTimer() {
-//		timer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { timer in
-//			self.performBackgroundTask()
-//		}
-//		RunLoop.current.add(timer, forMode: .common)
-//	}
 	
 	func showBtnType(item: TimeRecordItem?){
 		let type = item?.type
@@ -265,6 +250,7 @@ class AddTimeRecordVC: UIViewController {
 	
 	@IBAction func saveBtnPressed(_ sender: Any) {
 		var typeNum : Int16 = 0
+		let now = Date()
 		self.btnSelected = [btnWalk.isSelected, btnBicycle.isSelected, btnMotorcycle.isSelected, btnCar.isSelected]
 		for i in 0...3 {
 			if self.btnSelected[i] == true{
@@ -274,27 +260,34 @@ class AddTimeRecordVC: UIViewController {
 		let moc = CoreDataHelper.shared.managedObjectContext()
 		let routeID = SendRouteHelper.shared.keepSendRouteID
 		guard let startText = self.startPoint.text else {
+			showAlert(message: "尚未填寫出發地點")
 			print("startText資料不全！")
 			return
 		}
 		guard let endText = self.endPoint.text else {
+			showAlert(message: "尚未填寫抵達地點")
 			print("endText資料不全！")
 			return
 		}
 		guard let timeText = self.timingLabel.text else {
+			showAlert(message: "時間格式錯誤")
 			print("timeText資料不全！")
 			return
 		}
 		let info = self.recordInfo ?? TimeRecordItem(context: moc)
 		info.routeID = routeID
-		print(startText)
 		info.startName = startText
-		print(endText)
 		info.endName = endText
-		print(timeText)
 		info.spendTime = timeText
 		info.type = TimeRecordItem.FromType(rawValue: typeNum) ?? .walk
+		let saveData = HistoryItem(context: moc)
+		saveData.routeID = routeID
+		saveData.timerecordID = info.timerecordID
+		saveData.spendTime = timeText
+		saveData.recordTime = now
 		CoreDataHelper.shared.saveContext()
+		self.startStatus = true
+		self.timer.invalidate()
 		if self.recordInfo != nil{
 			self.delegate?.didFinishUpdate(item: info)//編輯
 			print("SAVE didFinishUpdate")
@@ -323,6 +316,8 @@ class AddTimeRecordVC: UIViewController {
 	func alertBack(){
 		let alert = UIAlertController(title: "確定要取消嗎？", message: "還有未儲存的計時，確定要放棄這次計時嗎？", preferredStyle: .alert)
 		let yes = UIAlertAction(title: "yes", style:.default) {_ in
+			self.startStatus = true
+			self.timer.invalidate()
 			self.navigationController?.popViewController(animated: true)
 		}
 		let cancel = UIAlertAction(title: "Cancel", style: .cancel)
@@ -332,15 +327,18 @@ class AddTimeRecordVC: UIViewController {
 	}
 	
 	
-    /*
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+	 // In a storyboard-based application, you will often want to do a little preparation before navigation
+	 override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		 if segue.identifier == "HistorySegue" ,
+			let HistoryVC = segue.destination as? HistoryTableVC,
+			let info = self.recordInfo{
+			 HistoryVC.recordInfo = info
+			 print(info.routeID)
+			 print(info.timerecordID)
+		 }
+	 }
 
 }
 
