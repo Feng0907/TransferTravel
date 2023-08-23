@@ -13,7 +13,7 @@ class HistoryItem: NSManagedObject{
 	
 	@NSManaged var routeID: Int64
 	@NSManaged var timerecordID: String
-	@NSManaged var spendTime: String
+	@NSManaged var spendTime: Int64
 	@NSManaged var recordTime : Date
 
 }

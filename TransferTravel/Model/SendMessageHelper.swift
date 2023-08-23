@@ -12,8 +12,8 @@ class SendRouteHelper {
 	private init(){}
 	var keepSendRouteID : Int64 = 0
 }
-class SendRecordHelper {
-	static let shared = SendRecordHelper()
+class SendRecordTimeHelper {
+	static let shared = SendRecordTimeHelper()
 	private init(){}
-	var timerecordID : String = ""
+	var spendTime: Int64 = 0
 }

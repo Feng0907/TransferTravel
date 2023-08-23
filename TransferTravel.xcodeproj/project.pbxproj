@@ -123,10 +123,10 @@
 			isa = PBXGroup;
 			children = (
 				B2F6DD242A74C8D600A6B6CB /* IndexVC.swift */,
+				B27D932C2A866B850093F471 /* TabBarC.swift */,
 				B2439CFF2A7BA82F00604CB5 /* RouteListTableVC.swift */,
 				B2439D222A81D35E00604CB5 /* RouteTableVC.swift */,
 				B2439D242A81E3A900604CB5 /* AddTimeRecordVC.swift */,
-				B27D932C2A866B850093F471 /* TabBarC.swift */,
 				B24E47EC2A94660D0031BA70 /* HistoryTableVC.swift */,
 			);
 			path = ViewController;

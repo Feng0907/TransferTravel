@@ -26,12 +26,11 @@ class RouteTableVC: UITableViewController, UINavigationControllerDelegate, AddTi
 	
 	required init?(coder: NSCoder) {
 		super .init(coder: coder)
-		
 	}
 
     override func viewDidLoad() {
         super.viewDidLoad()
-		self.queryFromCoreData()//讀出資料庫資料
+		queryFromCoreData()//讀出資料庫資料
 		guard let item = routeItem,
 			  let routeName = item.routeName else {
 			return
@@ -82,17 +81,43 @@ class RouteTableVC: UITableViewController, UINavigationControllerDelegate, AddTi
 		}
 	}
 	
-	func timeToMin(_ timeText: String) -> String {
-		let array = timeText.components(separatedBy: ":")
-		if array[0] != "00" {
-			let time = array[0] + "小時" + array[1] + "分"
+	func timeConversion(millsecond: Int64) -> String{
+		var millsec: Int64 = 0
+		var sec: Int64 = 0
+		var min: Int64 = 0
+		var hour: Int64 = 0
+		millsec = millsecond % 100
+		sec = (millsecond / 100) % 60
+		min = millsecond / 6000 % 60
+		hour = millsecond / 360000  //累加
+//		let showmillsec = millsec > 9 ? "\(millsec)" : "0\(millsec)"
+//		let showsec = sec > 9 ? "\(sec)" : "0\(sec)"
+		let showmin = min > 9 ? "\(min)" : "\(min)"
+		let showhour = hour > 9 ? "\(hour)" : "\(hour)"
+		if millsecond < 6000 {
+			let time = "1 min"
 			return time
-		}else{
-			let time = array[1] + "分"
+		} else if millsecond < 360000 {
+			let time = "\(showmin) min"
+			return time
+		} else {
+			let time = "\(showhour):\(showmin)"
 			return time
 		}
 		
 	}
+	
+//	func timeToMin(_ timeText: Int) -> String {
+//		let array = timeText.components(separatedBy: ":")
+//		if array[0] != "00" {
+//			let time = array[0] + "小時" + array[1] + "分"
+//			return time
+//		}else{
+//			let time = array[1] + "分"
+//			return time
+//		}
+		
+//	}
 	
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		guard let selfcell = tableView.dequeueReusableCell(withIdentifier: "SelfRouteTVCell", for: indexPath) as? SelfRouteTVCell else{
@@ -103,7 +128,11 @@ class RouteTableVC: UITableViewController, UINavigationControllerDelegate, AddTi
 		selfcell.selfIconImage.image = showBtnType(item.type)
 		selfcell.startPointName.text = item.startName
 		selfcell.endPointName.text = item.endName
-		selfcell.timeLabel.text = timeToMin(item.spendTime)
+		selfcell.timeLabel.layer.cornerRadius = 10
+		selfcell.timeLabel.clipsToBounds = true
+		let time = item.spendTime
+		print(time)
+		selfcell.timeLabel.text = timeConversion(millsecond: time)
 //		selfcell.timeShow.titleLabel?.text = timeToMin(item.spendTime)
 //		cell.MyLabel.text = note.text
 //        let cell = tableView.dequeueReusableCell(withIdentifier: "selfRouteItem", for: indexPath)
@@ -144,11 +173,9 @@ class RouteTableVC: UITableViewController, UINavigationControllerDelegate, AddTi
 		let sort = NSSortDescriptor(key: "seq", ascending: true)
 		request.predicate = predicate
 		request.sortDescriptors = [sort]
-		print([sort])
 		do{
 			let result = try moc.fetch(request)
 			self.selfitems = result
-			print(self.selfitems)
 		}catch{
 			self.selfitems = []
 			print("query cora data error \(error)")
@@ -156,12 +183,14 @@ class RouteTableVC: UITableViewController, UINavigationControllerDelegate, AddTi
 		
 	}
 	
-	func saveToCoreData(){
+	func saveToCoreData() {
 		CoreDataHelper.shared.saveContext()
 	}
-	
+	func reloadTable() {
+		self.tableView.reloadData()
+	}
 	func didFinishUpdate(item : TimeRecordItem){
-		self.saveToCoreData()
+//		self.saveToCoreData()
 		self.tableView.reloadData()
 	}
 	//新增時被呼叫的方法

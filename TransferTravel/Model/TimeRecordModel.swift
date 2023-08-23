@@ -13,7 +13,8 @@ class TimeRecordItem: NSManagedObject{
 	@NSManaged var endName: String
 	@NSManaged var timerecordID: String
 	@NSManaged var seq: Double
-	@NSManaged var spendTime: String
+//	@NSManaged var spendTime: String
+	@NSManaged var spendTime: Int64
 	@NSManaged var type: FromType
 	@NSManaged var routeID: Int64
 	

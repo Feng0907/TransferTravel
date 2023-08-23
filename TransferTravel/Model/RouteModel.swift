@@ -15,4 +15,3 @@ class RouteItem: NSManagedObject{
 	@NSManaged var routeID: Int64
 
 }
-

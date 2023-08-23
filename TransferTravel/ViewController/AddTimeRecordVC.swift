@@ -29,16 +29,17 @@ class AddTimeRecordVC: UIViewController {
 	
 	var timer = Timer()
 	var startStatus : Bool = true
-	var millsecond = 0
-	var millsec = 0
-	var sec = 0
-	var min = 0
-	var hour = 0
+	var millsecond: Int64 = 0
+	var millsec: Int64 = 0
+	var sec: Int64 = 0
+	var min: Int64 = 0
+	var hour: Int64 = 0
 	
 	var routeID: Int64?
 	var recordInfo: TimeRecordItem?
 	var transType: TimeRecordItem.FromType? = nil
 	weak var delegate: AddTimeRecordVCDelegate?
+	var  averageData = [HistoryItem]()
 	
 	var btnSelected = [false, false, false, false]
 	
@@ -48,6 +49,7 @@ class AddTimeRecordVC: UIViewController {
 	
     override func viewDidLoad() {
         super.viewDidLoad()
+		print(self.recordInfo?.spendTime)
         // Do any additional setup after loading the view.
 		setBtn(btn: btnWalk)
 		setBtn(btn: btnBicycle)
@@ -63,12 +65,17 @@ class AddTimeRecordVC: UIViewController {
 		if self.recordInfo == nil{
 			self.navigationItem.leftBarButtonItem = UIBarButtonItem(systemItem: .cancel, primaryAction: UIAction(handler: { action in
 //				self.dismiss(animated: true)
+				self.delegate?.reloadTable()
 				self.navigationController?.popViewController(animated: true)
 			}))
 			self.averageTimeLabel.isHidden = true
 			self.historyBtn.isHidden = true
-//			self.navigationItem.leftBarButtonItem?.tintColor = UIColor(named: "MainBlue")
-//			self.navigationItem.rightBarButtonItem?.tintColor = UIColor(named: "MainBlue")
+		} else {
+			guard let time = queryFromHistoryAverage() else {
+				print("平均顯示錯誤")
+				return
+			}
+			self.averageTimeLabel.text = "平均: \(timeConversion(millsecond: time))"
 		}
     }
 	deinit {
@@ -92,7 +99,6 @@ class AddTimeRecordVC: UIViewController {
 		if let startTime = startTime {
 			elapsedTime = 0
 			elapsedTime += Date().timeIntervalSince(startTime)
-			print(elapsedTime)
 			self.startTime = nil
 			self.middleTime = nil
 		}
@@ -101,7 +107,7 @@ class AddTimeRecordVC: UIViewController {
 
 	func updateTimerDisplay() {
 		// 更新計時器顯示，例如格式化時間
-		millsecond += Int(elapsedTime) * 100
+		millsecond += Int64(elapsedTime * 100)
 		elapsedTime = 0
 	}
 	
@@ -126,7 +132,7 @@ class AddTimeRecordVC: UIViewController {
 	}
 	
 	//把毫秒換回時間
-	func timeConversion(millsecond: Int) -> String{
+	func timeConversion(millsecond: Int64) -> String{
 		millsec = millsecond % 100
 		sec = (millsecond / 100) % 60
 		min = millsecond / 6000 % 60
@@ -269,23 +275,19 @@ class AddTimeRecordVC: UIViewController {
 			print("endText資料不全！")
 			return
 		}
-		guard let timeText = self.timingLabel.text else {
-			showAlert(message: "時間格式錯誤")
-			print("timeText資料不全！")
-			return
-		}
 		let info = self.recordInfo ?? TimeRecordItem(context: moc)
 		info.routeID = routeID
 		info.startName = startText
 		info.endName = endText
-		info.spendTime = timeText
+		info.spendTime = queryFromHistoryAverage() ?? Int64(millsecond)
 		info.type = TimeRecordItem.FromType(rawValue: typeNum) ?? .walk
 		let saveData = HistoryItem(context: moc)
 		saveData.routeID = routeID
 		saveData.timerecordID = info.timerecordID
-		saveData.spendTime = timeText
+		saveData.spendTime = Int64(millsecond)
 		saveData.recordTime = now
 		CoreDataHelper.shared.saveContext()
+		
 		self.startStatus = true
 		self.timer.invalidate()
 		if self.recordInfo != nil{
@@ -312,12 +314,14 @@ class AddTimeRecordVC: UIViewController {
 		alert.addAction(cancel)
 		present(alert, animated: true)
 	}
+	
 	@objc
 	func alertBack(){
 		let alert = UIAlertController(title: "確定要取消嗎？", message: "還有未儲存的計時，確定要放棄這次計時嗎？", preferredStyle: .alert)
 		let yes = UIAlertAction(title: "yes", style:.default) {_ in
 			self.startStatus = true
 			self.timer.invalidate()
+			self.delegate?.reloadTable()
 			self.navigationController?.popViewController(animated: true)
 		}
 		let cancel = UIAlertAction(title: "Cancel", style: .cancel)
@@ -326,6 +330,33 @@ class AddTimeRecordVC: UIViewController {
 		present(alert, animated: true)
 	}
 	
+	private func queryFromHistoryAverage() -> Int64? {
+		guard let timeID = self.recordInfo?.timerecordID else {
+			print("New Route no ID")
+			return nil
+		}
+		let moc = CoreDataHelper.shared.managedObjectContext()
+		let request = NSFetchRequest<HistoryItem>(entityName: "HistoryItem")//資料庫裡的table名稱
+		let predicate = NSPredicate(format: " timerecordID = %@ ", timeID )
+		let sort = NSSortDescriptor(key: "recordTime", ascending: true)
+		request.predicate = predicate
+		request.sortDescriptors = [sort]
+		do{
+			let result = try moc.fetch(request)
+			self.averageData = result
+		}catch{
+			self.averageData = []
+			print("query cora data error \(error)")
+		}
+		let data = self.averageData
+		var dataSum: Int64 = 0
+		for datum in data {
+			dataSum += datum.spendTime
+		}
+		let averageTime: Int64 = dataSum / Int64(data.count)
+		return averageTime
+		
+	}
 	
     // MARK: - Navigation
 
@@ -335,14 +366,32 @@ class AddTimeRecordVC: UIViewController {
 			let HistoryVC = segue.destination as? HistoryTableVC,
 			let info = self.recordInfo{
 			 HistoryVC.recordInfo = info
-			 print(info.routeID)
-			 print(info.timerecordID)
+			 HistoryVC.delegate = self
 		 }
 	 }
 
 }
 
+extension AddTimeRecordVC: HistoryTableVCDelegate {
+	func reAverageTime() {
+		guard let time = queryFromHistoryAverage() else {
+			print("平均顯示錯誤")
+			return
+		}
+		self.averageTimeLabel.text = "平均: \(timeConversion(millsecond: time))"
+		print(time)
+		let moc = CoreDataHelper.shared.managedObjectContext()
+		let info = TimeRecordItem(context: moc)
+		info.spendTime = time
+		CoreDataHelper.shared.saveContext()
+		self.delegate?.reloadTable()
+	}
+	
+	
+}
+
 protocol AddTimeRecordVCDelegate : AnyObject{
 	func didFinishUpdate(item : TimeRecordItem)
 	func didFinishCreate(item : TimeRecordItem)
+	func reloadTable()
 }

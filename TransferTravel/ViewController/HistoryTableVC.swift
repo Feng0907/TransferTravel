@@ -12,16 +12,13 @@ class HistoryTableVC: UITableViewController {
 	
 	var recordInfo = TimeRecordItem()
 	var historyList = [HistoryItem]()
+	weak var delegate: HistoryTableVCDelegate?
 	
 	let formatter = DateFormatter()
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-		self.queryFromCoreData()//讀出資料庫資料
-		print(recordInfo.routeID)
-		print(recordInfo.timerecordID)
-		
-		print(historyList)
+		queryFromCoreData()//讀出資料庫資料
 		navigationItem.title = "\(recordInfo.startName) - \(recordInfo.endName)"
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -29,6 +26,10 @@ class HistoryTableVC: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
          self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+	
+	override func viewWillDisappear(_ animated: Bool) {
+		self.delegate?.reAverageTime()
+	}
 
     // MARK: - Table view data source
 
@@ -46,11 +47,29 @@ class HistoryTableVC: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "historyCell", for: indexPath)
 		let item = historyList[indexPath.row]
 		formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-		cell.textLabel?.text = item.spendTime
+		cell.textLabel?.text = timeConversion(millsecond: item.spendTime)
 		cell.detailTextLabel?.text = formatter.string(from: item.recordTime)
 //		String(format: "Last seen: %.1f seconds ago.", Date().timeIntervalSince(item.lastSeen))
         return cell
     }
+	
+	//把毫秒換回時間
+	func timeConversion(millsecond: Int64) -> String{
+		var millsec: Int64 = 0
+		var sec: Int64 = 0
+		var min: Int64 = 0
+		var hour: Int64 = 0
+		millsec = millsecond % 100
+		sec = (millsecond / 100) % 60
+		min = millsecond / 6000 % 60
+		hour = millsecond / 360000  //累加
+		let showmillsec = millsec > 9 ? "\(millsec)" : "0\(millsec)"
+		let showsec = sec > 9 ? "\(sec)" : "0\(sec)"
+		let showmin = min > 9 ? "\(min)" : "0\(min)"
+		let showhour = hour > 9 ? "\(hour)" : "0\(hour)"
+		let time = "\(showhour):\(showmin):\(showsec):\(showmillsec)"
+		return time
+	}
 	
 	private func queryFromCoreData(){
 		let moc = CoreDataHelper.shared.managedObjectContext()
@@ -86,8 +105,8 @@ class HistoryTableVC: UITableViewController {
 				moc.delete(deletedData)
 			}
 			CoreDataHelper.shared.saveContext()
+			self.delegate?.reAverageTime()
             tableView.deleteRows(at: [indexPath], with: .fade)
-			
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
@@ -119,4 +138,8 @@ class HistoryTableVC: UITableViewController {
     }
     */
 
+}
+
+protocol HistoryTableVCDelegate : AnyObject {
+	func reAverageTime()
 }

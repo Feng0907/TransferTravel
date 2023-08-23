@@ -153,10 +153,8 @@ class RouteListTableVC: UITableViewController, RouteTableVCDelegate {
     }
     */
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//		print("選取\(indexPath.row)")
 		tableView.deselectRow(at: indexPath, animated: true)//取消選取
 		SendRouteHelper.shared.keepSendRouteID = RouteList[indexPath.row].routeID
-//		print(SendRouteHelper.shared.keepSendRouteID)
 	}
 
     // MARK: - Navigation
