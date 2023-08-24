@@ -10,7 +10,7 @@ import CoreData
 
 class HistoryTableVC: UITableViewController {
 	
-	var recordInfo = TimeRecordItem()
+	var recordInfo: TimeRecordItem?
 	var historyList = [HistoryItem]()
 	weak var delegate: HistoryTableVCDelegate?
 	
@@ -19,6 +19,10 @@ class HistoryTableVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 		queryFromCoreData()//讀出資料庫資料
+		guard let recordInfo = recordInfo else {
+			print("Query History Error.")
+			return
+		}
 		navigationItem.title = "\(recordInfo.startName) - \(recordInfo.endName)"
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -28,7 +32,9 @@ class HistoryTableVC: UITableViewController {
     }
 	
 	override func viewWillDisappear(_ animated: Bool) {
+		self.reAverageTimes()
 		self.delegate?.reAverageTime()
+		
 	}
 
     // MARK: - Table view data source
@@ -74,8 +80,11 @@ class HistoryTableVC: UITableViewController {
 	private func queryFromCoreData(){
 		let moc = CoreDataHelper.shared.managedObjectContext()
 		let request = NSFetchRequest<HistoryItem>(entityName: "HistoryItem")//資料庫裡的table名稱
-		print(recordInfo.timerecordID)
-		let predicate = NSPredicate(format: " timerecordID = %@ ", recordInfo.timerecordID )
+		guard let timeID = recordInfo?.timerecordID else {
+			print("error timerecordID.")
+			return
+		}
+		let predicate = NSPredicate(format: " timerecordID = %@ ", timeID )
 		let sort = NSSortDescriptor(key: "recordTime", ascending: true)
 		request.predicate = predicate
 		request.sortDescriptors = [sort]
@@ -105,12 +114,39 @@ class HistoryTableVC: UITableViewController {
 				moc.delete(deletedData)
 			}
 			CoreDataHelper.shared.saveContext()
-			self.delegate?.reAverageTime()
+			self.reAverageTimes()
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
+	
+	private func HistoryAverage() -> Int64? {
+		let data = self.historyList
+		var dataSum: Int64 = 0
+		for datum in data {
+			dataSum += datum.spendTime
+		}
+		let averageTime: Int64 = dataSum / Int64(data.count)
+		return averageTime
+		
+	}
+	
+	func reAverageTimes() {
+		guard let time = HistoryAverage() else {
+			print("平均顯示錯誤")
+			return
+		}
+		let moc = CoreDataHelper.shared.managedObjectContext()
+		let info = TimeRecordItem(context: moc)
+		info.spendTime = time
+		CoreDataHelper.shared.saveContext()
+//		info.spendTime = queryFromHistoryAverage() ?? Int64(millsecond)
+//		let info = TimeRecordItem(context: moc)
+//		info.spendTime = time
+//		CoreDataHelper.shared.saveContext()
+//		self.delegate?.didFinishUpdate(item: info)
+	}
 
 
     /*

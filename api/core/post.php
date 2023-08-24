@@ -3,7 +3,7 @@
 class Post{
     //db stuff.
     private $coon;
-    private $table = "USER_EXAMPLE";
+    private $table = "RouteItem";
 
     //post properties.
     public $id;
@@ -26,6 +26,8 @@ class Post{
         $arr = $stmt -> fetchAll(PDO::FETCH_ASSOC);
         return $arr;
     }
+
+    
 
 
 }

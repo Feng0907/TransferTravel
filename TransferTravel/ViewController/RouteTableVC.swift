@@ -23,10 +23,6 @@ class RouteTableVC: UITableViewController, UINavigationControllerDelegate, AddTi
 	var routeItem: RouteItem?
 	var selfitems = [TimeRecordItem]()
 	var delegate: RouteTableVCDelegate?
-	
-	required init?(coder: NSCoder) {
-		super .init(coder: coder)
-	}
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -90,15 +86,17 @@ class RouteTableVC: UITableViewController, UINavigationControllerDelegate, AddTi
 		sec = (millsecond / 100) % 60
 		min = millsecond / 6000 % 60
 		hour = millsecond / 360000  //累加
-//		let showmillsec = millsec > 9 ? "\(millsec)" : "0\(millsec)"
-//		let showsec = sec > 9 ? "\(sec)" : "0\(sec)"
+		let showmillsec = millsec > 9 ? "\(millsec)" : "0\(millsec)"
+		let showsec = sec > 9 ? "\(sec)" : "0\(sec)"
 		let showmin = min > 9 ? "\(min)" : "\(min)"
 		let showhour = hour > 9 ? "\(hour)" : "\(hour)"
 		if millsecond < 6000 {
-			let time = "1 min"
+//			let time = "1 min"
+			let time = "AA\(showmin):\(showsec):"
 			return time
 		} else if millsecond < 360000 {
-			let time = "\(showmin) min"
+//			let time = "\(showmin) min"
+			let time = "BB\(showmin):\(showsec):"
 			return time
 		} else {
 			let time = "\(showhour):\(showmin)"
@@ -131,7 +129,6 @@ class RouteTableVC: UITableViewController, UINavigationControllerDelegate, AddTi
 		selfcell.timeLabel.layer.cornerRadius = 10
 		selfcell.timeLabel.clipsToBounds = true
 		let time = item.spendTime
-		print(time)
 		selfcell.timeLabel.text = timeConversion(millsecond: time)
 //		selfcell.timeShow.titleLabel?.text = timeToMin(item.spendTime)
 //		cell.MyLabel.text = note.text

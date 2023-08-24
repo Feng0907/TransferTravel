@@ -75,6 +75,7 @@ class AddTimeRecordVC: UIViewController {
 				print("平均顯示錯誤")
 				return
 			}
+			print("平均顯示: \(time)")
 			self.averageTimeLabel.text = "平均: \(timeConversion(millsecond: time))"
 		}
     }
@@ -287,7 +288,7 @@ class AddTimeRecordVC: UIViewController {
 		saveData.spendTime = Int64(millsecond)
 		saveData.recordTime = now
 		CoreDataHelper.shared.saveContext()
-		
+		info.spendTime = queryFromHistoryAverage() ?? Int64(millsecond)
 		self.startStatus = true
 		self.timer.invalidate()
 		if self.recordInfo != nil{
@@ -379,12 +380,15 @@ extension AddTimeRecordVC: HistoryTableVCDelegate {
 			return
 		}
 		self.averageTimeLabel.text = "平均: \(timeConversion(millsecond: time))"
-		print(time)
 		let moc = CoreDataHelper.shared.managedObjectContext()
 		let info = TimeRecordItem(context: moc)
 		info.spendTime = time
-		CoreDataHelper.shared.saveContext()
-		self.delegate?.reloadTable()
+//		CoreDataHelper.shared.saveContext()
+//		info.spendTime = queryFromHistoryAverage() ?? Int64(millsecond)
+//		let info = TimeRecordItem(context: moc)
+//		info.spendTime = time
+//		CoreDataHelper.shared.saveContext()
+		self.delegate?.didFinishUpdate(item: info)
 	}
 	
 	
