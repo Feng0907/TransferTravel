@@ -94,8 +94,8 @@
             filePath = "TransferTravel/ViewController/RouteTableVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
+            startingLineNumber = "106"
+            endingLineNumber = "106"
             landmarkName = "RouteTableVC"
             landmarkType = "3">
             <Locations>
@@ -136,7 +136,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "5C000B0E-74C8-4B3F-AA69-AF7481B2F209"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TransferTravel/UIImage+radius.swift"
@@ -152,7 +152,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "57DC84DB-FCF6-41A0-BE4C-0EA677576FAA"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TransferTravel/ViewController/HistoryTableVC.swift"
@@ -200,19 +200,19 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "6771882E-E13A-45F1-9D27-F91F4B4E1ACD"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TransferTravel/ViewController/RouteTableVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "221"
-            endingLineNumber = "221"
+            startingLineNumber = "219"
+            endingLineNumber = "219"
             landmarkName = "tableView(_:commit:forRowAt:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "6771882E-E13A-45F1-9D27-F91F4B4E1ACD - 96dd20c777ea36a3"
+                  uuid = "6771882E-E13A-45F1-9D27-F91F4B4E1ACD - 96dd20c777ea36fd"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -222,12 +222,12 @@
                   urlString = "file:///Users/feng/Desktop/MAPD39-02%E5%B0%88%E9%A1%8C/TransferTravel/TransferTravel/ViewController/RouteTableVC.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "222"
-                  endingLineNumber = "222"
-                  offsetFromSymbolStart = "296">
+                  startingLineNumber = "224"
+                  endingLineNumber = "224"
+                  offsetFromSymbolStart = "216">
                </Location>
                <Location
-                  uuid = "6771882E-E13A-45F1-9D27-F91F4B4E1ACD - 96dd20c777ea36a3"
+                  uuid = "6771882E-E13A-45F1-9D27-F91F4B4E1ACD - 96dd20c777ea36de"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -237,8 +237,8 @@
                   urlString = "file:///Users/feng/Desktop/MAPD39-02%E5%B0%88%E9%A1%8C/TransferTravel/TransferTravel/ViewController/RouteTableVC.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "222"
-                  endingLineNumber = "222"
+                  startingLineNumber = "225"
+                  endingLineNumber = "225"
                   offsetFromSymbolStart = "216">
                </Location>
             </Locations>
@@ -247,71 +247,8 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "57A1E69A-8C5D-4B2B-B39E-FBAD6AE6FE55"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TransferTravel/ViewController/RouteTableVC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "189"
-            endingLineNumber = "189"
-            landmarkName = "didFinishUpdate(item:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "57A1E69A-8C5D-4B2B-B39E-FBAD6AE6FE55 - ab6d609197cdf89c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TransferTravel.RouteTableVC.saveToCoreData() -&gt; ()"
-                  moduleName = "TransferTravel"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/feng/Desktop/MAPD39-02%E5%B0%88%E9%A1%8C/TransferTravel/TransferTravel/ViewController/RouteTableVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "189"
-                  endingLineNumber = "189"
-                  offsetFromSymbolStart = "84">
-               </Location>
-               <Location
-                  uuid = "57A1E69A-8C5D-4B2B-B39E-FBAD6AE6FE55 - c5696d65381db94f"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TransferTravel.RouteTableVC.didFinishUpdate(item: TransferTravel.TimeRecordItem) -&gt; ()"
-                  moduleName = "TransferTravel"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/feng/Desktop/MAPD39-02%E5%B0%88%E9%A1%8C/TransferTravel/TransferTravel/ViewController/RouteTableVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "191"
-                  endingLineNumber = "191"
-                  offsetFromSymbolStart = "84">
-               </Location>
-               <Location
-                  uuid = "57A1E69A-8C5D-4B2B-B39E-FBAD6AE6FE55 - c5696d65381db94f"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TransferTravel.RouteTableVC.didFinishUpdate(item: TransferTravel.TimeRecordItem) -&gt; ()"
-                  moduleName = "TransferTravel"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/feng/Desktop/MAPD39-02%E5%B0%88%E9%A1%8C/TransferTravel/TransferTravel/ViewController/RouteTableVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "191"
-                  endingLineNumber = "191"
-                  offsetFromSymbolStart = "64">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "EB65EC43-6849-4AC2-B74B-530D445D10F1"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TransferTravel/ViewController/AddTimeRecordVC.swift"
@@ -335,10 +272,10 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "378"
                   endingLineNumber = "378"
-                  offsetFromSymbolStart = "116">
+                  offsetFromSymbolStart = "101">
                </Location>
                <Location
-                  uuid = "EB65EC43-6849-4AC2-B74B-530D445D10F1 - 4a685a714f20c497"
+                  uuid = "EB65EC43-6849-4AC2-B74B-530D445D10F1 - 4a685a714f20c4b8"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -348,8 +285,8 @@
                   urlString = "file:///Users/feng/Desktop/MAPD39-02%E5%B0%88%E9%A1%8C/TransferTravel/TransferTravel/ViewController/AddTimeRecordVC.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "378"
-                  endingLineNumber = "378"
+                  startingLineNumber = "379"
+                  endingLineNumber = "379"
                   offsetFromSymbolStart = "101">
                </Location>
             </Locations>
@@ -359,7 +296,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "475B9DE4-8859-4F21-A6F7-5CA7F66DB7E4"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TransferTravel/ViewController/AddTimeRecordVC.swift"
@@ -371,7 +308,7 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "475B9DE4-8859-4F21-A6F7-5CA7F66DB7E4 - 3d159fb059216f60"
+                  uuid = "475B9DE4-8859-4F21-A6F7-5CA7F66DB7E4 - 3d159fb059216f41"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -381,12 +318,12 @@
                   urlString = "file:///Users/feng/Desktop/MAPD39-02%E5%B0%88%E9%A1%8C/TransferTravel/TransferTravel/ViewController/AddTimeRecordVC.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "279"
-                  endingLineNumber = "279"
-                  offsetFromSymbolStart = "2528">
+                  startingLineNumber = "280"
+                  endingLineNumber = "280"
+                  offsetFromSymbolStart = "2897">
                </Location>
                <Location
-                  uuid = "475B9DE4-8859-4F21-A6F7-5CA7F66DB7E4 - 3d159fb059216f60"
+                  uuid = "475B9DE4-8859-4F21-A6F7-5CA7F66DB7E4 - 3d159fb059216f41"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -396,8 +333,8 @@
                   urlString = "file:///Users/feng/Desktop/MAPD39-02%E5%B0%88%E9%A1%8C/TransferTravel/TransferTravel/ViewController/AddTimeRecordVC.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "279"
-                  endingLineNumber = "279"
+                  startingLineNumber = "280"
+                  endingLineNumber = "280"
                   offsetFromSymbolStart = "2703">
                </Location>
             </Locations>
@@ -406,56 +343,8 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "9BFF27EF-C079-4FD5-AF0C-362520604ADA"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TransferTravel/ViewController/AddTimeRecordVC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "388"
-            endingLineNumber = "388"
-            landmarkName = "reAverageTime()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "9BFF27EF-C079-4FD5-AF0C-362520604ADA - 4a685a714f20c544"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TransferTravel.AddTimeRecordVC.reAverageTime() -&gt; ()"
-                  moduleName = "TransferTravel"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/feng/Desktop/MAPD39-02%E5%B0%88%E9%A1%8C/TransferTravel/TransferTravel/ViewController/AddTimeRecordVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "391"
-                  endingLineNumber = "391"
-                  offsetFromSymbolStart = "788">
-               </Location>
-               <Location
-                  uuid = "9BFF27EF-C079-4FD5-AF0C-362520604ADA - 4a685a714f20c544"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TransferTravel.AddTimeRecordVC.reAverageTime() -&gt; ()"
-                  moduleName = "TransferTravel"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/feng/Desktop/MAPD39-02%E5%B0%88%E9%A1%8C/TransferTravel/TransferTravel/ViewController/AddTimeRecordVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "391"
-                  endingLineNumber = "391"
-                  offsetFromSymbolStart = "791">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "9C551BAB-7DD2-4267-A2C1-630676AEB8F6"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TransferTravel/ViewController/HistoryTableVC.swift"
@@ -548,7 +437,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "3523D897-3B66-4EC0-B5F9-B502DDB17696"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TransferTravel/ViewController/HistoryTableVC.swift"
@@ -588,6 +477,54 @@
                   startingLineNumber = "110"
                   endingLineNumber = "110"
                   offsetFromSymbolStart = "184">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "938B6B80-A8FD-40DB-B6F6-33C54FAE0693"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TransferTravel/ViewController/AddTimeRecordVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "387"
+            endingLineNumber = "387"
+            landmarkName = "reAverageTime()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "938B6B80-A8FD-40DB-B6F6-33C54FAE0693 - 4a685a714f20c565"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TransferTravel.AddTimeRecordVC.reAverageTime() -&gt; ()"
+                  moduleName = "TransferTravel"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/feng/Desktop/MAPD39-02%E5%B0%88%E9%A1%8C/TransferTravel/TransferTravel/ViewController/AddTimeRecordVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "392"
+                  endingLineNumber = "392"
+                  offsetFromSymbolStart = "924">
+               </Location>
+               <Location
+                  uuid = "938B6B80-A8FD-40DB-B6F6-33C54FAE0693 - 4a685a714f20c565"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TransferTravel.AddTimeRecordVC.reAverageTime() -&gt; ()"
+                  moduleName = "TransferTravel"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/feng/Desktop/MAPD39-02%E5%B0%88%E9%A1%8C/TransferTravel/TransferTravel/ViewController/AddTimeRecordVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "392"
+                  endingLineNumber = "392"
+                  offsetFromSymbolStart = "791">
                </Location>
             </Locations>
          </BreakpointContent>

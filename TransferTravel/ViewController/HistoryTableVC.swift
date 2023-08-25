@@ -137,15 +137,10 @@ class HistoryTableVC: UITableViewController {
 			print("平均顯示錯誤")
 			return
 		}
-		let moc = CoreDataHelper.shared.managedObjectContext()
-		let info = TimeRecordItem(context: moc)
-		info.spendTime = time
-		CoreDataHelper.shared.saveContext()
-//		info.spendTime = queryFromHistoryAverage() ?? Int64(millsecond)
-//		let info = TimeRecordItem(context: moc)
-//		info.spendTime = time
-//		CoreDataHelper.shared.saveContext()
-//		self.delegate?.didFinishUpdate(item: info)
+		let info = self.recordInfo
+		info?.spendTime = time
+		self.delegate?.reAverageTime()
+
 	}
 
 

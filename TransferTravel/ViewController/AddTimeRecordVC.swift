@@ -49,7 +49,6 @@ class AddTimeRecordVC: UIViewController {
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-		print(self.recordInfo?.spendTime)
         // Do any additional setup after loading the view.
 		setBtn(btn: btnWalk)
 		setBtn(btn: btnBicycle)
@@ -82,12 +81,13 @@ class AddTimeRecordVC: UIViewController {
 	deinit {
 		NotificationCenter.default.removeObserver(self)
 	}
-//	override func viewWillDisappear(_ animated: Bool) {
+	override func viewWillDisappear(_ animated: Bool) {
+		self.delegate?.reloadTable()
 //		if startStatus == false {
 //			timer.invalidate()
 //			startStatus = true
 //		}
-//	}
+	}
 	
 	@objc
 	func appDidEnterBackground() {
@@ -381,13 +381,9 @@ extension AddTimeRecordVC: HistoryTableVCDelegate {
 		}
 		self.averageTimeLabel.text = "平均: \(timeConversion(millsecond: time))"
 		let moc = CoreDataHelper.shared.managedObjectContext()
-		let info = TimeRecordItem(context: moc)
+		let routeID = SendRouteHelper.shared.keepSendRouteID
+		let info = self.recordInfo ?? TimeRecordItem(context: moc)
 		info.spendTime = time
-//		CoreDataHelper.shared.saveContext()
-//		info.spendTime = queryFromHistoryAverage() ?? Int64(millsecond)
-//		let info = TimeRecordItem(context: moc)
-//		info.spendTime = time
-//		CoreDataHelper.shared.saveContext()
 		self.delegate?.didFinishUpdate(item: info)
 	}
 	
