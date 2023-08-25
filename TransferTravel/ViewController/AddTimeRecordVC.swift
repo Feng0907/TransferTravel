@@ -74,7 +74,6 @@ class AddTimeRecordVC: UIViewController {
 				print("平均顯示錯誤")
 				return
 			}
-			print("平均顯示: \(time)")
 			self.averageTimeLabel.text = "平均: \(timeConversion(millsecond: time))"
 		}
     }
@@ -293,11 +292,9 @@ class AddTimeRecordVC: UIViewController {
 		self.timer.invalidate()
 		if self.recordInfo != nil{
 			self.delegate?.didFinishUpdate(item: info)//編輯
-			print("SAVE didFinishUpdate")
 			self.navigationController?.popViewController(animated: true)
 		}else{
 			self.delegate?.didFinishCreate(item: info)
-			print("SAVE didFinishCreate")
 //			self.dismiss(animated: true)
 			self.navigationController?.popViewController(animated: true)
 		}
@@ -381,7 +378,7 @@ extension AddTimeRecordVC: HistoryTableVCDelegate {
 		}
 		self.averageTimeLabel.text = "平均: \(timeConversion(millsecond: time))"
 		let moc = CoreDataHelper.shared.managedObjectContext()
-		let routeID = SendRouteHelper.shared.keepSendRouteID
+//		let routeID = SendRouteHelper.shared.keepSendRouteID
 		let info = self.recordInfo ?? TimeRecordItem(context: moc)
 		info.spendTime = time
 		self.delegate?.didFinishUpdate(item: info)
