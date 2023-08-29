@@ -6,12 +6,15 @@
 //
 
 import UIKit
+import WeatherKit
+import CoreLocation
 
 class IndexVC: UIViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view.
+//		print(BusCommunicator.shared.completionHandler)
 	}
 	
 

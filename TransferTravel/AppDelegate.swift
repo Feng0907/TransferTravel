@@ -8,6 +8,9 @@
 import UIKit
 import IQKeyboardManagerSwift
 
+let clientId = "workfeng0907-e1410d16-7f2b-4ac3"
+let clientSecret = "d5ea944c-3075-44dd-bc08-4e55d17ded3b"
+
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 	
@@ -15,7 +18,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		// Override point for customization after application launch.
 		IQKeyboardManager.shared.enable = true
 		print("home = \(NSHomeDirectory())")
-		
+//		getToken(id: clientId, key: clientSecret)
+		BusCommunicator.shared.getToken(id: clientId, key: clientSecret) { result in
+			switch result {
+			case .success(let data):
+				if let content = String(data: data, encoding: String.Encoding.utf8){
+					BusCommunicator.shared.setToken(content)
+				}
+			case .failure(let error):
+				print("Get Token failed: \(error)")
+			}
+		}
 		return true
 	}
 
@@ -32,7 +45,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		// If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
 		// Use this method to release any resources that were specific to the discarded scenes, as they will not return.
 	}
-
-
+	
 }
 
