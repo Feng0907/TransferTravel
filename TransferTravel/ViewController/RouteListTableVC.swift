@@ -19,6 +19,13 @@ class RouteListTableVC: UITableViewController, RouteTableVCDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 		self.tableView.reloadData()
+		BusCommunicator.shared.getTest { result, error in
+			guard let messages = result?.tokenJSON, messages.count > 0 else {
+				print("No new message.")
+				return
+			}
+			print(messages)
+		}
 //		self.queryFromCoreData()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false

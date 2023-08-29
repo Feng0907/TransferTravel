@@ -10,7 +10,7 @@ import Alamofire
 
 typealias DoneHandler = (_ result: SeverResult?, _ error: Error?) ->Void
 typealias TokenHandler = (Result<Data, Error>) ->Void
-//typealias completionHandler = (_ data: Data?, _ response: URLResponse?, _ error: Error?) ->Void
+typealias completionHandler = (_ data: Data?, _ response: URLResponse?, _ error: Error?) ->Void
 
 
 class BusCommunicator {
@@ -21,7 +21,7 @@ class BusCommunicator {
 	let tokenURL = baseURL + "auth/realms/TDXConnect/protocol/openid-connect/token"
 	//測試用高鐵班次
 	let THSRURL = baseURL + "api/basic/v2/Rail/THSR/DailyTimetable/Today?$format=JSON"
-
+	
 	let grantTypeKey = "grant_type"
 	let clientIDKey = "client_id"
 	let clientSecretKey = "client_secret"
@@ -29,6 +29,7 @@ class BusCommunicator {
 	
 	let dataKey = "data"
 	var token: String = ""
+	let accessTokenKey = "accessToken"
 	
 	func setToken(_ content: String) {
 		let jsonDecoder = JSONDecoder()
@@ -38,19 +39,14 @@ class BusCommunicator {
 		}
 		do{
 			let json = try jsonDecoder.decode(TokenResult.self, from: jsonCont)
-			self.token = json.token
+			token = json.token
 		} catch {
 			assertionFailure("Fail to : \(error)")
 			return
 		}
-		print("token: \(self.token)")
 	}
-	
-	func getToken() -> String? {
-		return token
-	}
-	
-	func getToken(id clientId: String, key clientSecret: String, completion: @escaping TokenHandler) {
+
+	func getToken(id clientId: String, key clientSecret: String) {
 		var request = URLRequest(url: URL(string: tokenURL)!)
 		request.httpMethod = "post"
 		request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "content-type")
@@ -58,116 +54,103 @@ class BusCommunicator {
 		request.httpBody = data
 		let config = URLSessionConfiguration.default
 		let session = URLSession(configuration: config)
-		let task = session.dataTask(with: request) { data, response, error in
-			
+		let task = session.dataTask(with: request){ data, response, error in
 			if let error = error{
-				completion(.failure(error))
-				print("Get Token fail: \(error)")
-				return
+					print("Get Token fail: \(error)")
+					return
 			}
 			guard let data = data,
-				  let response = response as? HTTPURLResponse else {
+			  let response = response as? HTTPURLResponse else {
 				assertionFailure("Invalid data or response.")
-				completion(.failure(NSError(domain: "Token Retrieval", code: -1, userInfo: nil)))
-//				completion(nil, error)
-				return
+			return
 			}
 			if response.statusCode == 200{
-				completion(.success(data))
-//				if let content = String(data: data, encoding: .utf8) {
-//					completion(.success(content))
-//				}
-//				if let content = String(data: data, encoding: String.Encoding.utf8){
-//
-////					completion(data, nil)
-//				} else {
-////					completion(nil, error)
-//					completion(.failure(NSError(domain: "Token Retrieval", code: -1, userInfo: nil)))
-//
-//				}
+				if let content = String(data: data, encoding: .utf8) {
+//					print("content:\(content)")
+					DispatchQueue.main.async {
+						print("Async operation completed")
+						self.setToken(content)
+					}
+				}
 			}
 		}
 		task.resume()
 		session.finishTasksAndInvalidate()
 	}
+
+	func getTest(completion: @escaping DoneHandler){
+		let headers: HTTPHeaders = [
+			"authorization": "Bearer \(self.token)"
+		]
+		let parameters: [String : Any] = [:]
+		doGet(THSRURL, parameters: parameters, headers: headers, completion: completion)
+	}
 	
-		func getTest(completion: @escaping DoneHandler){
-			let accessTokenKey = "accessToken"
-			let parameters: [String : Any] = [accessTokenKey: token]
-			doGet(THSRURL, parameters: parameters, completion: completion)
-	
-			let headers: HTTPHeaders = [
-				"Authorization": "Basic VXNlcm5hbWU6UGFzc3dvcmQ=",
-				"Accept": "application/json"
-			]
-	
-			let url = URL(string: THSRURL)!
-			var request = URLRequest(url: url)
-	
-	//		request.setValue("Bearer \(accessToken)", forHTTPHeaderField: "authorization")
-	
-		}
-	
-	// 进行 GET 请求的方法
-		func performGETRequest(completion: @escaping (Result<Data, Error>) -> Void) {
-			
-			let headers: HTTPHeaders = [
-				"Authorization": "Bearer \(token)"
-			]
-			
-			AF.request("https://api.example.com/get_endpoint", headers: headers)
-				.responseData { response in
-					switch response.result {
-					case .success(let data):
-						completion(.success(data))
-					case .failure(let error):
-						completion(.failure(error))
-					}
-				}
-		}
-		
-		// 进行 POST 请求的方法
-		func performPOSTRequest(data: Data, completion: @escaping (Result<Data, Error>) -> Void) {
-			
-			let headers: HTTPHeaders = [
-				"Authorization": "Bearer \(token)"
-			]
-			
-			AF.upload(data, to: "https://api.example.com/post_endpoint", headers: headers)
-				.responseData { response in
-					switch response.result {
-					case .success(let data):
-						completion(.success(data))
-					case .failure(let error):
-						completion(.failure(error))
-					}
-				}
-		}
-	
+//	// 进行 GET 请求的方法
+//	func performGETRequest(completion: @escaping (Result<Data, Error>) -> Void) {
+//
+//		let headers: HTTPHeaders = [
+//			"Authorization": "Bearer \(token)"
+//		]
+//
+//		AF.request("https://api.example.com/get_endpoint", headers: headers)
+//			.responseData { response in
+//				switch response.result {
+//				case .success(let data):
+//					completion(.success(data))
+//				case .failure(let error):
+//					completion(.failure(error))
+//				}
+//			}
+//	}
+//
+//	// 进行 POST 请求的方法
+//	func performPOSTRequest(data: Data, completion: @escaping (Result<Data, Error>) -> Void) {
+//
+//		let headers: HTTPHeaders = [
+//			"authorization": "Bearer \(token)"
+//		]
+////		request.setValue("Bearer \(accessToken)", forHTTPHeaderField: "authorization")
+////
+//		AF.upload(data, to: "https://api.example.com/post_endpoint", headers: headers)
+//			.responseData { response in
+//				switch response.result {
+//				case .success(let data):
+//					completion(.success(data))
+//				case .failure(let error):
+//					completion(.failure(error))
+//				}
+//			}
+//	}
+//
 	private func doGet(_ urlString: String,
-					   //					   Header: HTTPHeaders,
-					   parameters: [String: Any],
+					   parameters: [String: Any]?,
+					   headers: HTTPHeaders?,
 					   completion: @escaping DoneHandler){
 		//如果responseDecodable報錯JSON不合法可以改成responseString先去看看他吐了什麼給我們
-		//		AF.request(urlString, method: .get, parameters: parameters, headers: Header)
-		AF.request(urlString,
-				   method: .get,
-				   parameters: parameters,
-				   encoding: URLEncoding.default).responseDecodable {
-			//在closeure裡面指定型別(response: DataResponse<SeverResult, AFError>)
-			(response: DataResponse<SeverResult, AFError>) in
-			//			response in
-			//			self.handleResponse(response: response, completion: completion)
-			switch response.result {
-			case .success(let result):
-				print("Success with: \(result)")
-				completion(result, nil) //成功就會把解出來的result傳出說
-			case .failure(let error):
-				print("Fail with: \(error)")
-				completion(nil, error) //失敗就讓他把回傳值變成nil並印出error
-			}
-			
+		AF.request(urlString, method: .get, headers: headers).responseString { response in
+			print("response: \(response.value ?? "n/a")")
+
 		}
+//		AF.request(urlString,
+//				   method: .get,
+//				   parameters: parameters,
+//				   encoding: URLEncoding.default,
+//				   headers: headers).responseDecodable {
+//			//在closeure裡面指定型別(response: DataResponse<SeverResult, AFError>)
+//			(response: DataResponse<SeverResult, AFError>) in
+//			//			response in
+//			//			self.handleResponse(response: response, completion: completion)
+//			switch response.result {
+//			case .success(let result):
+//				print("Success with: \(result)")
+//				completion(result, nil) //成功就會把解出來的result傳出說
+//			case .failure(let error):
+//				print("Fail with: \(error)")
+//				completion(nil, error) //失敗就讓他把回傳值變成nil並印出error
+//			}
+//
+//		}
 		print("End of doGet()")
 	}
 

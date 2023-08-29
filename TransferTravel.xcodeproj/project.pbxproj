@@ -36,6 +36,7 @@
 		B26D18EC2A89FF7800953A72 /* SelfRouteTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26D18EB2A89FF7800953A72 /* SelfRouteTVCell.swift */; };
 		B271F67E2A99E46F00C7C0E6 /* WeatherCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B271F67D2A99E46F00C7C0E6 /* WeatherCommunicator.swift */; };
 		B271F6802A9B122A00C7C0E6 /* BusCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B271F67F2A9B122A00C7C0E6 /* BusCommunicator.swift */; };
+		B2743F462A9E12CC003C4D49 /* BusTokenHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2743F452A9E12CC003C4D49 /* BusTokenHelper.swift */; };
 		B277CA932A8B76A800A5CD96 /* SendMessageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B277CA922A8B76A800A5CD96 /* SendMessageHelper.swift */; };
 		B277CA972A8BD94A00A5CD96 /* RouteCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B277CA962A8BD94A00A5CD96 /* RouteCommunicator.swift */; };
 		B27D932D2A866B850093F471 /* TabBarC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27D932C2A866B850093F471 /* TabBarC.swift */; };
@@ -86,6 +87,7 @@
 		B26D18EB2A89FF7800953A72 /* SelfRouteTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfRouteTVCell.swift; sourceTree = "<group>"; };
 		B271F67D2A99E46F00C7C0E6 /* WeatherCommunicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCommunicator.swift; sourceTree = "<group>"; };
 		B271F67F2A9B122A00C7C0E6 /* BusCommunicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusCommunicator.swift; sourceTree = "<group>"; };
+		B2743F452A9E12CC003C4D49 /* BusTokenHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusTokenHelper.swift; sourceTree = "<group>"; };
 		B277CA922A8B76A800A5CD96 /* SendMessageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendMessageHelper.swift; sourceTree = "<group>"; };
 		B277CA962A8BD94A00A5CD96 /* RouteCommunicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteCommunicator.swift; sourceTree = "<group>"; };
 		B27D932C2A866B850093F471 /* TabBarC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarC.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 				B277CA962A8BD94A00A5CD96 /* RouteCommunicator.swift */,
 				B271F67D2A99E46F00C7C0E6 /* WeatherCommunicator.swift */,
 				B271F67F2A9B122A00C7C0E6 /* BusCommunicator.swift */,
+				B2743F452A9E12CC003C4D49 /* BusTokenHelper.swift */,
 			);
 			path = Communicator;
 			sourceTree = "<group>";
@@ -353,6 +356,7 @@
 				B2B43FA92A86610E00DE7D8A /* LeftViewController.swift in Sources */,
 				B2439D122A7E8E6100604CB5 /* RouteListDataModel.xcdatamodeld in Sources */,
 				B24E47ED2A94660D0031BA70 /* HistoryTableVC.swift in Sources */,
+				B2743F462A9E12CC003C4D49 /* BusTokenHelper.swift in Sources */,
 				B27D932D2A866B850093F471 /* TabBarC.swift in Sources */,
 				B24E47EF2A95014A0031BA70 /* HistoryItemModel.swift in Sources */,
 				B2C3E4A62A86117700E3C8F6 /* SidebarVC.swift in Sources */,
