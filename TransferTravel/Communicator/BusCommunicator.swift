@@ -27,56 +27,77 @@ class BusCommunicator {
 	let clientSecretKey = "client_secret"
 	let grantType = "client_credentials"
 	
+	let headersKey = "Content-Type"
+	let headersValue = "application/x-www-form-urlencoded"
+	
 	let dataKey = "data"
 	var token: String = ""
 	let accessTokenKey = "accessToken"
 	
-	func setToken(_ content: String) {
-		let jsonDecoder = JSONDecoder()
-		guard let jsonCont = content.data(using: .utf8) else{
-			print("jsonCont error")
-			return
-		}
-		do{
-			let json = try jsonDecoder.decode(TokenResult.self, from: jsonCont)
-			token = json.token
-		} catch {
-			assertionFailure("Fail to : \(error)")
-			return
-		}
-	}
+//	func setToken(_ content: String) {
+//		let jsonDecoder = JSONDecoder()
+//		guard let jsonCont = content.data(using: .utf8) else{
+//			print("jsonCont error")
+//			return
+//		}
+//		do{
+//			let json = try jsonDecoder.decode(TokenResult.self, from: jsonCont)
+//			token = json.token
+//		} catch {
+//			assertionFailure("Fail to : \(error)")
+//			return
+//		}
+//	}
 
 	func getToken(id clientId: String, key clientSecret: String) {
-		var request = URLRequest(url: URL(string: tokenURL)!)
-		request.httpMethod = "post"
-		request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "content-type")
-		let data = "\(grantTypeKey)=\(grantType)&\(clientIDKey)=\(clientId)&\(clientSecretKey)=\(clientSecret)".data(using: .utf8)
-		request.httpBody = data
-		let config = URLSessionConfiguration.default
-		let session = URLSession(configuration: config)
-		let task = session.dataTask(with: request){ data, response, error in
-			if let error = error{
+		let parameters: [String: Any] = [
+			grantTypeKey: grantType,
+			clientIDKey: clientId,
+			clientSecretKey: clientSecret
+		]
+
+		AF.request(tokenURL, method: .post, parameters: parameters, encoding: URLEncoding.default, headers: [headersKey: headersValue]).validate(statusCode: [200, 201])
+			.responseDecodable { (response: DataResponse<TokenResult, AFError>) in
+				switch response.result {
+				case .success(let content):
+//					print("Async operation completed")
+					self.token = content.token
+				case .failure(let error):
 					print("Get Token fail: \(error)")
-					return
-			}
-			guard let data = data,
-			  let response = response as? HTTPURLResponse else {
-				assertionFailure("Invalid data or response.")
-			return
-			}
-			if response.statusCode == 200{
-				if let content = String(data: data, encoding: .utf8) {
-//					print("content:\(content)")
-					DispatchQueue.main.async {
-						print("Async operation completed")
-						self.setToken(content)
-					}
 				}
 			}
-		}
-		task.resume()
-		session.finishTasksAndInvalidate()
 	}
+//	func getToken(id clientId: String, key clientSecret: String) {
+//		var request = URLRequest(url: URL(string: tokenURL)!)
+//		request.httpMethod = "post"
+//		request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "content-type")
+//		let data = "\(grantTypeKey)=\(grantType)&\(clientIDKey)=\(clientId)&\(clientSecretKey)=\(clientSecret)".data(using: .utf8)
+//		request.httpBody = data
+//		let config = URLSessionConfiguration.default
+//		let session = URLSession(configuration: config)
+//		let task = session.dataTask(with: request){ data, response, error in
+//			if let error = error{
+//					print("Get Token fail: \(error)")
+//					return
+//			}
+//			guard let data = data,
+//			  let response = response as? HTTPURLResponse else {
+//				assertionFailure("Invalid data or response.")
+//			return
+//			}
+//			if response.statusCode == 200{
+//				if let content = String(data: data, encoding: .utf8) {
+////					print("content:\(content)")
+//					DispatchQueue.main.async {
+//						print("Async operation completed")
+//						self.setToken(content)
+//					}
+//				}
+//			}
+//		}
+//		task.resume()
+//		session.finishTasksAndInvalidate()
+//	}
 
 	func getTest(completion: @escaping DoneHandler){
 		let headers: HTTPHeaders = [
@@ -199,13 +220,11 @@ class BusCommunicator {
 		}
 	}
 }
-	
-
 
 struct TokenResult: Codable {
 	var token: String
 	var expires: Int
-	var refresh_expires: Int
+	var refreshExpires: Int
 	var type: String
 	var policy: Int
 	var scope: String
@@ -213,14 +232,13 @@ struct TokenResult: Codable {
 		//case Swift的變數 = "PHP名稱"
 		case token = "access_token"
 		case expires = "expires_in"
-		case refresh_expires = "refresh_expires_in"
+		case refreshExpires = "refresh_expires_in"
 		case type = "token_type"
 		case policy = "not-before-policy"
 		case scope = "scope"
 	}
 }
 
-//所有聊天記錄的資料結構物件
 struct SeverResult: Decodable {
 	var success: Bool
 	var errorCode: String?
