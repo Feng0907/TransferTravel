@@ -30,16 +30,17 @@
                     <connections>
                         <segue destination="KqY-fV-310" kind="relationship" relationship="viewControllers" id="Jfs-dd-kf8"/>
                         <segue destination="D1H-LX-Oes" kind="relationship" relationship="viewControllers" id="loq-KD-71D"/>
+                        <segue destination="e1O-Ez-fZY" kind="relationship" relationship="viewControllers" id="SAf-dA-V3b"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Cz-9h-ngw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-888" y="-775"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Route List NaviVC-->
         <scene sceneID="kFs-xm-lIk">
             <objects>
-                <navigationController storyboardIdentifier="ListNaviC" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" toolbarHidden="NO" id="D1H-LX-Oes" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="ListNaviC" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="D1H-LX-Oes" customClass="RouteListNaviVC" customModule="TransferTravel" customModuleProvider="target" sceneMemberID="viewController">
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <tabBarItem key="tabBarItem" title="" id="MXo-mn-3xQ">
                         <imageReference key="image" image="list.bullet" catalog="system" symbolScale="large"/>
@@ -81,10 +82,10 @@
                         </navigationBarAppearance>
                     </navigationBar>
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Ao2-NY-MKp">
-                        <rect key="frame" x="0.0" y="725" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </toolbar>
                     <connections>
+                        <outlet property="tabbarBtn" destination="MXo-mn-3xQ" id="bXe-Mw-TKz"/>
                         <segue destination="cLc-j3-Dl4" kind="relationship" relationship="rootViewController" id="xK8-LG-MJm"/>
                     </connections>
                 </navigationController>
@@ -101,6 +102,70 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rFG-NB-CWN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="580" y="-963"/>
+        </scene>
+        <!--Bus NaviVC-->
+        <scene sceneID="NYl-kD-dRT">
+            <objects>
+                <navigationController storyboardIdentifier="BusRouteNaviC" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="e1O-Ez-fZY" customClass="BusNaviVC" customModule="TransferTravel" customModuleProvider="target" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
+                    <tabBarItem key="tabBarItem" title="" image="bus" catalog="system" id="Ejm-V8-Mt3"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" backIndicatorImage="Rectangle 32bgc02.png" id="BlL-ic-eZg">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <navigationBarAppearance key="standardAppearance" backgroundImage="Rectangle 32bgc02.png">
+                            <textAttributes key="titleTextAttributes">
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </textAttributes>
+                            <textAttributes key="largeTitleTextAttributes">
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </textAttributes>
+                            <barButtonItemAppearance key="buttonAppearance">
+                                <barButtonItemStateAppearance key="normal"/>
+                                <barButtonItemStateAppearance key="highlighted"/>
+                                <barButtonItemStateAppearance key="disabled"/>
+                                <barButtonItemStateAppearance key="focused"/>
+                            </barButtonItemAppearance>
+                        </navigationBarAppearance>
+                        <navigationBarAppearance key="scrollEdgeAppearance" backgroundImage="Rectangle 32bgc02.png">
+                            <textAttributes key="titleTextAttributes">
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </textAttributes>
+                            <barButtonItemAppearance key="buttonAppearance">
+                                <barButtonItemStateAppearance key="normal"/>
+                                <barButtonItemStateAppearance key="highlighted"/>
+                                <barButtonItemStateAppearance key="disabled"/>
+                                <barButtonItemStateAppearance key="focused"/>
+                            </barButtonItemAppearance>
+                        </navigationBarAppearance>
+                    </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="O6g-ML-054">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <outlet property="tabBarBtn" destination="Ejm-V8-Mt3" id="8wt-TZ-ybH"/>
+                        <segue destination="av0-ov-fgI" kind="relationship" relationship="rootViewController" id="fOk-Nw-34P"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4oF-62-Znw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-66" y="-272"/>
+        </scene>
+        <!--BusSreach-->
+        <scene sceneID="eqL-8o-QYE">
+            <objects>
+                <viewControllerPlaceholder storyboardName="BusBranch" referencedIdentifier="BusSreach" id="av0-ov-fgI" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Zw0-Zj-Jae"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bSt-Vm-YtH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="579" y="-273"/>
         </scene>
         <!--Title-->
         <scene sceneID="RAy-Wg-ox4">
@@ -309,6 +374,7 @@
     <resources>
         <image name="Rectangle 31bgc01.png" width="393" height="145"/>
         <image name="Rectangle 32bgc02.png" width="393" height="145"/>
+        <image name="bus" catalog="system" width="128" height="122"/>
         <image name="cloud.sun" catalog="system" width="128" height="97"/>
         <image name="house.fill" catalog="system" width="128" height="104"/>
         <image name="icon_bus.png" width="80" height="80"/>

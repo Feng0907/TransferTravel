@@ -20,6 +20,7 @@ import UIKit
 class SideViewCellItem{
 	var title: String = ""
 	var pageID: String = ""
+	var VC: UINavigationController = UINavigationController()
 }
 
 private let cellIdentifier = "cell"
@@ -35,19 +36,20 @@ class LeftViewController: UITableViewController {
 //         .pushVC(title: "設定"),
 //         .pushVC(title: "聯繫我們")
 //    ]
-	func addMenu(pageTitle newtitle: String, pageID newPage: String) {
+	func addMenu(pageTitle newtitle: String, pageID newPage: String, VC ViewController: UINavigationController) {
 		let item = SideViewCellItem()
 		item.title = newtitle
 		item.pageID = newPage
+		item.VC = ViewController
 		sections.append(item)
 	}
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-		addMenu(pageTitle: "我的路線", pageID: "ListNaviC")
-		addMenu(pageTitle: "公車路線", pageID: "busRoute")
-		addMenu(pageTitle: "台北捷運", pageID: "taipeiMRT")
-		addMenu(pageTitle: "設定", pageID: "setting")
-		addMenu(pageTitle: "聯繫我們", pageID: "contUS")
+		addMenu(pageTitle: "我的路線", pageID: "ListNaviC", VC: RouteListNaviVC())
+		addMenu(pageTitle: "公車路線", pageID: "BusRouteNaviC", VC: BusNaviVC())
+		addMenu(pageTitle: "台北捷運", pageID: "taipeiMRT", VC: BusNaviVC())
+		addMenu(pageTitle: "設定", pageID: "setting", VC: BusNaviVC())
+		addMenu(pageTitle: "聯繫我們", pageID: "contUS", VC: BusNaviVC())
     }
 	
 
@@ -87,36 +89,60 @@ class LeftViewController: UITableViewController {
         return cell
     }
 	
-	func push(title: String, id: String){
-		guard let controller = storyboard?.instantiateViewController(withIdentifier: id) else {
-			print("error storyboard id.")
-			return
-		}
-		navigationController?.pushViewController(controller, animated: true)
+	func push(VC: UINavigationController){
+		
+//		let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//		let controller = storyboard.instantiateViewController.(withIdentifier: String)
+//		else {
+//			print("error storyboard id.")
+//			return
+//		}
+		navigationController?.pushViewController(VC, animated: true)
+//		navigationController?.pushViewController(controller, animated: true)
 	}
 	
-	func pageGO(id: String){
+	func pageGO(id: String, VC: UINavigationController){
 		guard let sideMenuController = sideMenuController else { return }
 		let alert = UIAlertController(title: "功能施工中", message: "菜鳥努力中請稍等", preferredStyle: .alert)
 		let cancel = UIAlertAction(title: "OK", style: .cancel){_ in sideMenuController.hideLeftView(animated: true)}
 		alert.addAction(cancel)
-		if id != "ListNaviC" {
+		if id != "ListNaviC" && id != "BusRouteNaviC"{
 			present(alert, animated: true)
 			return
 		}
+		let tabBar = storyboard?.instantiateViewController(withIdentifier: "tabBar")
+		tabBar?.tabBarController?.selectedIndex = 1
+//		guard let page = storyboard?.instantiateViewController(withIdentifier: id) else {
+//			present(alert, animated: true)
+//			assertionFailure("Invalid pageID.")
+//			return
+//		}
 		guard let page = storyboard?.instantiateViewController(withIdentifier: id) else {
 			present(alert, animated: true)
 			assertionFailure("Invalid pageID.")
 			return
 		}
-		self.navigationController?.pushViewController(page, animated: true)
+		print(id)
+//		navigationController?.pushViewController(VC, animated: true)
+//		navigationController?.pushViewController(page, animated: true)
+//		sideMenuController.hideLeftView(animated: true)
+//		push(VC: VC)
+		// 獲取 UITabBarController 的引用
+//		if let tabBarController = self.tabBarController {
+//			let selectedIndex = tabBarController.selectedIndex
+//			tabBarController.viewControllers?[selectedIndex] = VC
+//			tabBarController.selectedIndex = selectedIndex
+//		}
+		sideMenuController.rootViewController = page
+		self.navigationController?.pushViewController(VC, animated: true)
 		sideMenuController.hideLeftView(animated: true)
+
 	}
     // MARK: - UITableViewDelegate -
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let item = sections[indexPath.row]
-		pageGO(id: item.pageID)
+		pageGO(id: item.pageID, VC: item.VC)
 		
     }
 

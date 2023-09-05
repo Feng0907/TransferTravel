@@ -19,12 +19,29 @@ class RouteListTableVC: UITableViewController, RouteTableVCDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 		self.tableView.reloadData()
-		BusCommunicator.shared.getTest { result, error in
-			guard let messages = result?.tokenJSON, messages.count > 0 else {
-				print("No new message.")
+//		BusCommunicator.shared.getCity { (result, error) in
+//			if let result = result {
+//				print("Success with cities: \(result)")
+//
+//			} else if let error = error {
+//				print("Fail with: \(error)")
+//			} else {
+//				print("No data received")
+//			}
+//		}
+//		BusCommunicator.shared.getCity { result, error in
+//			guard let messages = result, messages.count > 0 else {
+//				print("No new message.")
+//				return
+//			}
+//			print(messages)
+//		}
+		BusCommunicator.shared.getBusStopOfRoute("202", city: "Taipei") { result, error in
+			guard let data = result else {
 				return
 			}
-			print(messages)
+			print(data)
+			
 		}
 //		self.queryFromCoreData()
         // Uncomment the following line to preserve selection between presentations

@@ -10,10 +10,13 @@ import LGSideMenuController
 
 class SidebarVC: LGSideMenuController {
 	
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		
 		leftViewPresentationStyle = .slideAboveBlurred
 		rightViewPresentationStyle = .slideBelowShifted
 	}
 }
+
 
