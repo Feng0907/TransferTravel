@@ -110,8 +110,7 @@ class LeftViewController: UITableViewController {
 			present(alert, animated: true)
 			return
 		}
-		let tabBar = storyboard?.instantiateViewController(withIdentifier: "tabBar")
-		tabBar?.tabBarController?.selectedIndex = 1
+		guard let tabBar = storyboard?.instantiateViewController(withIdentifier: "tabBar") else { return }
 //		guard let page = storyboard?.instantiateViewController(withIdentifier: id) else {
 //			present(alert, animated: true)
 //			assertionFailure("Invalid pageID.")
@@ -133,8 +132,14 @@ class LeftViewController: UITableViewController {
 //			tabBarController.viewControllers?[selectedIndex] = VC
 //			tabBarController.selectedIndex = selectedIndex
 //		}
+//		page.addChild()
+		self.navigationController?.pushViewController(page, animated: true)
+//		sideMenuController.rootViewController = VC
 		sideMenuController.rootViewController = page
-		self.navigationController?.pushViewController(VC, animated: true)
+//		self.navigationController?.pushViewController(VC, animated: true)
+//		sideMenuController.rootViewController = page
+		
+
 		sideMenuController.hideLeftView(animated: true)
 
 	}

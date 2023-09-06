@@ -13,7 +13,9 @@ import Alamofire
 //typealias DoneHandler<T> = Result<T, AFError>
 typealias DoneHandler<T> = (_ result: T?, _ error: Error?) ->Void
 typealias CityArrayCompletion = DoneHandler<[CityResult]>
-typealias busStopOfRouteCompletion = DoneHandler<[BusStopResult]>
+typealias BusStopOfRouteCompletion = DoneHandler<[BusStopResult]>
+typealias BusRouteInfoCompletion = DoneHandler<[BusRouteInfoResult]>
+
 typealias TokenCompletion = DoneHandler<TokenResult>
 class BusCommunicator {
 	static let shared = BusCommunicator()
@@ -26,6 +28,8 @@ class BusCommunicator {
 	let THSRURL = baseURL + "api/basic/v2/Rail/THSR/DailyTimetable/Today?$format=JSON"
 	let cityURL = baseURL + "api/basic/v2/Basic/City"
 	let busStopOfRouteURL = baseURL + "api/basic/v2/Bus/DisplayStopOfRoute/City/"
+	let busRouteInfoURL = baseURL + "api/basic/v2/Bus/Route/City/"
+
 
 	let grantTypeKey = "grant_type"
 	let clientIDKey = "client_id"
@@ -137,11 +141,11 @@ class BusCommunicator {
 //			}
 //		}
 //		doGet(cityURL, parameters: parameters, headers: headers, completion: completion)
-		print("End of doGet()")
+//		print("End of doGet()")
 //		doGet(cityURL, parameters: parameters, headers: headers, completion: completion)
 	}
 	
-	func getBusStopOfRoute(_ busNumber: String, city: String, completion: @escaping busStopOfRouteCompletion) {
+	func getBusStopOfRoute(_ busNumber: String, city: String, completion: @escaping BusStopOfRouteCompletion) {
 		let headers: HTTPHeaders = [
 			"authorization": "Bearer \(self.token)"
 		]
@@ -149,7 +153,17 @@ class BusCommunicator {
 //		[cityKey: city, routeNameKey: busNumber]
 
 		doGet(busStopOfRouteURL + city + "/" + busNumber + "/", parameters: parameters, headers: headers, completion: completion)
-		print("End of doGet()")
+//		print("End of doGet()")
+	}
+	
+	func getBusRouteInfo(_ busNumber: String, city: String, completion: @escaping BusRouteInfoCompletion) {
+		let headers: HTTPHeaders = [
+			"authorization": "Bearer \(self.token)"
+		]
+		let parameters: [String: Any] = ["$top": 30, "$format": "JSON"]
+		
+		doGet(busRouteInfoURL + city + "/" + busNumber + "/", parameters: parameters, headers: headers, completion: completion)
+//		print("End of doGet()")
 	}
 	
 	private func doGet<type: Codable>(_ urlString: String,
@@ -170,10 +184,10 @@ class BusCommunicator {
 					switch response.result {
 					case .success(let result):
 						print("Success with: \(result)")
-//						completion(result, nil) //成功就會把解出來的result傳出說
+						completion(result, nil) //成功就會把解出來的result傳出說
 					case .failure(let error):
 						print("Fail with: \(error)")
-//						completion(nil, error) //失敗就讓他把回傳值變成nil並印出error
+						completion(nil, error) //失敗就讓他把回傳值變成nil並印出error
 					}
 				}
 //		AF.request(urlString,
@@ -228,10 +242,10 @@ class BusCommunicator {
 	private func handleResponse<T>(response: DataResponse<T, AFError>, completion: DoneHandler<T>?) {
 		switch response.result {
 		case .success(let result):
-			print("Success with: \(result)")
+//			print("Success with: \(result)")
 			completion?(result, nil) //成功就會把解出來的result傳出來
 		case .failure(let error):
-			print("Fail with: \(error)")
+//			print("Fail with: \(error)")
 			completion?(nil, error) //失敗就讓他把回傳值變成nil並印出error
 		}
 	}
@@ -254,31 +268,7 @@ struct TokenResult: Codable {
 	}
 }
 
-struct SeverResult: Decodable {
-//	var success: Bool?
-//	var errorCode: String?
-	var result: [CityResult]?
-	enum CodingKeys: String, CodingKey {
-//		case success = "result"
-//		case errorCode
-		case result = "City"
-	}
-}
 
-
-//struct CityArray: Codable {
-//	var result: [CityResult]
-//
-//	enum CodingKeys: String, CodingKey {
-//		case result = "City"
-//	}
-//}
-//struct CityArray: Codable {
-//	var cities = [CityResult]()
-//	enum CodingKeys: String, CodingKey {
-//		case cities = "City"
-//	}
-//}
 struct CityResult: Codable {
 	var cityID: String
 	var cityName: String
@@ -368,26 +358,123 @@ struct StopPosition: Codable {
 		case geoHash = "GeoHash"
 	}
 }
-//
-//// 将JSON数据解码成BusRoute对象的示例
-//if let jsonData = jsonString.data(using: .utf8) {
-//	do {
-//		let busRoutes = try JSONDecoder().decode([BusRoute].self, from: jsonData)
-//		for busRoute in busRoutes {
-//			print("Route Name (ZH_TW): \(busRoute.routeName.zhTw)")
-//			print("Route Name (EN): \(busRoute.routeName.en)")
-//			print("Stops:")
-//			for stop in busRoute.stops {
-//				print("  Stop Name (ZH_TW): \(stop.stopName.zhTw)")
-//				print("  Stop Name (EN): \(stop.stopName.en)")
-//				print("  Stop ID: \(stop.stopID)")
-//				print("  Stop Sequence: \(stop.stopSequence)")
-//				print("  Latitude: \(stop.stopPosition.positionLat)")
-//				print("  Longitude: \(stop.stopPosition.positionLon)")
-//			}
-//		}
-//	} catch {
-//		print("Error decoding JSON: \(error)")
+
+//struct SeverResult: Decodable {
+//	var success: Bool?
+//	var errorCode: String?
+//	var result: [BusRouteInfoResult]?
+//	enum CodingKeys: String, CodingKey {
+//		case success = "result"
+//		case errorCode
+//		case result = "City"
 //	}
 //}
-//
+
+struct BusRouteInfoResult: Codable {
+	let routeUID: String
+	let routeID: String
+	let hasSubRoutes: Bool
+	let operators: [BusOperator]
+	let authorityID: String
+	let providerID: String
+	let subRoutes: [SubRoute]?
+	let busRouteType: Int
+	let routeName: RouteName
+	let departureStopNameZh: String
+	let departureStopNameEn: String
+	let destinationStopNameZh: String
+	let destinationStopNameEn: String
+	let ticketPriceDescriptionZh: String
+	let ticketPriceDescriptionEn: String
+	let fareBufferZoneDescriptionZh: String?
+	let fareBufferZoneDescriptionEn: String?
+	let routeMapImageUrl: String
+	let city: String
+	let cityCode: String
+	let updateTime: String
+	let versionID: Int
+
+	enum CodingKeys: String, CodingKey {
+		case routeUID = "RouteUID"
+		case routeID = "RouteID"
+		case hasSubRoutes = "HasSubRoutes"
+		case operators = "Operators"
+		case authorityID = "AuthorityID"
+		case providerID = "ProviderID"
+		case subRoutes = "SubRoutes"
+		case busRouteType = "BusRouteType"
+		case routeName = "RouteName"
+		case departureStopNameZh = "DepartureStopNameZh"
+		case departureStopNameEn = "DepartureStopNameEn"
+		case destinationStopNameZh = "DestinationStopNameZh"
+		case destinationStopNameEn = "DestinationStopNameEn"
+		case ticketPriceDescriptionZh = "TicketPriceDescriptionZh"
+		case ticketPriceDescriptionEn = "TicketPriceDescriptionEn"
+		case fareBufferZoneDescriptionZh = "FareBufferZoneDescriptionZh"
+		case fareBufferZoneDescriptionEn = "FareBufferZoneDescriptionEn"
+		case routeMapImageUrl = "RouteMapImageUrl"
+		case city = "City"
+		case cityCode = "CityCode"
+		case updateTime = "UpdateTime"
+		case versionID = "VersionID"
+	}
+}
+
+struct BusOperator: Codable {
+	let operatorID: String
+	let operatorName: OperatorName
+	let operatorCode: String
+	let operatorNo: String
+
+	enum CodingKeys: String, CodingKey {
+		case operatorID = "OperatorID"
+		case operatorName = "OperatorName"
+		case operatorCode = "OperatorCode"
+		case operatorNo = "OperatorNo"
+	}
+}
+
+struct OperatorName: Codable {
+	let zhTw: String
+	let en: String
+
+	enum CodingKeys: String, CodingKey {
+		case zhTw = "Zh_tw"
+		case en = "En"
+	}
+}
+
+struct SubRoute: Codable {
+	let subRouteUID: String
+	let subRouteID: String
+	let operatorIDs: [String]
+	let subRouteName: SubRouteName
+	let direction: Int
+	let firstBusTime: String
+	let lastBusTime: String
+	let holidayFirstBusTime: String?
+	let holidayLastBusTime: String?
+
+	enum CodingKeys: String, CodingKey {
+		case subRouteUID = "SubRouteUID"
+		case subRouteID = "SubRouteID"
+		case operatorIDs = "OperatorIDs"
+		case subRouteName = "SubRouteName"
+		case direction = "Direction"
+		case firstBusTime = "FirstBusTime"
+		case lastBusTime = "LastBusTime"
+		case holidayFirstBusTime = "HolidayFirstBusTime"
+		case holidayLastBusTime = "HolidayLastBusTime"
+	}
+}
+
+struct SubRouteName: Codable {
+	let zhTw: String
+	let en: String
+
+	enum CodingKeys: String, CodingKey {
+		case zhTw = "Zh_tw"
+		case en = "En"
+	}
+}
+

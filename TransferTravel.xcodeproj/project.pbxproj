@@ -39,6 +39,7 @@
 		B2711EE22AA60ECB000CD6CA /* RootNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2711EE12AA60ECB000CD6CA /* RootNavigationController.swift */; };
 		B2711EE42AA6259B000CD6CA /* RouteListNaviVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2711EE32AA6259B000CD6CA /* RouteListNaviVC.swift */; };
 		B2711EE62AA625CF000CD6CA /* BusNaviVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2711EE52AA625CF000CD6CA /* BusNaviVC.swift */; };
+		B2711EF02AA80D75000CD6CA /* String+codeUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2711EEF2AA80D75000CD6CA /* String+codeUrl.swift */; };
 		B271F67E2A99E46F00C7C0E6 /* WeatherCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B271F67D2A99E46F00C7C0E6 /* WeatherCommunicator.swift */; };
 		B271F6802A9B122A00C7C0E6 /* BusCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B271F67F2A9B122A00C7C0E6 /* BusCommunicator.swift */; };
 		B2743F462A9E12CC003C4D49 /* BusTokenHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2743F452A9E12CC003C4D49 /* BusTokenHelper.swift */; };
@@ -95,6 +96,7 @@
 		B2711EE12AA60ECB000CD6CA /* RootNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootNavigationController.swift; sourceTree = "<group>"; };
 		B2711EE32AA6259B000CD6CA /* RouteListNaviVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteListNaviVC.swift; sourceTree = "<group>"; };
 		B2711EE52AA625CF000CD6CA /* BusNaviVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusNaviVC.swift; sourceTree = "<group>"; };
+		B2711EEF2AA80D75000CD6CA /* String+codeUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+codeUrl.swift"; sourceTree = "<group>"; };
 		B271F67D2A99E46F00C7C0E6 /* WeatherCommunicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCommunicator.swift; sourceTree = "<group>"; };
 		B271F67F2A9B122A00C7C0E6 /* BusCommunicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusCommunicator.swift; sourceTree = "<group>"; };
 		B2743F452A9E12CC003C4D49 /* BusTokenHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusTokenHelper.swift; sourceTree = "<group>"; };
@@ -255,6 +257,7 @@
 				B2F6DD2E2A74C8D900A6B6CB /* Info.plist */,
 				B207AB652A8DA9F200FF6584 /* UIImage+radius.swift */,
 				B24E47F02A9514AA0031BA70 /* UIVC+Alert.swift */,
+				B2711EEF2AA80D75000CD6CA /* String+codeUrl.swift */,
 			);
 			path = TransferTravel;
 			sourceTree = "<group>";
@@ -389,6 +392,7 @@
 				B2F6DD232A74C8D600A6B6CB /* SceneDelegate.swift in Sources */,
 				B277CA972A8BD94A00A5CD96 /* RouteCommunicator.swift in Sources */,
 				B2439D272A81F1BF00604CB5 /* TimeRecordModel.swift in Sources */,
+				B2711EF02AA80D75000CD6CA /* String+codeUrl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

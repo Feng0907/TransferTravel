@@ -10,6 +10,7 @@ import UIKit
 class BusSearchTableVC: UITableViewController, UISearchResultsUpdating {
 	
 //	@IBOutlet var searchController: UISearchBar!
+	var filteredData = [BusRouteInfoResult]()
 	var searchController = UISearchController(searchResultsController: nil)
 	
     override func viewDidLoad() {
@@ -17,6 +18,8 @@ class BusSearchTableVC: UITableViewController, UISearchResultsUpdating {
 		setSearchBar(searchController)
 		self.navigationItem.searchController = self.searchController
 		self.searchController.searchResultsUpdater = self
+		
+		
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -55,43 +58,50 @@ class BusSearchTableVC: UITableViewController, UISearchResultsUpdating {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return 1
     }
 	
 	//MARK:searchResultsUpdater
 	func updateSearchResults(for searchController: UISearchController) {
-		//搜尋匡輸入後會呼叫的方法
-		//根據使用者輸入的條件，將過濾的資料放到filtData中
-		if let searchText = self.searchController.searchBar.text{
-//			self.filteredData = self.data.filter{note in
-//				//轉小寫在進行比對contains
-//				return note.text.lowercased().contains(searchText.lowercased())
-//			}
-			/*
-			//filter：block等同於下面方程式
-			self.filteredData.removeAll()//先清空filteredData裡的資料
-			for note in self.data{
-				if note.text.lowercased().contains(searchText.lowercased()){
-					self.filteredData.append(<#T##newElement: Note##Note#>)
-				}
-			}*/
+		guard let searchText = self.searchController.searchBar.text?.encodeUrl() else {
+			print("請輸入想找的路線")
+			return
 		}
-		self.tableView.reloadData()
+		if searchText.count > 1 && searchText.count <= 5 {
+			print(searchText)
+			BusCommunicator.shared.getBusRouteInfo(searchText, city: "Taipei") { result, error in
+				
+				if let error = error {
+					self.showAlert(message: "查無所搜尋路線")
+					return
+				}
+				
+				guard let data = result else {
+					self.showAlert(message: "查無所搜尋路線")
+					return
+				}
+				self.filteredData = data
+				self.tableView.reloadData()
+			}
+			
+		}
+
 	}
-    /*
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
+		return self.filteredData.count
+    }
+	
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+		let cell = tableView.dequeueReusableCell(withIdentifier: "searchRusRoute", for: indexPath)
+		let item = filteredData[indexPath.row]
+		cell.textLabel?.text = item.routeName.zhTw
+		cell.detailTextLabel?.text = item.departureStopNameZh + item.destinationStopNameZh
         return cell
     }
-    */
+
 
     /*
     // Override to support conditional editing of the table view.

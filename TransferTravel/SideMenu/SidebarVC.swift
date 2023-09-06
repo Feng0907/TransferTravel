@@ -16,6 +16,7 @@ class SidebarVC: LGSideMenuController {
 		
 		leftViewPresentationStyle = .slideAboveBlurred
 		rightViewPresentationStyle = .slideBelowShifted
+
 	}
 }
 
