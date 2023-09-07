@@ -40,9 +40,10 @@
 		B2711EE42AA6259B000CD6CA /* RouteListNaviVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2711EE32AA6259B000CD6CA /* RouteListNaviVC.swift */; };
 		B2711EE62AA625CF000CD6CA /* BusNaviVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2711EE52AA625CF000CD6CA /* BusNaviVC.swift */; };
 		B2711EF02AA80D75000CD6CA /* String+codeUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2711EEF2AA80D75000CD6CA /* String+codeUrl.swift */; };
+		B2711EF62AA9B4D5000CD6CA /* BusRouteTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2711EF52AA9B4D5000CD6CA /* BusRouteTableVC.swift */; };
 		B271F67E2A99E46F00C7C0E6 /* WeatherCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B271F67D2A99E46F00C7C0E6 /* WeatherCommunicator.swift */; };
 		B271F6802A9B122A00C7C0E6 /* BusCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B271F67F2A9B122A00C7C0E6 /* BusCommunicator.swift */; };
-		B2743F462A9E12CC003C4D49 /* BusTokenHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2743F452A9E12CC003C4D49 /* BusTokenHelper.swift */; };
+		B2743F462A9E12CC003C4D49 /* BusInfoSendHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2743F452A9E12CC003C4D49 /* BusInfoSendHelper.swift */; };
 		B277CA932A8B76A800A5CD96 /* SendMessageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B277CA922A8B76A800A5CD96 /* SendMessageHelper.swift */; };
 		B277CA972A8BD94A00A5CD96 /* RouteCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B277CA962A8BD94A00A5CD96 /* RouteCommunicator.swift */; };
 		B27D932D2A866B850093F471 /* TabBarC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27D932C2A866B850093F471 /* TabBarC.swift */; };
@@ -97,9 +98,10 @@
 		B2711EE32AA6259B000CD6CA /* RouteListNaviVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteListNaviVC.swift; sourceTree = "<group>"; };
 		B2711EE52AA625CF000CD6CA /* BusNaviVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusNaviVC.swift; sourceTree = "<group>"; };
 		B2711EEF2AA80D75000CD6CA /* String+codeUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+codeUrl.swift"; sourceTree = "<group>"; };
+		B2711EF52AA9B4D5000CD6CA /* BusRouteTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusRouteTableVC.swift; sourceTree = "<group>"; };
 		B271F67D2A99E46F00C7C0E6 /* WeatherCommunicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCommunicator.swift; sourceTree = "<group>"; };
 		B271F67F2A9B122A00C7C0E6 /* BusCommunicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusCommunicator.swift; sourceTree = "<group>"; };
-		B2743F452A9E12CC003C4D49 /* BusTokenHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusTokenHelper.swift; sourceTree = "<group>"; };
+		B2743F452A9E12CC003C4D49 /* BusInfoSendHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusInfoSendHelper.swift; sourceTree = "<group>"; };
 		B277CA922A8B76A800A5CD96 /* SendMessageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendMessageHelper.swift; sourceTree = "<group>"; };
 		B277CA962A8BD94A00A5CD96 /* RouteCommunicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteCommunicator.swift; sourceTree = "<group>"; };
 		B27D932C2A866B850093F471 /* TabBarC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarC.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 				B2439D242A81E3A900604CB5 /* AddTimeRecordVC.swift */,
 				B24E47EC2A94660D0031BA70 /* HistoryTableVC.swift */,
 				B2711EDF2AA589AC000CD6CA /* BusSearchTableVC.swift */,
+				B2711EF52AA9B4D5000CD6CA /* BusRouteTableVC.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -205,7 +208,7 @@
 				B277CA962A8BD94A00A5CD96 /* RouteCommunicator.swift */,
 				B271F67D2A99E46F00C7C0E6 /* WeatherCommunicator.swift */,
 				B271F67F2A9B122A00C7C0E6 /* BusCommunicator.swift */,
-				B2743F452A9E12CC003C4D49 /* BusTokenHelper.swift */,
+				B2743F452A9E12CC003C4D49 /* BusInfoSendHelper.swift */,
 			);
 			path = Communicator;
 			sourceTree = "<group>";
@@ -378,8 +381,9 @@
 				B2B43FA92A86610E00DE7D8A /* LeftViewController.swift in Sources */,
 				B2439D122A7E8E6100604CB5 /* RouteListDataModel.xcdatamodeld in Sources */,
 				B24E47ED2A94660D0031BA70 /* HistoryTableVC.swift in Sources */,
-				B2743F462A9E12CC003C4D49 /* BusTokenHelper.swift in Sources */,
+				B2743F462A9E12CC003C4D49 /* BusInfoSendHelper.swift in Sources */,
 				B27D932D2A866B850093F471 /* TabBarC.swift in Sources */,
+				B2711EF62AA9B4D5000CD6CA /* BusRouteTableVC.swift in Sources */,
 				B24E47EF2A95014A0031BA70 /* HistoryItemModel.swift in Sources */,
 				B2C3E4A62A86117700E3C8F6 /* SidebarVC.swift in Sources */,
 				B26D18EC2A89FF7800953A72 /* SelfRouteTVCell.swift in Sources */,

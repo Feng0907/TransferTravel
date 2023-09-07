@@ -208,8 +208,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "219"
             endingLineNumber = "219"
-            landmarkName = "RouteTableVC"
-            landmarkType = "3">
+            landmarkName = "tableView(_:commit:forRowAt:)"
+            landmarkType = "7">
             <Locations>
                <Location
                   uuid = "6771882E-E13A-45F1-9D27-F91F4B4E1ACD - 96dd20c777ea36fd"

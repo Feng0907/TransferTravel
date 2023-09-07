@@ -72,12 +72,14 @@ class BusSearchTableVC: UITableViewController, UISearchResultsUpdating {
 			BusCommunicator.shared.getBusRouteInfo(searchText, city: "Taipei") { result, error in
 				
 				if let error = error {
-					self.showAlert(message: "查無所搜尋路線")
+					self.showAlert(message: "error: \(error)")
+					self.searchController.searchBar.text? = ""
 					return
 				}
 				
 				guard let data = result else {
 					self.showAlert(message: "查無所搜尋路線")
+					self.searchController.searchBar.text? = ""
 					return
 				}
 				self.filteredData = data
@@ -89,7 +91,6 @@ class BusSearchTableVC: UITableViewController, UISearchResultsUpdating {
 	}
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
 		return self.filteredData.count
     }
 	
@@ -98,7 +99,7 @@ class BusSearchTableVC: UITableViewController, UISearchResultsUpdating {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "searchRusRoute", for: indexPath)
 		let item = filteredData[indexPath.row]
 		cell.textLabel?.text = item.routeName.zhTw
-		cell.detailTextLabel?.text = item.departureStopNameZh + item.destinationStopNameZh
+		cell.detailTextLabel?.text = item.departureStopNameZh + " - " + item.destinationStopNameZh
         return cell
     }
 
@@ -138,14 +139,19 @@ class BusSearchTableVC: UITableViewController, UISearchResultsUpdating {
     }
     */
 
-    /*
+
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		if segue.identifier == "busRouteListSegue" ,
+		   let BusRouteVC = segue.destination as? BusRouteTableVC,
+		   let index = self.tableView.indexPathForSelectedRow {
+			let item = self.filteredData[index.row]
+//			TimeRecordVC.recordInfo = item
+//			TimeRecordVC.delegate = self
+		}
+	}
+
 
 }
