@@ -142,8 +142,8 @@
             filePath = "TransferTravel/UIImage+radius.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
             landmarkName = "UIImage"
             landmarkType = "21">
          </BreakpointContent>
@@ -737,16 +737,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "8CE348B9-DE1A-4A6C-9B26-C069BA6216D4"
+            uuid = "46202E52-9149-495F-BE14-D74082CE948E"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TransferTravel/ViewController/BusRouteTableVC.swift"
+            filePath = "TransferTravel/Model/CustomSegmentedControl.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "101"
-            endingLineNumber = "101"
-            landmarkName = "tableView(_:cellForRowAt:)"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
+            landmarkName = "configSelectorView()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

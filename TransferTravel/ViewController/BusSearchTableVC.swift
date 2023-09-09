@@ -145,7 +145,7 @@ class BusSearchTableVC: UITableViewController, UISearchResultsUpdating {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		if segue.identifier == "busRouteListSegue",
-		   let BusRouteVC = segue.destination as? BusRouteTableVC,
+		   let BusRouteVC = segue.destination as? BusRouteVC,
 		   let index = self.tableView.indexPathForSelectedRow {
 			let item = self.filteredData[index.row]
 			BusInfoSendHelper.shared.SendBusInfo = item

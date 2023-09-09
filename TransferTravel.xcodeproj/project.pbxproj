@@ -47,6 +47,7 @@
 		B277CA932A8B76A800A5CD96 /* SendMessageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B277CA922A8B76A800A5CD96 /* SendMessageHelper.swift */; };
 		B277CA972A8BD94A00A5CD96 /* RouteCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B277CA962A8BD94A00A5CD96 /* RouteCommunicator.swift */; };
 		B27D932D2A866B850093F471 /* TabBarC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27D932C2A866B850093F471 /* TabBarC.swift */; };
+		B27F10A12AACE4E5006CBD38 /* BusRouteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27F10A02AACE4E5006CBD38 /* BusRouteVC.swift */; };
 		B28984CC2AAC35FD00AE3F7A /* BusStopsTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28984CB2AAC35FD00AE3F7A /* BusStopsTVCell.swift */; };
 		B2B43FA82A86610E00DE7D8A /* LeftViewCellBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B43FA52A86610E00DE7D8A /* LeftViewCellBackgroundView.swift */; };
 		B2B43FA92A86610E00DE7D8A /* LeftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B43FA62A86610E00DE7D8A /* LeftViewController.swift */; };
@@ -106,6 +107,7 @@
 		B277CA922A8B76A800A5CD96 /* SendMessageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendMessageHelper.swift; sourceTree = "<group>"; };
 		B277CA962A8BD94A00A5CD96 /* RouteCommunicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteCommunicator.swift; sourceTree = "<group>"; };
 		B27D932C2A866B850093F471 /* TabBarC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarC.swift; sourceTree = "<group>"; };
+		B27F10A02AACE4E5006CBD38 /* BusRouteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusRouteVC.swift; sourceTree = "<group>"; };
 		B28984CB2AAC35FD00AE3F7A /* BusStopsTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStopsTVCell.swift; sourceTree = "<group>"; };
 		B2B43FA52A86610E00DE7D8A /* LeftViewCellBackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftViewCellBackgroundView.swift; sourceTree = "<group>"; };
 		B2B43FA62A86610E00DE7D8A /* LeftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftViewController.swift; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 				B24E47EC2A94660D0031BA70 /* HistoryTableVC.swift */,
 				B2711EDF2AA589AC000CD6CA /* BusSearchTableVC.swift */,
 				B2711EF52AA9B4D5000CD6CA /* BusRouteTableVC.swift */,
+				B27F10A02AACE4E5006CBD38 /* BusRouteVC.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -374,6 +377,7 @@
 				B277CA932A8B76A800A5CD96 /* SendMessageHelper.swift in Sources */,
 				B2439D0F2A7CE4EC00604CB5 /* CoreDataHelper.swift in Sources */,
 				B2DFA42C2A87858A00D85923 /* TransportationTypeModel.swift in Sources */,
+				B27F10A12AACE4E5006CBD38 /* BusRouteVC.swift in Sources */,
 				B2711EE62AA625CF000CD6CA /* BusNaviVC.swift in Sources */,
 				B24E47F12A9514AA0031BA70 /* UIVC+Alert.swift in Sources */,
 				B2439D252A81E3A900604CB5 /* AddTimeRecordVC.swift in Sources */,
