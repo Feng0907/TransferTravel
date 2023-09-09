@@ -68,7 +68,7 @@ class BusSearchTableVC: UITableViewController, UISearchResultsUpdating {
 			return
 		}
 		if searchText.count > 1 && searchText.count <= 5 {
-			print(searchText)
+//			print(searchText)
 			BusCommunicator.shared.getBusRouteInfo(searchText, city: "Taipei") { result, error in
 				
 				if let error = error {
@@ -144,12 +144,12 @@ class BusSearchTableVC: UITableViewController, UISearchResultsUpdating {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-		if segue.identifier == "busRouteListSegue" ,
+		if segue.identifier == "busRouteListSegue",
 		   let BusRouteVC = segue.destination as? BusRouteTableVC,
 		   let index = self.tableView.indexPathForSelectedRow {
 			let item = self.filteredData[index.row]
-//			TimeRecordVC.recordInfo = item
-//			TimeRecordVC.delegate = self
+			BusInfoSendHelper.shared.SendBusInfo = item
+			BusRouteVC.busInfo = BusInfoSendHelper.shared.SendBusInfo
 		}
 	}
 

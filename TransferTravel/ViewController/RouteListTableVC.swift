@@ -36,13 +36,7 @@ class RouteListTableVC: UITableViewController, RouteTableVCDelegate {
 //			}
 //			print(messages)
 //		}
-		BusCommunicator.shared.getBusStopOfRoute("202", city: "Taipei") { result, error in
-			guard let data = result else {
-				return
-			}
-			print(data)
-			
-		}
+		
 //		self.queryFromCoreData()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false

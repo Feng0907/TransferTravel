@@ -17,19 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 		// Override point for customization after application launch.
 		IQKeyboardManager.shared.enable = true
+		IQKeyboardManager.shared.shouldResignOnTouchOutside = true
 		print("home = \(NSHomeDirectory())")
-//		getToken(id: clientId, key: clientSecret)
-		BusCommunicator.shared.getToken(id: clientId, key: clientSecret) 
-//		BusCommunicator.shared.getToken(id: clientId, key: clientSecret) { result in
-//			switch result {
-//			case .success(let data):
-//				if let content = String(data: data, encoding: String.Encoding.utf8){
-//					BusCommunicator.shared.setToken(content)
-//				}
-//			case .failure(let error):
-//				print("Get Token failed: \(error)")
-//			}
-//		}
+		BusCommunicator.shared.getToken(id: clientId, key: clientSecret)
 		return true
 	}
 

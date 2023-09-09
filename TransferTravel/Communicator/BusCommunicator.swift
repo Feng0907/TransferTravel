@@ -183,7 +183,7 @@ class BusCommunicator {
 				.responseDecodable(of: type.self) { (response: DataResponse<type, AFError>) in
 					switch response.result {
 					case .success(let result):
-						print("Success with: \(result)")
+//						print("Success with: \(result)")
 						completion(result, nil) //成功就會把解出來的result傳出說
 					case .failure(let error):
 						print("Fail with: \(error)")
@@ -450,8 +450,8 @@ struct SubRoute: Codable {
 	let operatorIDs: [String]
 	let subRouteName: SubRouteName
 	let direction: Int
-	let firstBusTime: String
-	let lastBusTime: String
+	let firstBusTime: String?
+	let lastBusTime: String?
 	let holidayFirstBusTime: String?
 	let holidayLastBusTime: String?
 

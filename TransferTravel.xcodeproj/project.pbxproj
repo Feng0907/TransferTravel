@@ -47,6 +47,7 @@
 		B277CA932A8B76A800A5CD96 /* SendMessageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B277CA922A8B76A800A5CD96 /* SendMessageHelper.swift */; };
 		B277CA972A8BD94A00A5CD96 /* RouteCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B277CA962A8BD94A00A5CD96 /* RouteCommunicator.swift */; };
 		B27D932D2A866B850093F471 /* TabBarC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27D932C2A866B850093F471 /* TabBarC.swift */; };
+		B28984CC2AAC35FD00AE3F7A /* BusStopsTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28984CB2AAC35FD00AE3F7A /* BusStopsTVCell.swift */; };
 		B2B43FA82A86610E00DE7D8A /* LeftViewCellBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B43FA52A86610E00DE7D8A /* LeftViewCellBackgroundView.swift */; };
 		B2B43FA92A86610E00DE7D8A /* LeftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B43FA62A86610E00DE7D8A /* LeftViewController.swift */; };
 		B2B43FAA2A86610E00DE7D8A /* LeftViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B43FA72A86610E00DE7D8A /* LeftViewCell.swift */; };
@@ -105,6 +106,7 @@
 		B277CA922A8B76A800A5CD96 /* SendMessageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendMessageHelper.swift; sourceTree = "<group>"; };
 		B277CA962A8BD94A00A5CD96 /* RouteCommunicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteCommunicator.swift; sourceTree = "<group>"; };
 		B27D932C2A866B850093F471 /* TabBarC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarC.swift; sourceTree = "<group>"; };
+		B28984CB2AAC35FD00AE3F7A /* BusStopsTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStopsTVCell.swift; sourceTree = "<group>"; };
 		B2B43FA52A86610E00DE7D8A /* LeftViewCellBackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftViewCellBackgroundView.swift; sourceTree = "<group>"; };
 		B2B43FA62A86610E00DE7D8A /* LeftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftViewController.swift; sourceTree = "<group>"; };
 		B2B43FA72A86610E00DE7D8A /* LeftViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftViewCell.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				B26D18EB2A89FF7800953A72 /* SelfRouteTVCell.swift */,
+				B28984CB2AAC35FD00AE3F7A /* BusStopsTVCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -386,6 +389,7 @@
 				B2711EF62AA9B4D5000CD6CA /* BusRouteTableVC.swift in Sources */,
 				B24E47EF2A95014A0031BA70 /* HistoryItemModel.swift in Sources */,
 				B2C3E4A62A86117700E3C8F6 /* SidebarVC.swift in Sources */,
+				B28984CC2AAC35FD00AE3F7A /* BusStopsTVCell.swift in Sources */,
 				B26D18EC2A89FF7800953A72 /* SelfRouteTVCell.swift in Sources */,
 				B2439D002A7BA82F00604CB5 /* RouteListTableVC.swift in Sources */,
 				B2F6DD212A74C8D600A6B6CB /* AppDelegate.swift in Sources */,

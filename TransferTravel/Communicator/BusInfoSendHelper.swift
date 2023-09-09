@@ -10,6 +10,6 @@ import Foundation
 class BusInfoSendHelper {
 	static let shared = BusInfoSendHelper()
 	private init(){}
-	var BusInfo: BusRouteInfoResult?
+	var SendBusInfo: BusRouteInfoResult?
 	
 }

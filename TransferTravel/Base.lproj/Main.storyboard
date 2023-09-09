@@ -41,7 +41,6 @@
         <scene sceneID="kFs-xm-lIk">
             <objects>
                 <navigationController storyboardIdentifier="ListNaviC" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="D1H-LX-Oes" customClass="RouteListNaviVC" customModule="TransferTravel" customModuleProvider="target" sceneMemberID="viewController">
-                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <tabBarItem key="tabBarItem" title="" id="MXo-mn-3xQ">
                         <imageReference key="image" image="list.bullet" catalog="system" symbolScale="large"/>
                         <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -107,12 +106,12 @@
         <scene sceneID="NYl-kD-dRT">
             <objects>
                 <navigationController storyboardIdentifier="BusRouteNaviC" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="e1O-Ez-fZY" customClass="BusNaviVC" customModule="TransferTravel" customModuleProvider="target" sceneMemberID="viewController">
-                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <tabBarItem key="tabBarItem" title="" image="bus" catalog="system" id="Ejm-V8-Mt3"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" backIndicatorImage="Rectangle 32bgc02.png" id="BlL-ic-eZg">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" backIndicatorImage="Rectangle 32bgc02.png" id="BlL-ic-eZg">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
@@ -133,6 +132,7 @@
                                 <barButtonItemStateAppearance key="focused"/>
                             </barButtonItemAppearance>
                         </navigationBarAppearance>
+                        <navigationBarAppearance key="compactAppearance"/>
                         <navigationBarAppearance key="scrollEdgeAppearance" backgroundImage="Rectangle 32bgc02.png">
                             <textAttributes key="titleTextAttributes">
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -144,6 +144,7 @@
                                 <barButtonItemStateAppearance key="focused"/>
                             </barButtonItemAppearance>
                         </navigationBarAppearance>
+                        <navigationBarAppearance key="compactScrollEdgeAppearance"/>
                     </navigationBar>
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="O6g-ML-054">
                         <autoresizingMask key="autoresizingMask"/>
