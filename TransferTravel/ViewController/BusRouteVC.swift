@@ -11,14 +11,18 @@ class BusRouteVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 	
 	var busInfo: BusRouteInfoResult?
 	var busStopsResult = [BusStopResult]()
-	var busStopsResultTo: BusStopResult?
-	var busStopsResultBack: BusStopResult?
+//	var busStopsResultTo: BusStopResult?
+//	var busStopsResultBack: BusStopResult?
 	var busStopsTo = [BusStop]()
 	var busStopsBack = [BusStop]()
 	var busStopsShow = [BusStop]()
 	var toEndStopName = ""
 	var backEndStopName = ""
-	
+	var busStopsToTime = [StopOfTimeArrival]()
+	var busStopsBackTime = [StopOfTimeArrival]()
+	var nowDirection = 0
+	var timer = Timer()
+
 	@IBOutlet weak var navSegmenteView: UIView!
 	@IBOutlet weak var segmentRouteChange: UISegmentedControl!
 	
@@ -28,12 +32,39 @@ class BusRouteVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         super.viewDidLoad()
 		self.busRouteStopsTable.dataSource = self
 		self.busRouteStopsTable.delegate = self
+		if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+			let mainWindow = windowScene.windows.first(where: { $0.isKeyWindow }) {
+			let statusBarHeight = mainWindow.windowScene?.statusBarManager?.statusBarFrame.height
+			let screenWidth = UIScreen.main.bounds.width
+			let totalHeight = 44 + statusBarHeight!
+			navSegmenteView.frame = CGRect(x: 0, y: totalHeight, width: screenWidth, height: 50)
+		}
 		guard let busInfo = busInfo else {
 			assertionFailure("busInfo find Fail!")
 			return
 		}
 		self.toEndStopName = busInfo.departureStopNameZh
 		self.backEndStopName = busInfo.destinationStopNameZh
+		segmentConfig()
+		self.navigationItem.title = busInfo.routeName.zhTw
+		guard let routeName = busInfo.routeName.zhTw.encodeUrl() else {
+			assertionFailure("routeName find Fail!")
+			return
+		}
+		queryStops(of: routeName, at: busInfo.city)
+		queryStopTimeOfArrival(of: routeName, at: busInfo.city)
+		queryBusArrrivalTime(of: routeName, at: busInfo.city)
+		self.timer = Timer.scheduledTimer(withTimeInterval: 15.0, repeats: true) { _ in
+			self.queryStopTimeOfArrival(of: routeName, at: busInfo.city)
+			self.busRouteStopsTable.reloadData()
+		}
+		RunLoop.current.add(timer, forMode: .common)
+    }
+	override func viewWillDisappear(_ animated: Bool) {
+		self.timer.invalidate()
+	}
+	
+	func segmentConfig(){
 		let normalTextAttributes: [NSAttributedString.Key: Any] = [
 			.foregroundColor: UIColor.white
 		]
@@ -42,46 +73,20 @@ class BusRouteVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 			.foregroundColor: UIColor.white
 		]
 		self.segmentRouteChange.setTitleTextAttributes(selectedTextAttributes, for: .selected)
-		self.segmentRouteChange.setTitle("往\(toEndStopName)", forSegmentAt: 0)
-		self.segmentRouteChange.setTitle("往\(backEndStopName)", forSegmentAt: 1)
-
-		self.navigationItem.title = busInfo.routeName.zhTw
-		guard let routeName = busInfo.routeName.zhTw.encodeUrl() else {
-			assertionFailure("routeName find Fail!")
-			return
-		}
-		let busCity = busInfo.city
-		BusCommunicator.shared.getBusStopOfRoute(routeName, city: busCity) { result, error in
-			
-			if let error = error {
-				self.showAlert(message: "error: \(error)")
-				return
-			}
-			
-			guard let data = result else {
-				self.showAlert(message: "站牌連線異常")
-				return
-			}
-			self.busStopsResult = data
-			self.busStopsResultTo = data[0]
-			self.busStopsResultBack = data[1]
-			self.busStopsTo = data[0].stops
-			self.busStopsBack = data[1].stops
-//			print("busStopsTo: \(self.busStopsTo)")
-//			print("busStopsBack: \(self.busStopsBack)")
-			self.busStopsShow = self.busStopsTo
-			self.busRouteStopsTable.reloadData()
-		}
-        // Do any additional setup after loading the view.
-    }
+		self.segmentRouteChange.setTitle("往\(backEndStopName)", forSegmentAt: 0)
+		self.segmentRouteChange.setTitle("往\(toEndStopName)", forSegmentAt: 1)
+	}
+	
 	@IBAction func segmentedControlValueChanged(_ sender: UISegmentedControl) {
 		switch sender.selectedSegmentIndex {
 		case 0:
 			self.busStopsShow = self.busStopsTo
+			self.nowDirection = 0
 			self.busRouteStopsTable.reloadData()
 			break
 		case 1:
 			self.busStopsShow = self.busStopsBack
+			self.nowDirection = 1
 			self.busRouteStopsTable.reloadData()
 			break
 		default:
@@ -94,18 +99,137 @@ class BusRouteVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		print("busStopsTo: \(self.busStopsTo)")
 		guard let selfcell = tableView.dequeueReusableCell(withIdentifier: "busStopsCell", for: indexPath) as? BusStopsTVCell else{
 		   fatalError("請確認storybord上有設定customcell")
 	   }
 		let item = busStopsShow[indexPath.row]
+//		let direction = self.nowDirection
+		let timeItem = stopArrivalTime(stopID: item.stopID)
 		selfcell.busStopNameLabel?.text = item.stopName.zhTw
-		selfcell.busStopTimeLabel?.text = "末班車駛離"
+		let arrTime = timeItem?.estimateTime
+		var arrTimeStr = ""
+		
+		if timeItem != nil {
+			if arrTime != nil {
+				arrTimeStr = secToMin(arrTime!)
+			} else {
+				arrTimeStr = "交管不停"
+			}
+			if timeItem?.stopStatus == 0 {
+				if arrTime! < 60 {
+					selfcell.busStopTimeLabel.backgroundColor = UIColor(named: "MainRed")
+					selfcell.busStopTimeLabel?.text = "即將進站"
+				} else {
+					selfcell.busStopTimeLabel.backgroundColor = UIColor(named: "MainBlue")
+					selfcell.busStopTimeLabel?.text = "\(arrTimeStr) 分"
+					
+				}
+			} else if timeItem?.stopStatus == 2 {
+				selfcell.busStopTimeLabel.backgroundColor = .lightGray
+				selfcell.busStopTimeLabel?.text = "交管不停"
+			} else {
+				selfcell.busStopTimeLabel.backgroundColor = .lightGray
+				if arrTime != nil {
+					selfcell.busStopTimeLabel?.text = "\(arrTimeStr)分後發車"
+				}
+				selfcell.busStopTimeLabel?.text = "尚未發車"
+			}
+		} else {
+			selfcell.busStopTimeLabel.backgroundColor = .lightGray
+			selfcell.busStopTimeLabel?.text = "尚未發車"
+		}
 		selfcell.busStopTimeLabel.layer.cornerRadius = 5
 		selfcell.busStopTimeLabel.clipsToBounds = true
 		return selfcell
 	}
 	
+	func queryStops(of busNum: String, at city: String){
+		BusCommunicator.shared.getBusStopOfRoute(busNum, city: city) { result, error in
+			if let error = error {
+				self.showAlert(message: "error: \(error)")
+				return
+			}
+			
+			guard let data = result else {
+				self.showAlert(message: "站牌連線異常")
+				return
+			}
+			self.busStopsResult = data
+			let direction0Routes = data.filter { $0.direction == 0 }
+			let direction1Routes = data.filter { $0.direction == 1 }
+//			self.busStopsResultTo = data[0]
+//			self.busStopsResultBack = data[1]
+			self.busStopsTo = direction0Routes[0].stops
+			self.busStopsBack = direction1Routes[0].stops
+			self.busStopsShow = self.busStopsTo
+			self.nowDirection = 0
+			self.busRouteStopsTable.reloadData()
+			
+		}
+	}
+	
+	func queryStopTimeOfArrival(of busNum: String, at city: String){
+		BusCommunicator.shared.getBusTimeOfArrival(busNum, city: city) { result, error in
+			if let error = error {
+				self.showAlert(message: "error: \(error)")
+				return
+			}
+			guard let data = result else {
+				self.showAlert(message: "站牌連線異常")
+				return
+			}
+			print("N2: \(data)")
+			self.busStopsToTime = data.filter { $0.direction == 0 }
+			self.busStopsBackTime = data.filter { $0.direction == 1 }
+//			print("busStopsToTime: \(self.busStopsToTime)")
+//			print("busStopsBackTime: \(self.busStopsBackTime)")
+			self.busRouteStopsTable.reloadData()
+		}
+	}
+	
+	func stopArrivalTime(stopID: String) -> StopOfTimeArrival? {
+//		var arrivalTime: Int?
+		var findArray = [StopOfTimeArrival]()
+		var resultStop: StopOfTimeArrival?
+		let direction = self.nowDirection
+		switch direction {
+		case 0:
+			findArray = self.busStopsToTime
+			break
+		case 1:
+			findArray = self.busStopsBackTime
+			break
+		default: break
+		}
+		let filteredObjects = findArray.filter { $0.stopID	 == stopID }
+		resultStop = filteredObjects.first
+		return resultStop
+	}
+	
+	func queryBusArrrivalTime(of busNum: String, at city: String){
+		BusCommunicator.shared.getBusTimeOfArrivalA1(busNum, city: city) { result, error in
+			if let error = error {
+				self.showAlert(message: "error: \(error)")
+				return
+			}
+			guard let data = result else {
+				self.showAlert(message: "站牌連線異常")
+				return
+			}
+			print("A1: \(data)")
+//			self.busStopsToTime = data.filter { $0.direction == 0 }
+//			self.busStopsBackTime = data.filter { $0.direction == 1 }
+//			print("busStopsToTime: \(self.busStopsToTime)")
+//			print("busStopsBackTime: \(self.busStopsBackTime)")
+			self.busRouteStopsTable.reloadData()
+		}
+	}
+	
+	func secToMin(_ sec: Int) -> String{
+		var min = 0
+		min = sec / 60
+		return "\(min)"
+	}
     /*
     // MARK: - Navigation
 

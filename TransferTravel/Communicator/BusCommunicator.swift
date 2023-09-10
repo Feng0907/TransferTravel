@@ -15,6 +15,10 @@ typealias DoneHandler<T> = (_ result: T?, _ error: Error?) ->Void
 typealias CityArrayCompletion = DoneHandler<[CityResult]>
 typealias BusStopOfRouteCompletion = DoneHandler<[BusStopResult]>
 typealias BusRouteInfoCompletion = DoneHandler<[BusRouteInfoResult]>
+typealias BusTimeOfArrivalCompletion = DoneHandler<[StopOfTimeArrival]>
+typealias BusTimeOfArrivalA1Completion = DoneHandler<[BusData]>
+
+
 
 typealias TokenCompletion = DoneHandler<TokenResult>
 class BusCommunicator {
@@ -29,7 +33,8 @@ class BusCommunicator {
 	let cityURL = baseURL + "api/basic/v2/Basic/City"
 	let busStopOfRouteURL = baseURL + "api/basic/v2/Bus/DisplayStopOfRoute/City/"
 	let busRouteInfoURL = baseURL + "api/basic/v2/Bus/Route/City/"
-
+	let busTimeOfArrivalURL = baseURL + "api/basic/v2/Bus/EstimatedTimeOfArrival/City/"
+	let busTimeOfArrivalA1URL = baseURL + "api/basic/v2/Bus/RealTimeByFrequency/City/"
 
 	let grantTypeKey = "grant_type"
 	let clientIDKey = "client_id"
@@ -153,7 +158,6 @@ class BusCommunicator {
 //		[cityKey: city, routeNameKey: busNumber]
 
 		doGet(busStopOfRouteURL + city + "/" + busNumber + "/", parameters: parameters, headers: headers, completion: completion)
-//		print("End of doGet()")
 	}
 	
 	func getBusRouteInfo(_ busNumber: String, city: String, completion: @escaping BusRouteInfoCompletion) {
@@ -163,7 +167,23 @@ class BusCommunicator {
 		let parameters: [String: Any] = ["$top": 30, "$format": "JSON"]
 		
 		doGet(busRouteInfoURL + city + "/" + busNumber + "/", parameters: parameters, headers: headers, completion: completion)
-//		print("End of doGet()")
+	}
+	
+	func getBusTimeOfArrival(_ busNumber: String, city: String, completion: @escaping BusTimeOfArrivalCompletion) {
+		let headers: HTTPHeaders = [
+			"authorization": "Bearer \(self.token)"
+		]
+		let parameters: [String: Any] = ["$format": "JSON"]
+		
+		doGet(busTimeOfArrivalURL + city + "/" + busNumber + "/", parameters: parameters, headers: headers, completion: completion)
+	}
+	func getBusTimeOfArrivalA1(_ busNumber: String, city: String, completion: @escaping BusTimeOfArrivalA1Completion) {
+		let headers: HTTPHeaders = [
+			"authorization": "Bearer \(self.token)"
+		]
+		let parameters: [String: Any] = ["$format": "JSON"]
+		
+		doGet(busTimeOfArrivalA1URL + city + "/" + busNumber + "/", parameters: parameters, headers: headers, completion: completion)
 	}
 	
 	private func doGet<type: Codable>(_ urlString: String,
@@ -384,8 +404,8 @@ struct BusRouteInfoResult: Codable {
 	let departureStopNameEn: String
 	let destinationStopNameZh: String
 	let destinationStopNameEn: String
-	let ticketPriceDescriptionZh: String
-	let ticketPriceDescriptionEn: String
+	let ticketPriceDescriptionZh: String?
+	let ticketPriceDescriptionEn: String?
 	let fareBufferZoneDescriptionZh: String?
 	let fareBufferZoneDescriptionEn: String?
 	let routeMapImageUrl: String
@@ -478,3 +498,77 @@ struct SubRouteName: Codable {
 	}
 }
 
+
+struct StopOfTimeArrival: Codable {
+	let stopUID: String
+	let stopID: String
+	let stopName: StopName
+	let routeUID: String
+	let routeID: String
+	let routeName: RouteName
+	let direction: Int
+	let estimateTime: Int?
+	let stopStatus: Int
+	let srcUpdateTime: String
+	let updateTime: String
+
+	enum CodingKeys: String, CodingKey {
+		case stopUID = "StopUID"
+		case stopID = "StopID"
+		case stopName = "StopName"
+		case routeUID = "RouteUID"
+		case routeID = "RouteID"
+		case routeName = "RouteName"
+		case direction = "Direction"
+		case estimateTime = "EstimateTime"
+		case stopStatus = "StopStatus"
+		case srcUpdateTime = "SrcUpdateTime"
+		case updateTime = "UpdateTime"
+	}
+}
+
+struct BusData: Codable {
+	let plateNumb: String
+	let operatorID: String
+	let operatorNo: String
+	let routeUID: String
+	let routeID: String
+	let routeName: RouteName
+	let subRouteUID: String
+	let subRouteID: String
+	let subRouteName: RouteName
+	let direction: Int
+	let stopUID: String?
+	let stopID: String?
+	let stopName: StopName?
+	let stopSequence: Int?
+	let dutyStatus: Int
+	let busStatus: Int
+	let a2EventType: Int?
+	let GPSTime: String
+	let srcUpdateTime: String
+	let updateTime: String
+
+	enum CodingKeys: String, CodingKey {
+		case plateNumb = "PlateNumb"
+		case operatorID = "OperatorID"
+		case operatorNo = "OperatorNo"
+		case routeUID = "RouteUID"
+		case routeID = "RouteID"
+		case routeName = "RouteName"
+		case subRouteUID = "SubRouteUID"
+		case subRouteID = "SubRouteID"
+		case subRouteName = "SubRouteName"
+		case direction = "Direction"
+		case stopUID = "StopUID"
+		case stopID = "StopID"
+		case stopName = "StopName"
+		case stopSequence = "StopSequence"
+		case dutyStatus = "DutyStatus"
+		case busStatus = "BusStatus"
+		case a2EventType = "A2EventType"
+		case GPSTime = "GPSTime"
+		case srcUpdateTime = "SrcUpdateTime"
+		case updateTime = "UpdateTime"
+	}
+}

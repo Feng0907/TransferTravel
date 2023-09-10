@@ -85,9 +85,7 @@ class BusSearchTableVC: UITableViewController, UISearchResultsUpdating {
 				self.filteredData = data
 				self.tableView.reloadData()
 			}
-			
 		}
-
 	}
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

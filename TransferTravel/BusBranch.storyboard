@@ -160,7 +160,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KjN-KP-l8c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1327" y="-612"/>
+            <point key="canvasLocation" x="1433" y="-618"/>
         </scene>
         <!--Bus RouteVC-->
         <scene sceneID="CjC-S3-a6y">
@@ -170,57 +170,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view autoresizesSubviews="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bxD-jA-kOc">
-                                <rect key="frame" x="0.0" y="98" width="393" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <segmentedControl opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" selected="YES" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="A3c-dc-eAC">
-                                        <rect key="frame" x="10" y="9.6666666666666714" width="373" height="32"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <segments>
-                                            <segment title="First"/>
-                                            <segment title="Second"/>
-                                        </segments>
-                                        <color key="tintColor" name="MainBlue"/>
-                                        <color key="selectedSegmentTintColor" name="MainBlue"/>
-                                        <connections>
-                                            <action selector="segmentedControlValueChanged:" destination="knC-qM-TeS" eventType="valueChanged" id="Cbq-qL-vGz"/>
-                                            <action selector="segmentedControlValueChanged:" destination="cc9-eK-bG0" eventType="valueChanged" id="zML-nS-eN1"/>
-                                        </connections>
-                                    </segmentedControl>
-                                </subviews>
-                                <viewLayoutGuide key="safeArea" id="5cC-xj-Z3T"/>
-                                <color key="backgroundColor" name="MainLightBlue"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="A3c-dc-eAC" firstAttribute="centerY" secondItem="bxD-jA-kOc" secondAttribute="centerY" id="4CW-R0-xUi"/>
-                                    <constraint firstAttribute="trailing" secondItem="A3c-dc-eAC" secondAttribute="trailing" constant="10" id="5sV-cZ-fpF"/>
-                                    <constraint firstItem="A3c-dc-eAC" firstAttribute="leading" secondItem="5cC-xj-Z3T" secondAttribute="leading" constant="10" id="S1O-vw-6MV"/>
-                                </constraints>
-                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="nRm-zi-W3Q">
-                                <rect key="frame" x="0.0" y="148" width="393" height="704"/>
+                                <rect key="frame" x="0.0" y="150" width="393" height="702"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" shouldIndentWhileEditing="NO" reuseIdentifier="busStopsCell" rowHeight="65" id="5Vr-RO-LgZ" customClass="BusStopsTVCell" customModule="TransferTravel" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="393" height="65"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" shouldIndentWhileEditing="NO" reuseIdentifier="busStopsCell" rowHeight="70" id="5Vr-RO-LgZ" customClass="BusStopsTVCell" customModule="TransferTravel" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5Vr-RO-LgZ" id="CtB-Xo-58R">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="65"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="站牌名稱" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WNG-Z4-93p">
-                                                    <rect key="frame" x="20" y="23" width="65.333333333333329" height="19.333333333333329"/>
+                                                    <rect key="frame" x="20" y="25.333333333333336" width="65.333333333333329" height="19.333333333333336"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.25098039220000001" green="0.23137254900000001" blue="0.30588235289999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" text="尚未發車" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="lyg-Cx-W9k">
-                                                    <rect key="frame" x="283" y="17" width="90" height="30"/>
+                                                    <rect key="frame" x="283" y="15" width="90" height="40"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <directionalEdgeInsets key="directionalLayoutMargins" top="12" leading="18" bottom="18" trailing="12"/>
-                                                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="16"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -238,6 +210,34 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view autoresizesSubviews="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" id="bxD-jA-kOc">
+                                <rect key="frame" x="0.0" y="100" width="393" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <segmentedControl opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" selected="YES" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="A3c-dc-eAC">
+                                        <rect key="frame" x="10" y="9.6666666666666714" width="373" height="32"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <segments>
+                                            <segment title="First"/>
+                                            <segment title="Second"/>
+                                        </segments>
+                                        <color key="tintColor" name="MainBlue"/>
+                                        <color key="selectedSegmentTintColor" name="MainBlue"/>
+                                        <connections>
+                                            <action selector="segmentedControlValueChanged:" destination="knC-qM-TeS" eventType="valueChanged" id="Cbq-qL-vGz"/>
+                                            <action selector="segmentedControlValueChanged:" destination="cc9-eK-bG0" eventType="valueChanged" id="zML-nS-eN1"/>
+                                        </connections>
+                                    </segmentedControl>
+                                </subviews>
+                                <color key="backgroundColor" name="MainLightBlue"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="A3c-dc-eAC" firstAttribute="centerY" secondItem="bxD-jA-kOc" secondAttribute="centerY" id="4CW-R0-xUi"/>
+                                    <constraint firstAttribute="trailing" secondItem="A3c-dc-eAC" secondAttribute="trailing" constant="10" id="5sV-cZ-fpF"/>
+                                    <constraint firstItem="A3c-dc-eAC" firstAttribute="leading" secondItem="bxD-jA-kOc" secondAttribute="leading" constant="10" id="S1O-vw-6MV"/>
+                                </constraints>
+                                <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="DVJ-17-Rmd"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
