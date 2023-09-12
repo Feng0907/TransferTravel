@@ -11,6 +11,7 @@ class BusStopsTVCell: UITableViewCell {
 
 	@IBOutlet weak var busStopNameLabel: UILabel!
 	@IBOutlet weak var busStopTimeLabel: UILabel!
+	@IBOutlet weak var busNumLabel: UILabel!
 	
 	override func awakeFromNib() {
         super.awakeFromNib()

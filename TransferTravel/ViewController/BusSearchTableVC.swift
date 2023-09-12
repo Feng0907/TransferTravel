@@ -7,17 +7,19 @@
 
 import UIKit
 
-class BusSearchTableVC: UITableViewController, UISearchResultsUpdating {
+class BusSearchTableVC: UITableViewController, UISearchResultsUpdating, UISearchBarDelegate {
 	
 //	@IBOutlet var searchController: UISearchBar!
 	var filteredData = [BusRouteInfoResult]()
 	var searchController = UISearchController(searchResultsController: nil)
-	
+	var citiesArr: [CityResult]?
     override func viewDidLoad() {
         super.viewDidLoad()
+		queryCity()
 		setSearchBar(searchController)
 		self.navigationItem.searchController = self.searchController
 		self.searchController.searchResultsUpdater = self
+		self.searchController.searchBar.delegate = self
 		
 		
         // Uncomment the following line to preserve selection between presentations
@@ -44,6 +46,9 @@ class BusSearchTableVC: UITableViewController, UISearchResultsUpdating {
 				clearButton.tintColor = .white // 设置清除按钮颜色为白色
 			}
 	}
+	
+	
+	
 	func setPlaceholderLabelColor(_ searchController : UISearchController){
 		if let placeholderLabel = searchController.searchBar.searchTextField.value(forKey: "placeholderLabel") as? UILabel {
 				placeholderLabel.textColor = UIColor.white.withAlphaComponent(0.6)
@@ -61,32 +66,62 @@ class BusSearchTableVC: UITableViewController, UISearchResultsUpdating {
         return 1
     }
 	
+	func queryCity(){
+		BusCommunicator.shared.getCity { (result, error) in
+			if let result = result {
+//				print("Success with cities: \(result)")
+				self.citiesArr = result
+			} else if let error = error {
+				print("Fail with: \(error)")
+			} else {
+				print("No data received")
+			}
+		}
+	}
+	
 	//MARK:searchResultsUpdater
 	func updateSearchResults(for searchController: UISearchController) {
+		var cityName = "Taipei"
+		guard let cities = self.citiesArr else {
+			return
+		}
 		guard let searchText = self.searchController.searchBar.text?.encodeUrl() else {
 			print("請輸入想找的路線")
 			return
 		}
-		if searchText.count > 1 && searchText.count <= 5 {
+		
+		if searchText.count > 1 && searchText.count <= 6 {
 //			print(searchText)
-			BusCommunicator.shared.getBusRouteInfo(searchText, city: "Taipei") { result, error in
-				
-				if let error = error {
-					self.showAlert(message: "error: \(error)")
-					self.searchController.searchBar.text? = ""
-					return
+			for city in cities {
+				cityName = city.city
+//				print(cityName)
+				BusCommunicator.shared.getBusRouteInfo(searchText, city: cityName) { result, error in
+					
+					if let error = error {
+						self.showAlert(message: "error: \(error)")
+						self.searchController.searchBar.text? = ""
+						return
+					}
+					
+					guard let data = result else {
+						self.showAlert(message: "查無所搜尋路線")
+						self.searchController.searchBar.text? = ""
+						return
+					}
+					self.filteredData += data
+					self.tableView.reloadData()
 				}
-				
-				guard let data = result else {
-					self.showAlert(message: "查無所搜尋路線")
-					self.searchController.searchBar.text? = ""
-					return
-				}
-				self.filteredData = data
-				self.tableView.reloadData()
 			}
+			
 		}
 	}
+
+	func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+		self.filteredData = []
+//		print("輸入匡值改變")
+		self.tableView.reloadData()
+	}
+	
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return self.filteredData.count

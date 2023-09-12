@@ -16,7 +16,7 @@ typealias CityArrayCompletion = DoneHandler<[CityResult]>
 typealias BusStopOfRouteCompletion = DoneHandler<[BusStopResult]>
 typealias BusRouteInfoCompletion = DoneHandler<[BusRouteInfoResult]>
 typealias BusTimeOfArrivalCompletion = DoneHandler<[StopOfTimeArrival]>
-typealias BusTimeOfArrivalA1Completion = DoneHandler<[BusData]>
+typealias BusTimeOfArrivalA1Completion = DoneHandler<[BusArrivalData]>
 
 
 
@@ -34,7 +34,7 @@ class BusCommunicator {
 	let busStopOfRouteURL = baseURL + "api/basic/v2/Bus/DisplayStopOfRoute/City/"
 	let busRouteInfoURL = baseURL + "api/basic/v2/Bus/Route/City/"
 	let busTimeOfArrivalURL = baseURL + "api/basic/v2/Bus/EstimatedTimeOfArrival/City/"
-	let busTimeOfArrivalA1URL = baseURL + "api/basic/v2/Bus/RealTimeByFrequency/City/"
+	let busTimeOfArrivalA1URL = baseURL + "api/basic/v2/Bus/RealTimeNearStop/City/"
 
 	let grantTypeKey = "grant_type"
 	let clientIDKey = "client_id"
@@ -401,14 +401,14 @@ struct BusRouteInfoResult: Codable {
 	let busRouteType: Int
 	let routeName: RouteName
 	let departureStopNameZh: String
-	let departureStopNameEn: String
+	let departureStopNameEn: String?
 	let destinationStopNameZh: String
 	let destinationStopNameEn: String
 	let ticketPriceDescriptionZh: String?
 	let ticketPriceDescriptionEn: String?
 	let fareBufferZoneDescriptionZh: String?
 	let fareBufferZoneDescriptionEn: String?
-	let routeMapImageUrl: String
+	let routeMapImageUrl: String?
 	let city: String
 	let cityCode: String
 	let updateTime: String
@@ -443,8 +443,8 @@ struct BusRouteInfoResult: Codable {
 struct BusOperator: Codable {
 	let operatorID: String
 	let operatorName: OperatorName
-	let operatorCode: String
-	let operatorNo: String
+	let operatorCode: String?
+	let operatorNo: String?
 
 	enum CodingKeys: String, CodingKey {
 		case operatorID = "OperatorID"
@@ -456,7 +456,7 @@ struct BusOperator: Codable {
 
 struct OperatorName: Codable {
 	let zhTw: String
-	let en: String
+	let en: String?
 
 	enum CodingKeys: String, CodingKey {
 		case zhTw = "Zh_tw"
@@ -509,6 +509,8 @@ struct StopOfTimeArrival: Codable {
 	let direction: Int
 	let estimateTime: Int?
 	let stopStatus: Int
+	let nextBusTime: String?
+	let isLastBus: Bool?
 	let srcUpdateTime: String
 	let updateTime: String
 
@@ -522,12 +524,59 @@ struct StopOfTimeArrival: Codable {
 		case direction = "Direction"
 		case estimateTime = "EstimateTime"
 		case stopStatus = "StopStatus"
+		case nextBusTime = "NextBusTime"
+		case isLastBus = "IsLastBus"
 		case srcUpdateTime = "SrcUpdateTime"
 		case updateTime = "UpdateTime"
 	}
 }
-
-struct BusData: Codable {
+//
+//struct BusArrivalData: Codable {
+//	let plateNumb: String
+//	let operatorID: String
+//	let operatorNo: String
+//	let routeUID: String
+//	let routeID: String
+//	let routeName: RouteName
+//	let subRouteUID: String
+//	let subRouteID: String
+//	let subRouteName: RouteName
+//	let direction: Int
+//	let stopUID: String?
+//	let stopID: String?
+//	let stopName: StopName?
+//	let stopSequence: Int?
+//	let dutyStatus: Int
+//	let busStatus: Int
+//	let a2EventType: Int?
+//	let GPSTime: String
+//	let srcUpdateTime: String
+//	let updateTime: String
+//
+//	enum CodingKeys: String, CodingKey {
+//		case plateNumb = "PlateNumb"
+//		case operatorID = "OperatorID"
+//		case operatorNo = "OperatorNo"
+//		case routeUID = "RouteUID"
+//		case routeID = "RouteID"
+//		case routeName = "RouteName"
+//		case subRouteUID = "SubRouteUID"
+//		case subRouteID = "SubRouteID"
+//		case subRouteName = "SubRouteName"
+//		case direction = "Direction"
+//		case stopUID = "StopUID"
+//		case stopID = "StopID"
+//		case stopName = "StopName"
+//		case stopSequence = "StopSequence"
+//		case dutyStatus = "DutyStatus"
+//		case busStatus = "BusStatus"
+//		case a2EventType = "A2EventType"
+//		case GPSTime = "GPSTime"
+//		case srcUpdateTime = "SrcUpdateTime"
+//		case updateTime = "UpdateTime"
+//	}
+//}
+struct BusArrivalData: Codable {
 	let plateNumb: String
 	let operatorID: String
 	let operatorNo: String
@@ -538,13 +587,13 @@ struct BusData: Codable {
 	let subRouteID: String
 	let subRouteName: RouteName
 	let direction: Int
-	let stopUID: String?
-	let stopID: String?
-	let stopName: StopName?
-	let stopSequence: Int?
+	let stopUID: String
+	let stopID: String
+	let stopName: StopName
+	let stopSequence: Int
 	let dutyStatus: Int
-	let busStatus: Int
-	let a2EventType: Int?
+	let busStatus: Int?
+	let a2EventType: Int
 	let GPSTime: String
 	let srcUpdateTime: String
 	let updateTime: String

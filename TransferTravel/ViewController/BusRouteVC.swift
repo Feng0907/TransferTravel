@@ -20,12 +20,13 @@ class BusRouteVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 	var backEndStopName = ""
 	var busStopsToTime = [StopOfTimeArrival]()
 	var busStopsBackTime = [StopOfTimeArrival]()
+	var busArrToTime = [BusArrivalData]()
+	var busArrBackTime = [BusArrivalData]()
 	var nowDirection = 0
 	var timer = Timer()
 
 	@IBOutlet weak var navSegmenteView: UIView!
 	@IBOutlet weak var segmentRouteChange: UISegmentedControl!
-	
 	@IBOutlet weak var busRouteStopsTable: UITableView!
 	
 	override func viewDidLoad() {
@@ -56,12 +57,13 @@ class BusRouteVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 		queryBusArrrivalTime(of: routeName, at: busInfo.city)
 		self.timer = Timer.scheduledTimer(withTimeInterval: 15.0, repeats: true) { _ in
 			self.queryStopTimeOfArrival(of: routeName, at: busInfo.city)
+			self.queryBusArrrivalTime(of: routeName, at: busInfo.city)
 			self.busRouteStopsTable.reloadData()
 		}
 		RunLoop.current.add(timer, forMode: .common)
     }
 	override func viewWillDisappear(_ animated: Bool) {
-		self.timer.invalidate()
+		timer.invalidate()
 	}
 	
 	func segmentConfig(){
@@ -105,10 +107,11 @@ class BusRouteVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 		let item = busStopsShow[indexPath.row]
 //		let direction = self.nowDirection
 		let timeItem = stopArrivalTime(stopID: item.stopID)
+		let busItemArr = busArrivalData(stopID: item.stopID)
+		let busActionArr = busItemArr.filter { $0.dutyStatus != 2 }
 		selfcell.busStopNameLabel?.text = item.stopName.zhTw
 		let arrTime = timeItem?.estimateTime
 		var arrTimeStr = ""
-		
 		if timeItem != nil {
 			if arrTime != nil {
 				arrTimeStr = secToMin(arrTime!)
@@ -140,6 +143,21 @@ class BusRouteVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 		}
 		selfcell.busStopTimeLabel.layer.cornerRadius = 5
 		selfcell.busStopTimeLabel.clipsToBounds = true
+		selfcell.busNumLabel?.text = ""
+		
+		if busActionArr.count == 1 {
+			let busItem = busActionArr.first
+			if busItem?.dutyStatus != 2{
+				selfcell.busNumLabel?.text! += "\(busItem?.plateNumb ?? "")"
+			}
+		} else if busActionArr.count > 1 {
+			for (index, busItem) in busActionArr.enumerated() {
+				selfcell.busNumLabel?.text! += "\(busItem.plateNumb)"
+				if index != busActionArr.count - 1 {
+					selfcell.busNumLabel?.text! += "\n"
+				}
+			}
+		}
 		return selfcell
 	}
 	
@@ -178,7 +196,7 @@ class BusRouteVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 				self.showAlert(message: "站牌連線異常")
 				return
 			}
-			print("N2: \(data)")
+//			print("N2: \(data)")
 			self.busStopsToTime = data.filter { $0.direction == 0 }
 			self.busStopsBackTime = data.filter { $0.direction == 1 }
 //			print("busStopsToTime: \(self.busStopsToTime)")
@@ -216,13 +234,34 @@ class BusRouteVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 				self.showAlert(message: "站牌連線異常")
 				return
 			}
-			print("A1: \(data)")
-//			self.busStopsToTime = data.filter { $0.direction == 0 }
-//			self.busStopsBackTime = data.filter { $0.direction == 1 }
-//			print("busStopsToTime: \(self.busStopsToTime)")
-//			print("busStopsBackTime: \(self.busStopsBackTime)")
+//			print("A1: \(data)")
+			self.busArrToTime = data.filter { $0.direction == 0 }
+			self.busArrBackTime = data.filter { $0.direction == 1 }
+//			print("busArrToTime: \(self.busArrToTime)")
+//			print("busArrBackTime: \(self.busArrBackTime)")
 			self.busRouteStopsTable.reloadData()
 		}
+	}
+	
+	func busArrivalData(stopID: String) -> [BusArrivalData] {
+//		var arrivalTime: Int?
+		var findArray = [BusArrivalData]()
+//		var resultBus: BusArrivalData?
+		let direction = self.nowDirection
+		switch direction {
+		case 0:
+			findArray = self.busArrToTime
+			break
+		case 1:
+			findArray = self.busArrBackTime
+			break
+		default: break
+		}
+		let filteredObjects = findArray.filter { $0.stopID	 == stopID }
+//		print("filteredObjects \(filteredObjects)")
+//		resultBus = filteredObjects.first
+//		print("resultBus \(resultBus)")
+		return filteredObjects
 	}
 	
 	func secToMin(_ sec: Int) -> String{
