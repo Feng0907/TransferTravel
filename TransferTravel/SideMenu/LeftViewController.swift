@@ -5,6 +5,7 @@
 
 import Foundation
 import UIKit
+import LGSideMenuController
 
 //enum SideViewCellItem: Equatable {
 //	case pushVC(title: String)
@@ -48,8 +49,8 @@ class LeftViewController: UITableViewController {
 		addMenu(pageTitle: "我的路線", pageID: "ListNaviC", VC: RouteListNaviVC())
 		addMenu(pageTitle: "公車路線", pageID: "BusRouteNaviC", VC: BusNaviVC())
 		addMenu(pageTitle: "台北捷運", pageID: "taipeiMRT", VC: BusNaviVC())
-		addMenu(pageTitle: "設定", pageID: "setting", VC: BusNaviVC())
-		addMenu(pageTitle: "聯繫我們", pageID: "contUS", VC: BusNaviVC())
+//		addMenu(pageTitle: "設定", pageID: "setting", VC: BusNaviVC())
+//		addMenu(pageTitle: "聯繫我們", pageID: "contUS", VC: BusNaviVC())
     }
 	
 

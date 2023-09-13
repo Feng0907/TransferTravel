@@ -5,6 +5,7 @@
 
 import Foundation
 import UIKit
+import LGSideMenuController
 
 private let textFont = UIFont.boldSystemFont(ofSize: 16.0)
 private let fillColorNormal = UIColor(white: 0.0, alpha: 0.2)

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import KRProgressHUD
 
 class BusSearchTableVC: UITableViewController, UISearchResultsUpdating, UISearchBarDelegate {
 	
@@ -13,14 +14,21 @@ class BusSearchTableVC: UITableViewController, UISearchResultsUpdating, UISearch
 	var filteredData = [BusRouteInfoResult]()
 	var searchController = UISearchController(searchResultsController: nil)
 	var citiesArr: [CityResult]?
+	var cityName = ""
+	var searchTimer: Timer?
+	
+	let queryQueue = DispatchQueue(label: "QueryQueue")
+	
+//	let activityIndicator = KRActivityIndicatorView()
+	
     override func viewDidLoad() {
         super.viewDidLoad()
+		
 		queryCity()
 		setSearchBar(searchController)
 		self.navigationItem.searchController = self.searchController
 		self.searchController.searchResultsUpdater = self
 		self.searchController.searchBar.delegate = self
-		
 		
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -33,8 +41,10 @@ class BusSearchTableVC: UITableViewController, UISearchResultsUpdating, UISearch
 		setPlaceholderLabelColor(searchController)
 	}
 	
+	
+	
 	func setSearchBar(_ searchController : UISearchController){
-		searchController.searchBar.placeholder = "目前僅能搜尋雙北公車"
+		searchController.searchBar.placeholder = "請輸入想搜尋的公車"
 		searchController.searchBar.searchTextField.backgroundColor = UIColor.white.withAlphaComponent(0.3)
 		searchController.searchBar.searchTextField.textColor = .white
 		searchController.searchBar.searchTextField.leftView?.tintColor = .white
@@ -81,44 +91,99 @@ class BusSearchTableVC: UITableViewController, UISearchResultsUpdating, UISearch
 	
 	//MARK:searchResultsUpdater
 	func updateSearchResults(for searchController: UISearchController) {
-		var cityName = "Taipei"
-		guard let cities = self.citiesArr else {
-			return
-		}
+		
 		guard let searchText = self.searchController.searchBar.text?.encodeUrl() else {
 			print("請輸入想找的路線")
 			return
 		}
+		searchTimer?.invalidate()
 		
-		if searchText.count > 1 && searchText.count <= 6 {
-//			print(searchText)
-			for city in cities {
-				cityName = city.city
-//				print(cityName)
-				BusCommunicator.shared.getBusRouteInfo(searchText, city: cityName) { result, error in
+		searchTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { [self] _ in
+			if searchText.count > 1 && searchText.count <= 6 {
+//				view.addSubview(self.activityIndicator)
+//				self.activityIndicator.startAnimating()
+				KRProgressHUD.show()
+				self.queryQueue.async {
+					self.performSearch(searchText: searchText)
 					
-					if let error = error {
-						self.showAlert(message: "error: \(error)")
-						self.searchController.searchBar.text? = ""
-						return
+				}
+				
+			} else {
+//				self.activityIndicator.stopAnimating()
+				KRProgressHUD.dismiss()
+			}
+		}
+	}
+	
+	
+	func performSearch(searchText: String) {
+
+		guard let cities = self.citiesArr else {
+			return
+		}
+		var resultCount = 0
+		let busResultGroup = DispatchGroup() // 創建 DispatchGroup
+//		defer{
+//			print("222  \(resultCount)")
+//			if resultCount == 0 {
+//				print("123\(self.filteredData)")
+//				DispatchQueue.main.async {
+//					self.activityIndicator.stopAnimating()
+//					self.showAlert(message: "查無所搜尋路線")
+//				}
+//			}
+//		}
+		for city in cities {
+			cityName = city.city
+			busResultGroup.enter()
+			BusCommunicator.shared.getBusRouteInfo(searchText, city: cityName) { result, error in
+				defer{
+					DispatchQueue.main.async {
+						KRProgressHUD.dismiss()
+//						self.activityIndicator.stopAnimating()
+//						self.activityIndicator.hidesWhenStopped = true
 					}
-					
-					guard let data = result else {
-						self.showAlert(message: "查無所搜尋路線")
-						self.searchController.searchBar.text? = ""
-						return
-					}
-					self.filteredData += data
+					busResultGroup.leave()
+				}
+				
+				if let error = error {
+					print("getBusRouteInfo Error: \(error)")
+//					self.showAlert(message: "查無所搜尋路線")
+//						self.searchController.searchBar.text? = ""
+					self.tableView.reloadData()
+					return
+				}
+				
+				guard let data = result else {
+					print("result error")
+//					self.showAlert(message: "查無所搜尋路線")
+					self.searchController.searchBar.text? = ""
+					return
+				}
+
+				DispatchQueue.main.async {
 					self.tableView.reloadData()
 				}
+				
+				resultCount += data.count
+				self.filteredData += data
 			}
-			
 		}
+		busResultGroup.notify(queue: DispatchQueue.main) {
+			if resultCount == 0 {
+				self.showAlert(message: "查無所搜尋路線")
+			}
+		}
+	}
+	
+	func cityEnToZn(enCityName: String) -> String? {
+		let selectCityArr = self.citiesArr?.filter{ $0.city == enCityName }
+		let currectCity = selectCityArr?[0]
+		return currectCity?.cityName
 	}
 
 	func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
 		self.filteredData = []
-//		print("輸入匡值改變")
 		self.tableView.reloadData()
 	}
 	
@@ -129,11 +194,16 @@ class BusSearchTableVC: UITableViewController, UISearchResultsUpdating, UISearch
 	
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCell(withIdentifier: "searchRusRoute", for: indexPath)
+		guard let selfcell = tableView.dequeueReusableCell(withIdentifier: "searchRusRoute", for: indexPath) as? searchRusRouteTVCell else{
+		   fatalError("請確認storybord上有設定customcell")
+		}
+		
 		let item = filteredData[indexPath.row]
-		cell.textLabel?.text = item.routeName.zhTw
-		cell.detailTextLabel?.text = item.departureStopNameZh + " - " + item.destinationStopNameZh
-        return cell
+		selfcell.routeNumLabel?.text = item.routeName.zhTw
+		selfcell.routeStartEndLabel?.text = item.departureStopNameZh != nil ? item.departureStopNameZh! + " - " + item.destinationStopNameZh : item.destinationStopNameZh + " - " + item.destinationStopNameZh
+		let cityNameZn = cityEnToZn(enCityName: item.city)
+		selfcell.routeCityLabel?.text = cityNameZn
+        return selfcell
     }
 
 
@@ -181,6 +251,7 @@ class BusSearchTableVC: UITableViewController, UISearchResultsUpdating, UISearch
 		   let BusRouteVC = segue.destination as? BusRouteVC,
 		   let index = self.tableView.indexPathForSelectedRow {
 			let item = self.filteredData[index.row]
+			print(item)
 			BusInfoSendHelper.shared.SendBusInfo = item
 			BusRouteVC.busInfo = BusInfoSendHelper.shared.SendBusInfo
 		}

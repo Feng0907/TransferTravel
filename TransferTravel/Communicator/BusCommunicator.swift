@@ -31,7 +31,9 @@ class BusCommunicator {
 	//測試用高鐵班次
 	let THSRURL = baseURL + "api/basic/v2/Rail/THSR/DailyTimetable/Today?$format=JSON"
 	let cityURL = baseURL + "api/basic/v2/Basic/City"
-	let busStopOfRouteURL = baseURL + "api/basic/v2/Bus/DisplayStopOfRoute/City/"
+	//這個公車站牌顯示不夠多要換另一個撈
+//	let busStopOfRouteURL = baseURL + "api/basic/v2/Bus/DisplayStopOfRoute/City/"
+	let busStopOfRouteURL = baseURL + "api/basic/v2/Bus/StopOfRoute/City/"
 	let busRouteInfoURL = baseURL + "api/basic/v2/Bus/Route/City/"
 	let busTimeOfArrivalURL = baseURL + "api/basic/v2/Bus/EstimatedTimeOfArrival/City/"
 	let busTimeOfArrivalA1URL = baseURL + "api/basic/v2/Bus/RealTimeNearStop/City/"
@@ -154,7 +156,7 @@ class BusCommunicator {
 		let headers: HTTPHeaders = [
 			"authorization": "Bearer \(self.token)"
 		]
-		let parameters: [String: Any] = ["$top": 30, "$format": "JSON"]
+		let parameters: [String: Any] = ["$format": "JSON"]
 //		[cityKey: city, routeNameKey: busNumber]
 
 		doGet(busStopOfRouteURL + city + "/" + busNumber + "/", parameters: parameters, headers: headers, completion: completion)
@@ -164,7 +166,7 @@ class BusCommunicator {
 		let headers: HTTPHeaders = [
 			"authorization": "Bearer \(self.token)"
 		]
-		let parameters: [String: Any] = ["$top": 30, "$format": "JSON"]
+		let parameters: [String: Any] = ["$format": "JSON"]
 		
 		doGet(busRouteInfoURL + city + "/" + busNumber + "/", parameters: parameters, headers: headers, completion: completion)
 	}
@@ -329,7 +331,7 @@ struct BusStopResult: Codable {
 
 struct RouteName: Codable {
 	let zhTw: String
-	let en: String
+	let en: String?
 
 	private enum CodingKeys: String, CodingKey {
 		case zhTw = "Zh_tw"
@@ -359,7 +361,7 @@ struct BusStop: Codable {
 
 struct StopName: Codable {
 	let zhTw: String
-	let en: String
+	let en: String?
 
 	private enum CodingKeys: String, CodingKey {
 		case zhTw = "Zh_tw"
@@ -400,10 +402,10 @@ struct BusRouteInfoResult: Codable {
 	let subRoutes: [SubRoute]?
 	let busRouteType: Int
 	let routeName: RouteName
-	let departureStopNameZh: String
+	let departureStopNameZh: String?
 	let departureStopNameEn: String?
 	let destinationStopNameZh: String
-	let destinationStopNameEn: String
+	let destinationStopNameEn: String?
 	let ticketPriceDescriptionZh: String?
 	let ticketPriceDescriptionEn: String?
 	let fareBufferZoneDescriptionZh: String?
@@ -489,8 +491,8 @@ struct SubRoute: Codable {
 }
 
 struct SubRouteName: Codable {
-	let zhTw: String
-	let en: String
+	let zhTw: String?
+	let en: String?
 
 	enum CodingKeys: String, CodingKey {
 		case zhTw = "Zh_tw"
@@ -511,7 +513,7 @@ struct StopOfTimeArrival: Codable {
 	let stopStatus: Int
 	let nextBusTime: String?
 	let isLastBus: Bool?
-	let srcUpdateTime: String
+	let srcUpdateTime: String?
 	let updateTime: String
 
 	enum CodingKeys: String, CodingKey {

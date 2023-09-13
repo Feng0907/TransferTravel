@@ -18,37 +18,40 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="searchRusRoute" textLabel="GMj-lu-Wvb" detailTextLabel="6sG-G0-Dja" style="IBUITableViewCellStyleSubtitle" id="XIo-eG-jha">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="searchRusRoute" id="XIo-eG-jha" customClass="searchRusRouteTVCell" customModule="TransferTravel" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="50" width="393" height="75"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XIo-eG-jha" id="tJ1-AD-6YX">
                                     <rect key="frame" x="0.0" y="0.0" width="362.66666666666669" height="75"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" usesAttributedText="YES" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="GMj-lu-Wvb">
-                                            <rect key="frame" x="19.999999999999996" y="15.666666666666666" width="34.666666666666664" height="21.666666666666668"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <attributedString key="attributedText">
-                                                <fragment content="Title">
-                                                    <attributes>
-                                                        <color key="NSColor" red="0.24300000071525574" green="0.37999999523162842" blue="0.48199999332427979" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <font key="NSFont" metaFont="system" size="18"/>
-                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                    </attributes>
-                                                </fragment>
-                                            </attributedString>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dU0-dd-L60">
+                                            <rect key="frame" x="20" y="11" width="236" height="24"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                            <color key="textColor" name="MainBlue"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6sG-G0-Dja">
-                                            <rect key="frame" x="20.000000000000004" y="40.666666666666671" width="37.333333333333336" height="17"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mIL-bk-qww">
+                                            <rect key="frame" x="20" y="43" width="236" height="17"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <color key="highlightedColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b53-h4-avF">
+                                            <rect key="frame" x="264" y="27" width="88" height="20"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="routeCityLabel" destination="b53-h4-avF" id="nvf-X2-zBp"/>
+                                    <outlet property="routeNumLabel" destination="dU0-dd-L60" id="TzW-jc-wbn"/>
+                                    <outlet property="routeStartEndLabel" destination="mIL-bk-qww" id="7Co-TF-TgO"/>
                                     <segue destination="cc9-eK-bG0" kind="show" identifier="busRouteListSegue" id="dPK-K8-r3e"/>
                                 </connections>
                             </tableViewCell>
@@ -158,13 +161,22 @@
                                             <action selector="segmentedControlValueChanged:" destination="cc9-eK-bG0" eventType="valueChanged" id="zML-nS-eN1"/>
                                         </connections>
                                     </segmentedControl>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3hd-XX-rr4">
+                                        <rect key="frame" x="15" y="14.666666666666671" width="363" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" name="MainLightBlue"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="A3c-dc-eAC" firstAttribute="centerY" secondItem="bxD-jA-kOc" secondAttribute="centerY" id="4CW-R0-xUi"/>
                                     <constraint firstAttribute="trailing" secondItem="A3c-dc-eAC" secondAttribute="trailing" constant="10" id="5sV-cZ-fpF"/>
+                                    <constraint firstItem="3hd-XX-rr4" firstAttribute="leading" secondItem="bxD-jA-kOc" secondAttribute="leading" constant="15" id="88E-Uc-OpC"/>
                                     <constraint firstItem="A3c-dc-eAC" firstAttribute="leading" secondItem="bxD-jA-kOc" secondAttribute="leading" constant="10" id="S1O-vw-6MV"/>
+                                    <constraint firstAttribute="trailing" secondItem="3hd-XX-rr4" secondAttribute="trailing" constant="15" id="TRt-HT-Zos"/>
+                                    <constraint firstItem="3hd-XX-rr4" firstAttribute="centerY" secondItem="bxD-jA-kOc" secondAttribute="centerY" id="d7Q-KJ-Stx"/>
                                 </constraints>
                                 <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
                             </view>
@@ -182,6 +194,7 @@
                     <connections>
                         <outlet property="busRouteStopsTable" destination="nRm-zi-W3Q" id="DoJ-9E-Q8Y"/>
                         <outlet property="navSegmenteView" destination="bxD-jA-kOc" id="ZgJ-lY-L0k"/>
+                        <outlet property="oneRouteLabel" destination="3hd-XX-rr4" id="mBQ-Ot-3MV"/>
                         <outlet property="segmentRouteChange" destination="A3c-dc-eAC" id="H0c-UC-bX1"/>
                     </connections>
                 </viewController>

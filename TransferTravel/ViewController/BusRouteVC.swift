@@ -27,6 +27,7 @@ class BusRouteVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
 	@IBOutlet weak var navSegmenteView: UIView!
 	@IBOutlet weak var segmentRouteChange: UISegmentedControl!
+	@IBOutlet weak var oneRouteLabel: UILabel!
 	@IBOutlet weak var busRouteStopsTable: UITableView!
 	
 	override func viewDidLoad() {
@@ -44,15 +45,16 @@ class BusRouteVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 			assertionFailure("busInfo find Fail!")
 			return
 		}
-		self.toEndStopName = busInfo.departureStopNameZh
-		self.backEndStopName = busInfo.destinationStopNameZh
-		segmentConfig()
-		self.navigationItem.title = busInfo.routeName.zhTw
 		guard let routeName = busInfo.routeName.zhTw.encodeUrl() else {
 			assertionFailure("routeName find Fail!")
 			return
 		}
+		self.toEndStopName = busInfo.departureStopNameZh ?? busInfo.destinationStopNameZh
+		self.backEndStopName = busInfo.destinationStopNameZh
+		segmentConfig()
 		queryStops(of: routeName, at: busInfo.city)
+		self.oneRouteLabel.isHidden = true
+		self.navigationItem.title = busInfo.routeName.zhTw
 		queryStopTimeOfArrival(of: routeName, at: busInfo.city)
 		queryBusArrrivalTime(of: routeName, at: busInfo.city)
 		self.timer = Timer.scheduledTimer(withTimeInterval: 15.0, repeats: true) { _ in
@@ -67,6 +69,7 @@ class BusRouteVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 	}
 	
 	func segmentConfig(){
+		
 		let normalTextAttributes: [NSAttributedString.Key: Any] = [
 			.foregroundColor: UIColor.white
 		]
@@ -177,10 +180,16 @@ class BusRouteVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 			let direction1Routes = data.filter { $0.direction == 1 }
 //			self.busStopsResultTo = data[0]
 //			self.busStopsResultBack = data[1]
-			self.busStopsTo = direction0Routes[0].stops
-			self.busStopsBack = direction1Routes[0].stops
+			self.busStopsTo = direction0Routes.count != 0 ? direction0Routes[0].stops : []
+			//有可能只有單程要對這邊做處理
+			self.busStopsBack = direction1Routes.count != 0 ? direction1Routes[0].stops : []
 			self.busStopsShow = self.busStopsTo
 			self.nowDirection = 0
+			if self.busStopsBack.count == 0 {
+				self.segmentRouteChange.isHidden = true
+				self.oneRouteLabel.isHidden = false
+				self.oneRouteLabel.text = "\(self.toEndStopName) - \(self.backEndStopName)"
+			}
 			self.busRouteStopsTable.reloadData()
 			
 		}

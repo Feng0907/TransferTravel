@@ -26,7 +26,7 @@
                         </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
-                        <segue destination="KqY-fV-310" kind="relationship" relationship="viewControllers" id="Jfs-dd-kf8"/>
+                        <segue destination="KqY-fV-310" kind="relationship" relationship="viewControllers" id="axD-aM-lBf"/>
                         <segue destination="D1H-LX-Oes" kind="relationship" relationship="viewControllers" id="loq-KD-71D"/>
                         <segue destination="e1O-Ez-fZY" kind="relationship" relationship="viewControllers" id="SAf-dA-V3b"/>
                         <segue destination="lYh-kI-NIl" kind="relationship" relationship="viewControllers" id="DBV-gc-x6H"/>
@@ -46,6 +46,7 @@
                         <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <imageReference key="selectedImage" image="tabbar_selected_list.png" symbolScale="large"/>
                     </tabBarItem>
+                    <navigationItem key="navigationItem" id="Xcn-Hu-iTv"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3iR-O3-SCT">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -108,6 +109,7 @@
             <objects>
                 <navigationController storyboardIdentifier="BusRouteNaviC" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="e1O-Ez-fZY" customClass="BusNaviVC" customModule="TransferTravel" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="tabbar_unselect_bus.png" landscapeImage="tabbar_unselect_bus.png" selectedImage="tabbar_selected_bus.png" id="Ejm-V8-Mt3"/>
+                    <navigationItem key="navigationItem" id="wp2-tJ-1py"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="BlL-ic-eZg">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -286,17 +288,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="740" verticalCompressionResistancePriority="740" insetsLayoutMarginsFromSafeArea="NO" image="indexBG.png" translatesAutoresizingMaskIntoConstraints="NO" id="ghv-8s-MnL">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="300"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="300" id="ndc-Xo-VeL"/>
-                                </constraints>
+                            <imageView opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="740" verticalCompressionResistancePriority="740" insetsLayoutMarginsFromSafeArea="NO" image="Rectangle 36index.png" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ghv-8s-MnL">
+                                <rect key="frame" x="-13.666666666666657" y="0.0" width="420.33333333333326" height="318"/>
                             </imageView>
                             <stackView contentMode="scaleToFill" semanticContentAttribute="spatial" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" insetsLayoutMarginsFromSafeArea="NO" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="wv0-PZ-02S">
                                 <rect key="frame" x="97.333333333333329" y="79" width="198.66666666666669" height="200"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fzy-Rj-pv7">
-                                        <rect key="frame" x="59.333333333333336" y="7.3333333333333375" width="80.333333333333314" height="81.000000000000014"/>
+                                        <rect key="frame" x="59.333333333333336" y="7.3333333333333366" width="80.333333333333314" height="81"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="80" id="3d6-AV-9BI"/>
@@ -334,7 +333,7 @@
                                 <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleAspectFit" spacing="10" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oIX-g9-gnd">
-                                <rect key="frame" x="20" y="329" width="353" height="80"/>
+                                <rect key="frame" x="20" y="349" width="353" height="80"/>
                                 <subviews>
                                     <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cCm-FG-yK3">
                                         <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
@@ -343,17 +342,14 @@
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain">
-                                            <backgroundConfiguration key="background" image="icon_list.png"/>
+                                            <backgroundConfiguration key="background" image="icon_listicon.png"/>
                                         </buttonConfiguration>
                                     </button>
                                     <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0nq-Oe-hDZ">
                                         <rect key="frame" x="90" y="0.0" width="83" height="80"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="nqa-w9-gD2"/>
-                                        </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain">
-                                            <backgroundConfiguration key="background" image="icon_bus.png"/>
+                                            <backgroundConfiguration key="background" image="icon_busicon.png"/>
                                         </buttonConfiguration>
                                     </button>
                                     <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VQI-9c-bGA">
@@ -363,7 +359,7 @@
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain">
-                                            <backgroundConfiguration key="background" image="icon_mrt.png"/>
+                                            <backgroundConfiguration key="background" image="icon_mrticon.png"/>
                                         </buttonConfiguration>
                                     </button>
                                     <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qrn-gw-tx2">
@@ -373,7 +369,7 @@
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain">
-                                            <backgroundConfiguration key="background" image="icon_setting.png"/>
+                                            <backgroundConfiguration key="background" image="icon_settingicon.png"/>
                                         </buttonConfiguration>
                                     </button>
                                 </subviews>
@@ -382,7 +378,7 @@
                                 </constraints>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="undraw_My_current_location_re_whmt.png" translatesAutoresizingMaskIntoConstraints="NO" id="i5B-z6-dQn">
-                                <rect key="frame" x="16" y="433" width="357" height="311"/>
+                                <rect key="frame" x="16" y="438" width="357" height="311"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="311" id="Qbc-Je-c51"/>
                                 </constraints>
@@ -391,9 +387,9 @@
                         <viewLayoutGuide key="safeArea" id="Ud2-g9-U0I"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="oIX-g9-gnd" firstAttribute="top" secondItem="Ud2-g9-U0I" secondAttribute="top" constant="270" id="3lK-iz-NKr"/>
-                            <constraint firstItem="Ud2-g9-U0I" firstAttribute="bottom" secondItem="i5B-z6-dQn" secondAttribute="bottom" constant="25" id="4hk-8K-k8W"/>
-                            <constraint firstItem="oIX-g9-gnd" firstAttribute="top" secondItem="wv0-PZ-02S" secondAttribute="bottom" constant="50" id="6E8-8z-4dR"/>
+                            <constraint firstItem="oIX-g9-gnd" firstAttribute="top" secondItem="Ud2-g9-U0I" secondAttribute="top" constant="290" id="3lK-iz-NKr"/>
+                            <constraint firstItem="Ud2-g9-U0I" firstAttribute="bottom" secondItem="i5B-z6-dQn" secondAttribute="bottom" constant="20" id="4hk-8K-k8W"/>
+                            <constraint firstItem="oIX-g9-gnd" firstAttribute="top" secondItem="wv0-PZ-02S" secondAttribute="bottom" constant="70" id="6E8-8z-4dR"/>
                             <constraint firstItem="ghv-8s-MnL" firstAttribute="centerX" secondItem="oIX-g9-gnd" secondAttribute="centerX" id="7EX-f5-Ymu"/>
                             <constraint firstItem="oIX-g9-gnd" firstAttribute="leading" secondItem="Ud2-g9-U0I" secondAttribute="leading" constant="20" id="92r-xl-HaS"/>
                             <constraint firstItem="ghv-8s-MnL" firstAttribute="top" secondItem="9ya-AL-fLg" secondAttribute="topMargin" constant="-59" id="b47-ll-WlQ"/>
@@ -414,10 +410,14 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="busBtnPressed" destination="0nq-Oe-hDZ" id="I7u-Kz-7nH"/>
+                        <outlet property="listBtnPressed" destination="cCm-FG-yK3" id="Tdr-6P-2uD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rdW-R4-dQJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-66" y="-1629"/>
+            <point key="canvasLocation" x="-160" y="-1731"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="vRc-Du-7FU">
@@ -425,6 +425,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lYh-kI-NIl" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="tabbar_unselect_mrt.png" landscapeImage="tabbar_unselect_mrt.png" selectedImage="tabbar_selected_mrt.png" id="C14-rw-WJM"/>
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="xaH-7C-lXY"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" backIndicatorImage="Rectangle 32bgc02.png" id="ml5-7r-8u5">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -471,12 +472,12 @@
     <color key="tintColor" name="MainBlue"/>
     <resources>
         <image name="Rectangle 32bgc02.png" width="393" height="145"/>
+        <image name="Rectangle 36index.png" width="420" height="318"/>
         <image name="cloud.sun" catalog="system" width="128" height="97"/>
-        <image name="icon_bus.png" width="80" height="80"/>
-        <image name="icon_list.png" width="80" height="80"/>
-        <image name="icon_mrt.png" width="80" height="80"/>
-        <image name="icon_setting.png" width="80" height="80"/>
-        <image name="indexBG.png" width="393" height="300"/>
+        <image name="icon_busicon.png" width="80" height="80"/>
+        <image name="icon_listicon.png" width="80" height="80"/>
+        <image name="icon_mrticon.png" width="80" height="80"/>
+        <image name="icon_settingicon.png" width="80" height="80"/>
         <image name="metrotaipeimap.jpg" width="5669" height="7710"/>
         <image name="tabbar_selected_bus.png" width="34" height="34"/>
         <image name="tabbar_selected_home.png" width="30" height="30"/>
@@ -492,7 +493,7 @@
             <color red="0.24300000071525574" green="0.37999999523162842" blue="0.48199999332427979" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="mainDeepBlue2">
-            <color red="0.17299999296665192" green="0.31000000238418579" blue="0.45100000500679016" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.17254901960784313" green="0.33725490196078434" blue="0.45098039215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

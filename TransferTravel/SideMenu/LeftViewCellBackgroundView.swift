@@ -5,6 +5,7 @@
 
 import Foundation
 import UIKit
+import LGSideMenuController
 
 private func rad(_ deg: CGFloat) -> CGFloat {
     return (deg - 90.0) * .pi / 180.0

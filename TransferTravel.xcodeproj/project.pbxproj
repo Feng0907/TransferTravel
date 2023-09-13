@@ -73,6 +73,16 @@
 		B2D32C1C2A8CBFC900082167 /* icon_setting.png in Resources */ = {isa = PBXBuildFile; fileRef = B2D32C182A8CBFC900082167 /* icon_setting.png */; };
 		B2D32C1D2A8CBFC900082167 /* icon_list.png in Resources */ = {isa = PBXBuildFile; fileRef = B2D32C192A8CBFC900082167 /* icon_list.png */; };
 		B2DFA42C2A87858A00D85923 /* TransportationTypeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DFA42B2A87858A00D85923 /* TransportationTypeModel.swift */; };
+		B2EF5D0D2AB0A61A00EF4191 /* searchRusRouteTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EF5D0C2AB0A61A00EF4191 /* searchRusRouteTVCell.swift */; };
+		B2EF5D122AB0CB1600EF4191 /* icon_mrticon.png in Resources */ = {isa = PBXBuildFile; fileRef = B2EF5D0E2AB0CB1600EF4191 /* icon_mrticon.png */; };
+		B2EF5D132AB0CB1600EF4191 /* icon_busicon.png in Resources */ = {isa = PBXBuildFile; fileRef = B2EF5D0F2AB0CB1600EF4191 /* icon_busicon.png */; };
+		B2EF5D142AB0CB1600EF4191 /* icon_settingicon.png in Resources */ = {isa = PBXBuildFile; fileRef = B2EF5D102AB0CB1600EF4191 /* icon_settingicon.png */; };
+		B2EF5D152AB0CB1600EF4191 /* icon_listicon.png in Resources */ = {isa = PBXBuildFile; fileRef = B2EF5D112AB0CB1600EF4191 /* icon_listicon.png */; };
+		B2EF5D172AB0CB2E00EF4191 /* Rectangle 25indexBG (1).png in Resources */ = {isa = PBXBuildFile; fileRef = B2EF5D162AB0CB2E00EF4191 /* Rectangle 25indexBG (1).png */; };
+		B2EF5D1B2AB0D10D00EF4191 /* Rectangle 36index.png in Resources */ = {isa = PBXBuildFile; fileRef = B2EF5D1A2AB0D10D00EF4191 /* Rectangle 36index.png */; };
+		B2EF5D1D2AB14BFE00EF4191 /* lodingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EF5D1C2AB14BFE00EF4191 /* lodingHelper.swift */; };
+		B2EF5D202AB15D3900EF4191 /* KRActivityIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = B2EF5D1F2AB15D3900EF4191 /* KRActivityIndicatorView */; };
+		B2EF5D232AB192D800EF4191 /* KRProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = B2EF5D222AB192D800EF4191 /* KRProgressHUD */; };
 		B2F6DD212A74C8D600A6B6CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F6DD202A74C8D600A6B6CB /* AppDelegate.swift */; };
 		B2F6DD232A74C8D600A6B6CB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F6DD222A74C8D600A6B6CB /* SceneDelegate.swift */; };
 		B2F6DD252A74C8D600A6B6CB /* IndexVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F6DD242A74C8D600A6B6CB /* IndexVC.swift */; };
@@ -145,6 +155,15 @@
 		B2D32C182A8CBFC900082167 /* icon_setting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_setting.png; sourceTree = "<group>"; };
 		B2D32C192A8CBFC900082167 /* icon_list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_list.png; sourceTree = "<group>"; };
 		B2DFA42B2A87858A00D85923 /* TransportationTypeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportationTypeModel.swift; sourceTree = "<group>"; };
+		B2EF5D0C2AB0A61A00EF4191 /* searchRusRouteTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = searchRusRouteTVCell.swift; sourceTree = "<group>"; };
+		B2EF5D0E2AB0CB1600EF4191 /* icon_mrticon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_mrticon.png; sourceTree = "<group>"; };
+		B2EF5D0F2AB0CB1600EF4191 /* icon_busicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_busicon.png; sourceTree = "<group>"; };
+		B2EF5D102AB0CB1600EF4191 /* icon_settingicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_settingicon.png; sourceTree = "<group>"; };
+		B2EF5D112AB0CB1600EF4191 /* icon_listicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_listicon.png; sourceTree = "<group>"; };
+		B2EF5D162AB0CB2E00EF4191 /* Rectangle 25indexBG (1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Rectangle 25indexBG (1).png"; sourceTree = "<group>"; };
+		B2EF5D1A2AB0D10D00EF4191 /* Rectangle 36index.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Rectangle 36index.png"; path = "../../../../../Downloads/Rectangle 36index.png"; sourceTree = "<group>"; };
+		B2EF5D1C2AB14BFE00EF4191 /* lodingHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lodingHelper.swift; sourceTree = "<group>"; };
+		B2EF5D242AB1A56400EF4191 /* TransferTravel.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TransferTravel.entitlements; sourceTree = "<group>"; };
 		B2F6DD1D2A74C8D600A6B6CB /* TransferTravel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TransferTravel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2F6DD202A74C8D600A6B6CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B2F6DD222A74C8D600A6B6CB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -161,7 +180,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B2439D052A7BAF5800604CB5 /* Alamofire in Frameworks */,
+				B2EF5D202AB15D3900EF4191 /* KRActivityIndicatorView in Frameworks */,
 				B2C3E4AB2A86238000E3C8F6 /* LGSideMenuController in Frameworks */,
+				B2EF5D232AB192D800EF4191 /* KRProgressHUD in Frameworks */,
 				B26D18E82A89C0AB00953A72 /* IQKeyboardManagerSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -199,6 +220,7 @@
 				B26D18E12A88B19400953A72 /* TimerHelper.swift */,
 				B277CA922A8B76A800A5CD96 /* SendMessageHelper.swift */,
 				B24E47EE2A95014A0031BA70 /* HistoryItemModel.swift */,
+				B2EF5D1C2AB14BFE00EF4191 /* lodingHelper.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -208,6 +230,7 @@
 			children = (
 				B26D18EB2A89FF7800953A72 /* SelfRouteTVCell.swift */,
 				B28984CB2AAC35FD00AE3F7A /* BusStopsTVCell.swift */,
+				B2EF5D0C2AB0A61A00EF4191 /* searchRusRouteTVCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -216,9 +239,15 @@
 			isa = PBXGroup;
 			children = (
 				B207AB692A8E757500FF6584 /* indexBG.png */,
+				B2EF5D1A2AB0D10D00EF4191 /* Rectangle 36index.png */,
+				B2EF5D162AB0CB2E00EF4191 /* Rectangle 25indexBG (1).png */,
 				B2D32C162A8CBFC900082167 /* icon_bus.png */,
 				B2D32C192A8CBFC900082167 /* icon_list.png */,
 				B2D32C172A8CBFC900082167 /* icon_mrt.png */,
+				B2EF5D0F2AB0CB1600EF4191 /* icon_busicon.png */,
+				B2EF5D112AB0CB1600EF4191 /* icon_listicon.png */,
+				B2EF5D0E2AB0CB1600EF4191 /* icon_mrticon.png */,
+				B2EF5D102AB0CB1600EF4191 /* icon_settingicon.png */,
 				B2D32C182A8CBFC900082167 /* icon_setting.png */,
 				B2439D0A2A7C0C6700604CB5 /* Rectangle 31bgc01.png */,
 				B2D32C142A8CBD4E00082167 /* undraw_My_current_location_re_whmt.png */,
@@ -289,6 +318,7 @@
 		B2F6DD1F2A74C8D600A6B6CB /* TransferTravel */ = {
 			isa = PBXGroup;
 			children = (
+				B2EF5D242AB1A56400EF4191 /* TransferTravel.entitlements */,
 				B277CA952A8BD8F300A5CD96 /* Communicator */,
 				B2439D1F2A80A2B600604CB5 /* img */,
 				B2439D182A80861F00604CB5 /* Cell */,
@@ -330,6 +360,8 @@
 				B2439D042A7BAF5800604CB5 /* Alamofire */,
 				B2C3E4AA2A86238000E3C8F6 /* LGSideMenuController */,
 				B26D18E72A89C0AB00953A72 /* IQKeyboardManagerSwift */,
+				B2EF5D1F2AB15D3900EF4191 /* KRActivityIndicatorView */,
+				B2EF5D222AB192D800EF4191 /* KRProgressHUD */,
 			);
 			productName = TransferTravel;
 			productReference = B2F6DD1D2A74C8D600A6B6CB /* TransferTravel.app */;
@@ -363,6 +395,8 @@
 				B2439D032A7BAF5800604CB5 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				B2C3E4A92A86238000E3C8F6 /* XCRemoteSwiftPackageReference "LGSideMenuController" */,
 				B26D18E62A89C0AB00953A72 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+				B2EF5D1E2AB15D3900EF4191 /* XCRemoteSwiftPackageReference "KRActivityIndicatorView" */,
+				B2EF5D212AB192D800EF4191 /* XCRemoteSwiftPackageReference "KRProgressHUD" */,
 			);
 			productRefGroup = B2F6DD1E2A74C8D600A6B6CB /* Products */;
 			projectDirPath = "";
@@ -385,12 +419,16 @@
 				B2F6DD2D2A74C8D900A6B6CB /* LaunchScreen.storyboard in Resources */,
 				B27F10B42AAF64F8006CBD38 /* tabbar_unselect_home.png in Resources */,
 				B26D18DC2A87F31300953A72 /* walk_on_transBtnIcon.png in Resources */,
+				B2EF5D172AB0CB2E00EF4191 /* Rectangle 25indexBG (1).png in Resources */,
 				B27F10B32AAF64F8006CBD38 /* tabbar_selected_mrt.png in Resources */,
 				B27F10B02AAF64F8006CBD38 /* tabbar_unselect_mrt.png in Resources */,
+				B2EF5D122AB0CB1600EF4191 /* icon_mrticon.png in Resources */,
 				B2D32C1D2A8CBFC900082167 /* icon_list.png in Resources */,
 				B27F10AE2AAF64F8006CBD38 /* tabbar_unselect_map.png in Resources */,
+				B2EF5D152AB0CB1600EF4191 /* icon_listicon.png in Resources */,
 				B26D18DB2A87F31300953A72 /* bicycle_on_transBtnIcon.png in Resources */,
 				B26D18D92A87F31300953A72 /* car_off_transBtnIcon.png in Resources */,
+				B2EF5D142AB0CB1600EF4191 /* icon_settingicon.png in Resources */,
 				B2439D0D2A7C0CD700604CB5 /* Rectangle 32bgc02.png in Resources */,
 				B27F10AC2AAF64F8006CBD38 /* tabbar_unselect_list.png in Resources */,
 				B2D32C152A8CBD4E00082167 /* undraw_My_current_location_re_whmt.png in Resources */,
@@ -400,9 +438,11 @@
 				B2D32C1B2A8CBFC900082167 /* icon_mrt.png in Resources */,
 				B2F6DD2A2A74C8D900A6B6CB /* Assets.xcassets in Resources */,
 				B2711EDE2AA58497000CD6CA /* BusBranch.storyboard in Resources */,
+				B2EF5D132AB0CB1600EF4191 /* icon_busicon.png in Resources */,
 				B26D18DA2A87F31300953A72 /* motorcycle_on_transBtnIcon.png in Resources */,
 				B2D32C1C2A8CBFC900082167 /* icon_setting.png in Resources */,
 				B27F10AF2AAF64F8006CBD38 /* tabbar_selected_map.png in Resources */,
+				B2EF5D1B2AB0D10D00EF4191 /* Rectangle 36index.png in Resources */,
 				B207AB6A2A8E757500FF6584 /* indexBG.png in Resources */,
 				B2439D0B2A7C0C6700604CB5 /* Rectangle 31bgc01.png in Resources */,
 				B2F6DD282A74C8D600A6B6CB /* Main.storyboard in Resources */,
@@ -443,6 +483,7 @@
 				B2743F462A9E12CC003C4D49 /* BusInfoSendHelper.swift in Sources */,
 				B27D932D2A866B850093F471 /* TabBarC.swift in Sources */,
 				B2711EF62AA9B4D5000CD6CA /* BusRouteTableVC.swift in Sources */,
+				B2EF5D1D2AB14BFE00EF4191 /* lodingHelper.swift in Sources */,
 				B24E47EF2A95014A0031BA70 /* HistoryItemModel.swift in Sources */,
 				B2C3E4A62A86117700E3C8F6 /* SidebarVC.swift in Sources */,
 				B28984CC2AAC35FD00AE3F7A /* BusStopsTVCell.swift in Sources */,
@@ -450,6 +491,7 @@
 				B2439D002A7BA82F00604CB5 /* RouteListTableVC.swift in Sources */,
 				B2F6DD212A74C8D600A6B6CB /* AppDelegate.swift in Sources */,
 				B2439D232A81D35E00604CB5 /* RouteTableVC.swift in Sources */,
+				B2EF5D0D2AB0A61A00EF4191 /* searchRusRouteTVCell.swift in Sources */,
 				B2711EE02AA589AC000CD6CA /* BusSearchTableVC.swift in Sources */,
 				B207AB662A8DA9F200FF6584 /* UIImage+radius.swift in Sources */,
 				B2439D072A7BDEE500604CB5 /* RouteModel.swift in Sources */,
@@ -601,6 +643,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = TransferTravel/TransferTravel.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7BCF97BPM5;
@@ -635,6 +678,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = TransferTravel/TransferTravel.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7BCF97BPM5;
@@ -712,6 +756,22 @@
 				minimumVersion = 3.0.0;
 			};
 		};
+		B2EF5D1E2AB15D3900EF4191 /* XCRemoteSwiftPackageReference "KRActivityIndicatorView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/krimpedance/KRActivityIndicatorView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+		B2EF5D212AB192D800EF4191 /* XCRemoteSwiftPackageReference "KRProgressHUD" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/krimpedance/KRProgressHUD";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -729,6 +789,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B2C3E4A92A86238000E3C8F6 /* XCRemoteSwiftPackageReference "LGSideMenuController" */;
 			productName = LGSideMenuController;
+		};
+		B2EF5D1F2AB15D3900EF4191 /* KRActivityIndicatorView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B2EF5D1E2AB15D3900EF4191 /* XCRemoteSwiftPackageReference "KRActivityIndicatorView" */;
+			productName = KRActivityIndicatorView;
+		};
+		B2EF5D222AB192D800EF4191 /* KRProgressHUD */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B2EF5D212AB192D800EF4191 /* XCRemoteSwiftPackageReference "KRProgressHUD" */;
+			productName = KRProgressHUD;
 		};
 /* End XCSwiftPackageProductDependency section */
 

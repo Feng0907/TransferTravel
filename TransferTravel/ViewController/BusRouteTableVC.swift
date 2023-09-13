@@ -35,7 +35,7 @@ class BusRouteTableVC: UITableViewController{
 			assertionFailure("busInfo find Fail!")
 			return
 		}
-		self.toEndStopName = busInfo.departureStopNameZh
+		self.toEndStopName = busInfo.departureStopNameZh != nil ? busInfo.departureStopNameZh! : busInfo.destinationStopNameZh
 		self.backEndStopName = busInfo.destinationStopNameZh
 		let normalTextAttributes: [NSAttributedString.Key: Any] = [
 			.foregroundColor: UIColor.white
