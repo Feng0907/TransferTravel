@@ -22,6 +22,7 @@ class SideViewCellItem{
 	var title: String = ""
 	var pageID: String = ""
 	var VC: UINavigationController = UINavigationController()
+	var tabBarID: Int = 0
 }
 
 private let cellIdentifier = "cell"
@@ -37,18 +38,20 @@ class LeftViewController: UITableViewController {
 //         .pushVC(title: "設定"),
 //         .pushVC(title: "聯繫我們")
 //    ]
-	func addMenu(pageTitle newtitle: String, pageID newPage: String, VC ViewController: UINavigationController) {
+	func addMenu(pageTitle newtitle: String, pageID newPage: String, VC ViewController: UINavigationController, tabBarID: Int) {
 		let item = SideViewCellItem()
 		item.title = newtitle
 		item.pageID = newPage
 		item.VC = ViewController
+		item.tabBarID = tabBarID
 		sections.append(item)
 	}
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-		addMenu(pageTitle: "我的路線", pageID: "ListNaviC", VC: RouteListNaviVC())
-		addMenu(pageTitle: "公車路線", pageID: "BusRouteNaviC", VC: BusNaviVC())
-		addMenu(pageTitle: "台北捷運", pageID: "taipeiMRT", VC: BusNaviVC())
+//		addMenu(pageTitle: "首頁", pageID: "indexNavi", VC: RouteListNaviVC(), tabBarID: 0)
+		addMenu(pageTitle: "我的路線", pageID: "ListNaviC", VC: RouteListNaviVC(), tabBarID: 1)
+		addMenu(pageTitle: "公車路線", pageID: "BusRouteNaviC", VC: BusNaviVC(), tabBarID: 2)
+		addMenu(pageTitle: "捷運路線圖", pageID: "taipeiMRT", VC: BusNaviVC(), tabBarID: 3)
 //		addMenu(pageTitle: "設定", pageID: "setting", VC: BusNaviVC())
 //		addMenu(pageTitle: "聯繫我們", pageID: "contUS", VC: BusNaviVC())
     }
@@ -66,7 +69,6 @@ class LeftViewController: UITableViewController {
 		tableView.backgroundColor = UIColor(named: "MainBlue")
         tableView.contentInsetAdjustmentBehavior = .never
         tableView.contentOffset = CGPoint(x: 0.0, y: -tableViewInset)
-		
     }
 
     // MARK: - UITableViewDataSource -
@@ -102,16 +104,16 @@ class LeftViewController: UITableViewController {
 //		navigationController?.pushViewController(controller, animated: true)
 	}
 	
-	func pageGO(id: String, VC: UINavigationController){
+	func pageGO(id: String, VC: UINavigationController, tabBarID: Int){
 		guard let sideMenuController = sideMenuController else { return }
 		let alert = UIAlertController(title: "功能施工中", message: "菜鳥努力中請稍等", preferredStyle: .alert)
 		let cancel = UIAlertAction(title: "OK", style: .cancel){_ in sideMenuController.hideLeftView(animated: true)}
 		alert.addAction(cancel)
-		if id != "ListNaviC" && id != "BusRouteNaviC"{
-			present(alert, animated: true)
-			return
-		}
-//		guard let tabBar = storyboard?.instantiateViewController(withIdentifier: "tabBar") else { return }
+//		if id != "ListNaviC" && id != "BusRouteNaviC"{
+//			present(alert, animated: true)
+//			return
+//		}
+		guard let tabBar = storyboard?.instantiateViewController(withIdentifier: "tabBar") else { return }
 //		guard let page = storyboard?.instantiateViewController(withIdentifier: id) else {
 //			present(alert, animated: true)
 //			assertionFailure("Invalid pageID.")
@@ -122,7 +124,7 @@ class LeftViewController: UITableViewController {
 			assertionFailure("Invalid pageID.")
 			return
 		}
-		print(id)
+//		print(id)
 //		navigationController?.pushViewController(VC, animated: true)
 //		navigationController?.pushViewController(page, animated: true)
 //		sideMenuController.hideLeftView(animated: true)
@@ -134,13 +136,19 @@ class LeftViewController: UITableViewController {
 //			tabBarController.selectedIndex = selectedIndex
 //		}
 //		page.addChild()
-		self.navigationController?.pushViewController(page, animated: true)
-//		sideMenuController.rootViewController = VC
 		sideMenuController.rootViewController = page
-//		self.navigationController?.pushViewController(VC, animated: true)
+//		if let tabBarController = self.tabBarController{
+//			tabBarController.selectedIndex = tabBarID
+//		}
+
+//			sideMenuController.rootViewController = tabBarController
+//		self.navigationController?.pushViewController(page, animated: true)
+//		sideMenuController.rootViewController = VC
 //		sideMenuController.rootViewController = page
 		
-
+//		self.navigationController?.pushViewController(page, animated: true)
+//		sideMenuController.rootViewController = page
+		
 		sideMenuController.hideLeftView(animated: true)
 
 	}
@@ -148,7 +156,7 @@ class LeftViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let item = sections[indexPath.row]
-		pageGO(id: item.pageID, VC: item.VC)
+		pageGO(id: item.pageID, VC: item.VC, tabBarID: item.tabBarID)
 		
     }
 

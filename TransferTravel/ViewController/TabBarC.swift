@@ -9,49 +9,29 @@ import UIKit
 
 class TabBarC: UITabBarController {
 
-	var upperLineView: UIView!
+//	var upperLineView: UIView!
 	let spacing: CGFloat = 12
 
 	 override func viewDidLoad() {
 		 super.viewDidLoad()
 		 self.delegate = self
-		 
-//		 // 設置每個分頁的圖片
-//		 if let viewControllers = self.viewControllers {
-//			 // 第一個分頁的圖片
-//			 viewControllers[0].tabBarItem.image = UIImage(named: "tabbar_unselect_home.png")
-//			 viewControllers[0].tabBarItem.selectedImage = UIImage(named: "tabbar_selected_home.png")
+//		 DispatchQueue.main.asyncAfter(deadline: .now() + 0.2){
+//			 self.addTabbarIndicatorView(index: 0, isFirstTime: true)
 //
-//			 // 第二個分頁的圖片
-//			 viewControllers[1].tabBarItem.image = UIImage(named: "tabbar_unselect_list.png")
-//			 viewControllers[1].tabBarItem.selectedImage = UIImage(named: "tabbar_selected_list.png")
-//
-//			 // 第三個分頁的圖片
-//			 viewControllers[2].tabBarItem.image = UIImage(named: "tabbar_unselect_bus.png")
-//			 viewControllers[2].tabBarItem.selectedImage = UIImage(named: "tabbar_selected_bus.png")
-//
-//			 // 第四個分頁的圖片
-//			 viewControllers[3].tabBarItem.image = UIImage(named: "tabbar_unselect_mrt.png")
-//			 viewControllers[3].tabBarItem.selectedImage = UIImage(named: "tabbar_selected_mrt.png")
 //		 }
-
-		 
-		 DispatchQueue.main.asyncAfter(deadline: .now() + 0.2){
-			 self.addTabbarIndicatorView(index: 0, isFirstTime: true)
-		 }
 	 }
 	 ///Add tabbar item indicator uper line
-	 func addTabbarIndicatorView(index: Int, isFirstTime: Bool = false){
-		 guard let tabView = tabBar.items?[index].value(forKey: "view") as? UIView else {
-			 return
-		 }
-		 if !isFirstTime{
-			 upperLineView.removeFromSuperview()
-		 }
-		 upperLineView = UIView(frame: CGRect(x: tabView.frame.minX + spacing * 2, y: tabView.frame.minY + 0.1, width: tabView.frame.size.width - spacing * 4, height: 3))
-		 upperLineView.backgroundColor = UIColor.white
-		 tabBar.addSubview(upperLineView)
-	 }
+//	 func addTabbarIndicatorView(index: Int, isFirstTime: Bool = false){
+//		 guard let tabView = tabBar.items?[index].value(forKey: "view") as? UIView else {
+//			 return
+//		 }
+//		 if !isFirstTime{
+//			 upperLineView.removeFromSuperview()
+//		 }
+//		 upperLineView = UIView(frame: CGRect(x: tabView.frame.minX + spacing * 2, y: tabView.frame.minY + 0.1, width: tabView.frame.size.width - spacing * 4, height: 3))
+//		 upperLineView.backgroundColor = UIColor.white
+//		 tabBar.addSubview(upperLineView)
+//	 }
 
 }
 
@@ -115,7 +95,7 @@ class TabBarC: UITabBarController {
 }
 
 extension TabBarC: UITabBarControllerDelegate {
-	func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-		addTabbarIndicatorView(index: self.selectedIndex)
-	}
+//	func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+//		addTabbarIndicatorView(index: self.selectedIndex)
+//	}
 }

@@ -555,9 +555,9 @@
             filePath = "TransferTravel/SideMenu/LeftViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "127"
-            endingLineNumber = "127"
-            landmarkName = "pageGO(id:VC:)"
+            startingLineNumber = "129"
+            endingLineNumber = "129"
+            landmarkName = "pageGO(id:VC:tabBarID:)"
             landmarkType = "7">
             <Locations>
                <Location
@@ -619,102 +619,6 @@
                   startingLineNumber = "124"
                   endingLineNumber = "124"
                   offsetFromSymbolStart = "1159">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "F373FED9-6D99-4A13-A6C2-0904DF41E2BD"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TransferTravel/SideMenu/LeftViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "93"
-            endingLineNumber = "93"
-            landmarkName = "push(VC:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "F373FED9-6D99-4A13-A6C2-0904DF41E2BD - 1d61e461f5d0b70a"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TransferTravel.LeftViewController.push(VC: __C.UINavigationController) -&gt; ()"
-                  moduleName = "TransferTravel"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/feng/Desktop/MAPD39-02%E5%B0%88%E9%A1%8C/TransferTravel/TransferTravel/SideMenu/LeftViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "100"
-                  endingLineNumber = "100"
-                  offsetFromSymbolStart = "64">
-               </Location>
-               <Location
-                  uuid = "F373FED9-6D99-4A13-A6C2-0904DF41E2BD - 1d61e461f5d0b7e9"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TransferTravel.LeftViewController.push(VC: __C.UINavigationController) -&gt; ()"
-                  moduleName = "TransferTravel"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/feng/Desktop/MAPD39-02%E5%B0%88%E9%A1%8C/TransferTravel/TransferTravel/SideMenu/LeftViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "101"
-                  endingLineNumber = "101"
-                  offsetFromSymbolStart = "64">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "7AB096BE-1231-4C3C-985F-BE0C1C3BEC60"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TransferTravel/SideMenu/LeftViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "101"
-            endingLineNumber = "101"
-            landmarkName = "push(VC:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "7AB096BE-1231-4C3C-985F-BE0C1C3BEC60 - 1d61e461f5d0b7c8"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TransferTravel.LeftViewController.push(VC: __C.UINavigationController) -&gt; ()"
-                  moduleName = "TransferTravel"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/feng/Desktop/MAPD39-02%E5%B0%88%E9%A1%8C/TransferTravel/TransferTravel/SideMenu/LeftViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "102"
-                  endingLineNumber = "102"
-                  offsetFromSymbolStart = "165">
-               </Location>
-               <Location
-                  uuid = "7AB096BE-1231-4C3C-985F-BE0C1C3BEC60 - 1d61e461f5d0b7e9"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TransferTravel.LeftViewController.push(VC: __C.UINavigationController) -&gt; ()"
-                  moduleName = "TransferTravel"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/feng/Desktop/MAPD39-02%E5%B0%88%E9%A1%8C/TransferTravel/TransferTravel/SideMenu/LeftViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "101"
-                  endingLineNumber = "101"
-                  offsetFromSymbolStart = "64">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -1247,6 +1151,54 @@
                   startingLineNumber = "322"
                   endingLineNumber = "322"
                   offsetFromSymbolStart = "84">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4D9AE328-3784-401E-AF91-50740B382472"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TransferTravel/SideMenu/LeftViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
+            landmarkName = "push(VC:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "4D9AE328-3784-401E-AF91-50740B382472 - 1d61e461f5d0b796"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TransferTravel.LeftViewController.push(VC: __C.UINavigationController) -&gt; ()"
+                  moduleName = "TransferTravel"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/feng/Desktop/MAPD39-02%E5%B0%88%E9%A1%8C/TransferTravel/TransferTravel/SideMenu/LeftViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "104"
+                  endingLineNumber = "104"
+                  offsetFromSymbolStart = "64">
+               </Location>
+               <Location
+                  uuid = "4D9AE328-3784-401E-AF91-50740B382472 - 1d61e461f5d0b7b7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TransferTravel.LeftViewController.push(VC: __C.UINavigationController) -&gt; ()"
+                  moduleName = "TransferTravel"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/feng/Desktop/MAPD39-02%E5%B0%88%E9%A1%8C/TransferTravel/TransferTravel/SideMenu/LeftViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "103"
+                  endingLineNumber = "103"
+                  offsetFromSymbolStart = "64">
                </Location>
             </Locations>
          </BreakpointContent>

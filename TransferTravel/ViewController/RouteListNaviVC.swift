@@ -14,8 +14,6 @@ class RouteListNaviVC: UINavigationController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
 		// 在目標頁面的 View Controller 中
-
-
     }
     
 
