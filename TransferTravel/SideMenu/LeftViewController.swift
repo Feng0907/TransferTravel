@@ -113,7 +113,7 @@ class LeftViewController: UITableViewController {
 //			present(alert, animated: true)
 //			return
 //		}
-		guard let tabBar = storyboard?.instantiateViewController(withIdentifier: "tabBar") else { return }
+//		guard let tabBar = storyboard?.instantiateViewController(withIdentifier: "tabBar") else { return }
 //		guard let page = storyboard?.instantiateViewController(withIdentifier: id) else {
 //			present(alert, animated: true)
 //			assertionFailure("Invalid pageID.")

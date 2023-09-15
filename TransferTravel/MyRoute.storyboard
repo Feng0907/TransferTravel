@@ -94,7 +94,7 @@
                                                 <fragment content="分">
                                                     <attributes>
                                                         <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <font key="NSFont" size="14" name=".PingFangTC-Regular"/>
+                                                        <font key="NSFont" metaFont="system" size="14"/>
                                                         <font key="NSOriginalFont" metaFont="system" size="14"/>
                                                         <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" headIndent="10" tighteningFactorForTruncation="0.0"/>
                                                     </attributes>

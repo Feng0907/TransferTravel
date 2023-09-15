@@ -10,10 +10,11 @@ import UIKit
 class MetroVC: UIViewController, UIScrollViewDelegate {
 	
 	@IBOutlet weak var mrtScrollView: UIScrollView!
-	@IBOutlet weak var mrtImageView: UIImageView!
-	@IBOutlet weak var tymetroImageView: UIImageView!
+	@IBOutlet weak var mrtImageView: DownloadImageView!
 	
 	var imageType = 0
+	let taipeiMRTURL = "https://web.metro.taipei/pages/assets/images/routemap2023n.png"
+	let tymetroURL = "https://www.tymetro.com.tw/tymetro-new/tw/_images/travel-guide/road_02-1_big.png"
 	
 	override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,35 +28,51 @@ class MetroVC: UIViewController, UIScrollViewDelegate {
 			let totalHeight = navBarHeight + statusBarHeight!
 			mrtScrollView.frame = CGRect(x: 0, y: totalHeight, width: screenWidth, height: screenHeight)
 		}
+		
+		guard let url = URL(string: taipeiMRTURL)
+			else{
+				print("Invalid URL!")
+				return
+		}
+		self.mrtImageView.load(url: url)
 		self.mrtImageView.contentMode = .scaleAspectFit
-		tymetroImageView.isHidden = true
 		self.mrtScrollView.maximumZoomScale = 5
 		self.mrtScrollView.minimumZoomScale = 1
 		self.mrtScrollView.delegate = self
-
 	}
 	
 	func viewForZooming(in scrollView: UIScrollView) -> UIView? {
-		if imageType == 0 {
-			return mrtImageView
-		} else {
-			return tymetroImageView
-		}
-			
+		return mrtImageView
 	}
 		
 	@IBAction func imageChanged(_ sender: Any) {
 		switch (sender as AnyObject).selectedSegmentIndex {
 		case 0:
+			mrtImageView.image = nil
 			self.imageType = 0
-			mrtImageView.isHidden = false
-			tymetroImageView.isHidden = true
+			guard let url = URL(string: taipeiMRTURL)
+				else{
+					print("Invalid URL!")
+					return
+			}
+			mrtImageView.load(url: url)
+//			mrtImageView.isHidden = false
+//			tymetroImageView.isHidden = true
+			self.mrtScrollView.contentOffset = .zero
+			self.mrtScrollView.zoomScale = 1
 			break
 		case 1:
+			mrtImageView.image = nil
 			self.imageType = 1
-			tymetroImageView.isHidden = false
-			mrtImageView.isHidden = true
-		
+			guard let url = URL(string: tymetroURL)
+				else{
+					print("Invalid URL!")
+					return
+			}
+			mrtImageView.load(url: url)
+			self.mrtScrollView.contentOffset = .zero
+			self.mrtScrollView.zoomScale = 1
+
 			break
 		default:
 			break

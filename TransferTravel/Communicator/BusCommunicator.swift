@@ -18,8 +18,6 @@ typealias BusRouteInfoCompletion = DoneHandler<[BusRouteInfoResult]>
 typealias BusTimeOfArrivalCompletion = DoneHandler<[StopOfTimeArrival]>
 typealias BusTimeOfArrivalA1Completion = DoneHandler<[BusArrivalData]>
 
-
-
 typealias TokenCompletion = DoneHandler<TokenResult>
 class BusCommunicator {
 	static let shared = BusCommunicator()

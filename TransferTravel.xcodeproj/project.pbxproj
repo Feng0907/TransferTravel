@@ -34,9 +34,7 @@
 		B26D18E22A88B19400953A72 /* TimerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26D18E12A88B19400953A72 /* TimerHelper.swift */; };
 		B26D18E82A89C0AB00953A72 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B26D18E72A89C0AB00953A72 /* IQKeyboardManagerSwift */; };
 		B26D18EC2A89FF7800953A72 /* SelfRouteTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26D18EB2A89FF7800953A72 /* SelfRouteTVCell.swift */; };
-		B2709FC72AAF743C0073934A /* metrotaipeimap.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B2709FC62AAF743C0073934A /* metrotaipeimap.jpg */; };
 		B2709FC92AAF74810073934A /* MetroVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2709FC82AAF74810073934A /* MetroVC.swift */; };
-		B2709FCB2AAFECEC0073934A /* tymetro.png in Resources */ = {isa = PBXBuildFile; fileRef = B2709FCA2AAFECEC0073934A /* tymetro.png */; };
 		B2711EDE2AA58497000CD6CA /* BusBranch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2711EDD2AA58497000CD6CA /* BusBranch.storyboard */; };
 		B2711EE02AA589AC000CD6CA /* BusSearchTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2711EDF2AA589AC000CD6CA /* BusSearchTableVC.swift */; };
 		B2711EE22AA60ECB000CD6CA /* RootNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2711EE12AA60ECB000CD6CA /* RootNavigationController.swift */; };
@@ -73,8 +71,8 @@
 		B2D32C1C2A8CBFC900082167 /* icon_setting.png in Resources */ = {isa = PBXBuildFile; fileRef = B2D32C182A8CBFC900082167 /* icon_setting.png */; };
 		B2D32C1D2A8CBFC900082167 /* icon_list.png in Resources */ = {isa = PBXBuildFile; fileRef = B2D32C192A8CBFC900082167 /* icon_list.png */; };
 		B2DFA42C2A87858A00D85923 /* TransportationTypeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DFA42B2A87858A00D85923 /* TransportationTypeModel.swift */; };
+		B2E953482AB445FC00530295 /* DownloadImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E953472AB445FC00530295 /* DownloadImageView.swift */; };
 		B2EF5D0D2AB0A61A00EF4191 /* searchRusRouteTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EF5D0C2AB0A61A00EF4191 /* searchRusRouteTVCell.swift */; };
-		B2EF5D172AB0CB2E00EF4191 /* Rectangle 25indexBG (1).png in Resources */ = {isa = PBXBuildFile; fileRef = B2EF5D162AB0CB2E00EF4191 /* Rectangle 25indexBG (1).png */; };
 		B2EF5D1B2AB0D10D00EF4191 /* Rectangle 36index.png in Resources */ = {isa = PBXBuildFile; fileRef = B2EF5D1A2AB0D10D00EF4191 /* Rectangle 36index.png */; };
 		B2EF5D202AB15D3900EF4191 /* KRActivityIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = B2EF5D1F2AB15D3900EF4191 /* KRActivityIndicatorView */; };
 		B2EF5D232AB192D800EF4191 /* KRProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = B2EF5D222AB192D800EF4191 /* KRProgressHUD */; };
@@ -118,9 +116,7 @@
 		B26D18D82A87F31300953A72 /* walk_off_transBtnIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = walk_off_transBtnIcon.png; sourceTree = "<group>"; };
 		B26D18E12A88B19400953A72 /* TimerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerHelper.swift; sourceTree = "<group>"; };
 		B26D18EB2A89FF7800953A72 /* SelfRouteTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfRouteTVCell.swift; sourceTree = "<group>"; };
-		B2709FC62AAF743C0073934A /* metrotaipeimap.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = metrotaipeimap.jpg; sourceTree = "<group>"; };
 		B2709FC82AAF74810073934A /* MetroVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetroVC.swift; sourceTree = "<group>"; };
-		B2709FCA2AAFECEC0073934A /* tymetro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tymetro.png; sourceTree = "<group>"; };
 		B2711EDD2AA58497000CD6CA /* BusBranch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BusBranch.storyboard; sourceTree = "<group>"; };
 		B2711EDF2AA589AC000CD6CA /* BusSearchTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusSearchTableVC.swift; sourceTree = "<group>"; };
 		B2711EE12AA60ECB000CD6CA /* RootNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootNavigationController.swift; sourceTree = "<group>"; };
@@ -156,8 +152,8 @@
 		B2D32C182A8CBFC900082167 /* icon_setting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_setting.png; sourceTree = "<group>"; };
 		B2D32C192A8CBFC900082167 /* icon_list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_list.png; sourceTree = "<group>"; };
 		B2DFA42B2A87858A00D85923 /* TransportationTypeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportationTypeModel.swift; sourceTree = "<group>"; };
+		B2E953472AB445FC00530295 /* DownloadImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadImageView.swift; sourceTree = "<group>"; };
 		B2EF5D0C2AB0A61A00EF4191 /* searchRusRouteTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = searchRusRouteTVCell.swift; sourceTree = "<group>"; };
-		B2EF5D162AB0CB2E00EF4191 /* Rectangle 25indexBG (1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Rectangle 25indexBG (1).png"; sourceTree = "<group>"; };
 		B2EF5D1A2AB0D10D00EF4191 /* Rectangle 36index.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Rectangle 36index.png"; path = "../../../../../Downloads/Rectangle 36index.png"; sourceTree = "<group>"; };
 		B2EF5D242AB1A56400EF4191 /* TransferTravel.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TransferTravel.entitlements; sourceTree = "<group>"; };
 		B2EF5D272AB1F44100EF4191 /* Tabbar+Upperline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tabbar+Upperline.swift"; sourceTree = "<group>"; };
@@ -214,14 +210,16 @@
 		B2439D022A7BAB1700604CB5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B2439D182A80861F00604CB5 /* Cell */,
 				B2439D102A7E8E6100604CB5 /* RouteListDataModel.xcdatamodeld */,
 				B2439D0E2A7CE4EC00604CB5 /* CoreDataHelper.swift */,
 				B2439D062A7BDEE500604CB5 /* RouteModel.swift */,
 				B2439D262A81F1BF00604CB5 /* TimeRecordModel.swift */,
 				B2DFA42B2A87858A00D85923 /* TransportationTypeModel.swift */,
-				B26D18E12A88B19400953A72 /* TimerHelper.swift */,
 				B277CA922A8B76A800A5CD96 /* SendMessageHelper.swift */,
 				B24E47EE2A95014A0031BA70 /* HistoryItemModel.swift */,
+				B26D18E12A88B19400953A72 /* TimerHelper.swift */,
+				B2E953472AB445FC00530295 /* DownloadImageView.swift */,
 				B2EF5D292AB1F6C700EF4191 /* TabbarHelper.swift */,
 			);
 			path = Model;
@@ -242,7 +240,6 @@
 			children = (
 				B207AB692A8E757500FF6584 /* indexBG.png */,
 				B2EF5D1A2AB0D10D00EF4191 /* Rectangle 36index.png */,
-				B2EF5D162AB0CB2E00EF4191 /* Rectangle 25indexBG (1).png */,
 				B2D32C162A8CBFC900082167 /* icon_bus.png */,
 				B2D32C192A8CBFC900082167 /* icon_list.png */,
 				B2D32C172A8CBFC900082167 /* icon_mrt.png */,
@@ -272,8 +269,6 @@
 				B27F10A22AAF64F7006CBD38 /* tabbar_unselect_list.png */,
 				B27F10A42AAF64F7006CBD38 /* tabbar_unselect_map.png */,
 				B27F10A62AAF64F8006CBD38 /* tabbar_unselect_mrt.png */,
-				B2709FC62AAF743C0073934A /* metrotaipeimap.jpg */,
-				B2709FCA2AAFECEC0073934A /* tymetro.png */,
 			);
 			path = img;
 			sourceTree = "<group>";
@@ -301,6 +296,17 @@
 			path = SideMenu;
 			sourceTree = "<group>";
 		};
+		B2E953462AB43D0E00530295 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				B207AB652A8DA9F200FF6584 /* UIImage+radius.swift */,
+				B24E47F02A9514AA0031BA70 /* UIVC+Alert.swift */,
+				B2711EEF2AA80D75000CD6CA /* String+codeUrl.swift */,
+				B2EF5D272AB1F44100EF4191 /* Tabbar+Upperline.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		B2F6DD142A74C8D500A6B6CB = {
 			isa = PBXGroup;
 			children = (
@@ -321,10 +327,10 @@
 			isa = PBXGroup;
 			children = (
 				B2EF5D242AB1A56400EF4191 /* TransferTravel.entitlements */,
-				B277CA952A8BD8F300A5CD96 /* Communicator */,
 				B2439D1F2A80A2B600604CB5 /* img */,
-				B2439D182A80861F00604CB5 /* Cell */,
 				B2B43FA42A8660E500DE7D8A /* SideMenu */,
+				B2E953462AB43D0E00530295 /* Extension */,
+				B277CA952A8BD8F300A5CD96 /* Communicator */,
 				B2439D022A7BAB1700604CB5 /* Model */,
 				B2439D012A7BAAD600604CB5 /* ViewController */,
 				B2F6DD202A74C8D600A6B6CB /* AppDelegate.swift */,
@@ -335,10 +341,6 @@
 				B2F6DD2B2A74C8D900A6B6CB /* LaunchScreen.storyboard */,
 				B2F6DD292A74C8D900A6B6CB /* Assets.xcassets */,
 				B2F6DD2E2A74C8D900A6B6CB /* Info.plist */,
-				B207AB652A8DA9F200FF6584 /* UIImage+radius.swift */,
-				B24E47F02A9514AA0031BA70 /* UIVC+Alert.swift */,
-				B2711EEF2AA80D75000CD6CA /* String+codeUrl.swift */,
-				B2EF5D272AB1F44100EF4191 /* Tabbar+Upperline.swift */,
 			);
 			path = TransferTravel;
 			sourceTree = "<group>";
@@ -417,12 +419,10 @@
 			files = (
 				B26D18DF2A87F31300953A72 /* bicycle_off_transBtnIcon.png in Resources */,
 				B2D32C1A2A8CBFC900082167 /* icon_bus.png in Resources */,
-				B2709FC72AAF743C0073934A /* metrotaipeimap.jpg in Resources */,
 				B27F10B52AAF64F8006CBD38 /* tabbar_selected_home.png in Resources */,
 				B2F6DD2D2A74C8D900A6B6CB /* LaunchScreen.storyboard in Resources */,
 				B27F10B42AAF64F8006CBD38 /* tabbar_unselect_home.png in Resources */,
 				B26D18DC2A87F31300953A72 /* walk_on_transBtnIcon.png in Resources */,
-				B2EF5D172AB0CB2E00EF4191 /* Rectangle 25indexBG (1).png in Resources */,
 				B27F10B32AAF64F8006CBD38 /* tabbar_selected_mrt.png in Resources */,
 				B27F10B02AAF64F8006CBD38 /* tabbar_unselect_mrt.png in Resources */,
 				B2D32C1D2A8CBFC900082167 /* icon_list.png in Resources */,
@@ -449,7 +449,6 @@
 				B2F6DD282A74C8D600A6B6CB /* Main.storyboard in Resources */,
 				B2EF5D302AB202DD00EF4191 /* icon_busicon.png in Resources */,
 				B27F10B12AAF64F8006CBD38 /* tabbar_unselect_bus.png in Resources */,
-				B2709FCB2AAFECEC0073934A /* tymetro.png in Resources */,
 				B26D18DE2A87F31300953A72 /* car_on_transBtnIcon.png in Resources */,
 				B207AB682A8E4C7800FF6584 /* MyRoute.storyboard in Resources */,
 				B2EF5D2F2AB202DD00EF4191 /* icon_settingicon.png in Resources */,
@@ -496,6 +495,7 @@
 				B2F6DD212A74C8D600A6B6CB /* AppDelegate.swift in Sources */,
 				B2439D232A81D35E00604CB5 /* RouteTableVC.swift in Sources */,
 				B2EF5D0D2AB0A61A00EF4191 /* searchRusRouteTVCell.swift in Sources */,
+				B2E953482AB445FC00530295 /* DownloadImageView.swift in Sources */,
 				B2711EE02AA589AC000CD6CA /* BusSearchTableVC.swift in Sources */,
 				B207AB662A8DA9F200FF6584 /* UIImage+radius.swift in Sources */,
 				B2439D072A7BDEE500604CB5 /* RouteModel.swift in Sources */,
@@ -653,6 +653,7 @@
 				DEVELOPMENT_TEAM = 7BCF97BPM5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TransferTravel/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "使用戶位置顯示相對應地點之天氣/氣溫";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -688,6 +689,7 @@
 				DEVELOPMENT_TEAM = 7BCF97BPM5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TransferTravel/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "使用戶位置顯示相對應地點之天氣/氣溫";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
