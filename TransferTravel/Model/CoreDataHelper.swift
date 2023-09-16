@@ -10,9 +10,7 @@ class CoreDataHelper: NSObject {
     
     static let shared = CoreDataHelper()
     
-    override internal init() {
-        
-    }
+    override internal init() {}
 
     func managedObjectContext() -> NSManagedObjectContext {
         return persistentContainer.viewContext
@@ -26,12 +24,12 @@ class CoreDataHelper: NSObject {
          application to it. This property is optional since there are legitimate
          error conditions that could cause the creation of the store to fail.
          */
-		let container = NSPersistentContainer(name: "NoteDataModel")
+		let container = NSPersistentContainer(name: "RouteListDataModel")
         let description = NSPersistentStoreDescription()
         //設定sqlite存放位置
         var sqlUrl = URL(fileURLWithPath: NSHomeDirectory())
         sqlUrl.appendPathComponent("Documents")
-        sqlUrl.appendPathComponent("Note.sqlite")
+        sqlUrl.appendPathComponent("RouteList.sqlite")
         description.url = sqlUrl
         //如果要關閉journal mode，只產生一個sqlite檔案，可以打開這個選項
         //description.setOption(["journal_mode":"DELETE"] as NSDictionary, forKey: NSSQLitePragmasOption)

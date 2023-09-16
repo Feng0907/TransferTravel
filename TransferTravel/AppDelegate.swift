@@ -6,14 +6,22 @@
 //
 
 import UIKit
+import IQKeyboardManagerSwift
+import KRProgressHUD
+
+let clientId = "workfeng0907-e1410d16-7f2b-4ac3"
+let clientSecret = "d5ea944c-3075-44dd-bc08-4e55d17ded3b"
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-
-
+	
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 		// Override point for customization after application launch.
+		IQKeyboardManager.shared.enable = true
+		IQKeyboardManager.shared.shouldResignOnTouchOutside = true
+//		print("home = \(NSHomeDirectory())")
+		BusCommunicator.shared.getToken(id: clientId, key: clientSecret)
+		KRProgressHUD.set(style: .custom(background: .clear, text: .darkGray, icon: .darkGray))
 		return true
 	}
 
@@ -30,7 +38,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		// If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
 		// Use this method to release any resources that were specific to the discarded scenes, as they will not return.
 	}
-
-
+	
 }
 

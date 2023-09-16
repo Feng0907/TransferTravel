@@ -7,9 +7,11 @@
 
 import Foundation
 import UIKit
+import CoreData
 
-struct RouteItem {
-	var text: String?
-	var RouteID: String?
+class RouteItem: NSManagedObject{
+	
+	@NSManaged var routeName : String?
+	@NSManaged var routeID: Int64
+
 }
-

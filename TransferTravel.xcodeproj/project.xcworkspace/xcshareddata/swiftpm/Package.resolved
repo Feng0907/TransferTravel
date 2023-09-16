@@ -8,6 +8,42 @@
         "revision" : "bc268c28fb170f494de9e9927c371b8342979ece",
         "version" : "5.7.1"
       }
+    },
+    {
+      "identity" : "iqkeyboardmanager",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/hackiftekhar/IQKeyboardManager",
+      "state" : {
+        "revision" : "ea08e08958890043019d248065fe3d825f338087",
+        "version" : "6.5.12"
+      }
+    },
+    {
+      "identity" : "kractivityindicatorview",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/krimpedance/KRActivityIndicatorView",
+      "state" : {
+        "revision" : "bcb0e841d6de0cd343a32bd5056580a56d06c0bc",
+        "version" : "3.0.7"
+      }
+    },
+    {
+      "identity" : "krprogresshud",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/krimpedance/KRProgressHUD",
+      "state" : {
+        "revision" : "265142816d8f8ea93840accaf4ac7c49998e77c2",
+        "version" : "3.4.7"
+      }
+    },
+    {
+      "identity" : "lgsidemenucontroller",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Friend-LGA/LGSideMenuController",
+      "state" : {
+        "revision" : "0bc42f704fb2b60cd54b13f813a0e4e6875f569a",
+        "version" : "3.1.2"
+      }
     }
   ],
   "version" : 2

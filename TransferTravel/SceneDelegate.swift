@@ -17,6 +17,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 		// If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
 		// This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
 		guard let _ = (scene as? UIWindowScene) else { return }
+		
+//		let TabbarNavigationController = ViewController.BasicContentView(delegate: nil)
+//		self.window?.rootViewController = TabbarNavigationController
 	}
 
 	func sceneDidDisconnect(_ scene: UIScene) {
@@ -41,10 +44,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 		// Use this method to undo the changes made on entering the background.
 	}
 
+	//
 	func sceneDidEnterBackground(_ scene: UIScene) {
 		// Called as the scene transitions from the foreground to the background.
 		// Use this method to save data, release shared resources, and store enough scene-specific state information
 		// to restore the scene back to its current state.
+		
 	}
 
 

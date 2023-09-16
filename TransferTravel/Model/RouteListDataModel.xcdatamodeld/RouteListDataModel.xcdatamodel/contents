@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21754" systemVersion="22E261" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="HistoryItem" representedClassName=".HistoryItem" syncable="YES">
+        <attribute name="recordTime" attributeType="Date" minDateTimeInterval="714415080" defaultDateTimeInterval="714415080" usesScalarValueType="NO"/>
+        <attribute name="routeID" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="spendTime" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="timerecordID" attributeType="String"/>
+    </entity>
+    <entity name="RouteItem" representedClassName=".RouteItem" syncable="YES">
+        <attribute name="routeID" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="routeName" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="TimeRecordItem" representedClassName=".TimeRecordItem" syncable="YES">
+        <attribute name="endName" optional="YES" attributeType="String"/>
+        <attribute name="routeID" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="seq" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="spendTime" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="startName" optional="YES" attributeType="String"/>
+        <attribute name="timerecordID" attributeType="String"/>
+        <attribute name="type" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
+</model>
