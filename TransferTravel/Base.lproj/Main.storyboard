@@ -215,7 +215,7 @@
         <!--Title-->
         <scene sceneID="RAy-Wg-ox4">
             <objects>
-                <viewController storyboardIdentifier="MainLeftMenu" title="Title" useStoryboardIdentifierAsRestorationIdentifier="YES" id="wzF-j9-KnG" customClass="SidebarVC" customModule="TransferTravel" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainViewController" title="Title" useStoryboardIdentifierAsRestorationIdentifier="YES" id="wzF-j9-KnG" customClass="SidebarVC" customModule="TransferTravel" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="drA-05-bUf"/>
                         <viewControllerLayoutGuide type="bottom" id="OMe-Nt-xbf"/>
@@ -299,7 +299,7 @@
                                         <imageReference key="image" image="sun.max" catalog="system" symbolScale="large"/>
                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="3" scale="small"/>
                                     </imageView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="center" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="none" showsExpansionTextWhenTruncated="YES" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O37-I7-ta6">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="center" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="none" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O37-I7-ta6">
                                         <rect key="frame" x="60.333333333333343" y="97.666666666666657" width="13" height="17"/>
                                         <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -382,6 +382,9 @@
                                         <buttonConfiguration key="configuration" style="plain">
                                             <backgroundConfiguration key="background" image="icon_settingicon.png"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="settingBtnPressed:" destination="KqY-fV-310" eventType="touchUpInside" id="rFi-iX-SvC"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -469,7 +472,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1JG-r7-UTF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-153" y="510"/>
+            <point key="canvasLocation" x="-66" y="510"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Wlv-4o-tra">
@@ -483,9 +486,20 @@
                         <imageReference key="selectedImage" image="tabbar_selected_home.png" symbolScale="large"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Jo9-Hf-VgW">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" backIndicatorImage="Rectangle 32bgc02.png" id="Jo9-Hf-VgW">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <navigationBarAppearance key="standardAppearance" backgroundImage="Rectangle 32bgc02.png"/>
+                        <navigationBarAppearance key="scrollEdgeAppearance" backgroundImage="Rectangle 32bgc02.png">
+                            <textAttributes key="titleTextAttributes">
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </textAttributes>
+                        </navigationBarAppearance>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

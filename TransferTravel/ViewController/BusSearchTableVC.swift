@@ -41,7 +41,7 @@ class BusSearchTableVC: UITableViewController, UISearchResultsUpdating, UISearch
 		setPlaceholderLabelColor(searchController)
 	}
 	
-	
+
 	
 	func setSearchBar(_ searchController : UISearchController){
 		searchController.searchBar.placeholder = "請輸入想搜尋的公車"
@@ -251,7 +251,7 @@ class BusSearchTableVC: UITableViewController, UISearchResultsUpdating, UISearch
 		   let BusRouteVC = segue.destination as? BusRouteVC,
 		   let index = self.tableView.indexPathForSelectedRow {
 			let item = self.filteredData[index.row]
-			print(item)
+//			print(item)
 			BusInfoSendHelper.shared.SendBusInfo = item
 			BusRouteVC.busInfo = BusInfoSendHelper.shared.SendBusInfo
 		}

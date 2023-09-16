@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--搜尋公車路線-->
+        <!--搜尋公車-->
         <scene sceneID="0TB-qJ-cR3">
             <objects>
                 <tableViewController storyboardIdentifier="BusSreach" useStoryboardIdentifierAsRestorationIdentifier="YES" id="nfp-CP-faU" customClass="BusSearchTableVC" customModule="TransferTravel" customModuleProvider="target" sceneMemberID="viewController">
@@ -62,7 +62,7 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="搜尋公車路線" id="ozy-G0-HaE">
+                    <navigationItem key="navigationItem" title="搜尋公車" id="ozy-G0-HaE">
                         <barButtonItem key="leftBarButtonItem" image="list.bullet" catalog="system" id="r18-7J-YeC">
                             <color key="tintColor" red="0.8862745098" green="0.91372549020000005" blue="0.95294117649999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>

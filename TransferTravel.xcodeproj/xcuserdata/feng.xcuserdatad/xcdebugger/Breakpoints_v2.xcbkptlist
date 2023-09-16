@@ -649,8 +649,8 @@
             filePath = "TransferTravel/ViewController/BusRouteVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "118"
-            endingLineNumber = "118"
+            startingLineNumber = "120"
+            endingLineNumber = "120"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
             <Locations>
@@ -714,6 +714,21 @@
                   endingLineNumber = "118"
                   offsetFromSymbolStart = "2015">
                </Location>
+               <Location
+                  uuid = "99B3DCD5-ACAA-4263-A7A1-B899D8BADD94 - cf3016702ce92246"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TransferTravel.BusRouteVC.tableView(_: __C.UITableView, cellForRowAt: Foundation.IndexPath) -&gt; __C.UITableViewCell"
+                  moduleName = "TransferTravel"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/feng/Desktop/MAPD39-02%E5%B0%88%E9%A1%8C/TransferTravel/TransferTravel/ViewController/BusRouteVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "120"
+                  endingLineNumber = "120"
+                  offsetFromSymbolStart = "1668">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -727,8 +742,8 @@
             filePath = "TransferTravel/ViewController/BusRouteVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "221"
-            endingLineNumber = "221"
+            startingLineNumber = "223"
+            endingLineNumber = "223"
             landmarkName = "stopArrivalTime(stopID:)"
             landmarkType = "7">
             <Locations>
@@ -776,302 +791,6 @@
                   startingLineNumber = "213"
                   endingLineNumber = "213"
                   offsetFromSymbolStart = "431">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "6A98334C-E0DA-4827-9333-9BBEE0C9CB93"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TransferTravel/ViewController/BusSearchTableVC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "253"
-            endingLineNumber = "253"
-            landmarkName = "prepare(for:sender:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "C2B5F4FF-D661-47B9-9727-2AA96EC2E21D"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TransferTravel/ViewController/BusRouteVC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "183"
-            endingLineNumber = "183"
-            landmarkName = "queryStops(of:at:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "C2B5F4FF-D661-47B9-9727-2AA96EC2E21D - 2f0483aa2d717f91"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Array&lt;TransferTravel.BusStopResult&gt;&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in TransferTravel.BusRouteVC.queryStops(of: Swift.String, at: Swift.String) -&gt; ()"
-                  moduleName = "TransferTravel"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/feng/Desktop/MAPD39-02%E5%B0%88%E9%A1%8C/TransferTravel/TransferTravel/ViewController/BusRouteVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "190"
-                  endingLineNumber = "190"
-                  offsetFromSymbolStart = "1875">
-               </Location>
-               <Location
-                  uuid = "C2B5F4FF-D661-47B9-9727-2AA96EC2E21D - 2f0483aa2d717f91"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Array&lt;TransferTravel.BusStopResult&gt;&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in TransferTravel.BusRouteVC.queryStops(of: Swift.String, at: Swift.String) -&gt; ()"
-                  moduleName = "TransferTravel"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/feng/Desktop/MAPD39-02%E5%B0%88%E9%A1%8C/TransferTravel/TransferTravel/ViewController/BusRouteVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "190"
-                  endingLineNumber = "190"
-                  offsetFromSymbolStart = "1017">
-               </Location>
-               <Location
-                  uuid = "C2B5F4FF-D661-47B9-9727-2AA96EC2E21D - 2f0483aa2d717088"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Array&lt;TransferTravel.BusStopResult&gt;&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in TransferTravel.BusRouteVC.queryStops(of: Swift.String, at: Swift.String) -&gt; ()"
-                  moduleName = "TransferTravel"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/feng/Desktop/MAPD39-02%E5%B0%88%E9%A1%8C/TransferTravel/TransferTravel/ViewController/BusRouteVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "183"
-                  endingLineNumber = "183"
-                  offsetFromSymbolStart = "808">
-               </Location>
-               <Location
-                  uuid = "C2B5F4FF-D661-47B9-9727-2AA96EC2E21D - 2f0483aa2d717088"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Array&lt;TransferTravel.BusStopResult&gt;&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in TransferTravel.BusRouteVC.queryStops(of: Swift.String, at: Swift.String) -&gt; ()"
-                  moduleName = "TransferTravel"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/feng/Desktop/MAPD39-02%E5%B0%88%E9%A1%8C/TransferTravel/TransferTravel/ViewController/BusRouteVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "183"
-                  endingLineNumber = "183"
-                  offsetFromSymbolStart = "1033">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "95A8E048-E7D1-4728-8023-2D8982A97723"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TransferTravel/ViewController/BusRouteVC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "185"
-            endingLineNumber = "185"
-            landmarkName = "queryStops(of:at:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "95A8E048-E7D1-4728-8023-2D8982A97723 - 7771b8e1371788ec"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TransferTravel.BusRouteVC.queryStopTimeOfArrival(of: Swift.String, at: Swift.String) -&gt; ()"
-                  moduleName = "TransferTravel"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/feng/Desktop/MAPD39-02%E5%B0%88%E9%A1%8C/TransferTravel/TransferTravel/ViewController/BusRouteVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "194"
-                  endingLineNumber = "194"
-                  offsetFromSymbolStart = "73">
-               </Location>
-               <Location
-                  uuid = "95A8E048-E7D1-4728-8023-2D8982A97723 - 2f0483aa2d717fdf"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Array&lt;TransferTravel.BusStopResult&gt;&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in TransferTravel.BusRouteVC.queryStops(of: Swift.String, at: Swift.String) -&gt; ()"
-                  moduleName = "TransferTravel"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/feng/Desktop/MAPD39-02%E5%B0%88%E9%A1%8C/TransferTravel/TransferTravel/ViewController/BusRouteVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "192"
-                  endingLineNumber = "192"
-                  offsetFromSymbolStart = "1318">
-               </Location>
-               <Location
-                  uuid = "95A8E048-E7D1-4728-8023-2D8982A97723 - 2f0483aa2d717036"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Array&lt;TransferTravel.BusStopResult&gt;&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in TransferTravel.BusRouteVC.queryStops(of: Swift.String, at: Swift.String) -&gt; ()"
-                  moduleName = "TransferTravel"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/feng/Desktop/MAPD39-02%E5%B0%88%E9%A1%8C/TransferTravel/TransferTravel/ViewController/BusRouteVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "185"
-                  endingLineNumber = "185"
-                  offsetFromSymbolStart = "1020">
-               </Location>
-               <Location
-                  uuid = "95A8E048-E7D1-4728-8023-2D8982A97723 - 2f0483aa2d717036"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Array&lt;TransferTravel.BusStopResult&gt;&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in TransferTravel.BusRouteVC.queryStops(of: Swift.String, at: Swift.String) -&gt; ()"
-                  moduleName = "TransferTravel"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/feng/Desktop/MAPD39-02%E5%B0%88%E9%A1%8C/TransferTravel/TransferTravel/ViewController/BusRouteVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "185"
-                  endingLineNumber = "185"
-                  offsetFromSymbolStart = "1334">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "686BDC00-0E80-4C20-B9B5-B61C15FE6E9B"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TransferTravel/ViewController/BusSearchTableVC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "252"
-            endingLineNumber = "252"
-            landmarkName = "prepare(for:sender:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "82C2F56B-8713-45F7-BDF0-4068171C41F0"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TransferTravel/Communicator/BusCommunicator.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "312"
-            endingLineNumber = "312"
-            landmarkName = "BusStopResult"
-            landmarkType = "14">
-            <Locations>
-               <Location
-                  uuid = "82C2F56B-8713-45F7-BDF0-4068171C41F0 - 3bd62057d53bd90c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TransferTravel.BusStopResult.CodingKeys.init(rawValue: Swift.String) -&gt; Swift.Optional&lt;TransferTravel.BusStopResult.CodingKeys&gt;"
-                  moduleName = "TransferTravel"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/feng/Desktop/MAPD39-02%E5%B0%88%E9%A1%8C/TransferTravel/TransferTravel/Communicator/BusCommunicator.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "322"
-                  endingLineNumber = "322"
-                  offsetFromSymbolStart = "76">
-               </Location>
-               <Location
-                  uuid = "82C2F56B-8713-45F7-BDF0-4068171C41F0 - 57ff3b4c62f3067a"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TransferTravel.BusStopResult.CodingKeys.rawValue.getter : Swift.String"
-                  moduleName = "TransferTravel"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/feng/Desktop/MAPD39-02%E5%B0%88%E9%A1%8C/TransferTravel/TransferTravel/Communicator/BusCommunicator.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "322"
-                  endingLineNumber = "322"
-                  offsetFromSymbolStart = "47">
-               </Location>
-               <Location
-                  uuid = "82C2F56B-8713-45F7-BDF0-4068171C41F0 - 3bd62057d53bd90c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TransferTravel.BusStopResult.CodingKeys.init(rawValue: Swift.String) -&gt; Swift.Optional&lt;TransferTravel.BusStopResult.CodingKeys&gt;"
-                  moduleName = "TransferTravel"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/feng/Desktop/MAPD39-02%E5%B0%88%E9%A1%8C/TransferTravel/TransferTravel/Communicator/BusCommunicator.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "322"
-                  endingLineNumber = "322"
-                  offsetFromSymbolStart = "148">
-               </Location>
-               <Location
-                  uuid = "82C2F56B-8713-45F7-BDF0-4068171C41F0 - 57ff3b4c62f3067a"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TransferTravel.BusStopResult.CodingKeys.rawValue.getter : Swift.String"
-                  moduleName = "TransferTravel"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/feng/Desktop/MAPD39-02%E5%B0%88%E9%A1%8C/TransferTravel/TransferTravel/Communicator/BusCommunicator.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "322"
-                  endingLineNumber = "322"
-                  offsetFromSymbolStart = "84">
-               </Location>
-               <Location
-                  uuid = "82C2F56B-8713-45F7-BDF0-4068171C41F0 - 3bd62057d53bd94a"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TransferTravel.BusStopResult.CodingKeys.init(rawValue: Swift.String) -&gt; Swift.Optional&lt;TransferTravel.BusStopResult.CodingKeys&gt;"
-                  moduleName = "TransferTravel"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/feng/Desktop/MAPD39-02%E5%B0%88%E9%A1%8C/TransferTravel/TransferTravel/Communicator/BusCommunicator.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "320"
-                  endingLineNumber = "320"
-                  offsetFromSymbolStart = "148">
-               </Location>
-               <Location
-                  uuid = "82C2F56B-8713-45F7-BDF0-4068171C41F0 - 57ff3b4c62f3063c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TransferTravel.BusStopResult.CodingKeys.rawValue.getter : Swift.String"
-                  moduleName = "TransferTravel"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/feng/Desktop/MAPD39-02%E5%B0%88%E9%A1%8C/TransferTravel/TransferTravel/Communicator/BusCommunicator.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "320"
-                  endingLineNumber = "320"
-                  offsetFromSymbolStart = "84">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -1448,7 +1167,150 @@
                   endingLineNumber = "32"
                   offsetFromSymbolStart = "2308">
                </Location>
+               <Location
+                  uuid = "38EF17FE-9180-4D9C-AB13-74075726281D - 1baedf0bb07e2d0e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TransferTravel.MetroVC.viewDidLoad() -&gt; ()"
+                  moduleName = "TransferTravel"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/feng/Desktop/MAPD39-02%E5%B0%88%E9%A1%8C/TransferTravel/TransferTravel/ViewController/MetroVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "32"
+                  endingLineNumber = "32"
+                  offsetFromSymbolStart = "2753">
+               </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C231D9C3-A606-4102-B7F4-BA1D42FBF126"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TransferTravel/ViewController/SettingsVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "C231D9C3-A606-4102-B7F4-BA1D42FBF126 - 1d3336e39775ce0b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TransferTravel.SettingsVC.viewDidLoad() -&gt; ()"
+                  moduleName = "TransferTravel"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/feng/Desktop/MAPD39-02%E5%B0%88%E9%A1%8C/TransferTravel/TransferTravel/ViewController/SettingsVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "532">
+               </Location>
+               <Location
+                  uuid = "C231D9C3-A606-4102-B7F4-BA1D42FBF126 - 1d3336e39775ce0b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TransferTravel.SettingsVC.viewDidLoad() -&gt; ()"
+                  moduleName = "TransferTravel"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/feng/Desktop/MAPD39-02%E5%B0%88%E9%A1%8C/TransferTravel/TransferTravel/ViewController/SettingsVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "68">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3029E75D-4A8A-4C19-891D-0296E162200F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TransferTravel/ViewController/SettingsVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "3029E75D-4A8A-4C19-891D-0296E162200F - 1d3336e39775ce0b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TransferTravel.SettingsVC.viewDidLoad() -&gt; ()"
+                  moduleName = "TransferTravel"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/feng/Desktop/MAPD39-02%E5%B0%88%E9%A1%8C/TransferTravel/TransferTravel/ViewController/SettingsVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "532">
+               </Location>
+               <Location
+                  uuid = "3029E75D-4A8A-4C19-891D-0296E162200F - 1d3336e39775ce0b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TransferTravel.SettingsVC.viewDidLoad() -&gt; ()"
+                  moduleName = "TransferTravel"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/feng/Desktop/MAPD39-02%E5%B0%88%E9%A1%8C/TransferTravel/TransferTravel/ViewController/SettingsVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "68">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FA80CB0F-6EBE-4F2C-A84F-7E777191823D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TransferTravel/ViewController/BusRouteVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C30BA4E5-FA58-4A96-9029-74A4727E8C5C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TransferTravel/ViewController/BusRouteVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -10,6 +10,8 @@
 		B207AB662A8DA9F200FF6584 /* UIImage+radius.swift in Sources */ = {isa = PBXBuildFile; fileRef = B207AB652A8DA9F200FF6584 /* UIImage+radius.swift */; };
 		B207AB682A8E4C7800FF6584 /* MyRoute.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B207AB672A8E4C7800FF6584 /* MyRoute.storyboard */; };
 		B207AB6A2A8E757500FF6584 /* indexBG.png in Resources */ = {isa = PBXBuildFile; fileRef = B207AB692A8E757500FF6584 /* indexBG.png */; };
+		B21421DB2AB618A900E97F1F /* SettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21421DA2AB618A900E97F1F /* SettingModel.swift */; };
+		B21421DD2AB61D8300E97F1F /* SettingsNavi.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21421DC2AB61D8300E97F1F /* SettingsNavi.swift */; };
 		B2439D002A7BA82F00604CB5 /* RouteListTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2439CFF2A7BA82F00604CB5 /* RouteListTableVC.swift */; };
 		B2439D052A7BAF5800604CB5 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = B2439D042A7BAF5800604CB5 /* Alamofire */; };
 		B2439D072A7BDEE500604CB5 /* RouteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2439D062A7BDEE500604CB5 /* RouteModel.swift */; };
@@ -41,7 +43,6 @@
 		B2711EE42AA6259B000CD6CA /* RouteListNaviVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2711EE32AA6259B000CD6CA /* RouteListNaviVC.swift */; };
 		B2711EE62AA625CF000CD6CA /* BusNaviVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2711EE52AA625CF000CD6CA /* BusNaviVC.swift */; };
 		B2711EF02AA80D75000CD6CA /* String+codeUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2711EEF2AA80D75000CD6CA /* String+codeUrl.swift */; };
-		B2711EF62AA9B4D5000CD6CA /* BusRouteTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2711EF52AA9B4D5000CD6CA /* BusRouteTableVC.swift */; };
 		B271F67E2A99E46F00C7C0E6 /* WeatherCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B271F67D2A99E46F00C7C0E6 /* WeatherCommunicator.swift */; };
 		B271F6802A9B122A00C7C0E6 /* BusCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B271F67F2A9B122A00C7C0E6 /* BusCommunicator.swift */; };
 		B2743F462A9E12CC003C4D49 /* BusInfoSendHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2743F452A9E12CC003C4D49 /* BusInfoSendHelper.swift */; };
@@ -71,13 +72,14 @@
 		B2D32C1C2A8CBFC900082167 /* icon_setting.png in Resources */ = {isa = PBXBuildFile; fileRef = B2D32C182A8CBFC900082167 /* icon_setting.png */; };
 		B2D32C1D2A8CBFC900082167 /* icon_list.png in Resources */ = {isa = PBXBuildFile; fileRef = B2D32C192A8CBFC900082167 /* icon_list.png */; };
 		B2DFA42C2A87858A00D85923 /* TransportationTypeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DFA42B2A87858A00D85923 /* TransportationTypeModel.swift */; };
+		B2E57E822AB6031D00620446 /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2E57E812AB6031D00620446 /* Setting.storyboard */; };
+		B2E57E882AB60E7F00620446 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E57E872AB60E7F00620446 /* SettingsVC.swift */; };
 		B2E953482AB445FC00530295 /* DownloadImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E953472AB445FC00530295 /* DownloadImageView.swift */; };
 		B2EF5D0D2AB0A61A00EF4191 /* searchRusRouteTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EF5D0C2AB0A61A00EF4191 /* searchRusRouteTVCell.swift */; };
 		B2EF5D1B2AB0D10D00EF4191 /* Rectangle 36index.png in Resources */ = {isa = PBXBuildFile; fileRef = B2EF5D1A2AB0D10D00EF4191 /* Rectangle 36index.png */; };
 		B2EF5D202AB15D3900EF4191 /* KRActivityIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = B2EF5D1F2AB15D3900EF4191 /* KRActivityIndicatorView */; };
 		B2EF5D232AB192D800EF4191 /* KRProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = B2EF5D222AB192D800EF4191 /* KRProgressHUD */; };
 		B2EF5D282AB1F44100EF4191 /* Tabbar+Upperline.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EF5D272AB1F44100EF4191 /* Tabbar+Upperline.swift */; };
-		B2EF5D2A2AB1F6C700EF4191 /* TabbarHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EF5D292AB1F6C700EF4191 /* TabbarHelper.swift */; };
 		B2EF5D2F2AB202DD00EF4191 /* icon_settingicon.png in Resources */ = {isa = PBXBuildFile; fileRef = B2EF5D2B2AB202DD00EF4191 /* icon_settingicon.png */; };
 		B2EF5D302AB202DD00EF4191 /* icon_busicon.png in Resources */ = {isa = PBXBuildFile; fileRef = B2EF5D2C2AB202DD00EF4191 /* icon_busicon.png */; };
 		B2EF5D312AB202DD00EF4191 /* icon_listicon.png in Resources */ = {isa = PBXBuildFile; fileRef = B2EF5D2D2AB202DD00EF4191 /* icon_listicon.png */; };
@@ -94,6 +96,8 @@
 		B207AB652A8DA9F200FF6584 /* UIImage+radius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+radius.swift"; sourceTree = "<group>"; };
 		B207AB672A8E4C7800FF6584 /* MyRoute.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyRoute.storyboard; sourceTree = "<group>"; };
 		B207AB692A8E757500FF6584 /* indexBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = indexBG.png; sourceTree = "<group>"; };
+		B21421DA2AB618A900E97F1F /* SettingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingModel.swift; sourceTree = "<group>"; };
+		B21421DC2AB61D8300E97F1F /* SettingsNavi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsNavi.swift; sourceTree = "<group>"; };
 		B2439CFF2A7BA82F00604CB5 /* RouteListTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteListTableVC.swift; sourceTree = "<group>"; };
 		B2439D062A7BDEE500604CB5 /* RouteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteModel.swift; sourceTree = "<group>"; };
 		B2439D0A2A7C0C6700604CB5 /* Rectangle 31bgc01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Rectangle 31bgc01.png"; sourceTree = "<group>"; };
@@ -123,7 +127,6 @@
 		B2711EE32AA6259B000CD6CA /* RouteListNaviVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteListNaviVC.swift; sourceTree = "<group>"; };
 		B2711EE52AA625CF000CD6CA /* BusNaviVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusNaviVC.swift; sourceTree = "<group>"; };
 		B2711EEF2AA80D75000CD6CA /* String+codeUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+codeUrl.swift"; sourceTree = "<group>"; };
-		B2711EF52AA9B4D5000CD6CA /* BusRouteTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusRouteTableVC.swift; sourceTree = "<group>"; };
 		B271F67D2A99E46F00C7C0E6 /* WeatherCommunicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCommunicator.swift; sourceTree = "<group>"; };
 		B271F67F2A9B122A00C7C0E6 /* BusCommunicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusCommunicator.swift; sourceTree = "<group>"; };
 		B2743F452A9E12CC003C4D49 /* BusInfoSendHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusInfoSendHelper.swift; sourceTree = "<group>"; };
@@ -152,12 +155,13 @@
 		B2D32C182A8CBFC900082167 /* icon_setting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_setting.png; sourceTree = "<group>"; };
 		B2D32C192A8CBFC900082167 /* icon_list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_list.png; sourceTree = "<group>"; };
 		B2DFA42B2A87858A00D85923 /* TransportationTypeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportationTypeModel.swift; sourceTree = "<group>"; };
+		B2E57E812AB6031D00620446 /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
+		B2E57E872AB60E7F00620446 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		B2E953472AB445FC00530295 /* DownloadImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadImageView.swift; sourceTree = "<group>"; };
 		B2EF5D0C2AB0A61A00EF4191 /* searchRusRouteTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = searchRusRouteTVCell.swift; sourceTree = "<group>"; };
 		B2EF5D1A2AB0D10D00EF4191 /* Rectangle 36index.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Rectangle 36index.png"; path = "../../../../../Downloads/Rectangle 36index.png"; sourceTree = "<group>"; };
 		B2EF5D242AB1A56400EF4191 /* TransferTravel.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TransferTravel.entitlements; sourceTree = "<group>"; };
 		B2EF5D272AB1F44100EF4191 /* Tabbar+Upperline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tabbar+Upperline.swift"; sourceTree = "<group>"; };
-		B2EF5D292AB1F6C700EF4191 /* TabbarHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarHelper.swift; sourceTree = "<group>"; };
 		B2EF5D2B2AB202DD00EF4191 /* icon_settingicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_settingicon.png; path = "../../../../../Downloads/TransferTravel (7)/icon_settingicon.png"; sourceTree = "<group>"; };
 		B2EF5D2C2AB202DD00EF4191 /* icon_busicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_busicon.png; path = "../../../../../Downloads/TransferTravel (7)/icon_busicon.png"; sourceTree = "<group>"; };
 		B2EF5D2D2AB202DD00EF4191 /* icon_listicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_listicon.png; path = "../../../../../Downloads/TransferTravel (7)/icon_listicon.png"; sourceTree = "<group>"; };
@@ -200,9 +204,10 @@
 				B2439D242A81E3A900604CB5 /* AddTimeRecordVC.swift */,
 				B24E47EC2A94660D0031BA70 /* HistoryTableVC.swift */,
 				B2711EDF2AA589AC000CD6CA /* BusSearchTableVC.swift */,
-				B2711EF52AA9B4D5000CD6CA /* BusRouteTableVC.swift */,
 				B27F10A02AACE4E5006CBD38 /* BusRouteVC.swift */,
 				B2709FC82AAF74810073934A /* MetroVC.swift */,
+				B2E57E872AB60E7F00620446 /* SettingsVC.swift */,
+				B21421DC2AB61D8300E97F1F /* SettingsNavi.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -220,7 +225,7 @@
 				B24E47EE2A95014A0031BA70 /* HistoryItemModel.swift */,
 				B26D18E12A88B19400953A72 /* TimerHelper.swift */,
 				B2E953472AB445FC00530295 /* DownloadImageView.swift */,
-				B2EF5D292AB1F6C700EF4191 /* TabbarHelper.swift */,
+				B21421DA2AB618A900E97F1F /* SettingModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -336,6 +341,7 @@
 				B2F6DD202A74C8D600A6B6CB /* AppDelegate.swift */,
 				B2F6DD222A74C8D600A6B6CB /* SceneDelegate.swift */,
 				B2F6DD262A74C8D600A6B6CB /* Main.storyboard */,
+				B2E57E812AB6031D00620446 /* Setting.storyboard */,
 				B207AB672A8E4C7800FF6584 /* MyRoute.storyboard */,
 				B2711EDD2AA58497000CD6CA /* BusBranch.storyboard */,
 				B2F6DD2B2A74C8D900A6B6CB /* LaunchScreen.storyboard */,
@@ -442,6 +448,7 @@
 				B26D18DA2A87F31300953A72 /* motorcycle_on_transBtnIcon.png in Resources */,
 				B2D32C1C2A8CBFC900082167 /* icon_setting.png in Resources */,
 				B27F10AF2AAF64F8006CBD38 /* tabbar_selected_map.png in Resources */,
+				B2E57E822AB6031D00620446 /* Setting.storyboard in Resources */,
 				B2EF5D1B2AB0D10D00EF4191 /* Rectangle 36index.png in Resources */,
 				B207AB6A2A8E757500FF6584 /* indexBG.png in Resources */,
 				B2EF5D322AB202DD00EF4191 /* icon_mrticon.png in Resources */,
@@ -468,6 +475,7 @@
 				B271F6802A9B122A00C7C0E6 /* BusCommunicator.swift in Sources */,
 				B2711EE42AA6259B000CD6CA /* RouteListNaviVC.swift in Sources */,
 				B2B43FAA2A86610E00DE7D8A /* LeftViewCell.swift in Sources */,
+				B21421DD2AB61D8300E97F1F /* SettingsNavi.swift in Sources */,
 				B277CA932A8B76A800A5CD96 /* SendMessageHelper.swift in Sources */,
 				B2439D0F2A7CE4EC00604CB5 /* CoreDataHelper.swift in Sources */,
 				B2DFA42C2A87858A00D85923 /* TransportationTypeModel.swift in Sources */,
@@ -481,15 +489,14 @@
 				B26D18E22A88B19400953A72 /* TimerHelper.swift in Sources */,
 				B2F6DD252A74C8D600A6B6CB /* IndexVC.swift in Sources */,
 				B2B43FA92A86610E00DE7D8A /* LeftViewController.swift in Sources */,
-				B2EF5D2A2AB1F6C700EF4191 /* TabbarHelper.swift in Sources */,
 				B2439D122A7E8E6100604CB5 /* RouteListDataModel.xcdatamodeld in Sources */,
 				B24E47ED2A94660D0031BA70 /* HistoryTableVC.swift in Sources */,
 				B2743F462A9E12CC003C4D49 /* BusInfoSendHelper.swift in Sources */,
 				B27D932D2A866B850093F471 /* TabBarC.swift in Sources */,
-				B2711EF62AA9B4D5000CD6CA /* BusRouteTableVC.swift in Sources */,
 				B24E47EF2A95014A0031BA70 /* HistoryItemModel.swift in Sources */,
 				B2C3E4A62A86117700E3C8F6 /* SidebarVC.swift in Sources */,
 				B28984CC2AAC35FD00AE3F7A /* BusStopsTVCell.swift in Sources */,
+				B21421DB2AB618A900E97F1F /* SettingModel.swift in Sources */,
 				B26D18EC2A89FF7800953A72 /* SelfRouteTVCell.swift in Sources */,
 				B2439D002A7BA82F00604CB5 /* RouteListTableVC.swift in Sources */,
 				B2F6DD212A74C8D600A6B6CB /* AppDelegate.swift in Sources */,
@@ -503,6 +510,7 @@
 				B277CA972A8BD94A00A5CD96 /* RouteCommunicator.swift in Sources */,
 				B2439D272A81F1BF00604CB5 /* TimeRecordModel.swift in Sources */,
 				B2711EF02AA80D75000CD6CA /* String+codeUrl.swift in Sources */,
+				B2E57E882AB60E7F00620446 /* SettingsVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

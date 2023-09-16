@@ -26,8 +26,6 @@ class BusCommunicator {
 	static let baseURL = "https://tdx.transportdata.tw/"
 	let tokenURL = baseURL + "auth/realms/TDXConnect/protocol/openid-connect/token"
 	
-	//測試用高鐵班次
-	let THSRURL = baseURL + "api/basic/v2/Rail/THSR/DailyTimetable/Today?$format=JSON"
 	let cityURL = baseURL + "api/basic/v2/Basic/City"
 	//這個公車站牌顯示不夠多要換另一個撈
 //	let busStopOfRouteURL = baseURL + "api/basic/v2/Bus/DisplayStopOfRoute/City/"
@@ -113,13 +111,6 @@ class BusCommunicator {
 //		task.resume()
 //		session.finishTasksAndInvalidate()
 //	}
-//	func getTest(completion: @escaping DoneHandler){
-//		let headers: HTTPHeaders = [
-//			"authorization": "Bearer \(self.token)"
-//		]
-//		let parameters: [String : Any] = [:]
-//		doGet(THSRURL, parameters: parameters, headers: headers, object: Codable, completion: completion)
-//	}
 	
 //	func getCity(completion: @escaping ([CityResult]?, Error?) -> Void) {
 	func getCity(completion: @escaping CityArrayCompletion) {
@@ -158,6 +149,7 @@ class BusCommunicator {
 //		[cityKey: city, routeNameKey: busNumber]
 
 		doGet(busStopOfRouteURL + city + "/" + busNumber + "/", parameters: parameters, headers: headers, completion: completion)
+		print("End of getBusStopOfRoute")
 	}
 	
 	func getBusRouteInfo(_ busNumber: String, city: String, completion: @escaping BusRouteInfoCompletion) {
@@ -167,6 +159,7 @@ class BusCommunicator {
 		let parameters: [String: Any] = ["$format": "JSON"]
 		
 		doGet(busRouteInfoURL + city + "/" + busNumber + "/", parameters: parameters, headers: headers, completion: completion)
+		print("End of getBusRouteInfo")
 	}
 	
 	func getBusTimeOfArrival(_ busNumber: String, city: String, completion: @escaping BusTimeOfArrivalCompletion) {
@@ -176,6 +169,7 @@ class BusCommunicator {
 		let parameters: [String: Any] = ["$format": "JSON"]
 		
 		doGet(busTimeOfArrivalURL + city + "/" + busNumber + "/", parameters: parameters, headers: headers, completion: completion)
+		print("End of getBusTimeOfArrival")
 	}
 	func getBusTimeOfArrivalA1(_ busNumber: String, city: String, completion: @escaping BusTimeOfArrivalA1Completion) {
 		let headers: HTTPHeaders = [
@@ -184,6 +178,7 @@ class BusCommunicator {
 		let parameters: [String: Any] = ["$format": "JSON"]
 		
 		doGet(busTimeOfArrivalA1URL + city + "/" + busNumber + "/", parameters: parameters, headers: headers, completion: completion)
+		print("End of getBusTimeOfArrivalA1")
 	}
 	
 	private func doGet<type: Codable>(_ urlString: String,
@@ -228,7 +223,7 @@ class BusCommunicator {
 //			}
 //
 //		}
-		print("End of doGet()")
+//		print("End of doGet()")
 	}
 	
 	private func doPost<type: Codable>(_ urlString: String, parameters: [String: Any], completion: DoneHandler<type>?){

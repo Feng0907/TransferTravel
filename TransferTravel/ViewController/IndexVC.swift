@@ -17,7 +17,7 @@ class IndexVC: UIViewController {
 	var stationID = ""
 //	let spacing: CGFloat = 12
 //	var upperLineView: UIView!
-//	var timer: Timer?
+	var timer: Timer?
 //	var s : CGFloat = 1
 	
 	@IBOutlet weak var cityLabel: UILabel!
@@ -48,11 +48,15 @@ class IndexVC: UIViewController {
 //		}
 		// Do any additional setup after loading the view.
 //		print(BusCommunicator.shared.completionHandler)
-		searchWeatherStation()
 		
+		self.searchWeatherStation()
 		locationManager.stopUpdatingLocation()
 		
 	}
+	override func viewWillAppear(_ animated: Bool) {
+		self.navigationController?.navigationBar.isHidden = true
+	}
+	
 	
 	@IBAction func listBtnPressed(_ sender: Any) {
 		if let tabBarController = self.tabBarController{
@@ -71,6 +75,13 @@ class IndexVC: UIViewController {
 		if let tabBarController = self.tabBarController{
 			tabBarController.selectedIndex = 3
 		}
+	}
+	@IBAction func settingBtnPressed(_ sender: Any) {
+		let storyboard = UIStoryboard(name: "Setting", bundle: nil)
+		if let settingsVC = storyboard.instantiateViewController(withIdentifier: "SettingsVC") as? SettingsVC {
+			self.navigationController?.pushViewController(settingsVC, animated: true)
+		}
+		
 	}
 	
 	func searchWeatherStation(){
@@ -93,8 +104,8 @@ class IndexVC: UIViewController {
 				return
 			}
 			let stationID = closesStation.stationID
-			print(closesStation)
-			print(stationID)
+//			print(closesStation)
+//			print(stationID)
 			self.weatherShow(stationId: stationID)
 		}
 	}
@@ -129,20 +140,24 @@ class IndexVC: UIViewController {
 				return
 			}
 			let data = result.records.location
-			print("data \(data)")
-			guard let weatherElement = data.first?.weatherElement,
-				  let weatherParameter = data.first?.parameter else {
+//			print("data \(data)")
+			guard let weatherElement = data.first?.weatherElement else {
 				return
 			}
-			print("weatherInfo \(weatherParameter)")
-			print("weatherParameter \(weatherParameter)")
+//			print("weatherInfo \(weatherElement)")
+//			print("weatherParameter \(weatherParameter)")
 			let weatherString = self.getElementValue(for: "Weather", in: weatherElement)
 			self.weatherLabel.text = weatherString
 			if let humidity = Double(self.getElementValue(for: "HUMD", in: weatherElement)){
-				let humidityPercent = humidity * 100
+				let humidityPercent = Int(humidity * 100)
 				self.humidityLabel.text = "降雨機率 \(humidityPercent)%"
 			}
-			self.temperatureLabel.text = String(self.getElementValue(for: "TEMP", in: weatherElement).prefix(2)) + "°C"
+			if let temperatureStr = Double(self.getElementValue(for: "TEMP", in: weatherElement)) {
+				let roundedNumber = round(temperatureStr)
+				let temperature = Int(roundedNumber)
+				self.temperatureLabel.text = String(temperature) + "°C"
+			}
+			
 			self.weatherImageView.image = self.setWeatherImage(weather: weatherString)
 		}
 	}
@@ -192,12 +207,10 @@ extension IndexVC: CLLocationManagerDelegate {
 			return
 		}
 		self.userLocation = currentLocation
-		print("Lat:\(currentLocation.coordinate.latitude), Lon: \(currentLocation.coordinate.longitude)")
+//		print("Lat:\(currentLocation.coordinate.latitude), Lon: \(currentLocation.coordinate.longitude)")
 		
 		let geocoder = CLGeocoder()
-		
 		let twLocal = Locale(identifier: "zh_Hant_TW")//設定指定語言
-		
 		geocoder.reverseGeocodeLocation(currentLocation, preferredLocale: twLocal) { placemarks, error in
 			if let error = error{
 				print("geocodeAddressString fail: \(error)")

@@ -50,7 +50,7 @@ class WeatherCommunicator{
 						completion(nil, error) //失敗就讓他把回傳值變成nil並印出error
 					}
 				}
-		print("End of doGet()")
+//		print("End of doGet()")
 	}
 }
 

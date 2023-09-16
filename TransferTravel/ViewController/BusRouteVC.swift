@@ -30,17 +30,19 @@ class BusRouteVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 	@IBOutlet weak var oneRouteLabel: UILabel!
 	@IBOutlet weak var busRouteStopsTable: UITableView!
 	
+	
 	override func viewDidLoad() {
         super.viewDidLoad()
-		self.busRouteStopsTable.dataSource = self
-		self.busRouteStopsTable.delegate = self
 		if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
 			let mainWindow = windowScene.windows.first(where: { $0.isKeyWindow }) {
 			let statusBarHeight = mainWindow.windowScene?.statusBarManager?.statusBarFrame.height
 			let screenWidth = UIScreen.main.bounds.width
 			let totalHeight = 44 + statusBarHeight!
-			navSegmenteView.frame = CGRect(x: 0, y: totalHeight, width: screenWidth, height: 50)
+			self.navSegmenteView.frame = CGRect(x: 0, y: totalHeight, width: screenWidth, height: 50)
 		}
+		self.busRouteStopsTable.dataSource = self
+		self.busRouteStopsTable.delegate = self
+		
 		guard let busInfo = busInfo else {
 			assertionFailure("busInfo find Fail!")
 			return
@@ -57,7 +59,7 @@ class BusRouteVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 		self.navigationItem.title = busInfo.routeName.zhTw
 		queryStopTimeOfArrival(of: routeName, at: busInfo.city)
 		queryBusArrrivalTime(of: routeName, at: busInfo.city)
-		self.timer = Timer.scheduledTimer(withTimeInterval: 15.0, repeats: true) { _ in
+		self.timer = Timer.scheduledTimer(withTimeInterval: 30.0, repeats: true) { _ in
 			self.queryStopTimeOfArrival(of: routeName, at: busInfo.city)
 			self.queryBusArrrivalTime(of: routeName, at: busInfo.city)
 			self.busRouteStopsTable.reloadData()

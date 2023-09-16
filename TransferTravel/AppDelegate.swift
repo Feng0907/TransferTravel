@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		// Override point for customization after application launch.
 		IQKeyboardManager.shared.enable = true
 		IQKeyboardManager.shared.shouldResignOnTouchOutside = true
-		print("home = \(NSHomeDirectory())")
+//		print("home = \(NSHomeDirectory())")
 		BusCommunicator.shared.getToken(id: clientId, key: clientSecret)
 		KRProgressHUD.set(style: .custom(background: .clear, text: .darkGray, icon: .darkGray))
 		return true
