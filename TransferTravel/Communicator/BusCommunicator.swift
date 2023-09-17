@@ -17,6 +17,8 @@ typealias BusStopOfRouteCompletion = DoneHandler<[BusStopResult]>
 typealias BusRouteInfoCompletion = DoneHandler<[BusRouteInfoResult]>
 typealias BusTimeOfArrivalCompletion = DoneHandler<[StopOfTimeArrival]>
 typealias BusTimeOfArrivalA1Completion = DoneHandler<[BusArrivalData]>
+typealias BusTimeOfArrivalA2Completion = DoneHandler<[BusInfoA2]>
+
 
 typealias TokenCompletion = DoneHandler<TokenResult>
 class BusCommunicator {
@@ -52,6 +54,7 @@ class BusCommunicator {
 	let busRouteInfoURL = baseURL + "api/basic/v2/Bus/Route/City/"
 	let busTimeOfArrivalURL = baseURL + "api/basic/v2/Bus/EstimatedTimeOfArrival/City/"
 	let busTimeOfArrivalA1URL = baseURL + "api/basic/v2/Bus/RealTimeNearStop/City/"
+	let busTimeOfArrivalA2URL = baseURL + "api/basic/v2/Bus/RealTimeNearStop/City/"
 
 	let grantTypeKey = "grant_type"
 	let clientIDKey = "client_id"
@@ -169,7 +172,7 @@ class BusCommunicator {
 //		[cityKey: city, routeNameKey: busNumber]
 
 		doGet(busStopOfRouteURL + city + "/" + busNumber + "/", parameters: parameters, headers: headers, completion: completion)
-		print("End of getBusStopOfRoute")
+//		print("End of getBusStopOfRoute")
 	}
 	
 	func getBusRouteInfo(_ busNumber: String, city: String, completion: @escaping BusRouteInfoCompletion) {
@@ -189,7 +192,7 @@ class BusCommunicator {
 		let parameters: [String: Any] = ["$format": "JSON"]
 		
 		doGet(busTimeOfArrivalURL + city + "/" + busNumber + "/", parameters: parameters, headers: headers, completion: completion)
-		print("End of getBusTimeOfArrival")
+//		print("End of getBusTimeOfArrival")
 	}
 	func getBusTimeOfArrivalA1(_ busNumber: String, city: String, completion: @escaping BusTimeOfArrivalA1Completion) {
 		let headers: HTTPHeaders = [
@@ -198,7 +201,16 @@ class BusCommunicator {
 		let parameters: [String: Any] = ["$format": "JSON"]
 		
 		doGet(busTimeOfArrivalA1URL + city + "/" + busNumber + "/", parameters: parameters, headers: headers, completion: completion)
-		print("End of getBusTimeOfArrivalA1")
+//		print("End of getBusTimeOfArrivalA1")
+	}
+	func getBusTimeOfArrivalA2(_ busNumber: String, city: String, completion: @escaping BusTimeOfArrivalA2Completion) {
+		let headers: HTTPHeaders = [
+			"authorization": "Bearer \(self.token)"
+		]
+		let parameters: [String: Any] = ["$format": "JSON"]
+		
+		doGet(busTimeOfArrivalA2URL + city + "/" + busNumber + "/", parameters: parameters, headers: headers, completion: completion)
+		print("End of getBusTimeOfArrivalA2")
 	}
 	
 	private func doGet<type: Codable>(_ urlString: String,
@@ -613,6 +625,52 @@ struct BusArrivalData: Codable {
 	let srcUpdateTime: String?
 	let updateTime: String?
 
+	enum CodingKeys: String, CodingKey {
+		case plateNumb = "PlateNumb"
+		case operatorID = "OperatorID"
+		case operatorNo = "OperatorNo"
+		case routeUID = "RouteUID"
+		case routeID = "RouteID"
+		case routeName = "RouteName"
+		case subRouteUID = "SubRouteUID"
+		case subRouteID = "SubRouteID"
+		case subRouteName = "SubRouteName"
+		case direction = "Direction"
+		case stopUID = "StopUID"
+		case stopID = "StopID"
+		case stopName = "StopName"
+		case stopSequence = "StopSequence"
+		case dutyStatus = "DutyStatus"
+		case busStatus = "BusStatus"
+		case a2EventType = "A2EventType"
+		case GPSTime = "GPSTime"
+		case srcUpdateTime = "SrcUpdateTime"
+		case updateTime = "UpdateTime"
+	}
+}
+
+struct BusInfoA2: Codable {
+	let plateNumb: String
+	let operatorID: String
+	let operatorNo: String
+	let routeUID: String
+	let routeID: String
+	let routeName: RouteName
+	let subRouteUID: String
+	let subRouteID: String
+	let subRouteName: RouteName
+	let direction: Int
+	let stopUID: String
+	let stopID: String
+	let stopName: StopName
+	let stopSequence: Int
+	let dutyStatus: Int
+	let busStatus: Int?
+	let a2EventType: Int
+	let GPSTime: String
+	let srcUpdateTime: String
+	let updateTime: String
+	
 	enum CodingKeys: String, CodingKey {
 		case plateNumb = "PlateNumb"
 		case operatorID = "OperatorID"

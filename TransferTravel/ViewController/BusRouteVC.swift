@@ -11,8 +11,6 @@ class BusRouteVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 	
 	var busInfo: BusRouteInfoResult?
 	var busStopsResult = [BusStopResult]()
-//	var busStopsResultTo: BusStopResult?
-//	var busStopsResultBack: BusStopResult?
 	var busStopsTo = [BusStop]()
 	var busStopsBack = [BusStop]()
 	var busStopsShow = [BusStop]()
@@ -22,6 +20,9 @@ class BusRouteVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 	var busStopsBackTime = [StopOfTimeArrival]()
 	var busArrToTime = [BusArrivalData]()
 	var busArrBackTime = [BusArrivalData]()
+	var busInfoA2ArrTo = [BusInfoA2]()
+	var busInfoA2ArrBack = [BusInfoA2]()
+	
 	var nowDirection = 0
 	var timer = Timer()
 	var progressTimer = Timer()
@@ -64,15 +65,17 @@ class BusRouteVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 		self.navigationItem.title = busInfo.routeName.zhTw
 		queryStopTimeOfArrival(of: routeName, at: busInfo.city)
 		queryBusArrrivalTime(of: routeName, at: busInfo.city)
+		queryBusInfoA2(of: routeName, at: busInfo.city)
 		
-		self.timer = Timer.scheduledTimer(withTimeInterval: 15.0, repeats: true) { _ in
+		self.timer = Timer.scheduledTimer(withTimeInterval: 10.0, repeats: true) { _ in
 			self.queryStopTimeOfArrival(of: routeName, at: busInfo.city)
 			self.queryBusArrrivalTime(of: routeName, at: busInfo.city)
+			self.queryBusInfoA2(of: routeName, at: busInfo.city)
 			self.progress = 1
 			self.busRouteStopsTable.reloadData()
 		}
 		self.progressTimer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { _ in
-			self.progress -= 1/1500
+			self.progress -= 1/1000
 			self.timerProgressView.progress = self.progress
 		}
 		RunLoop.current.add(timer, forMode: .common)
@@ -119,13 +122,15 @@ class BusRouteVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		guard let selfcell = tableView.dequeueReusableCell(withIdentifier: "busStopsCell", for: indexPath) as? BusStopsTVCell else{
-		   fatalError("請確認storybord上有設定customcell")
-	   }
+			fatalError("請確認storybord上有設定customcell")
+		}
 		let item = busStopsShow[indexPath.row]
-//		let direction = self.nowDirection
+		//		let direction = self.nowDirection
 		let timeItem = stopArrivalTime(stopID: item.stopID)
 		let busItemArr = busArrivalData(stopID: item.stopID)
+		let busItemArrA2 = busInfoArrivalData(stopID: item.stopID)
 		let busActionArr = busItemArr.filter { $0.dutyStatus != 2 }
+		let busActionArrA2 = busItemArrA2.filter { $0.dutyStatus != 2 }
 		selfcell.busStopNameLabel?.text = item.stopName.zhTw
 		let arrTime = timeItem?.estimateTime
 		var arrTimeStr = ""
@@ -142,7 +147,6 @@ class BusRouteVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 				} else {
 					selfcell.busStopTimeLabel.backgroundColor = UIColor(named: "MainBlue")
 					selfcell.busStopTimeLabel?.text = "\(arrTimeStr) 分"
-					
 				}
 			} else if timeItem?.stopStatus == 2 {
 				selfcell.busStopTimeLabel.backgroundColor = .lightGray
@@ -161,19 +165,39 @@ class BusRouteVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 		selfcell.busStopTimeLabel.layer.cornerRadius = 5
 		selfcell.busStopTimeLabel.clipsToBounds = true
 		selfcell.busNumLabel?.text = ""
-		
-		if busActionArr.count == 1 {
-			let busItem = busActionArr.first
-			if busItem?.dutyStatus != 2{
-				selfcell.busNumLabel?.text! += "\(busItem?.plateNumb ?? "")"
-			}
-		} else if busActionArr.count > 1 {
-			for (index, busItem) in busActionArr.enumerated() {
-				selfcell.busNumLabel?.text! += "\(busItem.plateNumb)"
-				if index != busActionArr.count - 1 {
-					selfcell.busNumLabel?.text! += "\n"
+		if busActionArrA2.count != 0 || busActionArr.count != 0  {
+			selfcell.busStopTimeLabel.backgroundColor = UIColor(named: "MainRedDeep")
+			selfcell.busStopTimeLabel?.text = "進站中"
+		}
+		if busActionArr.count == 1 || busActionArrA2.count == 1 {
+			if busActionArr.count == 1 {
+				let busItem = busActionArr.first
+				if busItem?.dutyStatus != 2{
+					selfcell.busNumLabel?.text! += "\(busItem?.plateNumb ?? "")"
+				}
+			} else {
+				let busItem = busActionArrA2.first
+				if busItem?.dutyStatus != 2{
+					selfcell.busNumLabel?.text! += "\(busItem?.plateNumb ?? "")"
 				}
 			}
+		} else if busActionArr.count > 1 || busActionArrA2.count > 1 {
+			if busActionArr.count > 1 {
+				for (index, busItem) in busActionArr.enumerated() {
+					selfcell.busNumLabel?.text! += "\(busItem.plateNumb)"
+					if index != busActionArr.count - 1 {
+						selfcell.busNumLabel?.text! += "\n"
+					}
+				}
+			} else {
+				for (index, busItem) in busActionArrA2.enumerated() {
+					selfcell.busNumLabel?.text! += "\(busItem.plateNumb)"
+					if index != busActionArrA2.count - 1 {
+						selfcell.busNumLabel?.text! += "\n"
+					}
+				}
+			}
+			
 		}
 		return selfcell
 	}
@@ -219,11 +243,10 @@ class BusRouteVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 				self.showAlert(message: "站牌連線異常")
 				return
 			}
-//			print("N2: \(data)")
 			self.busStopsToTime = data.filter { $0.direction == 0 }
 			self.busStopsBackTime = data.filter { $0.direction == 1 }
-//			print("busStopsToTime: \(self.busStopsToTime)")
-//			print("busStopsBackTime: \(self.busStopsBackTime)")
+			print("busStopsToTime: \(self.busStopsToTime)")
+			print("busStopsBackTime: \(self.busStopsBackTime)")
 			self.busRouteStopsTable.reloadData()
 		}
 	}
@@ -257,6 +280,7 @@ class BusRouteVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 				self.showAlert(message: "站牌連線異常")
 				return
 			}
+			
 //			print("A1: \(data)")
 			self.busArrToTime = data.filter { $0.direction == 0 }
 			self.busArrBackTime = data.filter { $0.direction == 1 }
@@ -284,6 +308,43 @@ class BusRouteVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 //		print("filteredObjects \(filteredObjects)")
 //		resultBus = filteredObjects.first
 //		print("resultBus \(resultBus)")
+		return filteredObjects
+	}
+	
+	func queryBusInfoA2(of busNum: String, at city: String){
+		BusCommunicator.shared.getBusTimeOfArrivalA2(busNum, city: city) { result, error in
+			if let error = error {
+				self.showAlert(message: "error: \(error)")
+				return
+			}
+			guard let data = result else {
+				self.showAlert(message: "車輛搜尋連線異常")
+				return
+			}
+			
+//			print("A2: \(data)")
+			self.busInfoA2ArrTo = data.filter { $0.direction == 0 }
+			self.busInfoA2ArrBack = data.filter { $0.direction == 1 }
+//			print("busInfoA2ArrTo: \(self.busInfoA2ArrTo)")
+//			print("busInfoA2ArrBack: \(self.busInfoA2ArrBack)")
+			self.busRouteStopsTable.reloadData()
+			
+		}
+	}
+	
+	func busInfoArrivalData(stopID: String) -> [BusInfoA2] {
+		var findArray = [BusInfoA2]()
+		let direction = self.nowDirection
+		switch direction {
+		case 0:
+			findArray = self.busInfoA2ArrTo
+			break
+		case 1:
+			findArray = self.busInfoA2ArrBack
+			break
+		default: break
+		}
+		let filteredObjects = findArray.filter { $0.stopID	 == stopID }
 		return filteredObjects
 	}
 	
