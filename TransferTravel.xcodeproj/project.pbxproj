@@ -12,6 +12,8 @@
 		B207AB6A2A8E757500FF6584 /* indexBG.png in Resources */ = {isa = PBXBuildFile; fileRef = B207AB692A8E757500FF6584 /* indexBG.png */; };
 		B21421DB2AB618A900E97F1F /* SettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21421DA2AB618A900E97F1F /* SettingModel.swift */; };
 		B21421DD2AB61D8300E97F1F /* SettingsNavi.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21421DC2AB61D8300E97F1F /* SettingsNavi.swift */; };
+		B21421E02AB6E99C00E97F1F /* RNCryptor in Frameworks */ = {isa = PBXBuildFile; productRef = B21421DF2AB6E99C00E97F1F /* RNCryptor */; };
+		B21421E22AB6E9CA00E97F1F /* String+RNCryptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21421E12AB6E9CA00E97F1F /* String+RNCryptor.swift */; };
 		B2439D002A7BA82F00604CB5 /* RouteListTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2439CFF2A7BA82F00604CB5 /* RouteListTableVC.swift */; };
 		B2439D052A7BAF5800604CB5 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = B2439D042A7BAF5800604CB5 /* Alamofire */; };
 		B2439D072A7BDEE500604CB5 /* RouteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2439D062A7BDEE500604CB5 /* RouteModel.swift */; };
@@ -98,6 +100,7 @@
 		B207AB692A8E757500FF6584 /* indexBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = indexBG.png; sourceTree = "<group>"; };
 		B21421DA2AB618A900E97F1F /* SettingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingModel.swift; sourceTree = "<group>"; };
 		B21421DC2AB61D8300E97F1F /* SettingsNavi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsNavi.swift; sourceTree = "<group>"; };
+		B21421E12AB6E9CA00E97F1F /* String+RNCryptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+RNCryptor.swift"; sourceTree = "<group>"; };
 		B2439CFF2A7BA82F00604CB5 /* RouteListTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteListTableVC.swift; sourceTree = "<group>"; };
 		B2439D062A7BDEE500604CB5 /* RouteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteModel.swift; sourceTree = "<group>"; };
 		B2439D0A2A7C0C6700604CB5 /* Rectangle 31bgc01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Rectangle 31bgc01.png"; sourceTree = "<group>"; };
@@ -183,6 +186,7 @@
 			files = (
 				B2439D052A7BAF5800604CB5 /* Alamofire in Frameworks */,
 				B2EF5D202AB15D3900EF4191 /* KRActivityIndicatorView in Frameworks */,
+				B21421E02AB6E99C00E97F1F /* RNCryptor in Frameworks */,
 				B2C3E4AB2A86238000E3C8F6 /* LGSideMenuController in Frameworks */,
 				B2EF5D232AB192D800EF4191 /* KRProgressHUD in Frameworks */,
 				B26D18E82A89C0AB00953A72 /* IQKeyboardManagerSwift in Frameworks */,
@@ -308,6 +312,7 @@
 				B24E47F02A9514AA0031BA70 /* UIVC+Alert.swift */,
 				B2711EEF2AA80D75000CD6CA /* String+codeUrl.swift */,
 				B2EF5D272AB1F44100EF4191 /* Tabbar+Upperline.swift */,
+				B21421E12AB6E9CA00E97F1F /* String+RNCryptor.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -373,6 +378,7 @@
 				B26D18E72A89C0AB00953A72 /* IQKeyboardManagerSwift */,
 				B2EF5D1F2AB15D3900EF4191 /* KRActivityIndicatorView */,
 				B2EF5D222AB192D800EF4191 /* KRProgressHUD */,
+				B21421DF2AB6E99C00E97F1F /* RNCryptor */,
 			);
 			productName = TransferTravel;
 			productReference = B2F6DD1D2A74C8D600A6B6CB /* TransferTravel.app */;
@@ -408,6 +414,7 @@
 				B26D18E62A89C0AB00953A72 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 				B2EF5D1E2AB15D3900EF4191 /* XCRemoteSwiftPackageReference "KRActivityIndicatorView" */,
 				B2EF5D212AB192D800EF4191 /* XCRemoteSwiftPackageReference "KRProgressHUD" */,
+				B21421DE2AB6E99C00E97F1F /* XCRemoteSwiftPackageReference "RNCryptor" */,
 			);
 			productRefGroup = B2F6DD1E2A74C8D600A6B6CB /* Products */;
 			projectDirPath = "";
@@ -476,6 +483,7 @@
 				B2711EE42AA6259B000CD6CA /* RouteListNaviVC.swift in Sources */,
 				B2B43FAA2A86610E00DE7D8A /* LeftViewCell.swift in Sources */,
 				B21421DD2AB61D8300E97F1F /* SettingsNavi.swift in Sources */,
+				B21421E22AB6E9CA00E97F1F /* String+RNCryptor.swift in Sources */,
 				B277CA932A8B76A800A5CD96 /* SendMessageHelper.swift in Sources */,
 				B2439D0F2A7CE4EC00604CB5 /* CoreDataHelper.swift in Sources */,
 				B2DFA42C2A87858A00D85923 /* TransportationTypeModel.swift in Sources */,
@@ -746,6 +754,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		B21421DE2AB6E99C00E97F1F /* XCRemoteSwiftPackageReference "RNCryptor" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RNCryptor/RNCryptor";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		B2439D032A7BAF5800604CB5 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire";
@@ -789,6 +805,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		B21421DF2AB6E99C00E97F1F /* RNCryptor */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B21421DE2AB6E99C00E97F1F /* XCRemoteSwiftPackageReference "RNCryptor" */;
+			productName = RNCryptor;
+		};
 		B2439D042A7BAF5800604CB5 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = B2439D032A7BAF5800604CB5 /* XCRemoteSwiftPackageReference "Alamofire" */;

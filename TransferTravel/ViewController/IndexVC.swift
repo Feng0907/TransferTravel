@@ -6,7 +6,6 @@
 //
 
 import UIKit
-//import WeatherKit
 import CoreLocation
 
 class IndexVC: UIViewController {
@@ -30,7 +29,6 @@ class IndexVC: UIViewController {
 		super.viewDidLoad()
 		self.tabBarController?.delegate = self
 		self.navigationController?.navigationBar.isHidden = true
-		
 		//Request Permission要求授權取得使用者定位
 		locationManager.requestWhenInUseAuthorization()
 		locationManager.delegate = self
@@ -100,7 +98,8 @@ class IndexVC: UIViewController {
 			self.allStations = stations
 //			print(stations)
 			guard let closesStation = self.findClosesStation() else {
-				assertionFailure("Error to find closesStation.")
+//				assertionFailure("Error to find closesStation.")
+				print("Error to find closesStation.")
 				return
 			}
 			let stationID = closesStation.stationID

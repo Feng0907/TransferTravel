@@ -10,7 +10,7 @@ import UIKit
 class TabBarC: UITabBarController {
 
 //	var upperLineView: UIView!
-	let spacing: CGFloat = 12
+//	let spacing: CGFloat = 12
 
 	 override func viewDidLoad() {
 		 super.viewDidLoad()
@@ -55,7 +55,7 @@ class TabBarC: UITabBarController {
 		shapeLayer.shadowColor =  UIColor(named: "MainBlue")?.cgColor
 		shapeLayer.shadowOffset = CGSize(width: 0, height: -2);
 		shapeLayer.shadowOpacity = 0.21
-		shapeLayer.shadowRadius = 8
+//		shapeLayer.shadowRadius = 8
 		shapeLayer.shadowPath =  UIBezierPath(roundedRect: bounds, cornerRadius: radii).cgPath
 
 		if let oldShapeLayer = self.shapeLayer {
@@ -85,9 +85,10 @@ class TabBarC: UITabBarController {
 			let mainWindow = windowScene.windows.first(where: { $0.isKeyWindow }) {
 			let statusBarHeight = mainWindow.windowScene?.statusBarManager?.statusBarFrame.height
 			tabFrame.size.height = 45 + statusBarHeight!
-			tabFrame.origin.y = self.frame.origin.y + self.frame.height - 45 - statusBarHeight!
+			tabFrame.origin.y = self.frame.origin.y + self.frame.height - 43 - statusBarHeight!
 		}
-		self.layer.cornerRadius = 18
+		
+//		self.layer.cornerRadius = 18
 		self.frame = tabFrame
 		self.items?.forEach({ $0.titlePositionAdjustment = UIOffset(horizontal: 0.0, vertical: -5.0) })
 	}

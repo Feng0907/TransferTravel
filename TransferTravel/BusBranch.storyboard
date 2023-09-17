@@ -85,7 +85,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="nRm-zi-W3Q">
-                                <rect key="frame" x="0.0" y="150" width="393" height="702"/>
+                                <rect key="frame" x="0.0" y="150" width="393" height="614"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="8" shouldIndentWhileEditing="NO" reuseIdentifier="busStopsCell" rowHeight="70" id="5Vr-RO-LgZ" customClass="BusStopsTVCell" customModule="TransferTravel" customModuleProvider="target">
@@ -144,6 +144,19 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view contentMode="scaleToFill" id="N68-4G-UgX">
+                                <rect key="frame" x="0.0" y="146" width="393" height="2"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="1" id="avb-jo-731">
+                                        <rect key="frame" x="0.0" y="1" width="393" height="4"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" name="MainLightBlue"/>
+                                        <color key="tintColor" red="0.24313725489999999" green="0.3803921569" blue="0.4823529412" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </progressView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
                             <view autoresizesSubviews="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" id="bxD-jA-kOc">
                                 <rect key="frame" x="0.0" y="100" width="393" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
@@ -162,7 +175,7 @@
                                         </connections>
                                     </segmentedControl>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3hd-XX-rr4">
-                                        <rect key="frame" x="15" y="14.666666666666671" width="363" height="21"/>
+                                        <rect key="frame" x="15" y="12.666666666666673" width="363" height="24.666666666666671"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -176,7 +189,8 @@
                                     <constraint firstItem="3hd-XX-rr4" firstAttribute="leading" secondItem="bxD-jA-kOc" secondAttribute="leading" constant="15" id="88E-Uc-OpC"/>
                                     <constraint firstItem="A3c-dc-eAC" firstAttribute="leading" secondItem="bxD-jA-kOc" secondAttribute="leading" constant="10" id="S1O-vw-6MV"/>
                                     <constraint firstAttribute="trailing" secondItem="3hd-XX-rr4" secondAttribute="trailing" constant="15" id="TRt-HT-Zos"/>
-                                    <constraint firstItem="3hd-XX-rr4" firstAttribute="centerY" secondItem="bxD-jA-kOc" secondAttribute="centerY" id="d7Q-KJ-Stx"/>
+                                    <constraint firstItem="3hd-XX-rr4" firstAttribute="top" secondItem="bxD-jA-kOc" secondAttribute="top" constant="12.666666666666671" id="ZtJ-MQ-Ggz"/>
+                                    <constraint firstItem="3hd-XX-rr4" firstAttribute="centerY" secondItem="A3c-dc-eAC" secondAttribute="centerY" id="j0h-u6-gGW"/>
                                 </constraints>
                                 <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
                             </view>
@@ -186,8 +200,8 @@
                         <constraints>
                             <constraint firstItem="nRm-zi-W3Q" firstAttribute="leading" secondItem="bKi-B2-T5J" secondAttribute="leading" id="RWu-Mo-81f"/>
                             <constraint firstAttribute="trailing" secondItem="nRm-zi-W3Q" secondAttribute="trailing" id="WHE-x4-mEq"/>
-                            <constraint firstAttribute="bottom" secondItem="nRm-zi-W3Q" secondAttribute="bottom" id="c1Y-js-iVD"/>
-                            <constraint firstItem="nRm-zi-W3Q" firstAttribute="top" secondItem="bxD-jA-kOc" secondAttribute="bottom" id="w3z-uk-OQ6"/>
+                            <constraint firstItem="DVJ-17-Rmd" firstAttribute="bottom" secondItem="nRm-zi-W3Q" secondAttribute="bottom" constant="5" id="c1Y-js-iVD"/>
+                            <constraint firstItem="nRm-zi-W3Q" firstAttribute="top" secondItem="N68-4G-UgX" secondAttribute="bottom" constant="2" id="eTE-oi-bDs"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Owo-WR-1Fj"/>
@@ -196,6 +210,8 @@
                         <outlet property="navSegmenteView" destination="bxD-jA-kOc" id="ZgJ-lY-L0k"/>
                         <outlet property="oneRouteLabel" destination="3hd-XX-rr4" id="mBQ-Ot-3MV"/>
                         <outlet property="segmentRouteChange" destination="A3c-dc-eAC" id="H0c-UC-bX1"/>
+                        <outlet property="timerProgressUIView" destination="N68-4G-UgX" id="qqQ-AP-Noi"/>
+                        <outlet property="timerProgressView" destination="avb-jo-731" id="QhV-2S-hXn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gs0-Dz-b7n" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -23,6 +23,25 @@ class BusCommunicator {
 	static let shared = BusCommunicator()
 	private init(){}
 	
+	var masterKey: String {
+		var result = "GHI"
+		result += "$%"
+		result += String(3 * 8 - 1)
+		result += String(2 * 2)
+		result += "dba".reversed()
+		var total = 0
+		for _ in 0..<63 {
+			total += 1
+		}
+		result += String(total)
+		result += "#@ed".reversed()
+		result = result.replacingOccurrences(of: "GHI", with: "")
+		return result
+	}
+	var payloadKey: String {
+		return try! "AwG1kmiNQxMCe1B+7e0cy3QXgcQnAaGj416shUF3krIxTQ+2j7tigVy+0OBBKITsHE91/ZHwzjkf0/SuziwwIAzZgxhFYUsY/UrWMtpvtCI7+Q==".decryprBase64(key: masterKey)!
+	}
+	
 	static let baseURL = "https://tdx.transportdata.tw/"
 	let tokenURL = baseURL + "auth/realms/TDXConnect/protocol/openid-connect/token"
 	
@@ -50,6 +69,7 @@ class BusCommunicator {
 	let routeNameKey = "RouteName"
 	
 	func getToken(id clientId: String, key clientSecret: String) {
+
 		let parameters: [String: Any] = [
 			grantTypeKey: grantType,
 			clientIDKey: clientId,
@@ -159,7 +179,7 @@ class BusCommunicator {
 		let parameters: [String: Any] = ["$format": "JSON"]
 		
 		doGet(busRouteInfoURL + city + "/" + busNumber + "/", parameters: parameters, headers: headers, completion: completion)
-		print("End of getBusRouteInfo")
+//		print("End of getBusRouteInfo")
 	}
 	
 	func getBusTimeOfArrival(_ busNumber: String, city: String, completion: @escaping BusTimeOfArrivalCompletion) {
@@ -590,8 +610,8 @@ struct BusArrivalData: Codable {
 	let busStatus: Int?
 	let a2EventType: Int
 	let GPSTime: String
-	let srcUpdateTime: String
-	let updateTime: String
+	let srcUpdateTime: String?
+	let updateTime: String?
 
 	enum CodingKeys: String, CodingKey {
 		case plateNumb = "PlateNumb"

@@ -9,14 +9,35 @@ import UIKit
 import IQKeyboardManagerSwift
 import KRProgressHUD
 
-let clientId = "workfeng0907-e1410d16-7f2b-4ac3"
-let clientSecret = "d5ea944c-3075-44dd-bc08-4e55d17ded3b"
+var masterKey: String {
+	var result = "GHI"
+	result += "$%"
+	result += String(3 * 8 - 1)
+	result += String(2 * 2)
+	result += "dba".reversed()
+	var total = 0
+	for _ in 0..<63 {
+		total += 1
+	}
+	result += String(total)
+	result += "#@ed".reversed()
+	result = result.replacingOccurrences(of: "GHI", with: "")
+	return result
+}
+
+var clientId: String {
+	return try! "AwFomHXTo4Kf7ARiGgl+6I2UTFlta0IhSeO6boaRZcZKoZhhCwRhaqjR/wUlmUxeeM+c6rdAUJ+9q+mFba4YzL8c/k4BqSN3PW2asQrWwvvv/ojFqqsqZLBpENs7NSi2Caw=".decryprBase64(key: masterKey)!
+}
+var clientSecret: String {
+	return try! "AwFQNZupbbRgwDKr6ro9W85K6Ix+xx/CX6VQvJVec9rT2D8qOJjLzIEEnl3HMQTuF+A+U6UWf+EW0oXIwDPUsMaJXB4ciUHMBtjO/uvOZuqb5pcNUU1AOS3xzPDtt7AGDTevR/lje1ZK68qs1FX4XMZ8".decryprBase64(key: masterKey)!
+}
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 	
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 		// Override point for customization after application launch.
+
 		IQKeyboardManager.shared.enable = true
 		IQKeyboardManager.shared.shouldResignOnTouchOutside = true
 //		print("home = \(NSHomeDirectory())")

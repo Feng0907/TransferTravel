@@ -44,6 +44,15 @@
         "revision" : "0bc42f704fb2b60cd54b13f813a0e4e6875f569a",
         "version" : "3.1.2"
       }
+    },
+    {
+      "identity" : "rncryptor",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/RNCryptor/RNCryptor",
+      "state" : {
+        "revision" : "5e3bbf44f08bf90049537cb8902d8f4fa911a79a",
+        "version" : "5.1.0"
+      }
     }
   ],
   "version" : 2

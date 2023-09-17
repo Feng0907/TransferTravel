@@ -15,14 +15,15 @@ class WeatherCommunicator{
 	static let shared = WeatherCommunicator()
 	private init(){}
 	
-	static let weatherToken = "CWB-C6CDEB41-37B1-4EC7-ADD0-5723CEE6673C"
+	static var weatherToken : String {
+		return try! "AwEAmXJfpgMC25JhCyIRbIrIQKfQEtpfasDo+owFOvVsiLw2ENfB9d3JVqBDskK7YnvgDCdg/OMUXuhzfrn853+pKzpR/P6GGmJnu6Gv0XVMeN56c50RvN4aTIzQd0M/oX8/VFUzxQvcv0Y1J7M3bCRv".decryprBase64(key: masterKey)!
+	}
+	
 	static let baseURL = "https://opendata.cwb.gov.tw/"
 	
 	let weatherStationURL = baseURL + "api/v1/rest/datastore/C-B0074-002"
 	let weatherURL = baseURL + "api/v1/rest/datastore/O-A0001-001"
 
-	
-	
 	func getStation(completion: @escaping StationCompletion) {
 		let parameters: [String: Any] = ["Authorization": WeatherCommunicator.weatherToken, "$format": "JSON", "status": "現存測站"]
 		doGet(weatherStationURL, parameters: parameters, completion: completion)
@@ -73,13 +74,13 @@ struct Result: Codable {
 }
 
 struct Records: Codable {
-	let data: Data
+	let data: RecordsData
 	enum CodingKeys: String, CodingKey {
-		case data
+		case data = "data"
 	}
 
 }
-struct Data: Codable {
+struct RecordsData: Codable {
 	let stationStatus: StationStatus
 	enum CodingKeys: String, CodingKey {
 		case stationStatus = "stationStatus"
@@ -97,17 +98,17 @@ struct Station: Codable {
 	let status: String
 	let stationID: String
 	let stationName: String
-	let stationNameEN: String
-	let stationAltitude: Float
+	let stationNameEN: String?
+	let stationAltitude: Float?
 	let stationLongitude: Double
 	let stationLatitude: Double
-	let countyName: String
-	let location: String
-	let stationStartDate: String
-	let stationEndDate: String
-	let notes: String
-	let originalStationID: String
-	let newStationID: String
+	let countyName: String?
+	let location: String?
+	let stationStartDate: String?
+	let stationEndDate: String?
+	let notes: String?
+	let originalStationID: String?
+	let newStationID: String?
 	
 	enum CodingKeys: String, CodingKey {
 		case status

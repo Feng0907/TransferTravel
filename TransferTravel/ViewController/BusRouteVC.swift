@@ -24,12 +24,15 @@ class BusRouteVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 	var busArrBackTime = [BusArrivalData]()
 	var nowDirection = 0
 	var timer = Timer()
+	var progressTimer = Timer()
+	var progress: Float = 1
 
 	@IBOutlet weak var navSegmenteView: UIView!
 	@IBOutlet weak var segmentRouteChange: UISegmentedControl!
 	@IBOutlet weak var oneRouteLabel: UILabel!
 	@IBOutlet weak var busRouteStopsTable: UITableView!
-	
+	@IBOutlet weak var timerProgressUIView: UIView!
+	@IBOutlet weak var timerProgressView: UIProgressView!
 	
 	override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,9 +42,11 @@ class BusRouteVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 			let screenWidth = UIScreen.main.bounds.width
 			let totalHeight = 44 + statusBarHeight!
 			self.navSegmenteView.frame = CGRect(x: 0, y: totalHeight, width: screenWidth, height: 50)
+			self.timerProgressUIView.frame = CGRect(x: 0, y:  totalHeight + 49, width: screenWidth, height: 2)
 		}
 		self.busRouteStopsTable.dataSource = self
 		self.busRouteStopsTable.delegate = self
+		self.timerProgressView.progress = 1
 		
 		guard let busInfo = busInfo else {
 			assertionFailure("busInfo find Fail!")
@@ -59,14 +64,21 @@ class BusRouteVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 		self.navigationItem.title = busInfo.routeName.zhTw
 		queryStopTimeOfArrival(of: routeName, at: busInfo.city)
 		queryBusArrrivalTime(of: routeName, at: busInfo.city)
-		self.timer = Timer.scheduledTimer(withTimeInterval: 30.0, repeats: true) { _ in
+		
+		self.timer = Timer.scheduledTimer(withTimeInterval: 15.0, repeats: true) { _ in
 			self.queryStopTimeOfArrival(of: routeName, at: busInfo.city)
 			self.queryBusArrrivalTime(of: routeName, at: busInfo.city)
+			self.progress = 1
 			self.busRouteStopsTable.reloadData()
+		}
+		self.progressTimer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { _ in
+			self.progress -= 1/1500
+			self.timerProgressView.progress = self.progress
 		}
 		RunLoop.current.add(timer, forMode: .common)
     }
 	override func viewWillDisappear(_ animated: Bool) {
+		progressTimer.invalidate()
 		timer.invalidate()
 	}
 	

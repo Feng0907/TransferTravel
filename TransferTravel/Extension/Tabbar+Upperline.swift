@@ -5,9 +5,9 @@
 //  Created by Feng on 2023/9/13.
 //
 
-import UIKit
-
-extension UITabBarController {
+//import UIKit
+//
+//extension UITabBarController {
 //	func addTabbarIndicatorView(index: Int, isFirstTime: Bool = false) {
 //		let upperLineView = TabbarHelper.shared.upperLineView
 //		let spacing: CGFloat = 12
@@ -24,4 +24,4 @@ extension UITabBarController {
 //		tabBar.addSubview(upperLineView!)
 ////		upperLineView?.isHidden = false
 //	}
-}
+//}
