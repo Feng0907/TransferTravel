@@ -90,7 +90,7 @@ class TabBarC: UITabBarController {
 		
 //		self.layer.cornerRadius = 18
 		self.frame = tabFrame
-		self.items?.forEach({ $0.titlePositionAdjustment = UIOffset(horizontal: 0.0, vertical: -5.0) })
+		self.items?.forEach({ $0.titlePositionAdjustment = UIOffset(horizontal: 0.0, vertical: 0.0) })
 	}
 	
 }
@@ -100,3 +100,4 @@ extension TabBarC: UITabBarControllerDelegate {
 //		addTabbarIndicatorView(index: self.selectedIndex)
 //	}
 }
+
