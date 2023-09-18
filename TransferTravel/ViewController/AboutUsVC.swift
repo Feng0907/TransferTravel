@@ -1,0 +1,33 @@
+//
+//  AboutUsVC.swift
+//  TransferTravel
+//
+//  Created by Feng on 2023/9/18.
+//
+
+import UIKit
+
+class AboutUsVC: UIViewController {
+	
+	let 	aboutUS = AboutUSItem()
+	
+	@IBOutlet weak var aboutUsTextView: UITextView!
+	
+	override func viewDidLoad() {
+        super.viewDidLoad()
+		self.aboutUsTextView.text = aboutUS.value
+        // Do any additional setup after loading the view.
+    }
+    
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
+}

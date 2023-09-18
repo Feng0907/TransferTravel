@@ -29,6 +29,8 @@ class TimeRecordItem: NSManagedObject{
 	
 	override func awakeFromInsert() {
 		timerecordID = UUID().uuidString
+		startName = ""
+		endName = ""
 	}
 }
 

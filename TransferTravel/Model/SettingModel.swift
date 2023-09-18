@@ -13,3 +13,12 @@ class VisionItem {
 	var value: String = "1.0.0"
 
 }
+
+class AboutUSItem {
+	
+	var key: String = "關於我們"
+	var value: String = "資料來源：\n" +
+	"1. 公車相關資訊：交通部PTX平台\n" +
+	"2. 天氣資訊：中央氣象局開放資料平臺\n"
+
+}

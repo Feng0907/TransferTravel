@@ -245,8 +245,8 @@ class BusRouteVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 			}
 			self.busStopsToTime = data.filter { $0.direction == 0 }
 			self.busStopsBackTime = data.filter { $0.direction == 1 }
-			print("busStopsToTime: \(self.busStopsToTime)")
-			print("busStopsBackTime: \(self.busStopsBackTime)")
+//			print("busStopsToTime: \(self.busStopsToTime)")
+//			print("busStopsBackTime: \(self.busStopsBackTime)")
 			self.busRouteStopsTable.reloadData()
 		}
 	}

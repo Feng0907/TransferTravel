@@ -210,7 +210,7 @@ class BusCommunicator {
 		let parameters: [String: Any] = ["$format": "JSON"]
 		
 		doGet(busTimeOfArrivalA2URL + city + "/" + busNumber + "/", parameters: parameters, headers: headers, completion: completion)
-		print("End of getBusTimeOfArrivalA2")
+//		print("End of getBusTimeOfArrivalA2")
 	}
 	
 	private func doGet<type: Codable>(_ urlString: String,

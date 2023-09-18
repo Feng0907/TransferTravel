@@ -10,6 +10,7 @@ import UIKit
 class SettingsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
 	let visionItem = VisionItem()
+	let 	aboutUS = AboutUSItem()
 	
 	@IBOutlet weak var settingsTableView: UITableView!
 	
@@ -26,15 +27,26 @@ class SettingsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return 1
+		return 2
 	}
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCell(withIdentifier: "versionCell", for: indexPath)
-		let item = self.visionItem
-		cell.textLabel?.text = item.key
-		cell.detailTextLabel?.text = item.value
-		return cell
+		if indexPath.row == 0 {
+			let cell = tableView.dequeueReusableCell(withIdentifier: "settingPageCell", for: indexPath)
+			let item = self.aboutUS
+			cell.textLabel?.text = item.key
+			return cell
+		} else {
+			let cell = tableView.dequeueReusableCell(withIdentifier: "versionCell", for: indexPath)
+			let item = self.visionItem
+			cell.textLabel?.text = item.key
+			cell.detailTextLabel?.text = item.value
+			return cell
+		}
+		
+		
+		
+		
 	}
 
     /*

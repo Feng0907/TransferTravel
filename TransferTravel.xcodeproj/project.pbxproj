@@ -39,6 +39,7 @@
 		B26D18E82A89C0AB00953A72 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B26D18E72A89C0AB00953A72 /* IQKeyboardManagerSwift */; };
 		B26D18EC2A89FF7800953A72 /* SelfRouteTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26D18EB2A89FF7800953A72 /* SelfRouteTVCell.swift */; };
 		B2709FC92AAF74810073934A /* MetroVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2709FC82AAF74810073934A /* MetroVC.swift */; };
+		B27105982AB7DECA0019BDF8 /* AboutUsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27105972AB7DECA0019BDF8 /* AboutUsVC.swift */; };
 		B2711EDE2AA58497000CD6CA /* BusBranch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2711EDD2AA58497000CD6CA /* BusBranch.storyboard */; };
 		B2711EE02AA589AC000CD6CA /* BusSearchTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2711EDF2AA589AC000CD6CA /* BusSearchTableVC.swift */; };
 		B2711EE22AA60ECB000CD6CA /* RootNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2711EE12AA60ECB000CD6CA /* RootNavigationController.swift */; };
@@ -124,6 +125,7 @@
 		B26D18E12A88B19400953A72 /* TimerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerHelper.swift; sourceTree = "<group>"; };
 		B26D18EB2A89FF7800953A72 /* SelfRouteTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfRouteTVCell.swift; sourceTree = "<group>"; };
 		B2709FC82AAF74810073934A /* MetroVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetroVC.swift; sourceTree = "<group>"; };
+		B27105972AB7DECA0019BDF8 /* AboutUsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsVC.swift; sourceTree = "<group>"; };
 		B2711EDD2AA58497000CD6CA /* BusBranch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BusBranch.storyboard; sourceTree = "<group>"; };
 		B2711EDF2AA589AC000CD6CA /* BusSearchTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusSearchTableVC.swift; sourceTree = "<group>"; };
 		B2711EE12AA60ECB000CD6CA /* RootNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootNavigationController.swift; sourceTree = "<group>"; };
@@ -201,8 +203,6 @@
 			children = (
 				B2F6DD242A74C8D600A6B6CB /* IndexVC.swift */,
 				B27D932C2A866B850093F471 /* TabBarC.swift */,
-				B2711EE32AA6259B000CD6CA /* RouteListNaviVC.swift */,
-				B2711EE52AA625CF000CD6CA /* BusNaviVC.swift */,
 				B2439CFF2A7BA82F00604CB5 /* RouteListTableVC.swift */,
 				B2439D222A81D35E00604CB5 /* RouteTableVC.swift */,
 				B2439D242A81E3A900604CB5 /* AddTimeRecordVC.swift */,
@@ -211,7 +211,7 @@
 				B27F10A02AACE4E5006CBD38 /* BusRouteVC.swift */,
 				B2709FC82AAF74810073934A /* MetroVC.swift */,
 				B2E57E872AB60E7F00620446 /* SettingsVC.swift */,
-				B21421DC2AB61D8300E97F1F /* SettingsNavi.swift */,
+				B27105972AB7DECA0019BDF8 /* AboutUsVC.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -282,6 +282,16 @@
 			path = img;
 			sourceTree = "<group>";
 		};
+		B27105962AB7DE300019BDF8 /* NaviVC */ = {
+			isa = PBXGroup;
+			children = (
+				B2711EE32AA6259B000CD6CA /* RouteListNaviVC.swift */,
+				B2711EE52AA625CF000CD6CA /* BusNaviVC.swift */,
+				B21421DC2AB61D8300E97F1F /* SettingsNavi.swift */,
+			);
+			path = NaviVC;
+			sourceTree = "<group>";
+		};
 		B277CA952A8BD8F300A5CD96 /* Communicator */ = {
 			isa = PBXGroup;
 			children = (
@@ -342,6 +352,7 @@
 				B2E953462AB43D0E00530295 /* Extension */,
 				B277CA952A8BD8F300A5CD96 /* Communicator */,
 				B2439D022A7BAB1700604CB5 /* Model */,
+				B27105962AB7DE300019BDF8 /* NaviVC */,
 				B2439D012A7BAAD600604CB5 /* ViewController */,
 				B2F6DD202A74C8D600A6B6CB /* AppDelegate.swift */,
 				B2F6DD222A74C8D600A6B6CB /* SceneDelegate.swift */,
@@ -503,6 +514,7 @@
 				B27D932D2A866B850093F471 /* TabBarC.swift in Sources */,
 				B24E47EF2A95014A0031BA70 /* HistoryItemModel.swift in Sources */,
 				B2C3E4A62A86117700E3C8F6 /* SidebarVC.swift in Sources */,
+				B27105982AB7DECA0019BDF8 /* AboutUsVC.swift in Sources */,
 				B28984CC2AAC35FD00AE3F7A /* BusStopsTVCell.swift in Sources */,
 				B21421DB2AB618A900E97F1F /* SettingModel.swift in Sources */,
 				B26D18EC2A89FF7800953A72 /* SelfRouteTVCell.swift in Sources */,

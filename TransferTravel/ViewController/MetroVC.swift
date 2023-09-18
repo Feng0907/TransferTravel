@@ -24,9 +24,10 @@ class MetroVC: UIViewController, UIScrollViewDelegate {
 			let statusBarHeight = mainWindow.windowScene?.statusBarManager?.statusBarFrame.height
 			let screenWidth = UIScreen.main.bounds.width
 			let screenHeight = UIScreen.main.bounds.height
+			let x = screenWidth / 2
 			
 			let totalHeight = navBarHeight + statusBarHeight!
-			mrtScrollView.frame = CGRect(x: 0, y: totalHeight, width: screenWidth, height: screenHeight)
+			mrtScrollView.frame = CGRect(x: x - mrtScrollView.frame.width/2, y: totalHeight, width: screenWidth, height: screenHeight)
 		}
 		
 		guard let url = URL(string: taipeiMRTURL)
@@ -58,7 +59,7 @@ class MetroVC: UIViewController, UIScrollViewDelegate {
 			mrtImageView.load(url: url)
 //			mrtImageView.isHidden = false
 //			tymetroImageView.isHidden = true
-			self.mrtScrollView.contentOffset = .zero
+//			self.mrtScrollView.contentOffset = .init(x: super.view.frame.width/2, y: super.view.frame.height/2)
 			self.mrtScrollView.zoomScale = 1
 			break
 		case 1:
@@ -70,7 +71,8 @@ class MetroVC: UIViewController, UIScrollViewDelegate {
 					return
 			}
 			mrtImageView.load(url: url)
-			self.mrtScrollView.contentOffset = .zero
+//			self.mrtScrollView.contentOffset = .zero
+//			self.mrtScrollView.contentOffset = .init(x: super.view.frame.width/2, y: super.view.frame.height/2)
 			self.mrtScrollView.zoomScale = 1
 
 			break

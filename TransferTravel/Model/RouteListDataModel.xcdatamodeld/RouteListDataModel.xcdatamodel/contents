@@ -11,11 +11,11 @@
         <attribute name="routeName" optional="YES" attributeType="String"/>
     </entity>
     <entity name="TimeRecordItem" representedClassName=".TimeRecordItem" syncable="YES">
-        <attribute name="endName" optional="YES" attributeType="String"/>
+        <attribute name="endName" attributeType="String"/>
         <attribute name="routeID" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="seq" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="spendTime" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="startName" optional="YES" attributeType="String"/>
+        <attribute name="startName" attributeType="String"/>
         <attribute name="timerecordID" attributeType="String"/>
         <attribute name="type" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>

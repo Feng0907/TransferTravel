@@ -6,6 +6,7 @@
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -284,7 +285,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="740" verticalCompressionResistancePriority="740" insetsLayoutMarginsFromSafeArea="NO" image="Rectangle 36index.png" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ghv-8s-MnL">
-                                <rect key="frame" x="-13.666666666666657" y="0.0" width="420.33333333333326" height="318"/>
+                                <rect key="frame" x="-15" y="0.0" width="423" height="318"/>
                             </imageView>
                             <stackView contentMode="scaleToFill" semanticContentAttribute="spatial" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" insetsLayoutMarginsFromSafeArea="NO" axis="vertical" distribution="equalSpacing" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="wv0-PZ-02S">
                                 <rect key="frame" x="129.66666666666666" y="79" width="133.99999999999997" height="190"/>
@@ -334,7 +335,7 @@
                                 </subviews>
                                 <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleAspectFit" spacing="10" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oIX-g9-gnd">
+                            <stackView opaque="NO" contentMode="scaleAspectFit" distribution="equalSpacing" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="oIX-g9-gnd">
                                 <rect key="frame" x="20" y="339" width="353" height="80"/>
                                 <subviews>
                                     <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cCm-FG-yK3">
@@ -351,7 +352,10 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0nq-Oe-hDZ">
-                                        <rect key="frame" x="90" y="0.0" width="83" height="80"/>
+                                        <rect key="frame" x="91" y="0.0" width="80" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="Gfx-vF-ZF7"/>
+                                        </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain">
                                             <backgroundConfiguration key="background" image="icon_busicon.png"/>
@@ -361,7 +365,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VQI-9c-bGA">
-                                        <rect key="frame" x="183" y="0.0" width="80" height="80"/>
+                                        <rect key="frame" x="182" y="0.0" width="80" height="80"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="K4C-x0-xot"/>
                                         </constraints>
@@ -406,6 +410,8 @@
                             <constraint firstItem="oIX-g9-gnd" firstAttribute="top" secondItem="wv0-PZ-02S" secondAttribute="bottom" constant="70" id="6E8-8z-4dR"/>
                             <constraint firstItem="ghv-8s-MnL" firstAttribute="centerX" secondItem="oIX-g9-gnd" secondAttribute="centerX" id="7EX-f5-Ymu"/>
                             <constraint firstItem="oIX-g9-gnd" firstAttribute="leading" secondItem="Ud2-g9-U0I" secondAttribute="leading" constant="20" id="92r-xl-HaS"/>
+                            <constraint firstItem="ghv-8s-MnL" firstAttribute="leading" secondItem="9ya-AL-fLg" secondAttribute="leading" constant="-15" id="Q1x-FL-u0s"/>
+                            <constraint firstAttribute="trailing" secondItem="ghv-8s-MnL" secondAttribute="trailing" constant="-15" id="SLz-Le-6do"/>
                             <constraint firstItem="ghv-8s-MnL" firstAttribute="top" secondItem="9ya-AL-fLg" secondAttribute="topMargin" constant="-59" id="b47-ll-WlQ"/>
                             <constraint firstItem="i5B-z6-dQn" firstAttribute="leading" secondItem="9ya-AL-fLg" secondAttribute="leadingMargin" id="eSw-0o-4Ad"/>
                             <constraint firstItem="wv0-PZ-02S" firstAttribute="top" secondItem="Ud2-g9-U0I" secondAttribute="top" constant="20" id="frl-dV-D9l"/>
