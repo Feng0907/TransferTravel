@@ -668,8 +668,8 @@ struct BusInfoA2: Codable {
 	let busStatus: Int?
 	let a2EventType: Int
 	let GPSTime: String
-	let srcUpdateTime: String
-	let updateTime: String
+	let srcUpdateTime: String?
+	let updateTime: String?
 	
 	enum CodingKeys: String, CodingKey {
 		case plateNumb = "PlateNumb"
