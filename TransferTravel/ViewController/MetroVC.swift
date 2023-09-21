@@ -11,6 +11,8 @@ class MetroVC: UIViewController, UIScrollViewDelegate {
 	
 	@IBOutlet weak var mrtScrollView: UIScrollView!
 	@IBOutlet weak var mrtImageView: DownloadImageView!
+	@IBOutlet weak var navSegmenteView: UIView!
+	@IBOutlet weak var segmentMRTChange: UISegmentedControl!
 	
 	var imageType = 0
 	let taipeiMRTURL = "https://web.metro.taipei/pages/assets/images/routemap2023n.png"
@@ -18,6 +20,7 @@ class MetroVC: UIViewController, UIScrollViewDelegate {
 	
 	override func viewDidLoad() {
         super.viewDidLoad()
+		segmentConfig()
 		if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
 			let mainWindow = windowScene.windows.first(where: { $0.isKeyWindow }),
 			let navBarHeight = navigationController?.navigationBar.frame.size.height{
@@ -25,10 +28,12 @@ class MetroVC: UIViewController, UIScrollViewDelegate {
 			let screenWidth = UIScreen.main.bounds.width
 			let screenHeight = UIScreen.main.bounds.height
 			let x = screenWidth / 2
-			
+
 			let totalHeight = navBarHeight + statusBarHeight!
-			mrtScrollView.frame = CGRect(x: x - mrtScrollView.frame.width/2, y: totalHeight, width: screenWidth, height: screenHeight)
+			self.navSegmenteView.frame = CGRect(x: 0, y: totalHeight, width: screenWidth, height: 50)
+			mrtScrollView.frame = CGRect(x: x - mrtScrollView.frame.width/2, y: totalHeight - 48, width: screenWidth, height: screenHeight - 50)
 		}
+		
 		
 		guard let url = URL(string: taipeiMRTURL)
 			else{
@@ -80,6 +85,18 @@ class MetroVC: UIViewController, UIScrollViewDelegate {
 			break
 		}
 		
+	}
+	
+	func segmentConfig(){
+		
+		let normalTextAttributes: [NSAttributedString.Key: Any] = [
+			.foregroundColor: UIColor.white
+		]
+		self.segmentMRTChange.setTitleTextAttributes(normalTextAttributes, for: .normal)
+		let selectedTextAttributes: [NSAttributedString.Key: Any] = [
+			.foregroundColor: UIColor.white
+		]
+		self.segmentMRTChange.setTitleTextAttributes(selectedTextAttributes, for: .selected)
 	}
 	/*
     // MARK: - Navigation
