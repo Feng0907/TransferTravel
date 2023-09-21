@@ -18,23 +18,12 @@ class MetroVC: UIViewController, UIScrollViewDelegate {
 	let taipeiMRTURL = "https://web.metro.taipei/pages/assets/images/routemap2023n.png"
 	let tymetroURL = "https://www.tymetro.com.tw/tymetro-new/tw/_images/travel-guide/road_02-1_big.png"
 	
+	var originalContentOffset: CGPoint = .zero
+	
 	override func viewDidLoad() {
         super.viewDidLoad()
 		segmentConfig()
-		if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-			let mainWindow = windowScene.windows.first(where: { $0.isKeyWindow }),
-			let navBarHeight = navigationController?.navigationBar.frame.size.height{
-			let statusBarHeight = mainWindow.windowScene?.statusBarManager?.statusBarFrame.height
-			let screenWidth = UIScreen.main.bounds.width
-			let screenHeight = UIScreen.main.bounds.height
-			let x = screenWidth / 2
-
-			let totalHeight = navBarHeight + statusBarHeight!
-			self.navSegmenteView.frame = CGRect(x: 0, y: totalHeight, width: screenWidth, height: 50)
-			mrtScrollView.frame = CGRect(x: x - mrtScrollView.frame.width/2, y: totalHeight - 48, width: screenWidth, height: screenHeight - 50)
-		}
-		
-		
+		scrollViewConfig(caseNum: 0)
 		guard let url = URL(string: taipeiMRTURL)
 			else{
 				print("Invalid URL!")
@@ -50,10 +39,44 @@ class MetroVC: UIViewController, UIScrollViewDelegate {
 	func viewForZooming(in scrollView: UIScrollView) -> UIView? {
 		return mrtImageView
 	}
+	
+	func scrollViewConfig(caseNum: Int){
+		guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+		   let mainWindow = windowScene.windows.first(where: { $0.isKeyWindow }),
+		   let navBarHeight = navigationController?.navigationBar.frame.size.height else{
+			print("error for catch window Size")
+			return
+		}
+		let statusBarHeight = mainWindow.windowScene?.statusBarManager?.statusBarFrame.height
+		let screenWidth = UIScreen.main.bounds.width
+		let screenHeight = UIScreen.main.bounds.height
+		let x = screenWidth / 2
+		let totalHeight = navBarHeight + statusBarHeight!
+		let y = totalHeight + 50
+		let scrollHeight = self.mrtScrollView.frame.height - statusBarHeight!
+		switch caseNum {
+		case 0 :
+			self.navSegmenteView.frame = CGRect(x: x - mrtScrollView.frame.width / 2, y: totalHeight, width: screenWidth, height: 50)
+			self.mrtScrollView.frame = CGRect(x: x - mrtScrollView.frame.width / 2, y: y, width: screenWidth, height: scrollHeight)
+			break
+		case 1 :
+			self.mrtScrollView.frame = CGRect(x: x - mrtScrollView.frame.width / 2, y: y - 25, width: screenWidth, height: scrollHeight)
+
+			break
+		case 2 :
+			self.mrtScrollView.frame = CGRect(x: x - mrtScrollView.frame.width / 2, y: y + self.navSegmenteView.frame.height, width: screenWidth, height: scrollHeight)
+			break
+		default:
+			return
+		}
 		
-	@IBAction func imageChanged(_ sender: Any) {
-		switch (sender as AnyObject).selectedSegmentIndex {
+	}
+		
+	@IBAction func imageChanged(_ sender: UISegmentedControl) {
+		switch sender.selectedSegmentIndex {
 		case 0:
+
+			self.mrtImageView.contentMode = .scaleAspectFit
 			mrtImageView.image = nil
 			self.imageType = 0
 			guard let url = URL(string: taipeiMRTURL)
@@ -61,13 +84,13 @@ class MetroVC: UIViewController, UIScrollViewDelegate {
 					print("Invalid URL!")
 					return
 			}
+			
 			mrtImageView.load(url: url)
-//			mrtImageView.isHidden = false
-//			tymetroImageView.isHidden = true
-//			self.mrtScrollView.contentOffset = .init(x: super.view.frame.width/2, y: super.view.frame.height/2)
+			self.mrtScrollView.contentOffset.y = .zero
 			self.mrtScrollView.zoomScale = 1
 			break
 		case 1:
+			self.mrtImageView.contentMode = .scaleAspectFit
 			mrtImageView.image = nil
 			self.imageType = 1
 			guard let url = URL(string: tymetroURL)
@@ -75,9 +98,9 @@ class MetroVC: UIViewController, UIScrollViewDelegate {
 					print("Invalid URL!")
 					return
 			}
+			
 			mrtImageView.load(url: url)
-//			self.mrtScrollView.contentOffset = .zero
-//			self.mrtScrollView.contentOffset = .init(x: super.view.frame.width/2, y: super.view.frame.height/2)
+			self.mrtScrollView.contentOffset.y = .zero
 			self.mrtScrollView.zoomScale = 1
 
 			break

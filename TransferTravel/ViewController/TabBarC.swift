@@ -84,8 +84,8 @@ class TabBarC: UITabBarController {
 		if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
 			let mainWindow = windowScene.windows.first(where: { $0.isKeyWindow }) {
 			let statusBarHeight = mainWindow.windowScene?.statusBarManager?.statusBarFrame.height
-			tabFrame.size.height = 45 + statusBarHeight!
-			tabFrame.origin.y = self.frame.origin.y + self.frame.height - 43 - statusBarHeight!
+			tabFrame.size.height = 55 + statusBarHeight!
+			tabFrame.origin.y = self.frame.origin.y + self.frame.height - 53 - statusBarHeight!
 		}
 		
 //		self.layer.cornerRadius = 18

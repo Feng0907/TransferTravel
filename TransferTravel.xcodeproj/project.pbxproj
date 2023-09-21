@@ -686,6 +686,7 @@
 				DEVELOPMENT_TEAM = 7BCF97BPM5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TransferTravel/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "轉乘之旅";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "使用戶位置顯示相對應地點之天氣/氣溫";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -724,6 +725,7 @@
 				DEVELOPMENT_TEAM = 7BCF97BPM5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TransferTravel/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "轉乘之旅";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "使用戶位置顯示相對應地點之天氣/氣溫";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
