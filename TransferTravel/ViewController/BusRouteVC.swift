@@ -24,8 +24,8 @@ class BusRouteVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 	var busInfoA2ArrBack = [BusInfoA2]()
 	
 	var nowDirection = 0
-	var timer = Timer()
-	var progressTimer = Timer()
+	var timer: Timer?
+	var progressTimer: Timer?
 	var progress: Float = 1
 
 	@IBOutlet weak var navSegmenteView: UIView!
@@ -37,6 +37,8 @@ class BusRouteVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 	
 	override func viewDidLoad() {
         super.viewDidLoad()
+		self.progressTimer?.invalidate()
+		self.timer?.invalidate()
 		if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
 			let mainWindow = windowScene.windows.first(where: { $0.isKeyWindow }) {
 			let statusBarHeight = mainWindow.windowScene?.statusBarManager?.statusBarFrame.height
@@ -47,7 +49,7 @@ class BusRouteVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 		}
 		self.busRouteStopsTable.dataSource = self
 		self.busRouteStopsTable.delegate = self
-		self.timerProgressView.progress = 1
+		
 		
 		guard let busInfo = busInfo else {
 			assertionFailure("busInfo find Fail!")
@@ -67,6 +69,17 @@ class BusRouteVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 		queryBusArrrivalTime(of: routeName, at: busInfo.city)
 		queryBusInfoA2(of: routeName, at: busInfo.city)
 		
+    }
+	override func viewWillAppear(_ animated: Bool) {
+		self.progress = 1
+		guard let busInfo = busInfo else {
+			assertionFailure("busInfo find Fail!")
+			return
+		}
+		guard let routeName = busInfo.routeName.zhTw.encodeUrl() else {
+			assertionFailure("routeName find Fail!")
+			return
+		}
 		self.timer = Timer.scheduledTimer(withTimeInterval: 10.0, repeats: true) { _ in
 			self.queryStopTimeOfArrival(of: routeName, at: busInfo.city)
 			self.queryBusArrrivalTime(of: routeName, at: busInfo.city)
@@ -78,11 +91,17 @@ class BusRouteVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 			self.progress -= 1/1000
 			self.timerProgressView.progress = self.progress
 		}
-		RunLoop.current.add(timer, forMode: .common)
-    }
+		RunLoop.current.add(timer!, forMode: .common)
+	}
 	override func viewWillDisappear(_ animated: Bool) {
-		progressTimer.invalidate()
-		timer.invalidate()
+		self.progress = 0
+	}
+	override func viewDidDisappear(_ animated: Bool) {
+		progressTimer?.invalidate()
+		progressTimer = nil
+		timer?.invalidate()
+		timer = nil
+		
 	}
 	
 	func segmentConfig(){
@@ -353,14 +372,14 @@ class BusRouteVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 		min = sec / 60
 		return "\(min)"
 	}
-    /*
-    // MARK: - Navigation
 
+	// MARK: - Navigation
+	/*
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
-    */
+	 */
 
 }

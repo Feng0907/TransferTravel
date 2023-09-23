@@ -649,8 +649,8 @@
             filePath = "TransferTravel/ViewController/BusRouteVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "258"
-            endingLineNumber = "258"
+            startingLineNumber = "277"
+            endingLineNumber = "277"
             landmarkName = "stopArrivalTime(stopID:)"
             landmarkType = "7">
             <Locations>

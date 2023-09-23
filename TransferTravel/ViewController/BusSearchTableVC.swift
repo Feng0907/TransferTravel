@@ -41,7 +41,11 @@ class BusSearchTableVC: UITableViewController, UISearchResultsUpdating, UISearch
 		setPlaceholderLabelColor(searchController)
 	}
 	
-
+	func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+		if viewController == self && navigationController.viewControllers.count > 1 {
+			print("返回按鈕被點擊了")
+		}
+	}
 	
 	func setSearchBar(_ searchController : UISearchController){
 		searchController.searchBar.placeholder = "請輸入想搜尋的公車"
