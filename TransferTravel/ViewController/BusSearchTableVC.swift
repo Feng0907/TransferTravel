@@ -52,12 +52,10 @@ class BusSearchTableVC: UITableViewController, UISearchResultsUpdating, UISearch
 		searchController.searchBar.barStyle = .black
 		searchController.searchBar.tintColor = .white
 		if let clearButton = searchController.searchBar.searchTextField.value(forKey: "clearButton") as? UIButton {
-				clearButton.setImage(UIImage(systemName: "xmark.circle.fill"), for: .normal) // 使用系统提供的白色清除按钮图标
+				clearButton.setImage(UIImage(systemName: "xmark.circle.fill"), for: .normal)
 				clearButton.tintColor = .white // 设置清除按钮颜色为白色
 			}
 	}
-	
-	
 	
 	func setPlaceholderLabelColor(_ searchController : UISearchController){
 		if let placeholderLabel = searchController.searchBar.searchTextField.value(forKey: "placeholderLabel") as? UILabel {
@@ -92,7 +90,7 @@ class BusSearchTableVC: UITableViewController, UISearchResultsUpdating, UISearch
 	//MARK:searchResultsUpdater
 	func updateSearchResults(for searchController: UISearchController) {
 		
-		guard let searchText = self.searchController.searchBar.text?.encodeUrl() else {
+		guard let searchText = self.searchController.searchBar.text else {
 			print("請輸入想找的路線")
 			return
 		}
@@ -104,7 +102,8 @@ class BusSearchTableVC: UITableViewController, UISearchResultsUpdating, UISearch
 //				self.activityIndicator.startAnimating()
 				KRProgressHUD.show()
 				self.queryQueue.async {
-					self.performSearch(searchText: searchText)
+					let searchTextEncode = searchText.encodeUrl() ?? ""
+					self.performSearch(searchText: searchTextEncode)
 					
 				}
 				
@@ -189,21 +188,31 @@ class BusSearchTableVC: UITableViewController, UISearchResultsUpdating, UISearch
 	
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return self.filteredData.count
+		if self.filteredData.count != 0 {
+			return self.filteredData.count
+		} else {
+			return 1
+		}
     }
 	
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		guard let selfcell = tableView.dequeueReusableCell(withIdentifier: "searchRusRoute", for: indexPath) as? searchRusRouteTVCell else{
-		   fatalError("請確認storybord上有設定customcell")
+		if filteredData.count != 0 {
+			tableView.separatorStyle = .singleLine
+			let item = filteredData[indexPath.row]
+			guard let selfcell = tableView.dequeueReusableCell(withIdentifier: "searchRusRoute", for: indexPath) as? searchRusRouteTVCell else{
+			   fatalError("請確認storybord上有設定customcell")
+			}
+			selfcell.routeNumLabel?.text = item.routeName.zhTw
+			selfcell.routeStartEndLabel?.text = item.departureStopNameZh != nil ? item.departureStopNameZh! + " - " + item.destinationStopNameZh : item.destinationStopNameZh + " - " + item.destinationStopNameZh
+			let cityNameZn = cityEnToZn(enCityName: item.city)
+			selfcell.routeCityLabel?.text = cityNameZn
+			return selfcell
+		} else {
+			tableView.separatorStyle = .none
+			let cell = tableView.dequeueReusableCell(withIdentifier: "searchNone", for: indexPath)
+			return cell
 		}
-		
-		let item = filteredData[indexPath.row]
-		selfcell.routeNumLabel?.text = item.routeName.zhTw
-		selfcell.routeStartEndLabel?.text = item.departureStopNameZh != nil ? item.departureStopNameZh! + " - " + item.destinationStopNameZh : item.destinationStopNameZh + " - " + item.destinationStopNameZh
-		let cityNameZn = cityEnToZn(enCityName: item.city)
-		selfcell.routeCityLabel?.text = cityNameZn
-        return selfcell
     }
 
 
