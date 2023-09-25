@@ -49,22 +49,21 @@ class MetroVC: UIViewController, UIScrollViewDelegate {
 		}
 		let statusBarHeight = mainWindow.windowScene?.statusBarManager?.statusBarFrame.height
 		let screenWidth = UIScreen.main.bounds.width
-		let screenHeight = UIScreen.main.bounds.height
+//		let screenHeight = UIScreen.main.bounds.height
 		let x = screenWidth / 2
 		let totalHeight = navBarHeight + statusBarHeight!
 		let y = totalHeight + 50
 		let scrollHeight = self.mrtScrollView.frame.height - statusBarHeight!
 		switch caseNum {
 		case 0 :
-			self.navSegmenteView.frame = CGRect(x: x - mrtScrollView.frame.width / 2, y: totalHeight, width: screenWidth, height: 50)
-			self.mrtScrollView.frame = CGRect(x: x - mrtScrollView.frame.width / 2, y: y, width: screenWidth, height: scrollHeight)
+			self.navSegmenteView.frame = CGRect(x: x - mrtScrollView.frame.width / 2, y: totalHeight, width: screenWidth + 1, height: 50)
+			self.mrtScrollView.frame = CGRect(x: x - mrtScrollView.frame.width / 2, y: y, width: screenWidth + 1, height: scrollHeight)
 			break
 		case 1 :
-			self.mrtScrollView.frame = CGRect(x: x - mrtScrollView.frame.width / 2, y: y - 25, width: screenWidth, height: scrollHeight)
-
+			self.mrtScrollView.frame = CGRect(x: x - mrtScrollView.frame.width / 2, y: y - 25, width: screenWidth + 1, height: scrollHeight)
 			break
 		case 2 :
-			self.mrtScrollView.frame = CGRect(x: x - mrtScrollView.frame.width / 2, y: y + self.navSegmenteView.frame.height, width: screenWidth, height: scrollHeight)
+			self.mrtScrollView.frame = CGRect(x: x - mrtScrollView.frame.width / 2, y: y + self.navSegmenteView.frame.height, width: screenWidth + 1, height: scrollHeight)
 			break
 		default:
 			return

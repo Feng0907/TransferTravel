@@ -207,8 +207,10 @@ class BusSearchTableVC: UITableViewController, UISearchResultsUpdating, UISearch
 			guard let selfcell = tableView.dequeueReusableCell(withIdentifier: "searchRusRoute", for: indexPath) as? searchRusRouteTVCell else{
 			   fatalError("請確認storybord上有設定customcell")
 			}
+			if let destinationStopNameZh = item.destinationStopNameZh{
+				selfcell.routeStartEndLabel?.text = item.departureStopNameZh != nil ? item.departureStopNameZh! + " - " + destinationStopNameZh : destinationStopNameZh + " - " + destinationStopNameZh
+			}
 			selfcell.routeNumLabel?.text = item.routeName.zhTw
-			selfcell.routeStartEndLabel?.text = item.departureStopNameZh != nil ? item.departureStopNameZh! + " - " + item.destinationStopNameZh : item.destinationStopNameZh + " - " + item.destinationStopNameZh
 			let cityNameZn = cityEnToZn(enCityName: item.city)
 			selfcell.routeCityLabel?.text = cityNameZn
 			return selfcell

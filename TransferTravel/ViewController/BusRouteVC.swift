@@ -49,8 +49,6 @@ class BusRouteVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 		}
 		self.busRouteStopsTable.dataSource = self
 		self.busRouteStopsTable.delegate = self
-		
-		
 		guard let busInfo = busInfo else {
 			assertionFailure("busInfo find Fail!")
 			return
@@ -59,8 +57,12 @@ class BusRouteVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 			assertionFailure("routeName find Fail!")
 			return
 		}
-		self.toEndStopName = busInfo.departureStopNameZh ?? busInfo.destinationStopNameZh
-		self.backEndStopName = busInfo.destinationStopNameZh
+		guard let destinationStopNameZh = busInfo.destinationStopNameZh else {
+			print("destinationStopNameZh find Fail!")
+			return
+		}
+		self.toEndStopName = busInfo.departureStopNameZh ?? destinationStopNameZh
+		self.backEndStopName = destinationStopNameZh
 		segmentConfig()
 		queryStops(of: routeName, at: busInfo.city)
 		self.oneRouteLabel.isHidden = true
@@ -92,9 +94,11 @@ class BusRouteVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 			self.timerProgressView.progress = self.progress
 		}
 		RunLoop.current.add(timer!, forMode: .common)
+		RunLoop.current.add(progressTimer!, forMode: .common)
 	}
 	override func viewWillDisappear(_ animated: Bool) {
 		self.progress = 0
+		
 	}
 	override func viewDidDisappear(_ animated: Bool) {
 		progressTimer?.invalidate()
@@ -224,7 +228,8 @@ class BusRouteVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 	func queryStops(of busNum: String, at city: String){
 		BusCommunicator.shared.getBusStopOfRoute(busNum, city: city) { result, error in
 			if let error = error {
-				self.showAlert(message: "error: \(error)")
+				print("queryStops error: \(error)")
+				self.showAlert(message: "站牌連線異常")
 				return
 			}
 			
@@ -255,7 +260,8 @@ class BusRouteVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 	func queryStopTimeOfArrival(of busNum: String, at city: String){
 		BusCommunicator.shared.getBusTimeOfArrival(busNum, city: city) { result, error in
 			if let error = error {
-				self.showAlert(message: "error: \(error)")
+				print("queryStopTimeOfArrival error: \(error)")
+				self.showAlert(message: "站牌連線異常")
 				return
 			}
 			guard let data = result else {
@@ -292,7 +298,8 @@ class BusRouteVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 	func queryBusArrrivalTime(of busNum: String, at city: String){
 		BusCommunicator.shared.getBusTimeOfArrivalA1(busNum, city: city) { result, error in
 			if let error = error {
-				self.showAlert(message: "error: \(error)")
+				print("queryBusArrrivalTime error: \(error)")
+				self.showAlert(message: "連線逾時")
 				return
 			}
 			guard let data = result else {
@@ -333,7 +340,8 @@ class BusRouteVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 	func queryBusInfoA2(of busNum: String, at city: String){
 		BusCommunicator.shared.getBusTimeOfArrivalA2(busNum, city: city) { result, error in
 			if let error = error {
-				self.showAlert(message: "error: \(error)")
+				print("queryBusInfoA2 error: \(error)")
+				self.showAlert(message: "連線逾時")
 				return
 			}
 			guard let data = result else {

@@ -429,7 +429,7 @@ struct BusRouteInfoResult: Codable {
 	let routeName: RouteName
 	let departureStopNameZh: String?
 	let departureStopNameEn: String?
-	let destinationStopNameZh: String
+	let destinationStopNameZh: String?
 	let destinationStopNameEn: String?
 	let ticketPriceDescriptionZh: String?
 	let ticketPriceDescriptionEn: String?
@@ -438,8 +438,8 @@ struct BusRouteInfoResult: Codable {
 	let routeMapImageUrl: String?
 	let city: String
 	let cityCode: String
-	let updateTime: String
-	let versionID: Int
+	let updateTime: String?
+	let versionID: Int?
 
 	enum CodingKeys: String, CodingKey {
 		case routeUID = "RouteUID"
@@ -539,7 +539,7 @@ struct StopOfTimeArrival: Codable {
 	let nextBusTime: String?
 	let isLastBus: Bool?
 	let srcUpdateTime: String?
-	let updateTime: String
+	let updateTime: String?
 
 	enum CodingKeys: String, CodingKey {
 		case stopUID = "StopUID"
@@ -617,11 +617,11 @@ struct BusArrivalData: Codable {
 	let stopUID: String
 	let stopID: String
 	let stopName: StopName
-	let stopSequence: Int
-	let dutyStatus: Int
+	let stopSequence: Int?
+	let dutyStatus: Int?
 	let busStatus: Int?
-	let a2EventType: Int
-	let GPSTime: String
+	let a2EventType: Int?
+	let GPSTime: String?
 	let srcUpdateTime: String?
 	let updateTime: String?
 
@@ -663,11 +663,11 @@ struct BusInfoA2: Codable {
 	let stopUID: String
 	let stopID: String
 	let stopName: StopName
-	let stopSequence: Int
-	let dutyStatus: Int
+	let stopSequence: Int?
+	let dutyStatus: Int?
 	let busStatus: Int?
-	let a2EventType: Int
-	let GPSTime: String
+	let a2EventType: Int?
+	let GPSTime: String?
 	let srcUpdateTime: String?
 	let updateTime: String?
 	
