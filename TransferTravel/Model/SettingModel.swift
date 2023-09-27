@@ -10,7 +10,7 @@ import Foundation
 class VisionItem {
 	
 	var key: String = "版本號碼"
-	var value: String = "1.0.1"
+	var value: String = "1.0.2"
 
 }
 

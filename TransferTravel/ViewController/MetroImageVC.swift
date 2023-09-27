@@ -1,5 +1,5 @@
 //
-//  MetroVC.swift
+//  MetroImageVC.swift
 //  TransferTravel
 //
 //  Created by Feng on 2023/9/12.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MetroVC: UIViewController, UIScrollViewDelegate {
+class MetroImageVC: UIViewController, UIScrollViewDelegate {
 	
 	@IBOutlet weak var mrtScrollView: UIScrollView!
 	@IBOutlet weak var mrtImageView: DownloadImageView!

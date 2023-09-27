@@ -27,6 +27,7 @@
 		B24E47ED2A94660D0031BA70 /* HistoryTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24E47EC2A94660D0031BA70 /* HistoryTableVC.swift */; };
 		B24E47EF2A95014A0031BA70 /* HistoryItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24E47EE2A95014A0031BA70 /* HistoryItemModel.swift */; };
 		B24E47F12A9514AA0031BA70 /* UIVC+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24E47F02A9514AA0031BA70 /* UIVC+Alert.swift */; };
+		B26C9A392AC28AD000602715 /* TymetroVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26C9A382AC28AD000602715 /* TymetroVC.swift */; };
 		B26D18D92A87F31300953A72 /* car_off_transBtnIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = B26D18D12A87F31200953A72 /* car_off_transBtnIcon.png */; };
 		B26D18DA2A87F31300953A72 /* motorcycle_on_transBtnIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = B26D18D22A87F31200953A72 /* motorcycle_on_transBtnIcon.png */; };
 		B26D18DB2A87F31300953A72 /* bicycle_on_transBtnIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = B26D18D32A87F31200953A72 /* bicycle_on_transBtnIcon.png */; };
@@ -38,7 +39,7 @@
 		B26D18E22A88B19400953A72 /* TimerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26D18E12A88B19400953A72 /* TimerHelper.swift */; };
 		B26D18E82A89C0AB00953A72 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B26D18E72A89C0AB00953A72 /* IQKeyboardManagerSwift */; };
 		B26D18EC2A89FF7800953A72 /* SelfRouteTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26D18EB2A89FF7800953A72 /* SelfRouteTVCell.swift */; };
-		B2709FC92AAF74810073934A /* MetroVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2709FC82AAF74810073934A /* MetroVC.swift */; };
+		B2709FC92AAF74810073934A /* MetroImageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2709FC82AAF74810073934A /* MetroImageVC.swift */; };
 		B27105982AB7DECA0019BDF8 /* AboutUsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27105972AB7DECA0019BDF8 /* AboutUsVC.swift */; };
 		B2711EDE2AA58497000CD6CA /* BusBranch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2711EDD2AA58497000CD6CA /* BusBranch.storyboard */; };
 		B2711EE02AA589AC000CD6CA /* BusSearchTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2711EDF2AA589AC000CD6CA /* BusSearchTableVC.swift */; };
@@ -115,6 +116,7 @@
 		B24E47EC2A94660D0031BA70 /* HistoryTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableVC.swift; sourceTree = "<group>"; };
 		B24E47EE2A95014A0031BA70 /* HistoryItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryItemModel.swift; sourceTree = "<group>"; };
 		B24E47F02A9514AA0031BA70 /* UIVC+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIVC+Alert.swift"; sourceTree = "<group>"; };
+		B26C9A382AC28AD000602715 /* TymetroVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TymetroVC.swift; sourceTree = "<group>"; };
 		B26D18D12A87F31200953A72 /* car_off_transBtnIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = car_off_transBtnIcon.png; sourceTree = "<group>"; };
 		B26D18D22A87F31200953A72 /* motorcycle_on_transBtnIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = motorcycle_on_transBtnIcon.png; sourceTree = "<group>"; };
 		B26D18D32A87F31200953A72 /* bicycle_on_transBtnIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bicycle_on_transBtnIcon.png; sourceTree = "<group>"; };
@@ -125,7 +127,7 @@
 		B26D18D82A87F31300953A72 /* walk_off_transBtnIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = walk_off_transBtnIcon.png; sourceTree = "<group>"; };
 		B26D18E12A88B19400953A72 /* TimerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerHelper.swift; sourceTree = "<group>"; };
 		B26D18EB2A89FF7800953A72 /* SelfRouteTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfRouteTVCell.swift; sourceTree = "<group>"; };
-		B2709FC82AAF74810073934A /* MetroVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetroVC.swift; sourceTree = "<group>"; };
+		B2709FC82AAF74810073934A /* MetroImageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetroImageVC.swift; sourceTree = "<group>"; };
 		B27105972AB7DECA0019BDF8 /* AboutUsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsVC.swift; sourceTree = "<group>"; };
 		B2711EDD2AA58497000CD6CA /* BusBranch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BusBranch.storyboard; sourceTree = "<group>"; };
 		B2711EDF2AA589AC000CD6CA /* BusSearchTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusSearchTableVC.swift; sourceTree = "<group>"; };
@@ -211,9 +213,10 @@
 				B24E47EC2A94660D0031BA70 /* HistoryTableVC.swift */,
 				B2711EDF2AA589AC000CD6CA /* BusSearchTableVC.swift */,
 				B27F10A02AACE4E5006CBD38 /* BusRouteVC.swift */,
-				B2709FC82AAF74810073934A /* MetroVC.swift */,
 				B2E57E872AB60E7F00620446 /* SettingsVC.swift */,
 				B27105972AB7DECA0019BDF8 /* AboutUsVC.swift */,
+				B2709FC82AAF74810073934A /* MetroImageVC.swift */,
+				B26C9A382AC28AD000602715 /* TymetroVC.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -507,7 +510,7 @@
 				B24E47F12A9514AA0031BA70 /* UIVC+Alert.swift in Sources */,
 				B2439D252A81E3A900604CB5 /* AddTimeRecordVC.swift in Sources */,
 				B271F67E2A99E46F00C7C0E6 /* WeatherCommunicator.swift in Sources */,
-				B2709FC92AAF74810073934A /* MetroVC.swift in Sources */,
+				B2709FC92AAF74810073934A /* MetroImageVC.swift in Sources */,
 				B2711EE22AA60ECB000CD6CA /* RootNavigationController.swift in Sources */,
 				B26D18E22A88B19400953A72 /* TimerHelper.swift in Sources */,
 				B2F6DD252A74C8D600A6B6CB /* IndexVC.swift in Sources */,
@@ -515,6 +518,7 @@
 				B2439D122A7E8E6100604CB5 /* RouteListDataModel.xcdatamodeld in Sources */,
 				B24E47ED2A94660D0031BA70 /* HistoryTableVC.swift in Sources */,
 				B2743F462A9E12CC003C4D49 /* BusInfoSendHelper.swift in Sources */,
+				B26C9A392AC28AD000602715 /* TymetroVC.swift in Sources */,
 				B27D932D2A866B850093F471 /* TabBarC.swift in Sources */,
 				B24E47EF2A95014A0031BA70 /* HistoryItemModel.swift in Sources */,
 				B2C3E4A62A86117700E3C8F6 /* SidebarVC.swift in Sources */,
@@ -700,7 +704,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Feng.TransferTravel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -739,7 +743,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Feng.TransferTravel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
