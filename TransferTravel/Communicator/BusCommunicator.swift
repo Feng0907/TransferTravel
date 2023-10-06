@@ -8,9 +8,6 @@
 import Foundation
 import Alamofire
 
-
-//typealias DoneHandler = (_ result: SeverResult?, _ error: Error?) ->Void
-//typealias DoneHandler<T> = Result<T, AFError>
 typealias DoneHandler<T> = (_ result: T?, _ error: Error?) ->Void
 typealias CityArrayCompletion = DoneHandler<[CityResult]>
 typealias BusStopOfRouteCompletion = DoneHandler<[BusStopResult]>
@@ -19,8 +16,8 @@ typealias BusTimeOfArrivalCompletion = DoneHandler<[StopOfTimeArrival]>
 typealias BusTimeOfArrivalA1Completion = DoneHandler<[BusArrivalData]>
 typealias BusTimeOfArrivalA2Completion = DoneHandler<[BusInfoA2]>
 
-
 typealias TokenCompletion = DoneHandler<TokenResult>
+
 class BusCommunicator {
 	static let shared = BusCommunicator()
 	private init(){}
@@ -71,7 +68,7 @@ class BusCommunicator {
 	let cityKey = "City"
 	let routeNameKey = "RouteName"
 	
-	func getToken(id clientId: String, key clientSecret: String) {
+	func getToken(id clientId: String, key clientSecret: String){
 
 		let parameters: [String: Any] = [
 			grantTypeKey: grantType,
@@ -89,6 +86,11 @@ class BusCommunicator {
 				}
 			}
 	}
+	
+//	func sendToken() -> String{
+//		return self.token
+//	}
+	
 //	func setToken(_ content: String) {
 //		let jsonDecoder = JSONDecoder()
 //		guard let jsonCont = content.data(using: .utf8) else{
@@ -406,17 +408,6 @@ struct StopPosition: Codable {
 	}
 }
 
-//struct SeverResult: Decodable {
-//	var success: Bool?
-//	var errorCode: String?
-//	var result: [BusRouteInfoResult]?
-//	enum CodingKeys: String, CodingKey {
-//		case success = "result"
-//		case errorCode
-//		case result = "City"
-//	}
-//}
-
 struct BusRouteInfoResult: Codable {
 	let routeUID: String
 	let routeID: String
@@ -557,52 +548,7 @@ struct StopOfTimeArrival: Codable {
 		case updateTime = "UpdateTime"
 	}
 }
-//
-//struct BusArrivalData: Codable {
-//	let plateNumb: String
-//	let operatorID: String
-//	let operatorNo: String
-//	let routeUID: String
-//	let routeID: String
-//	let routeName: RouteName
-//	let subRouteUID: String
-//	let subRouteID: String
-//	let subRouteName: RouteName
-//	let direction: Int
-//	let stopUID: String?
-//	let stopID: String?
-//	let stopName: StopName?
-//	let stopSequence: Int?
-//	let dutyStatus: Int
-//	let busStatus: Int
-//	let a2EventType: Int?
-//	let GPSTime: String
-//	let srcUpdateTime: String
-//	let updateTime: String
-//
-//	enum CodingKeys: String, CodingKey {
-//		case plateNumb = "PlateNumb"
-//		case operatorID = "OperatorID"
-//		case operatorNo = "OperatorNo"
-//		case routeUID = "RouteUID"
-//		case routeID = "RouteID"
-//		case routeName = "RouteName"
-//		case subRouteUID = "SubRouteUID"
-//		case subRouteID = "SubRouteID"
-//		case subRouteName = "SubRouteName"
-//		case direction = "Direction"
-//		case stopUID = "StopUID"
-//		case stopID = "StopID"
-//		case stopName = "StopName"
-//		case stopSequence = "StopSequence"
-//		case dutyStatus = "DutyStatus"
-//		case busStatus = "BusStatus"
-//		case a2EventType = "A2EventType"
-//		case GPSTime = "GPSTime"
-//		case srcUpdateTime = "SrcUpdateTime"
-//		case updateTime = "UpdateTime"
-//	}
-//}
+
 struct BusArrivalData: Codable {
 	let plateNumb: String
 	let operatorID: String

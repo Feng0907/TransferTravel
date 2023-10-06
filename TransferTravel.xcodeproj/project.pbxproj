@@ -27,7 +27,9 @@
 		B24E47ED2A94660D0031BA70 /* HistoryTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24E47EC2A94660D0031BA70 /* HistoryTableVC.swift */; };
 		B24E47EF2A95014A0031BA70 /* HistoryItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24E47EE2A95014A0031BA70 /* HistoryItemModel.swift */; };
 		B24E47F12A9514AA0031BA70 /* UIVC+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24E47F02A9514AA0031BA70 /* UIVC+Alert.swift */; };
+		B26BA0262AD07503001D5DF6 /* TymetroTimeTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26BA0252AD07503001D5DF6 /* TymetroTimeTVCell.swift */; };
 		B26C9A392AC28AD000602715 /* TymetroVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26C9A382AC28AD000602715 /* TymetroVC.swift */; };
+		B26C9A3B2AC517C200602715 /* TymetroCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26C9A3A2AC517C200602715 /* TymetroCommunicator.swift */; };
 		B26D18D92A87F31300953A72 /* car_off_transBtnIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = B26D18D12A87F31200953A72 /* car_off_transBtnIcon.png */; };
 		B26D18DA2A87F31300953A72 /* motorcycle_on_transBtnIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = B26D18D22A87F31200953A72 /* motorcycle_on_transBtnIcon.png */; };
 		B26D18DB2A87F31300953A72 /* bicycle_on_transBtnIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = B26D18D32A87F31200953A72 /* bicycle_on_transBtnIcon.png */; };
@@ -116,7 +118,9 @@
 		B24E47EC2A94660D0031BA70 /* HistoryTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableVC.swift; sourceTree = "<group>"; };
 		B24E47EE2A95014A0031BA70 /* HistoryItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryItemModel.swift; sourceTree = "<group>"; };
 		B24E47F02A9514AA0031BA70 /* UIVC+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIVC+Alert.swift"; sourceTree = "<group>"; };
+		B26BA0252AD07503001D5DF6 /* TymetroTimeTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TymetroTimeTVCell.swift; sourceTree = "<group>"; };
 		B26C9A382AC28AD000602715 /* TymetroVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TymetroVC.swift; sourceTree = "<group>"; };
+		B26C9A3A2AC517C200602715 /* TymetroCommunicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TymetroCommunicator.swift; sourceTree = "<group>"; };
 		B26D18D12A87F31200953A72 /* car_off_transBtnIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = car_off_transBtnIcon.png; sourceTree = "<group>"; };
 		B26D18D22A87F31200953A72 /* motorcycle_on_transBtnIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = motorcycle_on_transBtnIcon.png; sourceTree = "<group>"; };
 		B26D18D32A87F31200953A72 /* bicycle_on_transBtnIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bicycle_on_transBtnIcon.png; sourceTree = "<group>"; };
@@ -245,6 +249,7 @@
 				B26D18EB2A89FF7800953A72 /* SelfRouteTVCell.swift */,
 				B28984CB2AAC35FD00AE3F7A /* BusStopsTVCell.swift */,
 				B2EF5D0C2AB0A61A00EF4191 /* searchRusRouteTVCell.swift */,
+				B26BA0252AD07503001D5DF6 /* TymetroTimeTVCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -304,6 +309,7 @@
 				B271F67D2A99E46F00C7C0E6 /* WeatherCommunicator.swift */,
 				B271F67F2A9B122A00C7C0E6 /* BusCommunicator.swift */,
 				B2743F452A9E12CC003C4D49 /* BusInfoSendHelper.swift */,
+				B26C9A3A2AC517C200602715 /* TymetroCommunicator.swift */,
 			);
 			path = Communicator;
 			sourceTree = "<group>";
@@ -518,6 +524,7 @@
 				B2439D122A7E8E6100604CB5 /* RouteListDataModel.xcdatamodeld in Sources */,
 				B24E47ED2A94660D0031BA70 /* HistoryTableVC.swift in Sources */,
 				B2743F462A9E12CC003C4D49 /* BusInfoSendHelper.swift in Sources */,
+				B26BA0262AD07503001D5DF6 /* TymetroTimeTVCell.swift in Sources */,
 				B26C9A392AC28AD000602715 /* TymetroVC.swift in Sources */,
 				B27D932D2A866B850093F471 /* TabBarC.swift in Sources */,
 				B24E47EF2A95014A0031BA70 /* HistoryItemModel.swift in Sources */,
@@ -528,6 +535,7 @@
 				B26D18EC2A89FF7800953A72 /* SelfRouteTVCell.swift in Sources */,
 				B2439D002A7BA82F00604CB5 /* RouteListTableVC.swift in Sources */,
 				B2F6DD212A74C8D600A6B6CB /* AppDelegate.swift in Sources */,
+				B26C9A3B2AC517C200602715 /* TymetroCommunicator.swift in Sources */,
 				B2439D232A81D35E00604CB5 /* RouteTableVC.swift in Sources */,
 				B2EF5D0D2AB0A61A00EF4191 /* searchRusRouteTVCell.swift in Sources */,
 				B2E953482AB445FC00530295 /* DownloadImageView.swift in Sources */,
