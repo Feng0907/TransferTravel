@@ -103,7 +103,7 @@
                                 </subviews>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="70" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="RIJ-O1-JUF">
-                                <rect key="frame" x="10" y="261" width="373" height="542"/>
+                                <rect key="frame" x="10" y="261" width="373" height="493"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TymetroTimeTableCell" focusStyle="custom" rowHeight="70" id="Zwk-X8-L4L" customClass="TymetroTimeTVCell" customModule="TransferTravel" customModuleProvider="target">
@@ -216,6 +216,9 @@
                             <constraint firstItem="RIJ-O1-JUF" firstAttribute="top" secondItem="dZi-8b-ZWP" secondAttribute="bottom" constant="10" id="xLK-Ln-lPo"/>
                         </constraints>
                     </view>
+                    <toolbarItems>
+                        <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="o1N-My-Wcs"/>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" title="桃園機場捷運" id="HLb-CO-huL">
                         <barButtonItem key="rightBarButtonItem" title="Item" id="aKo-sr-7ON">
                             <imageReference key="image" image="map" catalog="system" symbolScale="medium"/>
@@ -225,6 +228,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="endSelectBtn" destination="hDg-xf-vr8" id="tWQ-0m-eFp"/>
                         <outlet property="endTagLabel" destination="b21-so-TQg" id="H75-sw-2nV"/>
@@ -237,7 +241,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="870.99236641221376" y="-28.169014084507044"/>
+            <point key="canvasLocation" x="910.68702290076328" y="2.8169014084507045"/>
         </scene>
         <!--Tymetro ImageVC-->
         <scene sceneID="c02-Xb-4wo">
@@ -269,7 +273,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dQ6-Sk-vgw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1645" y="-28"/>
+            <point key="canvasLocation" x="1727" y="3"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="39B-Ph-aVD">
@@ -282,73 +286,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="hep-Pn-E5y"/>
+                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="Dhw-rB-Qpg"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="udX-y4-mJP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-103" y="-296"/>
-        </scene>
-        <!--台北捷運路線圖-->
-        <scene sceneID="vTM-pg-8uM">
-            <objects>
-                <viewController id="kz9-qu-r3m" customClass="MetroImageVC" customModule="TransferTravel" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="yST-yu-ggz">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" insetsLayoutMarginsFromSafeArea="NO" bounces="NO" alwaysBounceVertical="YES" maximumZoomScale="5" translatesAutoresizingMaskIntoConstraints="NO" id="K2e-tT-7gW">
-                                <rect key="frame" x="0.0" y="151" width="394" height="701"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gRI-fp-CvQ" customClass="DownloadImageView" customModule="TransferTravel" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="394" height="706"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                </subviews>
-                            </scrollView>
-                            <view autoresizesSubviews="NO" contentMode="scaleAspectFill" insetsLayoutMarginsFromSafeArea="NO" id="Sbu-RY-HEw">
-                                <rect key="frame" x="0.0" y="103" width="430" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <segmentedControl opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" selected="YES" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dXY-4r-jVe">
-                                        <rect key="frame" x="10" y="9.6666666666666714" width="410" height="32"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <segments>
-                                            <segment title="台北捷運"/>
-                                            <segment title="桃園機場捷運"/>
-                                        </segments>
-                                        <color key="selectedSegmentTintColor" name="MainBlue"/>
-                                        <connections>
-                                            <action selector="imageChanged:" destination="kz9-qu-r3m" eventType="valueChanged" id="cxv-w5-YHL"/>
-                                        </connections>
-                                    </segmentedControl>
-                                </subviews>
-                                <viewLayoutGuide key="safeArea" id="fxK-aD-iIA"/>
-                                <color key="backgroundColor" name="MainLightBlue"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="dXY-4r-jVe" firstAttribute="leading" secondItem="Sbu-RY-HEw" secondAttribute="leading" constant="10" id="T6X-ie-Qes"/>
-                                    <constraint firstAttribute="trailing" secondItem="dXY-4r-jVe" secondAttribute="trailing" constant="10" id="UJy-LK-USd"/>
-                                    <constraint firstItem="dXY-4r-jVe" firstAttribute="centerY" secondItem="Sbu-RY-HEw" secondAttribute="centerY" id="gOc-WK-Ik6"/>
-                                </constraints>
-                                <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
-                            </view>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="Nvm-g9-Gv4"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="台北捷運路線圖" id="NLa-Um-aRf"/>
-                    <connections>
-                        <outlet property="mrtImageView" destination="gRI-fp-CvQ" id="vdJ-Kp-IJD"/>
-                        <outlet property="mrtScrollView" destination="K2e-tT-7gW" id="MsC-Qm-kUs"/>
-                        <outlet property="navSegmenteView" destination="Sbu-RY-HEw" id="Vwz-8I-fn6"/>
-                        <outlet property="segmentMRTChange" destination="dXY-4r-jVe" id="1ZK-Gy-uIv"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9KX-De-yyg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="912" y="-731"/>
         </scene>
     </scenes>
     <resources>

@@ -27,6 +27,24 @@
 		B24E47ED2A94660D0031BA70 /* HistoryTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24E47EC2A94660D0031BA70 /* HistoryTableVC.swift */; };
 		B24E47EF2A95014A0031BA70 /* HistoryItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24E47EE2A95014A0031BA70 /* HistoryItemModel.swift */; };
 		B24E47F12A9514AA0031BA70 /* UIVC+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24E47F02A9514AA0031BA70 /* UIVC+Alert.swift */; };
+		B25E82842AD3E26400ADD1DA /* MRTSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25E82832AD3E26400ADD1DA /* MRTSegmentedControl.swift */; };
+		B25E829C2AD3FEA400ADD1DA /* icon_MRTT.png in Resources */ = {isa = PBXBuildFile; fileRef = B25E829A2AD3FEA400ADD1DA /* icon_MRTT.png */; };
+		B25E829E2AD4038C00ADD1DA /* IndexNaviVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25E829D2AD4038C00ADD1DA /* IndexNaviVC.swift */; };
+		B25E82A02AD403BE00ADD1DA /* TymetroNaviVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25E829F2AD403BE00ADD1DA /* TymetroNaviVC.swift */; };
+		B25E82A22AD403EA00ADD1DA /* MetroNaviVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25E82A12AD403EA00ADD1DA /* MetroNaviVC.swift */; };
+		B25E82AA2AD40A0200ADD1DA /* icon_MRT2.png in Resources */ = {isa = PBXBuildFile; fileRef = B25E82A92AD40A0200ADD1DA /* icon_MRT2.png */; };
+		B25E82B72AD4591500ADD1DA /* tabbar_selected_map.png in Resources */ = {isa = PBXBuildFile; fileRef = B25E82AB2AD4591300ADD1DA /* tabbar_selected_map.png */; };
+		B25E82B82AD4591500ADD1DA /* tabbar_selected_mrt 2.png in Resources */ = {isa = PBXBuildFile; fileRef = B25E82AC2AD4591300ADD1DA /* tabbar_selected_mrt 2.png */; };
+		B25E82B92AD4591500ADD1DA /* tabbar_unselect_list.png in Resources */ = {isa = PBXBuildFile; fileRef = B25E82AD2AD4591300ADD1DA /* tabbar_unselect_list.png */; };
+		B25E82BA2AD4591500ADD1DA /* tabbar_selected_home.png in Resources */ = {isa = PBXBuildFile; fileRef = B25E82AE2AD4591300ADD1DA /* tabbar_selected_home.png */; };
+		B25E82BB2AD4591500ADD1DA /* tabbar_unselect_map.png in Resources */ = {isa = PBXBuildFile; fileRef = B25E82AF2AD4591300ADD1DA /* tabbar_unselect_map.png */; };
+		B25E82BC2AD4591500ADD1DA /* tabbar_unselect_mrt 2.png in Resources */ = {isa = PBXBuildFile; fileRef = B25E82B02AD4591400ADD1DA /* tabbar_unselect_mrt 2.png */; };
+		B25E82BD2AD4591500ADD1DA /* tabbar_selected_list.png in Resources */ = {isa = PBXBuildFile; fileRef = B25E82B12AD4591400ADD1DA /* tabbar_selected_list.png */; };
+		B25E82BE2AD4591500ADD1DA /* tabbar_selected_bus.png in Resources */ = {isa = PBXBuildFile; fileRef = B25E82B22AD4591400ADD1DA /* tabbar_selected_bus.png */; };
+		B25E82BF2AD4591500ADD1DA /* tabbar_unselect_mrtT.png in Resources */ = {isa = PBXBuildFile; fileRef = B25E82B32AD4591400ADD1DA /* tabbar_unselect_mrtT.png */; };
+		B25E82C02AD4591500ADD1DA /* tabbar_unselect_bus.png in Resources */ = {isa = PBXBuildFile; fileRef = B25E82B42AD4591400ADD1DA /* tabbar_unselect_bus.png */; };
+		B25E82C12AD4591500ADD1DA /* tabbar_unselect_home.png in Resources */ = {isa = PBXBuildFile; fileRef = B25E82B52AD4591400ADD1DA /* tabbar_unselect_home.png */; };
+		B25E82C22AD4591500ADD1DA /* tabbar_selected_mrtT.png in Resources */ = {isa = PBXBuildFile; fileRef = B25E82B62AD4591400ADD1DA /* tabbar_selected_mrtT.png */; };
 		B26BA0262AD07503001D5DF6 /* TymetroTimeTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26BA0252AD07503001D5DF6 /* TymetroTimeTVCell.swift */; };
 		B26BA0282AD1B9F0001D5DF6 /* TymetroTimeItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26BA0272AD1B9F0001D5DF6 /* TymetroTimeItemModel.swift */; };
 		B26BA02A2AD3D442001D5DF6 /* TymetroImageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26BA0292AD3D442001D5DF6 /* TymetroImageVC.swift */; };
@@ -64,16 +82,6 @@
 		B27D3AE22AB99B1A000EC898 /* Rectangle 36index.png in Resources */ = {isa = PBXBuildFile; fileRef = B27D3ADD2AB99B1A000EC898 /* Rectangle 36index.png */; };
 		B27D932D2A866B850093F471 /* TabBarC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27D932C2A866B850093F471 /* TabBarC.swift */; };
 		B27F10A12AACE4E5006CBD38 /* BusRouteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27F10A02AACE4E5006CBD38 /* BusRouteVC.swift */; };
-		B27F10AC2AAF64F8006CBD38 /* tabbar_unselect_list.png in Resources */ = {isa = PBXBuildFile; fileRef = B27F10A22AAF64F7006CBD38 /* tabbar_unselect_list.png */; };
-		B27F10AD2AAF64F8006CBD38 /* tabbar_selected_bus.png in Resources */ = {isa = PBXBuildFile; fileRef = B27F10A32AAF64F7006CBD38 /* tabbar_selected_bus.png */; };
-		B27F10AE2AAF64F8006CBD38 /* tabbar_unselect_map.png in Resources */ = {isa = PBXBuildFile; fileRef = B27F10A42AAF64F7006CBD38 /* tabbar_unselect_map.png */; };
-		B27F10AF2AAF64F8006CBD38 /* tabbar_selected_map.png in Resources */ = {isa = PBXBuildFile; fileRef = B27F10A52AAF64F7006CBD38 /* tabbar_selected_map.png */; };
-		B27F10B02AAF64F8006CBD38 /* tabbar_unselect_mrt.png in Resources */ = {isa = PBXBuildFile; fileRef = B27F10A62AAF64F8006CBD38 /* tabbar_unselect_mrt.png */; };
-		B27F10B12AAF64F8006CBD38 /* tabbar_unselect_bus.png in Resources */ = {isa = PBXBuildFile; fileRef = B27F10A72AAF64F8006CBD38 /* tabbar_unselect_bus.png */; };
-		B27F10B22AAF64F8006CBD38 /* tabbar_selected_list.png in Resources */ = {isa = PBXBuildFile; fileRef = B27F10A82AAF64F8006CBD38 /* tabbar_selected_list.png */; };
-		B27F10B32AAF64F8006CBD38 /* tabbar_selected_mrt.png in Resources */ = {isa = PBXBuildFile; fileRef = B27F10A92AAF64F8006CBD38 /* tabbar_selected_mrt.png */; };
-		B27F10B42AAF64F8006CBD38 /* tabbar_unselect_home.png in Resources */ = {isa = PBXBuildFile; fileRef = B27F10AA2AAF64F8006CBD38 /* tabbar_unselect_home.png */; };
-		B27F10B52AAF64F8006CBD38 /* tabbar_selected_home.png in Resources */ = {isa = PBXBuildFile; fileRef = B27F10AB2AAF64F8006CBD38 /* tabbar_selected_home.png */; };
 		B28984CC2AAC35FD00AE3F7A /* BusStopsTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28984CB2AAC35FD00AE3F7A /* BusStopsTVCell.swift */; };
 		B2B43FA82A86610E00DE7D8A /* LeftViewCellBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B43FA52A86610E00DE7D8A /* LeftViewCellBackgroundView.swift */; };
 		B2B43FA92A86610E00DE7D8A /* LeftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B43FA62A86610E00DE7D8A /* LeftViewController.swift */; };
@@ -120,6 +128,24 @@
 		B24E47EC2A94660D0031BA70 /* HistoryTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableVC.swift; sourceTree = "<group>"; };
 		B24E47EE2A95014A0031BA70 /* HistoryItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryItemModel.swift; sourceTree = "<group>"; };
 		B24E47F02A9514AA0031BA70 /* UIVC+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIVC+Alert.swift"; sourceTree = "<group>"; };
+		B25E82832AD3E26400ADD1DA /* MRTSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MRTSegmentedControl.swift; sourceTree = "<group>"; };
+		B25E829A2AD3FEA400ADD1DA /* icon_MRTT.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_MRTT.png; sourceTree = "<group>"; };
+		B25E829D2AD4038C00ADD1DA /* IndexNaviVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexNaviVC.swift; sourceTree = "<group>"; };
+		B25E829F2AD403BE00ADD1DA /* TymetroNaviVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TymetroNaviVC.swift; sourceTree = "<group>"; };
+		B25E82A12AD403EA00ADD1DA /* MetroNaviVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetroNaviVC.swift; sourceTree = "<group>"; };
+		B25E82A92AD40A0200ADD1DA /* icon_MRT2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_MRT2.png; sourceTree = "<group>"; };
+		B25E82AB2AD4591300ADD1DA /* tabbar_selected_map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tabbar_selected_map.png; path = "../../../素材/icon/tabbar_selected_map.png"; sourceTree = "<group>"; };
+		B25E82AC2AD4591300ADD1DA /* tabbar_selected_mrt 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_selected_mrt 2.png"; sourceTree = "<group>"; };
+		B25E82AD2AD4591300ADD1DA /* tabbar_unselect_list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tabbar_unselect_list.png; path = "../../../素材/icon/tabbar_unselect_list.png"; sourceTree = "<group>"; };
+		B25E82AE2AD4591300ADD1DA /* tabbar_selected_home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tabbar_selected_home.png; path = "../../../素材/icon/tabbar_selected_home.png"; sourceTree = "<group>"; };
+		B25E82AF2AD4591300ADD1DA /* tabbar_unselect_map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tabbar_unselect_map.png; path = "../../../素材/icon/tabbar_unselect_map.png"; sourceTree = "<group>"; };
+		B25E82B02AD4591400ADD1DA /* tabbar_unselect_mrt 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_unselect_mrt 2.png"; sourceTree = "<group>"; };
+		B25E82B12AD4591400ADD1DA /* tabbar_selected_list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tabbar_selected_list.png; path = "../../../素材/icon/tabbar_selected_list.png"; sourceTree = "<group>"; };
+		B25E82B22AD4591400ADD1DA /* tabbar_selected_bus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tabbar_selected_bus.png; path = "../../../素材/icon/tabbar_selected_bus.png"; sourceTree = "<group>"; };
+		B25E82B32AD4591400ADD1DA /* tabbar_unselect_mrtT.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_unselect_mrtT.png; sourceTree = "<group>"; };
+		B25E82B42AD4591400ADD1DA /* tabbar_unselect_bus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tabbar_unselect_bus.png; path = "../../../素材/icon/tabbar_unselect_bus.png"; sourceTree = "<group>"; };
+		B25E82B52AD4591400ADD1DA /* tabbar_unselect_home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tabbar_unselect_home.png; path = "../../../素材/icon/tabbar_unselect_home.png"; sourceTree = "<group>"; };
+		B25E82B62AD4591400ADD1DA /* tabbar_selected_mrtT.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_selected_mrtT.png; sourceTree = "<group>"; };
 		B26BA0252AD07503001D5DF6 /* TymetroTimeTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TymetroTimeTVCell.swift; sourceTree = "<group>"; };
 		B26BA0272AD1B9F0001D5DF6 /* TymetroTimeItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TymetroTimeItemModel.swift; sourceTree = "<group>"; };
 		B26BA0292AD3D442001D5DF6 /* TymetroImageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TymetroImageVC.swift; sourceTree = "<group>"; };
@@ -156,16 +182,6 @@
 		B27D3ADD2AB99B1A000EC898 /* Rectangle 36index.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Rectangle 36index.png"; sourceTree = "<group>"; };
 		B27D932C2A866B850093F471 /* TabBarC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarC.swift; sourceTree = "<group>"; };
 		B27F10A02AACE4E5006CBD38 /* BusRouteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusRouteVC.swift; sourceTree = "<group>"; };
-		B27F10A22AAF64F7006CBD38 /* tabbar_unselect_list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_unselect_list.png; sourceTree = "<group>"; };
-		B27F10A32AAF64F7006CBD38 /* tabbar_selected_bus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_selected_bus.png; sourceTree = "<group>"; };
-		B27F10A42AAF64F7006CBD38 /* tabbar_unselect_map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_unselect_map.png; sourceTree = "<group>"; };
-		B27F10A52AAF64F7006CBD38 /* tabbar_selected_map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_selected_map.png; sourceTree = "<group>"; };
-		B27F10A62AAF64F8006CBD38 /* tabbar_unselect_mrt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_unselect_mrt.png; sourceTree = "<group>"; };
-		B27F10A72AAF64F8006CBD38 /* tabbar_unselect_bus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_unselect_bus.png; sourceTree = "<group>"; };
-		B27F10A82AAF64F8006CBD38 /* tabbar_selected_list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_selected_list.png; sourceTree = "<group>"; };
-		B27F10A92AAF64F8006CBD38 /* tabbar_selected_mrt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_selected_mrt.png; sourceTree = "<group>"; };
-		B27F10AA2AAF64F8006CBD38 /* tabbar_unselect_home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_unselect_home.png; sourceTree = "<group>"; };
-		B27F10AB2AAF64F8006CBD38 /* tabbar_selected_home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_selected_home.png; sourceTree = "<group>"; };
 		B28984CB2AAC35FD00AE3F7A /* BusStopsTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStopsTVCell.swift; sourceTree = "<group>"; };
 		B2B43FA52A86610E00DE7D8A /* LeftViewCellBackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftViewCellBackgroundView.swift; sourceTree = "<group>"; };
 		B2B43FA62A86610E00DE7D8A /* LeftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftViewController.swift; sourceTree = "<group>"; };
@@ -226,6 +242,7 @@
 				B2709FC82AAF74810073934A /* MetroImageVC.swift */,
 				B26C9A382AC28AD000602715 /* TymetroVC.swift */,
 				B26BA0292AD3D442001D5DF6 /* TymetroImageVC.swift */,
+				B25E82832AD3E26400ADD1DA /* MRTSegmentedControl.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -270,6 +287,8 @@
 				B27D3AD92AB99B19000EC898 /* icon_busicon.png */,
 				B27D3ADA2AB99B19000EC898 /* icon_listicon.png */,
 				B27D3ADB2AB99B1A000EC898 /* icon_mrticon.png */,
+				B25E829A2AD3FEA400ADD1DA /* icon_MRTT.png */,
+				B25E82A92AD40A0200ADD1DA /* icon_MRT2.png */,
 				B27D3ADC2AB99B1A000EC898 /* icon_settingicon.png */,
 				B27D3ADD2AB99B1A000EC898 /* Rectangle 36index.png */,
 				B2D32C182A8CBFC900082167 /* icon_setting.png */,
@@ -284,16 +303,18 @@
 				B26D18D22A87F31200953A72 /* motorcycle_on_transBtnIcon.png */,
 				B26D18D82A87F31300953A72 /* walk_off_transBtnIcon.png */,
 				B26D18D42A87F31200953A72 /* walk_on_transBtnIcon.png */,
-				B27F10A32AAF64F7006CBD38 /* tabbar_selected_bus.png */,
-				B27F10AB2AAF64F8006CBD38 /* tabbar_selected_home.png */,
-				B27F10A82AAF64F8006CBD38 /* tabbar_selected_list.png */,
-				B27F10A52AAF64F7006CBD38 /* tabbar_selected_map.png */,
-				B27F10A92AAF64F8006CBD38 /* tabbar_selected_mrt.png */,
-				B27F10A72AAF64F8006CBD38 /* tabbar_unselect_bus.png */,
-				B27F10AA2AAF64F8006CBD38 /* tabbar_unselect_home.png */,
-				B27F10A22AAF64F7006CBD38 /* tabbar_unselect_list.png */,
-				B27F10A42AAF64F7006CBD38 /* tabbar_unselect_map.png */,
-				B27F10A62AAF64F8006CBD38 /* tabbar_unselect_mrt.png */,
+				B25E82B22AD4591400ADD1DA /* tabbar_selected_bus.png */,
+				B25E82AE2AD4591300ADD1DA /* tabbar_selected_home.png */,
+				B25E82B12AD4591400ADD1DA /* tabbar_selected_list.png */,
+				B25E82B62AD4591400ADD1DA /* tabbar_selected_mrtT.png */,
+				B25E82B42AD4591400ADD1DA /* tabbar_unselect_bus.png */,
+				B25E82B52AD4591400ADD1DA /* tabbar_unselect_home.png */,
+				B25E82AB2AD4591300ADD1DA /* tabbar_selected_map.png */,
+				B25E82AC2AD4591300ADD1DA /* tabbar_selected_mrt 2.png */,
+				B25E82AD2AD4591300ADD1DA /* tabbar_unselect_list.png */,
+				B25E82AF2AD4591300ADD1DA /* tabbar_unselect_map.png */,
+				B25E82B02AD4591400ADD1DA /* tabbar_unselect_mrt 2.png */,
+				B25E82B32AD4591400ADD1DA /* tabbar_unselect_mrtT.png */,
 			);
 			path = img;
 			sourceTree = "<group>";
@@ -301,9 +322,12 @@
 		B27105962AB7DE300019BDF8 /* NaviVC */ = {
 			isa = PBXGroup;
 			children = (
+				B25E829D2AD4038C00ADD1DA /* IndexNaviVC.swift */,
 				B2711EE32AA6259B000CD6CA /* RouteListNaviVC.swift */,
 				B2711EE52AA625CF000CD6CA /* BusNaviVC.swift */,
 				B21421DC2AB61D8300E97F1F /* SettingsNavi.swift */,
+				B25E829F2AD403BE00ADD1DA /* TymetroNaviVC.swift */,
+				B25E82A12AD403EA00ADD1DA /* MetroNaviVC.swift */,
 			);
 			path = NaviVC;
 			sourceTree = "<group>";
@@ -460,43 +484,47 @@
 			buildActionMask = 2147483647;
 			files = (
 				B26D18DF2A87F31300953A72 /* bicycle_off_transBtnIcon.png in Resources */,
+				B25E82AA2AD40A0200ADD1DA /* icon_MRT2.png in Resources */,
 				B2D32C1A2A8CBFC900082167 /* icon_bus.png in Resources */,
-				B27F10B52AAF64F8006CBD38 /* tabbar_selected_home.png in Resources */,
 				B2F6DD2D2A74C8D900A6B6CB /* LaunchScreen.storyboard in Resources */,
-				B27F10B42AAF64F8006CBD38 /* tabbar_unselect_home.png in Resources */,
+				B25E82C02AD4591500ADD1DA /* tabbar_unselect_bus.png in Resources */,
+				B25E82C12AD4591500ADD1DA /* tabbar_unselect_home.png in Resources */,
+				B25E82BD2AD4591500ADD1DA /* tabbar_selected_list.png in Resources */,
+				B25E82B72AD4591500ADD1DA /* tabbar_selected_map.png in Resources */,
 				B26D18DC2A87F31300953A72 /* walk_on_transBtnIcon.png in Resources */,
-				B27F10B32AAF64F8006CBD38 /* tabbar_selected_mrt.png in Resources */,
-				B27F10B02AAF64F8006CBD38 /* tabbar_unselect_mrt.png in Resources */,
 				B27D3AE12AB99B1A000EC898 /* icon_settingicon.png in Resources */,
 				B2D32C1D2A8CBFC900082167 /* icon_list.png in Resources */,
 				B27D3ADF2AB99B1A000EC898 /* icon_listicon.png in Resources */,
-				B27F10AE2AAF64F8006CBD38 /* tabbar_unselect_map.png in Resources */,
 				B27D3ADE2AB99B1A000EC898 /* icon_busicon.png in Resources */,
+				B25E82BC2AD4591500ADD1DA /* tabbar_unselect_mrt 2.png in Resources */,
 				B26D18DB2A87F31300953A72 /* bicycle_on_transBtnIcon.png in Resources */,
+				B25E82C22AD4591500ADD1DA /* tabbar_selected_mrtT.png in Resources */,
+				B25E829C2AD3FEA400ADD1DA /* icon_MRTT.png in Resources */,
+				B25E82BF2AD4591500ADD1DA /* tabbar_unselect_mrtT.png in Resources */,
 				B26D18D92A87F31300953A72 /* car_off_transBtnIcon.png in Resources */,
 				B2439D0D2A7C0CD700604CB5 /* Rectangle 32bgc02.png in Resources */,
 				B27D3AE02AB99B1A000EC898 /* icon_mrticon.png in Resources */,
-				B27F10AC2AAF64F8006CBD38 /* tabbar_unselect_list.png in Resources */,
 				B2D32C152A8CBD4E00082167 /* undraw_My_current_location_re_whmt.png in Resources */,
+				B25E82BE2AD4591500ADD1DA /* tabbar_selected_bus.png in Resources */,
+				B25E82BA2AD4591500ADD1DA /* tabbar_selected_home.png in Resources */,
 				B26D18DD2A87F31300953A72 /* motorcycle_off_transBtnIcon.png in Resources */,
 				B26D18E02A87F31300953A72 /* walk_off_transBtnIcon.png in Resources */,
-				B27F10B22AAF64F8006CBD38 /* tabbar_selected_list.png in Resources */,
 				B2D32C1B2A8CBFC900082167 /* icon_mrt.png in Resources */,
 				B2F6DD2A2A74C8D900A6B6CB /* Assets.xcassets in Resources */,
+				B25E82B92AD4591500ADD1DA /* tabbar_unselect_list.png in Resources */,
 				B2711EDE2AA58497000CD6CA /* BusBranch.storyboard in Resources */,
 				B27D3AE22AB99B1A000EC898 /* Rectangle 36index.png in Resources */,
 				B26D18DA2A87F31300953A72 /* motorcycle_on_transBtnIcon.png in Resources */,
 				B2D32C1C2A8CBFC900082167 /* icon_setting.png in Resources */,
-				B27F10AF2AAF64F8006CBD38 /* tabbar_selected_map.png in Resources */,
 				B2E57E822AB6031D00620446 /* Setting.storyboard in Resources */,
 				B207AB6A2A8E757500FF6584 /* indexBG.png in Resources */,
+				B25E82B82AD4591500ADD1DA /* tabbar_selected_mrt 2.png in Resources */,
 				B2439D0B2A7C0C6700604CB5 /* Rectangle 31bgc01.png in Resources */,
 				B2F6DD282A74C8D600A6B6CB /* Main.storyboard in Resources */,
 				B27D3AD82AB97C99000EC898 /* MRTBranch.storyboard in Resources */,
-				B27F10B12AAF64F8006CBD38 /* tabbar_unselect_bus.png in Resources */,
 				B26D18DE2A87F31300953A72 /* car_on_transBtnIcon.png in Resources */,
 				B207AB682A8E4C7800FF6584 /* MyRoute.storyboard in Resources */,
-				B27F10AD2AAF64F8006CBD38 /* tabbar_selected_bus.png in Resources */,
+				B25E82BB2AD4591500ADD1DA /* tabbar_unselect_map.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -510,6 +538,7 @@
 				B2EF5D282AB1F44100EF4191 /* Tabbar+Upperline.swift in Sources */,
 				B2B43FA82A86610E00DE7D8A /* LeftViewCellBackgroundView.swift in Sources */,
 				B271F6802A9B122A00C7C0E6 /* BusCommunicator.swift in Sources */,
+				B25E82A02AD403BE00ADD1DA /* TymetroNaviVC.swift in Sources */,
 				B2711EE42AA6259B000CD6CA /* RouteListNaviVC.swift in Sources */,
 				B2B43FAA2A86610E00DE7D8A /* LeftViewCell.swift in Sources */,
 				B21421DD2AB61D8300E97F1F /* SettingsNavi.swift in Sources */,
@@ -520,6 +549,7 @@
 				B27F10A12AACE4E5006CBD38 /* BusRouteVC.swift in Sources */,
 				B2711EE62AA625CF000CD6CA /* BusNaviVC.swift in Sources */,
 				B24E47F12A9514AA0031BA70 /* UIVC+Alert.swift in Sources */,
+				B25E829E2AD4038C00ADD1DA /* IndexNaviVC.swift in Sources */,
 				B2439D252A81E3A900604CB5 /* AddTimeRecordVC.swift in Sources */,
 				B271F67E2A99E46F00C7C0E6 /* WeatherCommunicator.swift in Sources */,
 				B2709FC92AAF74810073934A /* MetroImageVC.swift in Sources */,
@@ -531,6 +561,7 @@
 				B2439D122A7E8E6100604CB5 /* RouteListDataModel.xcdatamodeld in Sources */,
 				B24E47ED2A94660D0031BA70 /* HistoryTableVC.swift in Sources */,
 				B2743F462A9E12CC003C4D49 /* BusInfoSendHelper.swift in Sources */,
+				B25E82A22AD403EA00ADD1DA /* MetroNaviVC.swift in Sources */,
 				B26BA0262AD07503001D5DF6 /* TymetroTimeTVCell.swift in Sources */,
 				B26C9A392AC28AD000602715 /* TymetroVC.swift in Sources */,
 				B27D932D2A866B850093F471 /* TabBarC.swift in Sources */,
@@ -547,6 +578,7 @@
 				B2EF5D0D2AB0A61A00EF4191 /* searchRusRouteTVCell.swift in Sources */,
 				B2E953482AB445FC00530295 /* DownloadImageView.swift in Sources */,
 				B2711EE02AA589AC000CD6CA /* BusSearchTableVC.swift in Sources */,
+				B25E82842AD3E26400ADD1DA /* MRTSegmentedControl.swift in Sources */,
 				B207AB662A8DA9F200FF6584 /* UIImage+radius.swift in Sources */,
 				B2439D072A7BDEE500604CB5 /* RouteModel.swift in Sources */,
 				B2F6DD232A74C8D600A6B6CB /* SceneDelegate.swift in Sources */,
@@ -720,7 +752,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Feng.TransferTravel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -759,7 +791,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Feng.TransferTravel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

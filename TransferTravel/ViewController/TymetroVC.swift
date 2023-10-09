@@ -36,6 +36,7 @@ class TymetroVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 	var totalTimeItemArr = [Timetable]()
 	var holidayTag = 0
 	
+	let taipeiMRTURL = "https://web.metro.taipei/pages/assets/images/routemap2023n.png"
 //	@IBOutlet weak var StartMenu: UIMenu!
 
 	// 1.需要來回的站點資料
@@ -110,6 +111,7 @@ class TymetroVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 		}
 	}
 	
+	
 	@IBAction func returnTimeLabel(_ sender: Any) {
 		let now = Date()
 		let dateFormatter = DateFormatter()
@@ -144,6 +146,7 @@ class TymetroVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 			}
 			
 			let directionData = data.filter { $0.direction == self.direction }
+//			print("directionData \(directionData)")
 			if self.holidayTag == 0 {
 				self.timeTableArr = directionData.filter { $0.serviceDay.serviceTag == "平日" }
 //				print("平日：\(self.timeTableArr)")
@@ -151,10 +154,18 @@ class TymetroVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 				self.timeTableArr = directionData.filter { $0.serviceDay.serviceTag == "假日" }
 //				print("假日：\(self.timeTableArr)")
 			}
+//			print("self.timeTableArr \(self.timeTableArr)")
 			let directArr = self.timeTableArr.filter { $0.routeID == "A-2" }
 			let commonArr = self.timeTableArr.filter { $0.routeID == "A-1" }
-			self.directTimeTable = directArr.first?.timetables ?? []
-			self.commonTimeTable = commonArr.first?.timetables ?? []
+			if directArr.count != 0 {
+				self.directTimeTable = directArr.first?.timetables ?? []
+				self.commonTimeTable = commonArr.first?.timetables ?? []
+			} else {
+				self.directTimeTable = commonArr.first?.timetables.filter { $0.trainType == 2 } ?? []
+				self.commonTimeTable = commonArr.first?.timetables.filter { $0.trainType == 1 } ?? []
+			}
+			
+//			print("self.directTimeTable \(self.directTimeTable)")
 //			self.timeListTableView.reloadData()
 //			print("普通時間表 \(self.commonTimeTable)")
 //			print("直達時間表 \(self.directTimeTable)")
@@ -174,11 +185,15 @@ class TymetroVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 				print("Tymetro TravelTime error")
 				return
 			}
-			if data.count == 1 {
+//			print("data \(data)")
+			
+			let commonTravelTimes = data.filter { $0.trainType == 1 }
+//			print("commonTravelTimes \(commonTravelTimes)")
+			let directTravelTimes = data.filter { $0.trainType == 2 }
+			if directTravelTimes.count == 0 {
 				self.directTimeTable = []
 			}
-			let commonTravelTimes = data.filter { $0.trainType == 1 }
-			let directTravelTimes = data.filter { $0.trainType == 2 }
+//			print("directTravelTimes \(directTravelTimes)")
 			let directTravelTimeArr = directTravelTimes.first?.travelTimes ?? []
 			let commonTravelTimeArr = commonTravelTimes.first?.travelTimes ?? []
 			let directTravelTimesfilter = directTravelTimeArr.filter { object in
@@ -193,12 +208,41 @@ class TymetroVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 		
 		group.notify(queue: DispatchQueue.global()) { [self] in
 			if self.directTimeTable.count == 0 {
-				self.totalTimeItemArr = self.commonTimeTable.filter { $0.trainType == 1 }
+				var combinedArray = self.commonTimeTable + self.directTimeTable
+				self.totalTimeItemArr = combinedArray.filter { $0.trainType == 1 }
 			} else {
-				let combinedArray = self.commonTimeTable + self.directTimeTable
-				self.totalTimeItemArr = combinedArray.sorted { (timetable1, timetable2) in
-					return (timetable1.arrivalTime) < (timetable2.arrivalTime)
+				var combinedArray = self.commonTimeTable + self.directTimeTable
+				combinedArray = combinedArray.map { (timetable) in
+					var updatedTimetable = timetable
+					let timeComponents = timetable.arrivalTime.components(separatedBy: ":")
+					let hours = Double(timeComponents[0]) ?? 0.0
+					let minutes = Double(timeComponents[1]) ?? 0.0
+
+					if hours == 0.0 {
+						updatedTimetable.seq = (hours * 60 + minutes) + 1000.0
+					} else {
+						updatedTimetable.seq = hours * 60 + minutes
+					}
+					return updatedTimetable
 				}
+				self.totalTimeItemArr = combinedArray.sorted { (timetable1, timetable2) in
+					guard let seq1 = timetable1.seq, let seq2 = timetable2.seq else{
+						return false
+					}
+					return  seq1 < seq2
+				}
+//				self.totalTimeItemArr = combinedArray.sorted { (timetable1, timetable2) in
+//					let timeComponents1 = timetable1.arrivalTime.components(separatedBy: ":")
+//					let timeComponents2 = timetable1.arrivalTime.components(separatedBy: ":")
+//					timetable1.seq = timeComponents1[0] + timeComponents1[1]
+//					if timeComponents1[0] == "00"{
+//						timetable1.arrivalTime
+//					}
+//					if timeComponents2[0] == "00"{
+//						timetable2.arrivalTime
+//					}
+//					return (timetable1.arrivalTime) < (timetable2.arrivalTime)
+//				}
 			}
 			DispatchQueue.main.async {
 				KRProgressHUD.dismiss()
@@ -212,20 +256,11 @@ class TymetroVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
 	}
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//		print("普通時間表 \(self.commonTimeTable)")
-//		print("直達時間表 \(self.directTimeTable)")
 		tableView.separatorStyle = .singleLine
 		let commonItem = self.totalTimeItemArr[indexPath.row]
 		guard let selfcell = tableView.dequeueReusableCell(withIdentifier: "TymetroTimeTableCell", for: indexPath) as? TymetroTimeTVCell else{
 			fatalError("請確認storybord上有設定customcell")
 		}
-		
-//		if self.directTimeTable.count == 0 {
-//			totalTimeItemArr = self.commonTimeTable.filter { $0.trainType == 1 }
-//		}else{
-//			totalTimeItemArr = zipTimeArray(self.commonTimeTable, self.directTimeTable)
-//		}
-		
 		selfcell.routeTypeLabel.layer.cornerRadius = 5
 		selfcell.routeTypeLabel.clipsToBounds = true
 		selfcell.cellTimeLabel.clipsToBounds = true
@@ -240,7 +275,7 @@ class TymetroVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 				commonArrivalTime = arrTimeChange(departure: commonItem.departureTime, travelTime: commonTime) ?? ""
 				commonTimeString = String(commonTime / 60) + "分鐘"
 			}
-			print(commonItem)
+//			print(commonItem)
 		} else if commonItem.trainType == 2 {
 			selfcell.routeTypeLabel.text = "直達"
 			selfcell.routeTypeLabel.backgroundColor = UIColor(named: "AirportMRTP1")
@@ -248,24 +283,55 @@ class TymetroVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 				commonArrivalTime = arrTimeChange(departure: commonItem.departureTime, travelTime: directTime) ?? ""
 				commonTimeString = String(directTime / 60) + "分鐘"
 			}
-			print(commonItem)
+//			print(commonItem)
 		}
-		
+//		self.timeLabel.text = "00:02"
 		let nowTimeString = self.timeLabel.text ?? "00:00"
+		var dayChangeTag = 0
+		if nowTimeString.components(separatedBy: ":").first == "00" {
+			dayChangeTag = 1
+		}
 		let nowTime = timeStringToSeconds(nowTimeString)
-		let arrTime = timeStringToSeconds(commonItem.departureTime)
-		if timeStringToSeconds("01:00") >= nowTime || timeStringToSeconds("05:00") < nowTime {
-			if nowTime < arrTime {
-				selfcell.cellTimeLabel.backgroundColor = UIColor(named: "AirportMRTB")
-				selfcell.cellTimeLabel.text = timeIntervalToString(arrTime - nowTime)
-				let timeLag = arrTime - nowTime
-				if timeLag <= timeStringToSeconds("01:00") {
-					selfcell.cellTimeLabel.backgroundColor = UIColor(named: "DarkGrayColor")
+		let itemDepartureTime = commonItem.departureTime
+		let arrTime = timeStringToSeconds(itemDepartureTime)
+//		print("departureTime \(itemDepartureTime)")
+		if timeStringToSeconds("01:00") > nowTime || timeStringToSeconds("05:00") < nowTime {
+			selfcell.cellTimeLabel.backgroundColor = UIColor(named: "AirportMRTB")
+			let timeLag = arrTime - nowTime
+			if timeLag <= 1200.0 {
+				selfcell.cellTimeLabel.backgroundColor = UIColor(named: "MainRedDeep")
+				
+			}
+			
+			if arrTime < timeStringToSeconds("01:00") && nowTime > arrTime{
+				if (timeLag + timeStringToSeconds("00:00")) <= 1200.0 {
+					selfcell.cellTimeLabel.backgroundColor = UIColor(named: "MainRedDeep")
+				} else {
+					selfcell.cellTimeLabel.backgroundColor = UIColor(named: "AirportMRTB")
 				}
+				selfcell.cellTimeLabel.text = timeIntervalToString(timeLag + timeStringToSeconds("00:00"))
+				
+//				print("AAAA \(timeIntervalToString(arrTime - nowTime + timeStringToSeconds("00:00")))")
+			} else if arrTime >= timeStringToSeconds("00:00") && nowTime < arrTime{
+				if timeLag <= 1200.0 {
+					selfcell.cellTimeLabel.backgroundColor = UIColor(named: "MainRedDeep")
+				} else {
+					selfcell.cellTimeLabel.backgroundColor = UIColor(named: "AirportMRTB")
+				}
+				selfcell.cellTimeLabel.text = timeIntervalToString(timeLag)
+				
+//				print("BBBB \(timeIntervalToString(arrTime - nowTime + timeStringToSeconds("00:00")))")
+			} else if nowTime < arrTime{
+				selfcell.cellTimeLabel.text = timeIntervalToString(arrTime - nowTime)
 			} else {
 				selfcell.cellTimeLabel.backgroundColor = UIColor(named: "DarkGrayColor")
 				selfcell.cellTimeLabel.text = "離站"
 			}
+			if dayChangeTag == 1 && arrTime >= timeStringToSeconds("01:00") {
+				selfcell.cellTimeLabel.backgroundColor = UIColor(named: "DarkGrayColor")
+				selfcell.cellTimeLabel.text = "離站"
+			}
+		
 		}
 		
 		selfcell.departureTimeLabel.text = commonItem.departureTime
@@ -287,10 +353,10 @@ class TymetroVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 	}
 	func timeStringToSeconds(_ timeString: String) -> TimeInterval {
 		let timeFormatter = DateFormatter()
-		timeFormatter.dateFormat = "HH:mm"
-		if let date = timeFormatter.date(from: timeString) {
-			return date.timeIntervalSinceReferenceDate
-		}
+//		timeFormatter.dateFormat = "HH:mm"
+//		if let date = timeFormatter.date(from: timeString) {
+//			return date.timeIntervalSinceReferenceDate
+//		}
 		let timeComponents = timeString.components(separatedBy: ":")
 		guard timeComponents.count == 2,
 			  let hours = Int(timeComponents[0]),
@@ -302,7 +368,6 @@ class TymetroVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
 		return timeInterval
 	}
-	
 	
 	func timeIntervalToString(_ interval: TimeInterval) -> String {
 		let formatter = DateComponentsFormatter()

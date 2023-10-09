@@ -56,8 +56,9 @@ class MetroImageVC: UIViewController, UIScrollViewDelegate {
 		let scrollHeight = self.mrtScrollView.frame.height - statusBarHeight!
 		switch caseNum {
 		case 0 :
-			self.navSegmenteView.frame = CGRect(x: x - mrtScrollView.frame.width / 2, y: totalHeight, width: screenWidth + 1, height: 50)
-			self.mrtScrollView.frame = CGRect(x: x - mrtScrollView.frame.width / 2, y: y, width: screenWidth + 1, height: scrollHeight)
+//			self.navSegmenteView.frame = CGRect(x: x - mrtScrollView.frame.width / 2, y: totalHeight, width: screenWidth + 1, height: 50)
+//			self.mrtScrollView.frame = CGRect(x: x - mrtScrollView.frame.width / 2, y: y, width: screenWidth + 1, height: scrollHeight)
+			self.mrtScrollView.frame = CGRect(x: x - mrtScrollView.frame.width / 2, y: statusBarHeight!, width: screenWidth + 1, height: scrollHeight)
 			break
 		case 1 :
 			self.mrtScrollView.frame = CGRect(x: x - mrtScrollView.frame.width / 2, y: y - 25, width: screenWidth + 1, height: scrollHeight)

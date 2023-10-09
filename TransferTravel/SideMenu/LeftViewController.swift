@@ -51,7 +51,9 @@ class LeftViewController: UITableViewController {
 //		addMenu(pageTitle: "首頁", pageID: "indexNavi", VC: RouteListNaviVC(), tabBarID: 0)
 		addMenu(pageTitle: "我的路線", pageID: "ListNaviC", VC: RouteListNaviVC(), tabBarID: 1)
 		addMenu(pageTitle: "公車路線", pageID: "BusRouteNaviC", VC: BusNaviVC(), tabBarID: 2)
-		addMenu(pageTitle: "捷運路線圖", pageID: "taipeiMRT", VC: BusNaviVC(), tabBarID: 3)
+		addMenu(pageTitle: "台北捷運路線圖", pageID: "taipeiMRT", VC: BusNaviVC(), tabBarID: 3)
+		addMenu(pageTitle: "桃園機場捷運", pageID: "TymetroNavi", VC: BusNaviVC(), tabBarID: 4)
+//		addMenu(pageTitle: "設定", pageID: "SettingsVC", VC: BusNaviVC(), tabBarID: 5)
 //		addMenu(pageTitle: "設定", pageID: "setting", VC: BusNaviVC())
 //		addMenu(pageTitle: "聯繫我們", pageID: "contUS", VC: BusNaviVC())
     }

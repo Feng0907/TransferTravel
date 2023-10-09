@@ -209,6 +209,7 @@ struct Timetable: Codable {
 	let arrivalTime: String
 	let departureTime: String
 	let trainType: Int
+	var seq: Double?
 
 	enum CodingKeys: String, CodingKey {
 		case sequence = "Sequence"
@@ -216,6 +217,7 @@ struct Timetable: Codable {
 		case arrivalTime = "ArrivalTime"
 		case departureTime = "DepartureTime"
 		case trainType = "TrainType"
+		case seq
 	}
 }
 

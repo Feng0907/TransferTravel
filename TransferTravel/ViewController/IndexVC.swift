@@ -74,6 +74,13 @@ class IndexVC: UIViewController {
 			tabBarController.selectedIndex = 3
 		}
 	}
+	
+	@IBAction func TymetroBtnPressed(_ sender: Any) {
+		if let tabBarController = self.tabBarController{
+			tabBarController.selectedIndex = 4
+		}
+	}
+	
 	@IBAction func settingBtnPressed(_ sender: Any) {
 		let storyboard = UIStoryboard(name: "Setting", bundle: nil)
 		if let settingsVC = storyboard.instantiateViewController(withIdentifier: "SettingsVC") as? SettingsVC {
