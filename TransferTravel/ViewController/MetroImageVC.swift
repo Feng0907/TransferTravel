@@ -89,18 +89,18 @@ class MetroImageVC: UIViewController, UIScrollViewDelegate {
 			self.mrtScrollView.zoomScale = 1
 			break
 		case 1:
-			self.mrtImageView.contentMode = .scaleAspectFit
-			mrtImageView.image = nil
-			self.imageType = 1
-			guard let url = URL(string: tymetroURL)
-				else{
-					print("Invalid URL!")
-					return
-			}
-			
-			mrtImageView.load(url: url)
-			self.mrtScrollView.contentOffset.y = .zero
-			self.mrtScrollView.zoomScale = 1
+//			self.mrtImageView.contentMode = .scaleAspectFit
+//			mrtImageView.image = nil
+//			self.imageType = 1
+//			guard let url = URL(string: tymetroURL)
+//				else{
+//					print("Invalid URL!")
+//					return
+//			}
+//			
+//			mrtImageView.load(url: url)
+//			self.mrtScrollView.contentOffset.y = .zero
+//			self.mrtScrollView.zoomScale = 1
 
 			break
 		default:

@@ -13,6 +13,7 @@ class TymetroTimeTVCell: UITableViewCell {
 	@IBOutlet weak var departureTimeLabel: UILabel!
 	@IBOutlet weak var arrivalTimeLabel: UILabel!
 	@IBOutlet weak var travelTimeLabel: UILabel!
+	@IBOutlet weak var cellTimeLabel: UILabel!
 	
 	override func awakeFromNib() {
         super.awakeFromNib()

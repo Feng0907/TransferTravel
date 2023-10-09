@@ -28,6 +28,8 @@
 		B24E47EF2A95014A0031BA70 /* HistoryItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24E47EE2A95014A0031BA70 /* HistoryItemModel.swift */; };
 		B24E47F12A9514AA0031BA70 /* UIVC+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24E47F02A9514AA0031BA70 /* UIVC+Alert.swift */; };
 		B26BA0262AD07503001D5DF6 /* TymetroTimeTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26BA0252AD07503001D5DF6 /* TymetroTimeTVCell.swift */; };
+		B26BA0282AD1B9F0001D5DF6 /* TymetroTimeItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26BA0272AD1B9F0001D5DF6 /* TymetroTimeItemModel.swift */; };
+		B26BA02A2AD3D442001D5DF6 /* TymetroImageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26BA0292AD3D442001D5DF6 /* TymetroImageVC.swift */; };
 		B26C9A392AC28AD000602715 /* TymetroVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26C9A382AC28AD000602715 /* TymetroVC.swift */; };
 		B26C9A3B2AC517C200602715 /* TymetroCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26C9A3A2AC517C200602715 /* TymetroCommunicator.swift */; };
 		B26D18D92A87F31300953A72 /* car_off_transBtnIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = B26D18D12A87F31200953A72 /* car_off_transBtnIcon.png */; };
@@ -119,6 +121,8 @@
 		B24E47EE2A95014A0031BA70 /* HistoryItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryItemModel.swift; sourceTree = "<group>"; };
 		B24E47F02A9514AA0031BA70 /* UIVC+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIVC+Alert.swift"; sourceTree = "<group>"; };
 		B26BA0252AD07503001D5DF6 /* TymetroTimeTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TymetroTimeTVCell.swift; sourceTree = "<group>"; };
+		B26BA0272AD1B9F0001D5DF6 /* TymetroTimeItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TymetroTimeItemModel.swift; sourceTree = "<group>"; };
+		B26BA0292AD3D442001D5DF6 /* TymetroImageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TymetroImageVC.swift; sourceTree = "<group>"; };
 		B26C9A382AC28AD000602715 /* TymetroVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TymetroVC.swift; sourceTree = "<group>"; };
 		B26C9A3A2AC517C200602715 /* TymetroCommunicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TymetroCommunicator.swift; sourceTree = "<group>"; };
 		B26D18D12A87F31200953A72 /* car_off_transBtnIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = car_off_transBtnIcon.png; sourceTree = "<group>"; };
@@ -221,6 +225,7 @@
 				B27105972AB7DECA0019BDF8 /* AboutUsVC.swift */,
 				B2709FC82AAF74810073934A /* MetroImageVC.swift */,
 				B26C9A382AC28AD000602715 /* TymetroVC.swift */,
+				B26BA0292AD3D442001D5DF6 /* TymetroImageVC.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -239,6 +244,7 @@
 				B26D18E12A88B19400953A72 /* TimerHelper.swift */,
 				B2E953472AB445FC00530295 /* DownloadImageView.swift */,
 				B21421DA2AB618A900E97F1F /* SettingModel.swift */,
+				B26BA0272AD1B9F0001D5DF6 /* TymetroTimeItemModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -518,6 +524,7 @@
 				B271F67E2A99E46F00C7C0E6 /* WeatherCommunicator.swift in Sources */,
 				B2709FC92AAF74810073934A /* MetroImageVC.swift in Sources */,
 				B2711EE22AA60ECB000CD6CA /* RootNavigationController.swift in Sources */,
+				B26BA0282AD1B9F0001D5DF6 /* TymetroTimeItemModel.swift in Sources */,
 				B26D18E22A88B19400953A72 /* TimerHelper.swift in Sources */,
 				B2F6DD252A74C8D600A6B6CB /* IndexVC.swift in Sources */,
 				B2B43FA92A86610E00DE7D8A /* LeftViewController.swift in Sources */,
@@ -547,6 +554,7 @@
 				B2439D272A81F1BF00604CB5 /* TimeRecordModel.swift in Sources */,
 				B2711EF02AA80D75000CD6CA /* String+codeUrl.swift in Sources */,
 				B2E57E882AB60E7F00620446 /* SettingsVC.swift in Sources */,
+				B26BA02A2AD3D442001D5DF6 /* TymetroImageVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
