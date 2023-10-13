@@ -16,7 +16,7 @@ class WeatherCommunicator{
 	private init(){}
 	
 	static var weatherToken : String {
-		return try! "AwEAmXJfpgMC25JhCyIRbIrIQKfQEtpfasDo+owFOvVsiLw2ENfB9d3JVqBDskK7YnvgDCdg/OMUXuhzfrn853+pKzpR/P6GGmJnu6Gv0XVMeN56c50RvN4aTIzQd0M/oX8/VFUzxQvcv0Y1J7M3bCRv".decryprBase64(key: masterKey)!
+		return try! "AwEXcL7Vld/cKUnXutmd1ZLwfrPbVDVYHmb8ysUYEMLG7y5C+CDmPoZN4M7oRuHMAoIl8JkhhgrZRYnaFI2JZsSNT90J8KOj7u4WsVFkcDDqmJ6bHwozP0JiVSMnLK/vEcNQlAhFzr+WVFvaYTpp2vSZ".decryprBase64(key: masterKey)!
 	}
 	
 	static let baseURL = "https://opendata.cwb.gov.tw/"

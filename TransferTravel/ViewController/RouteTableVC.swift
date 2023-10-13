@@ -78,19 +78,22 @@ class RouteTableVC: UITableViewController, UINavigationControllerDelegate, AddTi
 	}
 	
 	func timeConversion(millsecond: Int64) -> String{
-//		var millsec: Int64 = 0
-//		var sec: Int64 = 0
+		//		var millsec: Int64 = 0
+		//		var sec: Int64 = 0
 		var min: Int64 = 0
 		var hour: Int64 = 0
-//		millsec = millsecond % 100
-//		sec = (millsecond / 100) % 60
+		//		millsec = millsecond % 100
+		//		sec = (millsecond / 100) % 60
 		min = millsecond / 6000 % 60
 		hour = millsecond / 360000  //累加
-//		let showmillsec = millsec > 9 ? "\(millsec)" : "0\(millsec)"
-//		let showsec = sec > 9 ? "\(sec)" : "0\(sec)"
+		//		let showmillsec = millsec > 9 ? "\(millsec)" : "0\(millsec)"
+		//		let showsec = sec > 9 ? "\(sec)" : "0\(sec)"
 		let showmin = min > 9 ? "\(min)" : "\(min)"
 		let showhour = hour > 9 ? "\(hour)" : "\(hour)"
-		if millsecond < 6000 {
+		if millsecond == 0{
+			let time = "未計時"
+			return time
+		}else if millsecond < 6000 {
 			let time = "1 min"
 			return time
 		} else if millsecond < 360000 {

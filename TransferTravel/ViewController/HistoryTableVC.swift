@@ -127,7 +127,11 @@ class HistoryTableVC: UITableViewController {
 		for datum in data {
 			dataSum += datum.spendTime
 		}
-		let averageTime: Int64 = dataSum / Int64(data.count)
+		var averageTime: Int64 = 0
+		if data.count != 0 {
+			averageTime = dataSum / Int64(data.count)
+		}
+		
 		return averageTime
 		
 	}
