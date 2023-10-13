@@ -74,6 +74,13 @@ class IndexVC: UIViewController {
 			tabBarController.selectedIndex = 3
 		}
 	}
+	
+	@IBAction func TymetroBtnPressed(_ sender: Any) {
+		if let tabBarController = self.tabBarController{
+			tabBarController.selectedIndex = 4
+		}
+	}
+	
 	@IBAction func settingBtnPressed(_ sender: Any) {
 		let storyboard = UIStoryboard(name: "Setting", bundle: nil)
 		if let settingsVC = storyboard.instantiateViewController(withIdentifier: "SettingsVC") as? SettingsVC {
@@ -200,6 +207,22 @@ extension IndexVC: UITabBarControllerDelegate {
 }
 
 extension IndexVC: CLLocationManagerDelegate {
+	func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+			switch status {
+			case .authorizedWhenInUse:
+				locationManager.startUpdatingLocation()
+				self.searchWeatherStation()
+				locationManager.stopUpdatingLocation()
+			case .authorizedAlways:
+				locationManager.startUpdatingLocation()
+				self.searchWeatherStation()
+				locationManager.stopUpdatingLocation()
+			case .denied, .restricted: break
+				// 用户拒绝或限制了位置访问权限，您可以在此处理相应的逻辑，例如向用户解释为何需要位置访问权限
+			default:
+				break
+			}
+		}
 
 	func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
 		guard let currentLocation = locations.last else{
